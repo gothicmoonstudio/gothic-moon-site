@@ -18,7 +18,7 @@ function Services() {
       }, []);
 
   return (
-    <section id="services" className="w-full min-h-screen text-light" ref="gradient">
+    <section id="services" className="w-full min-h-screen text-light" id="gradient">
       <div className="container mx-auto py-20">
         <div className="w-[643px] text-center">
           <span className="text-light text-[40px] font-medium font-display">
