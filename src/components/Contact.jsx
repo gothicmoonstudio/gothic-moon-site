@@ -1,5 +1,8 @@
 // src/components/Contact.jsx
 import React from 'react';
+// Import the specific icons you need
+import { Instagram, Dribbble, Mail } from 'react-feather';
+
 
 function Contact() {
   return (
@@ -18,9 +21,16 @@ function Contact() {
             Trust in the expertise and passion of Gothic Moon to transform your
             ideas into reality. Let’s build something extraordinary together.
           </div>
-          <div className="flex items-center gap-9">
-            <div className="w-9 h-9 relative"></div>
-            <div className="w-9 h-9 relative"></div>
+          <div className="flex justify-center items-center gap-4">
+            <div className="w-9 h-9 relative">
+            <Instagram/>
+            </div>
+            <div className="w-9 h-9 relative">
+            <Dribbble/>
+            </div>
+            <div className="w-9 h-9 relative">
+            <Mail/>
+            </div>
           </div>
         </div>
         <div className="flex-1 flex flex-col items-start gap-9">
