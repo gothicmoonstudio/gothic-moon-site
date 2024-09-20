@@ -38,7 +38,7 @@ function Services() {
             <span className="text-[#f4f3ff] text-[40px] font-normal font-display">
               Let us be your
             </span>
-            <span className="text-[#f4f3ff] text-[36px] font-normal font-serif"> guiding light </span>
+            <span className="text-[#f4f3ff] text-[36px] font-normal font-serif"> design guide </span>
           </div>
         </div>
 

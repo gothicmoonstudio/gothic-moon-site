@@ -8,24 +8,23 @@ import Services from './components/Services';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Preloader from './components/Preloader';
-import NavItem from './components/NavItem'; // Ensure you have this imported for Navbar usage
+import NavItem from './components/NavItem';
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // Track loading state
   const [activeSection, setActiveSection] = useState(''); // Track the active section
 
   useEffect(() => {
-    const sections = document.querySelectorAll('section'); // Select all sections to observe
-
+    const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveSection(entry.target.id); // Set active section based on intersecting section
+            setActiveSection(entry.target.id);
           }
         });
       },
-      { threshold: 0.7 } // Adjust threshold to trigger when 70% of the section is visible
+      { threshold: 0.7 }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -35,12 +34,11 @@ function App() {
 
   return (
     <>
-      {loading && <Preloader setLoading={setLoading} />}
+      {loading && <Preloader setLoading={setLoading} />} {/* Pass setLoading to Preloader */}
       {!loading && (
         <div>
-          <CustomCursor /> {/* Keep the cursor globally available */}
+          <CustomCursor />
           <Navbar>
-            {/* Pass active state to each NavItem */}
             <NavItem label="Home" href="#main-hero" isActive={activeSection === 'main-hero'} />
             <NavItem label="About" href="#about" isActive={activeSection === 'about'} />
             <NavItem label="Projects" href="#projects" isActive={activeSection === 'projects'} />

@@ -1,25 +1,116 @@
- /* Loading Bar Animation */
-.loading-bar {
-    animation: loading 3s linear infinite;
+/* Ensure full viewport centering */
+.preloader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #141221;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.fill {
+  backface-visibility: hidden;
+  z-index: 20;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%; /* Keep circular */
+  overflow: hidden;
+  transform: rotate(-45deg);
+  box-shadow: 0 0 30px 0 #0000ff inset;
+}
+
+.gooey-container {
+  filter: url(#gooey-fill);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 0 0 18px #0000ff inset;
+  border-radius: 50%; /* Ensures it's a circle */
+  overflow: hidden;
+}
+
+.level {
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  top: 300px;
+  left: 50%;
+  width: 500px;
+  height: 350px;
+  text-align: center;
+  background: linear-gradient(135deg, #A06AF8, #F6FFBC, #3B1AE5);
+  transform-origin: 50% 0;
+  transform: translate3d(-413px, -53px, 0) rotate(45deg);
+  animation: fill-level 5s linear infinite;
+  box-shadow: 0 0 100px 0 #0000ff inset, 0 0 200px 0 #0000ff inset;
+}
+
+.plasma_bubble {
+  content: "";
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  transform-origin: 50% 50%;
+  box-shadow: 0 0 30px 20px #F6FFBC inset;
+  animation: fill-plasma_bubble 6s ease infinite;
+}
+
+@for $i from 1 through 8 {
+  .bubble:nth-child(#{$i}) {
+    width: (20px * $i); /* Increase width of each bubble dynamically */
+    height: (20px * $i); /* Increase height proportionally */
+    animation: fill-plasma_bubble 6s * ($i / 2) ease 0.5s / $i infinite; /* Vary duration and delay */
   }
-  
-  @keyframes loading {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
+}
+
+@keyframes fill-level {
+  0% {
+    transform: translate3d(-413px, -53px, 0) rotate(45deg);
   }
-  
+  100% {
+    transform: translate3d(-203px, -263px, 0) rotate(55deg);
+  }
+}
+
+@keyframes fill-plasma_bubble {
+  0% {
+    transform: translate3d(-100px, -20px, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(100px, -40px, 0) rotate(180deg);
+  }
+  100% {
+    transform: translate3d(-100px, -20px, 0) rotate(360deg);
+  }
+}
+
+/* Countdown Text */
+.preloader-text {
+  color: #A06AF8;
+  font-family: "Bely", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+}
+
   /* Rotating the outer group */
 #outer-group {
-    animation: rotate 5s infinite linear; /* Adjust timing as needed */
+    animation: rotate 5s infinite linear;
   }
   
   /* Keeping the inner group static */
   #inner-group {
-    transform: none; /* No transformation applied */
+    transform: none; 
   }
   
   @keyframes rotate {
@@ -31,7 +122,7 @@
     }
   }
   
-/* NavItem Styles */
+    /* NavItem Styles */
 .nav-item {
   height: 54px;
   padding: 0 24px;
@@ -92,13 +183,12 @@
   color: #141221;
 }
 
-
 /* custom cursor */
 .cursor {
-  position: fixed; /* Change to fixed to stay in viewport */
+  position: fixed; 
   pointer-events: none; 
   border-radius: 50%;
-  z-index: 9999; /* Ensure it's always on top */
+  z-index: 9999; 
 }
 
 .cursor--large {
@@ -115,7 +205,6 @@
   background-color: #E9CDFF;
   mix-blend-mode: difference;
 }
-
   
 /* PrimaryButton Styles */
 .primary-button {
@@ -129,9 +218,9 @@
     gap: 10px;
     background-image: linear-gradient(90deg, #FFE9E9 0%, #A06AF8 100%); 
     background-size: 200% 200%;
-    transition: background 0.5s ease; /* Smooth transition for the gradient flip */
+    transition: background 0.5s ease;
     position: relative;
-    overflow: hidden; /* Ensures the hover gradient stays within the button */
+    overflow: hidden; 
   }
   
   .primary-button::after {
@@ -141,15 +230,15 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: inherit; /* Matches the button's shape */
-    background-image: linear-gradient(45deg, #A06AF8 0%, #FFE9E9 100%); /* Reversed hover gradient */
-    transition: opacity 0.5s ease; /* Smooth opacity transition */
+    border-radius: inherit;
+    background-image: linear-gradient(45deg, #A06AF8 0%, #FFE9E9 100%); 
+    transition: opacity 0.5s ease;
     z-index: 0;
-    opacity: 0; /* Initially hidden */
+    opacity: 0; 
   }
   
   .primary-button:hover::after {
-    opacity: 1; /* Show the hover gradient on hover */
+    opacity: 1; 
   }
   
   .primary-button-text {
@@ -158,7 +247,7 @@
     font-weight: 500;
     font-family: 'Greycliff CF', sans-serif;
     position: relative;
-    z-index: 1; /* Ensures text stays above the hover effect */
+    z-index: 1; 
   }  
 
   /* SecondaryButton Styles */
@@ -166,24 +255,24 @@
     position: relative;
     height: 54px;
     padding: 24px;
-    background-color: rgba(244, 243, 255, 0.15); /* Slightly transparent button background */
-    border-radius: 9999px; /* Fully rounded corners */
-    border: 2px solid #f4f3ff; /* Transparent border */
+    background-color: rgba(244, 243, 255, 0.15); 
+    border-radius: 9999px; 
+    border: 2px solid #f4f3ff;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Ensure the halo effect stays within the button bounds */
-    transition: border 0.3s ease; /* Smooth border transition */
+    overflow: hidden; 
+    transition: border 0.3s ease;
   }
   
   .secondary-button:hover {
-    animation: halo 1.5s infinite; /* Apply the halo animation on hover */
+    animation: halo 1.5s infinite; 
   }
   
   .secondary-button-text {
     position: relative;
-    z-index: 1; /* Ensure the text stays above everything */
-    color: #F4F3FF; /* Text color */
+    z-index: 1; 
+    color: #F4F3FF;
     font-size: 1.125rem;
     font-weight: 500;
     font-family: 'Greycliff CF', sans-serif;
@@ -218,3 +307,96 @@
                   0 0 60px rgba(160, 106, 248, 0.2);
     }
   }
+
+/* MainHero section */
+#main-hero {
+  position: relative;
+  background-color: #141221;
+  overflow: visible;
+}
+
+/* Blob container positioned behind the content */
+.blobs-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+/* Blobs with gradient, movement, and gooey effect */
+.blobs {
+  position: absolute;
+  background: linear-gradient(to top left, #3b1ae5, #a06af8);
+  border-radius: 50%; /* Start with circular shape */
+  filter: url("#gooey");
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  animation: blob-movement infinite ease-in-out;
+  animation-duration: 30s; /* Default duration */
+}
+
+/* Specific blob positions based on Figma */
+.blob-1 {
+  width: 17rem;
+  height: 17rem;
+  left: 123px;
+  top: 161px;
+  animation-duration: 14s;
+  /* border-radius: 40% 60% 70% 50%;  */
+  border-radius: 100%; 
+}
+
+.blob-2 {
+  width: 7rem;
+  height: 7rem;
+  left: 470px;
+  top: 416px;
+  animation-duration: 28s;
+  /* border-radius: 50% 60% 60% 40%; */
+  border-radius: 100%;
+}
+
+.blob-3 {
+  width: 12rem;
+  height: 12rem;
+  left: 229px;
+  top: 497px;
+  animation-duration: 20s;
+  /* border-radius: 60% 50% 60% 50%; */
+  border-radius: 100%;
+}
+
+.blob-4 {
+  width: 30rem;
+  height: 30rem;
+  left: 935px;
+  top: 161px;
+  animation-duration: 24s;
+  /* border-radius: 50% 60% 50% 70%; */
+  border-radius: 100%;
+}
+
+.blob-5 {
+  width: 18rem;
+  height: 18rem;
+  left: 843px;
+  top: 610px;
+  animation-duration: 34s;
+  /* border-radius: 70% 50% 60% 40%; */
+  border-radius: 100%;
+}
+
+/* Keyframes for blob movement */
+@keyframes blob-movement {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(100px, -100px) scale(1.4);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
