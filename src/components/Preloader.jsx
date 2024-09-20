@@ -37,14 +37,14 @@ const Preloader = ({ setLoading }) => {
         </svg>
         <div className="gooey-container">
           <span className="level">
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
+            <span className="plasma_bubble"></span>
+            <span className="plasma_bubble"></span>
+            <span className="plasma_bubble"></span>
+            <span className="plasma_bubble"></span>
+            <span className="plasma_bubble"></span>
+            <span className="plasma_bubble"></span>
+            <span className="plasma_bubble"></span>
+            <span className="plasma_bubble"></span>
           </span>
         </div>
       </div>
