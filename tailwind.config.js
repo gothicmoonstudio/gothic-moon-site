@@ -31,12 +31,6 @@ export default {
         // Additional border radius values
       },
     },
-    fontFamily: {
-      sans: ['Inter', 'sans-serif'],
-      display: ['Greycliff CF', 'sans-serif'],
-      serif: ['Bely Display', 'serif'],
-      // Extend other properties as needed
-    },
   },
   plugins: [],
 };

@@ -1,5 +1,6 @@
 // src/components/Services.jsx
 import React, { useEffect, useRef } from 'react';
+import SecondaryButton from './ScondaryButton';
 
 function Services() {
   const gradientRef = useRef(null);
@@ -44,7 +45,7 @@ function Services() {
         {/* Service Cards Section */}
         <div className="flex justify-center items-center gap-9 mt-12">
           {/* Service Card 1 */}
-          <div className="h-[587px] px-9 py-[258px] bg-[#f4f3ff]/10 rounded-lg border-t border-[#3f3a5b] backdrop-blur-[114px] flex flex-col justify-center items-center gap-2.5">
+          <div className="h-[587px] px-9 py-[258px] bg-[#f4f3ff]/10 rounded-lg border-t border-[#f4f3ff] backdrop-blur-[114px] flex flex-col justify-center items-center gap-2.5">
             <div className="flex flex-col justify-start items-center gap-9">
               <div className="text-center text-[#f4f3ff] text-3xl font-semibold font-display">
                 Monthly Subscription
@@ -53,16 +54,14 @@ function Services() {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
                 eget molestie augue. Class aptent taciti sociosqu ad.
               </div>
-              <div className="p-4 bg-[#f4f3ff]/30 rounded-full border border-[#ffe9e9] flex justify-center items-center gap-2.5 cursor-pointer hover:bg-[#f4f3ff]/50 transition duration-300">
-                <div className="text-[#f4f3ff] text-lg font-normal font-display">
-                  Request Services
-                </div>
+              <div>
+                <SecondaryButton label="Request Services" />
               </div>
             </div>
           </div>
 
           {/* Service Card 2 */}
-          <div className="h-[587px] px-9 py-[258px] bg-[#f4f3ff]/10 rounded-lg border-t border-[#3f3a5b] backdrop-blur-[114px] flex flex-col justify-center items-center gap-2.5">
+          <div className="h-[587px] px-9 py-[258px] bg-[#f4f3ff]/10 rounded-lg border-t border-[#f4f3ff] backdrop-blur-[114px] flex flex-col justify-center items-center gap-2.5">
             <div className="flex flex-col justify-start items-center gap-9">
               <div className="text-center text-[#f4f3ff] text-3xl font-semibold font-display">
                 Design Consultations
@@ -71,16 +70,14 @@ function Services() {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
                 eget molestie augue. Class aptent taciti sociosqu ad.
               </div>
-              <div className="p-4 bg-[#f4f3ff]/30 rounded-full border border-[#ffe9e9] flex justify-center items-center gap-2.5 cursor-pointer hover:bg-[#f4f3ff]/50 transition duration-300">
-                <div className="text-[#f4f3ff] text-lg font-normal font-display">
-                  Request Services
-                </div>
+              <div>
+                <SecondaryButton label="Request Services" />
               </div>
             </div>
           </div>
 
           {/* Service Card 3 */}
-          <div className="h-[587px] px-9 py-[258px] bg-[#f4f3ff]/10 rounded-lg border-t border-[#3f3a5b] backdrop-blur-[114px] flex flex-col justify-center items-center gap-2.5">
+          <div className="h-[587px] px-9 py-[258px] bg-[#f4f3ff]/10 rounded-lg border-t border-[#f4f3ff] backdrop-blur-[114px] flex flex-col justify-center items-center gap-2.5">
             <div className="flex flex-col justify-start items-center gap-9">
               <div className="text-center text-[#f4f3ff] text-3xl font-semibold font-display">
                 Single Project
@@ -89,10 +86,8 @@ function Services() {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
                 eget molestie augue. Class aptent taciti sociosqu ad.
               </div>
-              <div className="p-4 bg-[#f4f3ff]/30 rounded-full border border-[#ffe9e9] flex justify-center items-center gap-2.5 cursor-pointer hover:bg-[#f4f3ff]/50 transition duration-300">
-                <div className="text-[#f4f3ff] text-lg font-normal font-display">
-                  Request Services
-                </div>
+              <div>
+                <SecondaryButton label="Request Services" />
               </div>
             </div>
           </div>

@@ -1,12 +1,11 @@
 // src/components/Contact.jsx
 import React from 'react';
-// Import the specific icons you need
 import { Instagram, Dribbble, Mail } from 'react-feather';
-
+import PrimaryButton from './PrimaryButton';
 
 function Contact() {
   return (
-    <section className="w-full h-[982px] p-28 bg-secondary flex flex-col items-center gap-32">
+    <section className="contact-section w-full h-[982px] p-28 bg-secondary flex flex-col items-center">
       <div className="w-full flex justify-center items-center gap-9">
         <div className="flex-1 px-9 flex flex-col items-start gap-9">
           <div className="flex flex-col items-start">
@@ -22,14 +21,14 @@ function Contact() {
             ideas into reality. Let’s build something extraordinary together.
           </div>
           <div className="flex justify-center items-center gap-4">
-            <div className="w-9 h-9 relative">
-            <Instagram/>
+            <div className="w-9 h-9">
+              <Instagram />
             </div>
-            <div className="w-9 h-9 relative">
-            <Dribbble/>
+            <div className="w-9 h-9">
+              <Dribbble />
             </div>
-            <div className="w-9 h-9 relative">
-            <Mail/>
+            <div className="w-9 h-9">
+              <Mail />
             </div>
           </div>
         </div>
@@ -70,10 +69,9 @@ function Contact() {
               className="w-full h-36 p-4 bg-primary rounded-lg border border-dark text-light placeholder-[#afaacf] resize-none"
             ></textarea>
           </div>
-          <div className="p-4 bg-gradient-to-l from-[#ffe9e9] to-accent rounded-full flex items-center">
-            <div className="text-dark text-lg font-normal font-sans">
-              Get in Touch
-            </div>
+          {/* Primary Button */}
+          <div className="mt-6">
+            <PrimaryButton label="Get in Touch" />
           </div>
         </div>
       </div>

@@ -1,70 +1,35 @@
-// src/components/Footer.jsx
 import React from 'react';
+import { Instagram, Dribbble } from 'react-feather';
 
-function Footer() {
-  // Generate an array for the bubbles
-  const bubbles = Array.from({ length: 50 });
-
+const Footer = () => {
   return (
-    <footer className="relative z-10">
-      {/* Gooey Effect Filter */}
-      <svg className="absolute w-0 h-0">
-        <defs>
-          <filter id="gooey">
-            <feGaussianBlur
-              in="SourceGraphic"
-              stdDeviation="10"
-              result="blur"
-            />
-            <feColorMatrix
-              in="blur"
-              mode="matrix"
-              values="
-                1 0 0 0 0
-                0 1 0 0 0
-                0 0 1 0 0
-                0 0 0 20 -10"
-              result="gooey"
-            />
-            <feComposite
-              in="SourceGraphic"
-              in2="gooey"
-              operator="atop"
-            />
-          </filter>
-        </defs>
-      </svg>
+    <footer className="footer-container">
+      <div className="footer-content">
+        <div className="logo-section">
+          <img src="/images/full_logo.svg" alt="Gothic Moon logo" className="footer-logo" />
+        </div>
 
-      {/* Bubbles Container */}
-      <div
-        className="absolute inset-0 overflow-hidden bubbles"
-        style={{ filter: 'url(#gooey)' }}
-      >
-        {bubbles.map((_, index) => (
-          <div
-            key={index}
-            className="bubble"
-            style={{
-              '--size': `${2 + Math.random() * 4}rem`,
-              '--distance': `${6 + Math.random() * 4}rem`,
-              '--position': `${-5 + Math.random() * 110}%`,
-              '--time': `${2 + Math.random() * 2}s`,
-              '--delay': `${-1 * (2 + Math.random() * 2)}s`,
-            }}
-          ></div>
-        ))}
+        <div className="footer-text">
+          <span className="footer-main-text">We’re brewing something </span>
+          <span className="footer-highlight">extra</span>
+          <span className="footer-main-text">ordinary.</span>
+        </div>
       </div>
 
-      {/* Footer Content */}
-      <div className="relative z-10 bg-accent text-light p-8">
-        <div className="container mx-auto flex flex-col items-center">
-          <p className="text-base font-normal font-display">
-            ©2024 Gothic Moon Creative Studio LLC
-          </p>
+      <div className="social-icons">
+        <div>
+            <Instagram/>
         </div>
+        <div>
+            <Dribbble/>
+        </div>
+      </div>
+
+      <div className="footer-copyright">
+        @2024 Gothic Moon Creative Studio LLC
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;
