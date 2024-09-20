@@ -1,11 +1,10 @@
 import React from 'react';
-// Import the specific icons you need
 import { Instagram, Dribbble } from 'react-feather';
 
 function MainHero() {
   return (
     <section 
-    id="home"
+    id="main-hero"
     className="w-full min-h-screen bg-secondary flex flex-col items-center justify-center">
       <div className="w-full h-62 px-28 flex flex-col items-center gap-9">
         <div className="text-center">

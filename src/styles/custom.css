@@ -31,65 +31,74 @@
     }
   }
   
-  
 /* NavItem Styles */
 .nav-item {
-    height: 54px;
-    padding: 0 24px; /* Remove vertical padding to fix alignment */
-    background-color: #141221;
-    border-radius: 9999px;
-    display: flex; /* Use flex for centering */
-    justify-content: center;
-    align-items: center; /* Vertical alignment fix */
-    gap: 10px;
-    transition: background-color 0.4s ease-in-out;
-    position: relative;
-    overflow: hidden;
-    width: fit-content;
-    border: none;
+  height: 54px;
+  padding: 0 24px;
+  background-color: #141221;
+  border-radius: 9999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.4s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  width: fit-content;
+  border: none;
 }
 
 .nav-text {
-    color: #fcfbff;
-    font-size: 1.125rem;
-    font-family: 'Greycliff CF', sans-serif;
-    z-index: 3; /* Ensure text stays above the hover background */
-    transition: color 0.4s ease-in-out; /* Smooth color transition */
+  color: #fcfbff;
+  font-size: 1.125rem;
+  font-family: 'Greycliff CF', sans-serif;
+  z-index: 3;
+  transition: color 0.4s ease-in-out;
 }
 
 .nav-item::before {
-    background-color: #f4f3ff; /* Hover background color */
-    border-radius: 9999px;
-    box-sizing: border-box;
-    transition: transform 0.5s ease-in-out;
-    z-index: 1;
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transform: translateX(-105%); /* Initially hidden */
+  background-color: #f4f3ff;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  transition: transform 0.5s ease-in-out;
+  z-index: 1;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-105%);
 }
 
 .nav-item:hover {
-    z-index: 2;
+  z-index: 2;
 }
 
 .nav-item:hover::before {
-    transform: translateX(0); /* Slide in from the left */
+  transform: translateX(0);
 }
 
 .nav-item:hover .nav-text {
-    color: #141221; /* Change text color on hover */
+  color: #141221;
 }
+
+/* Active State */
+.nav-item.active {
+  background-color: #f4f3ff;
+}
+
+.nav-item.active .nav-text {
+  color: #141221;
+}
+
 
 /* custom cursor */
 .cursor {
-  position: absolute;
-  pointer-events: none;
+  position: fixed; /* Change to fixed to stay in viewport */
+  pointer-events: none; 
   border-radius: 50%;
-  z-index: 9999;  /* Ensure it's always on top */
+  z-index: 9999; /* Ensure it's always on top */
 }
 
 .cursor--large {

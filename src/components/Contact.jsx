@@ -7,7 +7,7 @@ function Contact() {
   return (
     <section 
     id="contact"
-    className="contact-section w-full h-[982px] p-28 bg-secondary flex flex-col items-center">
+    className="contact-section w-full h-[982px] p-28 flex flex-col items-center">
       <div className="w-full flex justify-center items-center mt-24 gap-9">
         <div className="flex-1 px-9 flex flex-col items-start gap-9">
           <div className="flex flex-col items-start">
@@ -22,7 +22,7 @@ function Contact() {
             Trust in the expertise and passion of Gothic Moon to transform your
             ideas into reality. Let’s create something extraordinary together.
           </div>
-          <div className="flex justify-center items-center gap-4">
+          <div className="flex justify-center items-center gap-9">
             <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
               <Instagram />
             </div>

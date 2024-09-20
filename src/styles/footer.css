@@ -1,21 +1,77 @@
 .footer-container {
-    width: 100%;
-    height: 295px;
-    padding: 83px 113px;
-    background-color: #a06af8;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  width: 100%;
+  height: 500px; /* Adjusted height to give more space for bubbles */
+  background-color: transparent; /* Let bubbles show through, background now on the content wrapper */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden; /* Keep bubbles within bounds */
+}
+
+.footer-content-wrapper {
+  position: relative;
+  z-index: 1; /* Ensure it's above the bubbles */
+  width: 100%;
+  background-color: #a06af8; /* Background color for the footer content */
+  padding: 4rem 118px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: #f4f3ff;
+  z-index: 99;
+}
+
+.bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  z-index: 0; /* Ensure bubbles are behind the content */
+  filter: url("#blob");
+}
+
+.bubble {
+  position: absolute;
+  left: var(--position, 50%);
+  background: #a06af8; /* Bubble color */
+  border-radius: 100%;
+  animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s),
+             bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+  transform: translate(-50%, 0%);
+}
+
+@keyframes bubble-size {
+  0%, 75% {
+    width: var(--size, 4rem);
+    height: var(--size, 4rem);
   }
-  
-  .footer-content {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  100% {
+    width: 0rem;
+    height: 0rem;
   }
-  
+}
+
+@keyframes bubble-move {
+  0% {
+    bottom: 12rem;
+  }
+  100% {
+    bottom: calc(12rem + var(--distance, 14rem));
+  }
+}
+
   .logo-section {
     width: 181px;
     height: 29px;
@@ -58,6 +114,7 @@
   .social-icon {
     width: 36px;
     height: 36px;
+    z-index: 99;
   }
   
   .footer-copyright {

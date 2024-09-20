@@ -56,6 +56,29 @@ const CustomCursor = () => {
       });
     };
 
+    // Hover enter and leave logic for scaling
+    const handleMouseEnter = () => {
+      gsap.to(outerCursor, {
+        scale: 1.8,
+        duration: 0.2,
+        ease: "power2.out",
+      });
+    };
+
+    const handleMouseLeave = () => {
+      gsap.to(outerCursor, {
+        scale: 1,
+        duration: 0.2,
+        ease: "power2.out",
+      });
+    };
+
+    // Add event listeners for hover elements
+    hoverElements.forEach((el) => {
+      el.addEventListener('mouseenter', handleMouseEnter);
+      el.addEventListener('mouseleave', handleMouseLeave);
+    });
+
     // Add mousemove listener
     document.addEventListener('mousemove', handleMouseMove);
 
@@ -63,8 +86,8 @@ const CustomCursor = () => {
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       hoverElements.forEach((el) => {
-        el.removeEventListener('mouseenter', () => {});
-        el.removeEventListener('mouseleave', () => {});
+        el.removeEventListener('mouseenter', handleMouseEnter);
+        el.removeEventListener('mouseleave', handleMouseLeave);
       });
       gsap.killTweensOf(outerCursor);
       gsap.killTweensOf(innerCursor);
