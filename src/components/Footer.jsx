@@ -11,22 +11,26 @@ const Footer = () => {
 
         <div className="footer-text">
           <span className="footer-main-text">We’re brewing something </span>
-          <span className="footer-highlight">extra</span>
-          <span className="footer-main-text">ordinary.</span>
+          <span className="footer-highlight">extraordinary.</span>  
         </div>
       </div>
 
-      <div className="social-icons">
+      <div className="social-icons pb-6">
         <div>
-            <Instagram/>
+          <Instagram />
         </div>
         <div>
-            <Dribbble/>
+          <Dribbble />
         </div>
       </div>
 
-      <div className="footer-copyright">
-        @2024 Gothic Moon Creative Studio LLC
+      <div className="w-full flex justify-between items-start">
+        <div>
+          <p>Designed and developed by me —with a little 💻, ☕, and AI magic🪄.</p>
+        </div>
+        <div>
+          <p>© 2024 Gothic Moon Creative Studio LLC</p> 
+          </div>
       </div>
     </footer>
   );

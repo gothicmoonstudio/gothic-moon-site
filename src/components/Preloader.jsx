@@ -18,11 +18,11 @@ function Preloader({ setLoading }) {
         <img src="/images/moon.svg" alt="Logo" className="w-full h-full" />
       </div>
       {/* Loading Bar */}
-      <div className="w-64 h-1 bg-gray-500 relative overflow-hidden">
+      <div className="w-64 h-1 bg-[#cec2ff] relative overflow-hidden">
         <div className="h-full bg-accent loading-bar"></div>
       </div>
       {/* Loading Text */}
-      <p className="mt-4 text-dark text-lg font-serif">Loading...</p>
+      <p className="mt-4 text-dark text-lg font-[Bely]">Loading...</p>
     </div>
   );
 }

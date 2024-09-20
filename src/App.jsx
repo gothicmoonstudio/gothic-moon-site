@@ -1,6 +1,7 @@
 // src/App.jsx
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
+import CustomCursor from './components/CustomCursor';
 import MainHero from './components/MainHero';
 import About from './components/About';
 import Projects from './components/Projects';
@@ -18,6 +19,7 @@ function App() {
       {!loading && (
         <div>
           <Navbar />
+          <CustomCursor />
           <MainHero />
           <About />
           <Projects />
