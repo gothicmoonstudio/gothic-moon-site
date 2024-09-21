@@ -1,17 +1,19 @@
 import React from 'react';
-import ValueCard from './ValueCard'; 
 import SlideImage from '/images/1.svg';
+import ValueCardScroll from './ValueCardScroll';
+import AnimatedHeader from './AnimatedHeader';
 
 const About = () => {
   return (
     <div id="about">
       {/* Greeting Section */}
-      <div className="w-screen h-screen px-[118px] py-24 bg-[#9747ff] flex justify-center items-center gap-2.5">
-        <div className="text-center">
-          <span className="text-[#f4f3ff] text-[7.5rem] font-medium font-display">Lorem ipsum dolor</span>
-          <span className="text-[#f4f3ff] text-[7.5rem] font-normal font-display"> </span>
-          <span className="text-[#f4f3ff] text-[7.5rem] font-normal font-serif">sit amet</span>
-        </div>
+      <div className="w-screen h-screen px-[118px] py-24 bg-[#9747ff] flex justify-center items-center gap-2.5 text-center">
+        {/* Pass textSize as a prop */}
+          <AnimatedHeader 
+          text1="Lorem ipsum dolor" 
+          text3="sit amet" 
+          textSize="7.5rem" 
+          />
       </div>
 
         {/* Greeting Section */}
@@ -28,10 +30,12 @@ const About = () => {
 
         {/* Right Text Section */}
         <div className="w-1/2 text-left">
-          <span className="text-[#f4f3ff] text-6xl md:text-7xl lg:text-[9rem] font-normal font-display">Lorem ipsum dolor</span>
-          <span className="text-[#f4f3ff] text-6xl md:text-7xl lg:text-[9rem] font-normal font-display"> </span>
-          <span className="text-[#f4f3ff] text-6xl md:text-7xl lg:text-[9rem] font-normal font-serif">sit amet</span>
-        </div>
+          <AnimatedHeader 
+          text1="Lorem ipsum dolor" 
+          text3="sit amet" 
+          textSize="7.5rem" 
+          />
+          </div>
       </div>
 
       {/* Unique Value Proposition (UVP) Section */}
@@ -39,9 +43,11 @@ const About = () => {
         <div className="w-1/2 flex flex-col justify-center items-start gap-6">
           <div className="text-[#f4f3ff] text-3xl font-medium">Lorem ipsum dolor.</div>
           <div>
-            <span className="text-[#f4f3ff] text-6xl md:text-7xl lg:text-[8.5rem] font-normal font-display">Lorem ipsum dolor</span>
-            <span className="text-[#f4f3ff] text-6xl md:text-7xl lg:text-[9rem] font-normal font-display"> </span>
-            <span className="text-[#f4f3ff] text-6xl md:text-7xl lg:text-[9rem] font-normal font-serif">sit amet</span>
+            <AnimatedHeader 
+            text1="Lorem ipsum dolor" 
+            text3="sit amet" 
+            textSize="7.5rem" 
+            />
           </div>
         </div>
         <div className="w-1/2 flex flex-col justify-start items-start gap-9">
@@ -55,18 +61,20 @@ const About = () => {
       </div>
 
       {/* Value Proposition Details Section */}
-      <div className="w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-gradient-to-tl from-[#3b1ae5] to-[#f6ffbc] flex justify-center items-center gap-12">
-      <div className="relative w-full max-w-[677px]">
-        <ValueCard />
+      <div className="valueCardScrollContainer w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-gradient-to-tl from-[#3b1ae5] to-[#f6ffbc] flex justify-center items-center gap-12">
+      <div className="relative">
+        <ValueCardScroll />
       </div>
     </div>
 
       {/* What to Expect Section */}
       <div className="w-screen h-screen px-[118px] py-[333px] bg-[#e9cdff] flex justify-between items-center">
         <div className="w-1/2">
-          <span className="text-[#141221] text-6xl md:text-7xl lg:text-[8.5rem] font-normal font-display">Lorem ipsum dolor</span>
-          <span className="text-[#141221] text-6xl md:text-7xl lg:text-[9rem] font-normal font-display"> </span>
-          <span className="text-[#141221] text-6xl md:text-7xl lg:text-[9rem] font-normal font-serif">sit amet</span>
+        <AnimatedHeader 
+          text1="Lorem ipsum dolor" 
+          text3="sit amet" 
+          textSize="8.5rem" 
+          />
         </div>
         <div className="w-1/2 flex flex-col justify-start items-start gap-9">
           <div className="text-[#141221] text-2xl font-normal leading-[33.67px]">

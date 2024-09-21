@@ -9,7 +9,7 @@ function LogoAnimation() {
     gsap.to(outerRef.current, {
       rotation: 360,
       repeat: -1,
-      duration: 6,
+      duration: 12,
       ease: "linear",
       transformOrigin: "50% 50%" // Ensure the rotation is from the center
     });
