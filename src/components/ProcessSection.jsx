@@ -7,54 +7,30 @@ import SlideImage4 from '/images/4.svg';
 import SlideImage5 from '/images/5.svg';
 
 const sections = [
-  {
-    image: SlideImage1,
-    title: "Discovery",
-    text1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    text2: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames."
-  },
-  {
-    image: SlideImage2,
-    title: "Strategy",
-    text1: "Aliquam aliquam id libero faucibus vulputate.",
-    text2: "Morbi eget molestie augue."
-  },
-  {
-    image: SlideImage3,
-    title: "Design",
-    text1: "Ut id ornare est, a faucibus neque.",
-    text2: "Vivamus dictum nisi ut diam tincidunt placerat."
-  },
-  {
-    image: SlideImage4,
-    title: "Implementation",
-    text1: "Nulla facilisi. Sed ut nisi tincidunt.",
-    text2: "Pellentesque vitae ipsum eget massa tempor vulputate."
-  },
-  {
-    image: SlideImage5,
-    title: "Refinement",
-    text1: "Aenean eget leo et felis cursus gravida ut in est.",
-    text2: "Maecenas varius nibh vitae nibh facilisis feugiat."
-  }
+  { image: SlideImage1, title: "Discovery", text1: "Lorem ipsum dolor sit amet.", text2: "We chart the landscape of your brand, understanding your goals and challenges." },
+  { image: SlideImage2, title: "Strategy", text1: "Aliquam id libero.", text2: "We draw up a comprehensive plan, aligning design with your business objectives." },
+  { image: SlideImage3, title: "Design", text1: "Ut id ornare est.", text2: "We sketch and refine, bringing your vision to life with pixel-perfect precision." },
+  { image: SlideImage4, title: "Implementation", text1: "Nulla facilisi.", text2: "We carefully construct your digital presence, following our meticulously crafted blueprints." },
+  { image: SlideImage5, title: "Refinement", text1: "Aenean eget leo.", text2: "We navigate through user feedback and data, continuously improving your design." }
 ];
 
 const ProcessSection = () => {
   const [activeSection, setActiveSection] = useState(0);
-  const selectDotRef = useRef(null);
+  const selectDotRef = useRef(null); // Reference to the select dot
+  const lastPosRef = useRef(0); // To track the last position of the select dot
 
   useEffect(() => {
     const dots = document.querySelectorAll('.dot');
     const selectDot = selectDotRef.current;
 
-    // Set initial position of the select dot to the active section
+    // Initialize select dot position to the active section
     if (selectDot) {
-      const firstDot = dots[activeSection].getBoundingClientRect().left;
-      TweenMax.set(selectDot, { x: firstDot });
+      const firstDotPos = dots[activeSection].getBoundingClientRect().left;
+      TweenMax.set(selectDot, { x: firstDotPos });
     }
 
+    // Cleanup function to kill animations on unmount
     return () => {
-      // Clean up ongoing animations
       if (selectDot) {
         TweenMax.killTweensOf(selectDot);
       }
@@ -63,28 +39,45 @@ const ProcessSection = () => {
 
   const handlePaginationMove = (index) => {
     setActiveSection(index);
-
+    
     const dots = document.querySelectorAll('.dot');
     const selectDot = selectDotRef.current;
     const dest = dots[index].getBoundingClientRect().left - dots[0].getBoundingClientRect().left;
 
-    // Move select dot to the destination
+    // Move select dot to the hovered dot's position
     TweenMax.to(selectDot, 0.6, { x: dest, ease: Back.easeOut });
   };
 
+  useEffect(() => {
+    // Continuous scale update based on position change
+    function updateScale() {
+      const selectDot = selectDotRef.current;
+      if (!selectDot) return;
+
+      const currentPos = selectDot.getBoundingClientRect().left;
+      const speed = Math.abs(currentPos - lastPosRef.current);
+      const d = 44; // Assumed distance between dots
+      const offset = -20; // For adjusting the scale
+      const hd = d / 2;
+
+      let scale = (offset + currentPos) % d;
+      if (scale > hd) {
+        scale = hd - (scale - hd);
+      }
+      scale = 1 - ((scale / hd) * 0.35); // Normalize scaling
+
+      // Apply scaling to select dot
+      TweenMax.to(selectDot, 0.1, { scaleY: scale, scaleX: 1 + (speed * 0.06) });
+      lastPosRef.current = currentPos;
+
+      requestAnimationFrame(updateScale);
+    }
+
+    requestAnimationFrame(updateScale); // Keep updating scale dynamically
+  }, []);
+
   return (
     <div className="process-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex flex-col justify-between items-center">
-      {/* SVG Gooey Filter */}
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{ position: 'absolute', width: 0, height: 0 }}>
-        <defs>
-          <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10" result="goo" />
-            <feBlend in="SourceGraphic" in2="goo" />
-          </filter>
-        </defs>
-      </svg>
-
       {/* Content Area */}
       <div className="flex flex-col lg:flex-row justify-center items-center gap-6 pt-48 lg:gap-12">
         <div className="w-[637px] h-[444px] flex justify-center items-center transition-opacity duration-500 ease-in-out">
