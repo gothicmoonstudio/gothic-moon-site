@@ -9,16 +9,20 @@ const Preloader = ({ setLoading }) => {
         if (prevCount > 1) {
           return prevCount - 1; // Decrease the count by 1
         } else {
-          setLoading(false); // When count reaches 0, hide preloader
           clearInterval(countdown); // Clear the interval to stop the countdown
           return 0; // Set count to 0
         }
       });
     }, 1000); // Update every 1 second
 
+    // When the countdown reaches 0, setLoading(false) is called after render completes
+    if (count === 0) {
+      setTimeout(() => setLoading(false), 0); // Delay state change to next render cycle
+    }
+
     // Clean up the interval on component unmount
     return () => clearInterval(countdown);
-  }, [setLoading]);
+  }, [count, setLoading]);
 
   return (
     <div className="preloader-container">
@@ -37,14 +41,14 @@ const Preloader = ({ setLoading }) => {
         </svg>
         <div className="gooey-container">
           <span className="level">
-            <span className="plasma_bubble"></span>
-            <span className="plasma_bubble"></span>
-            <span className="plasma_bubble"></span>
-            <span className="plasma_bubble"></span>
-            <span className="plasma_bubble"></span>
-            <span className="plasma_bubble"></span>
-            <span className="plasma_bubble"></span>
-            <span className="plasma_bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
           </span>
         </div>
       </div>

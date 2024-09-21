@@ -15,7 +15,7 @@
   z-index: 1; /* Ensure it's above the bubbles */
   width: 100%;
   background-color: #a06af8; /* Background color for the footer content */
-  padding: 4rem 118px;
+  padding: 3.5rem 118px;
   display: flex;
   flex-direction: column;
   justify-content: center;

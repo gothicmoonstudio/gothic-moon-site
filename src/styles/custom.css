@@ -400,3 +400,20 @@
     transform: translate(0, 0) scale(1);
   }
 }
+
+/* About section */
+.circle-1 {
+  background: radial-gradient(circle at top left, #F6FFBC, #DAC4E7 25%, #3B1AE5);
+}
+
+.circle-2 {
+  background: radial-gradient(circle at top left, #DAC4E7, #9BA5EA 50%, #9747FF);
+}
+
+.circle-3 {
+  background: radial-gradient(circle at bottom right, #F6FFBC, #DAC4E7 60%, #9747FF);
+}
+
+.circle-4 {
+  background: radial-gradient(circle at top left, #F6FFBC, #9BA5EA 50%, #9747FF);
+}
