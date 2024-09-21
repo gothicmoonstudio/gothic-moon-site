@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SlideImage from '/images/1.svg';
 import ValueCardScroll from './ValueCardScroll';
 import AnimatedHeader from './AnimatedHeader';
 
 const About = () => {
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY; // Get the current scroll position
+      document.querySelector('.circle-1').style.transform = `translateY(${scrollY * 0.3}px)`; // Parallax effect for circle 1
+      document.querySelector('.circle-2').style.transform = `translateY(${scrollY * 0.4}px)`; // Parallax effect for circle 2
+      document.querySelector('.circle-3').style.transform = `translateY(${scrollY * 0.2}px)`; // Parallax effect for circle 3
+      document.querySelector('.circle-4').style.transform = `translateY(${scrollY * 0.35}px)`; // Parallax effect for circle 4
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // Empty dependency array means this effect runs once when the component mounts
+
   return (
-    <div id="about">
-    {/* Greeting Section (Sticky) */}
+    <section id="about">
+      {/* Greeting Section (Sticky) */}
       <div className="sticky-section w-screen h-screen px-[118px] py-24 bg-[#9747ff] flex justify-center items-center gap-2.5 text-center">
         <AnimatedHeader 
           text1="Lorem ipsum dolor" 
@@ -43,6 +60,7 @@ const About = () => {
         </div>
       </motion.div>
 
+      {/* Other Sections */}
       <div className="overlay-section w-screen h-screen px-[118px] py-24 bg-[#141221] flex justify-center items-center gap-12">
         <div className="w-1/2 flex flex-col justify-center items-start gap-6">
           <div className="text-[#f4f3ff] text-3xl font-medium">Lorem ipsum dolor.</div>
@@ -93,7 +111,7 @@ const About = () => {
       <div className="overlay-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex flex-col justify-between items-center">
         <div className="flex flex-col lg:flex-row justify-center items-center gap-6 pt-48 lg:gap-12">
           <div className="w-[637px] h-[444px] flex justify-center items-center">
-            <img src={SlideImage} alt="Process Slide" className="w-full h-full object-contain" />
+            <img src={SlideImage} alt="Process Slide" className="w-full h-full object-contain" loading="lazy" />
           </div>
 
           <div className="w-[629px] flex flex-col justify-center items-center lg:items-start gap-9">
@@ -120,13 +138,14 @@ const About = () => {
       </div>
 
       <div className="sticky-section w-screen h-screen relative bg-gradient-to-l from-[#ffe9e9] to-[#a06af8]">
-        <div className="w-[2045.34px] h-[1395px] absolute -left-[330px] -top-[106px] z-0">
-          <div className="circle-1 w-[693px] h-[693px] absolute left-[669.39px] top-[535px] origin-top-left rotate-[75deg] bg-[#dac4e7] rounded-full" />
-          <div className="circle-2 w-[285.24px] h-[285.24px] absolute left-[1971.52px] top-[396px] origin-top-left rotate-[75deg] bg-[#dac4e7] rounded-full" />
-          <div className="circle-3 w-[412px] h-[412px] absolute left-[463px] top-0 bg-[#f6ffbc] rounded-full" />
-          <div className="circle-4 w-[444.99px] h-[444.99px] absolute left-[1515.82px] top-[850px] origin-top-left rotate-[75deg] bg-[#f6ffbc] rounded-full" />
+        <div className="w-screen h-screen absolute -left-[330px] -top-[106px] z-0">
+          <div className="circle-1 w-[693px] h-[693px] absolute right-[-400px] top-[-2150px] origin-top-left rotate-[75deg] bg-[#dac4e7] rounded-full" />
+          <div className="circle-2 w-[285.24px] h-[285.24px] absolute left-[1700px] top-[-2000px] origin-top-left rotate-[75deg] bg-[#dac4e7] rounded-full" />
+          <div className="circle-3 w-[412px] h-[412px] absolute left-[700px] top-[-600px] bg-[#f6ffbc] rounded-full" />
+          <div className="circle-4 w-[444.99px] h-[444.99px] absolute left-[400px] top-[-2250px] origin-top-left rotate-[75deg] bg-[#f6ffbc] rounded-full" />
         </div>
 
+        {/* Static Content */}
         <div className="absolute left-[50%] top-[50%] transform -translate-x-[50%] -translate-y-[50%] flex flex-col justify-center items-center gap-9 z-10">
           <div className="w-[643px] text-center">
             <span className="text-[#141221] text-[40px] font-medium font-display">Lorem ipsum dolor</span>
@@ -138,7 +157,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
