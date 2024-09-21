@@ -93,7 +93,7 @@ const About = () => {
           <AnimatedHeader 
             text1="Guiding your next project to" 
             text3="unmatched UX success" 
-            textSize="8rem" 
+            textSize="6rem" 
             textColor="#141221"
           />
         </div>
