@@ -2,7 +2,7 @@ import React from 'react';
 import { Instagram, Dribbble } from 'react-feather';
 
 const Footer = () => {
-  const bubbles = Array.from({ length: 128 });
+  const bubbles = Array.from({ length: 475 });
 
   return (
     <footer className="footer-container">
@@ -13,9 +13,9 @@ const Footer = () => {
             key={index}
             className="bubble"
             style={{
-              '--size': `${2 + Math.random() * 4}rem`,
-              '--distance': `${6 + Math.random() * 8}rem`,
-              '--position': `${-5 + Math.random() * 110}%`,
+              '--size': `${2 + Math.random() * 2}rem`,
+              '--distance': `${6 + Math.random() * 9}rem`,
+              '--position': `${-5 + Math.random() * 250}%`,
               '--time': `${2 + Math.random() * 2}s`,
               '--delay': `${-1 * (2 + Math.random() * 2)}s`
             }}
@@ -37,11 +37,25 @@ const Footer = () => {
         </div>
 
         <div className="social-icons gap-9 pb-6">
-          <div className="custom-cursor-area">
-            <Instagram />
+        <div className="custom-cursor-area flex justify-center items-center relative">
+            <a 
+            href="https://www.instagram.com/gothicmoonstudio" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform duration-300 ease-in-out"
+            >          
+              <Instagram className="hover:text-[#E1306C]" />
+            </a>
           </div>
-          <div className="custom-cursor-area">
-            <Dribbble />
+          <div className="custom-cursor-area flex justify-center items-center relative">
+            <a 
+            href="https://dribbble.com/gothicmoonstudio" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform duration-300 ease-in-out"
+            >          
+              <Dribbble className="hover:text-[#E1306C]" />
+            </a>
           </div>
         </div>
 

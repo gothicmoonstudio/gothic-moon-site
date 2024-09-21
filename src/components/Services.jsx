@@ -69,7 +69,9 @@ function Services() {
                 Unlock expert insights and innovative solutions that are designed to offer both guidance and results.
               </div>
               <div>
-                <SecondaryButton label="Book a Call" />
+                <a href="https://calendly.com/mary-gothicmoon/30min" target="_blank" rel="noopener noreferrer">
+                  <SecondaryButton label="Book a Call" />
+                </a>
               </div>
             </div>
           </div>

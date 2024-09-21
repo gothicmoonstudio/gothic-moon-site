@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-const AnimatedHeader = ({ text1, text3, className, textSize }) => {
+const AnimatedHeader = ({ text1, text3, className, textSize,textColor }) => {
   const [gooeyIntensity, setGooeyIntensity] = useState(15);
 
   useEffect(() => {
@@ -39,8 +39,8 @@ const AnimatedHeader = ({ text1, text3, className, textSize }) => {
         viewport={{ once: true }}
         style={{ filter: 'url(#goo)' }}  // Apply the gooey effect
       >
-        <span className="text-[#f4f3ff] font-normal font-display" style={{ fontSize: textSize }}>{text1}</span>
-        <span className="text-[#f4f3ff] font-normal font-serif pl-4" style={{ fontSize: textSize }}>{text3}</span>
+        <span className="text-[#f4f3ff] font-normal font-display" style={{ fontSize: textSize, color: textColor }}>{text1}</span>
+        <span className="text-[#f4f3ff] font-normal font-serif pl-4" style={{ fontSize: textSize, color: textColor }}>{text3}</span>
       </motion.div>
     </>
   );

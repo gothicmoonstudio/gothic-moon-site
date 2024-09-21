@@ -24,6 +24,7 @@ const ValueCardScroll = () => {
           start: 'top top', // Start pinning when the top of the section hits the top of the viewport
           end: () => `+=${container.offsetWidth}`, // Scroll distance based on content width
           pinSpacing: false, // Avoid extra spacing when pinning ends
+          markers: true,
         },
       });
     });

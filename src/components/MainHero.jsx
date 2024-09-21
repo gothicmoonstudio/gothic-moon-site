@@ -46,12 +46,26 @@ function MainHero() {
           </span>
         </div>
         <div className="flex justify-center items-center gap-9">
-          <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
-            <Instagram />
-          </div>
-          <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
-            <Dribbble />
-          </div>
+        <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
+          <a 
+          href="https://www.instagram.com/gothicmoonstudio" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:scale-110 transition-transform duration-300 ease-in-out"
+          >
+            <Instagram className="hover:text-[#E1306C]" />
+          </a>
+        </div>
+        <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
+          <a 
+          href="https://dribbble.com/gothicmoonstudio" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="hover:scale-110 transition-transform duration-300 ease-in-out"
+          >          
+            <Dribbble className="hover:text-[#E1306C]" />
+          </a>
+        </div>
         </div>
       </div>
     </section>

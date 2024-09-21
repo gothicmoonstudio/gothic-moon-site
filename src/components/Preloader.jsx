@@ -1,27 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 
 const Preloader = ({ setLoading }) => {
-  const [count, setCount] = useState(5); // Starting countdown from 5
+  // Using Framer Motion for animated count
+  const count = useMotionValue(0); // Initial count value using motion
+  const rounded = useTransform(count, Math.round); // Round the value for display
 
   useEffect(() => {
-    const countdown = setInterval(() => {
-      setCount((prevCount) => {
-        if (prevCount > 1) {
-          return prevCount - 1; // Decrease the count by 1
-        } else {
-          clearInterval(countdown); // Clear the interval to stop the countdown
-          return 0; // Set count to 0
-        }
-      });
-    }, 1000); // Update every 1 second
+    // Animate the count from 0 to 100 over 10 seconds
+    const animation = animate(count, 100, { duration: 10 });
 
-    // When the countdown reaches 0, setLoading(false) is called after render completes
-    if (count === 0) {
-      setTimeout(() => setLoading(false), 0); // Delay state change to next render cycle
-    }
+    // Set loading to false when the animation completes
+    const stopLoading = setTimeout(() => {
+      setLoading(false); // Hide preloader and show main content
+    }, 10000); // Matches the animation duration (10 seconds)
 
-    // Clean up the interval on component unmount
-    return () => clearInterval(countdown);
+    // Clean up the animation and timeout on component unmount
+    return () => {
+      animation.stop();
+      clearTimeout(stopLoading);
+    };
   }, [count, setLoading]);
 
   return (
@@ -41,21 +39,21 @@ const Preloader = ({ setLoading }) => {
         </svg>
         <div className="gooey-container">
           <span className="level">
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
+            <span className="plasma_bubble"></span>
+            <span className="plasma_bubble"></span>
+            <span className="plasma_bubble"></span>
+            <span className="plasma_bubble"></span>
+            <span className="plasma_bubble"></span>
+            <span className="plasma_bubble"></span>
+            <span className="plasma_bubble"></span>
+            <span className="plasma_bubble"></span>
           </span>
         </div>
       </div>
 
-      {/* Countdown */}
+      {/* Framer Motion Animated Counter */}
       <div className="preloader-text">
-        {count > 0 ? `[${count}]` : 'Welcome to Gothic Moon'}
+        <motion.h1>{rounded}</motion.h1> {/* Display the animated count */}
       </div>
     </div>
   );
