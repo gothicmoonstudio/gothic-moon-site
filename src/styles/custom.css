@@ -441,7 +441,23 @@
     }
   }
 
-/* About section */
+/* Greeting Section (Sticky) */
+.sticky-section {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0; /* Sticks at the top of the viewport */
+  height: 100vh; /* Full height to make sure it covers the viewport */
+  z-index: 1; /* Ensure it's behind the overlay section */
+}
+
+/* Introduction Section (Scrolls Over) */
+.overlay-section {
+  position: relative;
+  z-index: 2; /* Ensure it scrolls over the sticky section */
+  background-color: #141221;
+}
+
+/* About Our Committment section */
 .circle-1 {
   background: radial-gradient(circle at top left, #F6FFBC, #DAC4E7 25%, #3B1AE5);
 }

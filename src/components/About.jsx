@@ -7,7 +7,8 @@ import AnimatedHeader from './AnimatedHeader';
 const About = () => {
   return (
     <div id="about">
-      <div className="w-screen h-screen px-[118px] py-24 bg-[#9747ff] flex justify-center items-center gap-2.5 text-center">
+    {/* Greeting Section (Sticky) */}
+      <div className="sticky-section w-screen h-screen px-[118px] py-24 bg-[#9747ff] flex justify-center items-center gap-2.5 text-center">
         <AnimatedHeader 
           text1="Lorem ipsum dolor" 
           text3="sit amet" 
@@ -16,15 +17,16 @@ const About = () => {
         />
       </div>
 
+      {/* Introduction Section (Scrolls Over) */}
       <motion.div
-        className="w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex justify-center items-center gap-12 z-10"
+        className="overlay-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex justify-center items-center gap-12 z-10"
         initial={{ x: '100%' }}
         animate={{ x: 0 }}
         transition={{ duration: 1.5, ease: 'easeInOut' }}
       >
         <div className="w-1/2 max-w-xl flex flex-col justify-start items-start gap-6">
           <div className="w-full text-[#f4f3ff] text-lg md:text-xl lg:text-2xl font-normal font-display leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget molestie augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam aliquam id libero faucibus vulputate.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget molestie augue.
           </div>
           <div className="w-full text-[#f4f3ff] text-lg md:text-xl lg:text-2xl font-normal font-display leading-relaxed">
             Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
@@ -41,7 +43,7 @@ const About = () => {
         </div>
       </motion.div>
 
-      <div className="w-screen h-screen px-[118px] py-24 bg-[#141221] flex justify-center items-center gap-12">
+      <div className="overlay-section w-screen h-screen px-[118px] py-24 bg-[#141221] flex justify-center items-center gap-12">
         <div className="w-1/2 flex flex-col justify-center items-start gap-6">
           <div className="text-[#f4f3ff] text-3xl font-medium">Lorem ipsum dolor.</div>
           <div>
@@ -63,13 +65,13 @@ const About = () => {
         </div>
       </div>
 
-      <div className="w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-gradient-to-tl from-[#3b1ae5] to-[#A06AF8] flex justify-center items-center gap-12">
+      <div className="sticky-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-gradient-to-tl from-[#3b1ae5] to-[#A06AF8] flex justify-center items-center gap-12">
         <div className="relative">
           <ValueCardScroll />
         </div>
       </div>
 
-      <div className="w-screen h-screen px-[118px] py-[333px] bg-[#e9cdff] flex justify-between items-center">
+      <div className="sticky-section w-screen h-screen px-[118px] py-[333px] bg-[#e9cdff] flex justify-between items-center">
         <div className="w-1/2">
           <AnimatedHeader 
             text1="Lorem ipsum dolor" 
@@ -88,7 +90,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex flex-col justify-between items-center">
+      <div className="overlay-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex flex-col justify-between items-center">
         <div className="flex flex-col lg:flex-row justify-center items-center gap-6 pt-48 lg:gap-12">
           <div className="w-[637px] h-[444px] flex justify-center items-center">
             <img src={SlideImage} alt="Process Slide" className="w-full h-full object-contain" />
@@ -117,7 +119,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="w-screen h-screen relative bg-gradient-to-l from-[#ffe9e9] to-[#a06af8]">
+      <div className="sticky-section w-screen h-screen relative bg-gradient-to-l from-[#ffe9e9] to-[#a06af8]">
         <div className="w-[2045.34px] h-[1395px] absolute -left-[330px] -top-[106px] z-0">
           <div className="circle-1 w-[693px] h-[693px] absolute left-[669.39px] top-[535px] origin-top-left rotate-[75deg] bg-[#dac4e7] rounded-full" />
           <div className="circle-2 w-[285.24px] h-[285.24px] absolute left-[1971.52px] top-[396px] origin-top-left rotate-[75deg] bg-[#dac4e7] rounded-full" />
