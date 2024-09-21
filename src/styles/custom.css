@@ -457,6 +457,44 @@
   background-color: #141221;
 }
 
+/* Process Section */
+.dots {
+  position: relative;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  filter: url("#goo");
+}
+
+.dot {
+  display: inline-block;
+  background-color: #888;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot:hover {
+  background-color: #ccc; /* Lighter hover color */
+}
+
+.select {
+  background-color: #F6FFBC; /* Active dot color */
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Gooey movement */
+}
+
+
 /* About Our Committment section */
 .circle-1 {
   background: radial-gradient(circle at top left, #F6FFBC, #DAC4E7 25%, #3B1AE5);

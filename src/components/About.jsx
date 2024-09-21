@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import SlideImage from '/images/1.svg';
+import ProcessSection from './ProcessSection';
 import ValueCardScroll from './ValueCardScroll';
 import AnimatedHeader from './AnimatedHeader';
 
@@ -109,40 +109,15 @@ const About = () => {
       </div>
 
       <div className="overlay-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex flex-col justify-between items-center">
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-6 pt-48 lg:gap-12">
-          <div className="w-[637px] h-[444px] flex justify-center items-center">
-            <img src={SlideImage} alt="Process Slide" className="w-full h-full object-contain" loading="lazy" />
-          </div>
-
-          <div className="w-[629px] flex flex-col justify-center items-center lg:items-start gap-9">
-            <div className="w-full text-center lg:text-left">
-              <span className="text-[#f4f3ff] text-4xl font-medium font-display">Lorem ipsum dolor</span>
-              <span className="text-[#f4f3ff] text-4xl font-normal font-serif"> sit amet</span>
-            </div>
-            <div className="w-full text-[#f4f3ff] text-2xl font-normal font-display leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </div>
-            <div className="w-full text-[#f4f3ff] text-2xl font-normal font-display leading-relaxed">
-              Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-            </div>
-          </div>
-        </div>
-
-        <div className="w-[393px] flex justify-center items-center gap-6">
-          <div className="w-6 h-6 bg-[#7a6fc0] rounded-full"></div>
-          <div className="w-6 h-6 bg-[#7a6fc0] rounded-full"></div>
-          <div className="w-6 h-6 bg-[#7a6fc0] rounded-full"></div>
-          <div className="w-6 h-6 bg-[#7a6fc0] rounded-full"></div>
-          <div className="w-6 h-6 bg-[#7a6fc0] rounded-full"></div>
-        </div>
+       <ProcessSection/>
       </div>
 
       <div className="sticky-section w-screen h-screen relative bg-gradient-to-l from-[#ffe9e9] to-[#a06af8]">
         <div className="w-screen h-screen absolute -left-[330px] -top-[106px] z-0">
           <div className="circle-1 w-[693px] h-[693px] absolute right-[-400px] top-[-2150px] origin-top-left rotate-[75deg] bg-[#dac4e7] rounded-full" />
-          <div className="circle-2 w-[285.24px] h-[285.24px] absolute left-[1700px] top-[-2000px] origin-top-left rotate-[75deg] bg-[#dac4e7] rounded-full" />
-          <div className="circle-3 w-[412px] h-[412px] absolute left-[700px] top-[-600px] bg-[#f6ffbc] rounded-full" />
-          <div className="circle-4 w-[444.99px] h-[444.99px] absolute left-[400px] top-[-2250px] origin-top-left rotate-[75deg] bg-[#f6ffbc] rounded-full" />
+          <div className="circle-2 w-[285.24px] h-[285.24px] absolute left-[1500px] top-[-2000px] origin-top-left rotate-[75deg] bg-[#dac4e7] rounded-full" />
+          <div className="circle-3 w-[412px] h-[412px] absolute left-[500px] top-[-700px] bg-[#f6ffbc] rounded-full" />
+          <div className="circle-4 w-[444.99px] h-[444.99px] absolute left-[300px] top-[-2250px] origin-top-left rotate-[75deg] bg-[#f6ffbc] rounded-full" />
         </div>
 
         {/* Static Content */}
