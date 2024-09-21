@@ -1,3 +1,7 @@
+:root {
+  --blob-color: #A06AF8;
+}
+
 /* Ensure full viewport centering */
 .preloader-container {
   display: flex;
@@ -180,14 +184,15 @@
   color: #141221;
 }
 
-/* Active State */
-.nav-item.active {
-  background-color: #f4f3ff; /* Figma active state color */
+/* More Specific Active State */
+.navbar .nav-item.active {
+  background-color: #f4f3ff;
 }
 
-.nav-item.active .nav-text {
-  color: #141221; /* Active state text color */
+.navbar .nav-item.active .nav-text {
+  color: #141221;
 }
+
 
 /* custom cursor */
 .cursor {
@@ -314,98 +319,127 @@
     }
   }
 
-/* MainHero section */
-#main-hero {
-  position: relative;
-  background-color: #141221;
-  overflow: visible;
-}
-
-/* Blob container positioned behind the content */
-.blobs-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
-}
-
-/* Blobs with gradient, movement, and gooey effect */
-.blobs {
-  position: absolute;
-  background: linear-gradient(to top left, #3b1ae5, #a06af8);
-  border-radius: 50%; /* Start with circular shape */
-  filter: url("#gooey");
-  mix-blend-mode: screen;
-  opacity: 0.9;
-  animation: blob-movement infinite ease-in-out;
-  animation-duration: 30s; /* Default duration */
-}
-
-/* Specific blob positions based on Figma */
-.blob-1 {
-  width: 17rem;
-  height: 17rem;
-  left: 123px;
-  top: 161px;
-  animation-duration: 14s;
-  /* border-radius: 40% 60% 70% 50%;  */
-  border-radius: 100%; 
-}
-
-.blob-2 {
-  width: 7rem;
-  height: 7rem;
-  left: 470px;
-  top: 416px;
-  animation-duration: 28s;
-  /* border-radius: 50% 60% 60% 40%; */
-  border-radius: 100%;
-}
-
-.blob-3 {
-  width: 12rem;
-  height: 12rem;
-  left: 229px;
-  top: 497px;
-  animation-duration: 20s;
-  /* border-radius: 60% 50% 60% 50%; */
-  border-radius: 100%;
-}
-
-.blob-4 {
-  width: 30rem;
-  height: 30rem;
-  left: 935px;
-  top: 161px;
-  animation-duration: 24s;
-  /* border-radius: 50% 60% 50% 70%; */
-  border-radius: 100%;
-}
-
-.blob-5 {
-  width: 18rem;
-  height: 18rem;
-  left: 843px;
-  top: 610px;
-  animation-duration: 34s;
-  /* border-radius: 70% 50% 60% 40%; */
-  border-radius: 100%;
-}
-
-/* Keyframes for blob movement */
-@keyframes blob-movement {
-  0% {
-    transform: translate(0, 0) scale(1);
+  .blobs-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--blob-color); 
+    filter: url("#gooey-effect");
+    z-index: 0;
+    overflow: visible;
   }
-  50% {
-    transform: translate(100px, -100px) scale(1.4);
+  
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    background: inherit;
+    cursor: grab;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  100% {
-    transform: translate(0, 0) scale(1);
+
+  .blob:active {
+    cursor: grabbing; /* Change cursor during drag */
   }
-}
+  
+  .blob-1 {
+    width: 17.06rem;
+    height: 17.06rem;
+    top: 300px;
+    left: 300px;
+    animation: blob-move-1 6s ease-in-out infinite;
+  }
+  
+  .blob-2 {
+    width: 12rem;
+    height: 12rem;
+    top: 300px;
+    right: 300px;
+    animation: blob-move-2 7s ease-in-out infinite;
+  }
+  
+  .blob-3 {
+    width: 11.75rem;
+    height: 11.75rem;
+    top: 300px;
+    left: 61px;
+    animation: blob-move-3 5s ease-in-out infinite;
+  }
+  
+  .blob-4 {
+    width: 28.69rem;
+    height: 28.69rem;
+    bottom: -20rem;
+    right: 40px;
+    animation: blob-move-4 8s ease-in-out infinite;
+  }
+  
+  .blob-5 {
+    width: 20rem;
+    height: 20rem;
+    bottom: -8rem;
+    left: 50px;
+    animation: blob-move-5 7.5s ease-in-out infinite;
+  }
+  
+  @keyframes blob-move-1 {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-50px) scale(1.2);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes blob-move-2 {
+    0% {
+      transform: scale(1) translate(0, 0);
+    }
+    50% {
+      transform: scale(1.3) translate(-100px, -400px);
+    }
+    100% {
+      transform: scale(1) translate(0, 0);
+    }
+  }
+  
+  @keyframes blob-move-3 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(500px, 50px) scale(1.4);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  
+  @keyframes blob-move-4 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-50px, -30px) scale(1.1);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  
+  @keyframes blob-move-5 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(100px, 50px) scale(1.4);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
 
 /* About section */
 .circle-1 {

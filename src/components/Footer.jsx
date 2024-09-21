@@ -61,7 +61,7 @@ const Footer = () => {
 
         <div className="custom-cursor-area w-full flex justify-between items-start">
           <div>
-            <p>Designed and developed by me —with a little 💻, ☕, and AI magic🪄.</p>
+            <p>Designed and developed by yours truly —with a little 💻, ☕, and AI magic🪄.</p>
           </div>
           <div>
             <p>© 2024 Gothic Moon Creative Studio LLC</p>

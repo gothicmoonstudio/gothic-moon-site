@@ -12,6 +12,7 @@ const About = () => {
           text1="Lorem ipsum dolor" 
           text3="sit amet" 
           textSize="7.5rem" 
+          textColor="#f4f3ff"
         />
       </div>
 
@@ -48,6 +49,7 @@ const About = () => {
               text1="Lorem ipsum dolor" 
               text3="sit amet" 
               textSize="7.5rem" 
+              textColor="#f4f3ff"
             />
           </div>
         </div>

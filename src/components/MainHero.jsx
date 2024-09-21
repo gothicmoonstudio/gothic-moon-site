@@ -1,35 +1,70 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Instagram, Dribbble } from 'react-feather';
 
 function MainHero() {
+  useEffect(() => {
+    const blobs = document.querySelectorAll('.blob');
+
+    blobs.forEach(blob => {
+      let isDragging = false;
+      let startX, startY, initialX, initialY;
+
+      blob.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        initialX = parseFloat(getComputedStyle(blob).left);
+        initialY = parseFloat(getComputedStyle(blob).top);
+
+        // Ensure the blob can be dragged even outside the blob's bounding box
+        blob.setPointerCapture(e.pointerId);
+      });
+
+      blob.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+
+        blob.style.left = `${initialX + dx}px`;
+        blob.style.top = `${initialY + dy}px`;
+      });
+
+      blob.addEventListener('pointerup', (e) => {
+        isDragging = false;
+        blob.releasePointerCapture(e.pointerId);
+      });
+    });
+  }, []);
+
   return (
-    <section 
+    <section
       id="main-hero"
-      className="relative w-full min-h-screen bg-secondary flex flex-col items-center justify-center overflow-hidden">
-      
+      className="relative w-full min-h-screen bg-secondary flex flex-col items-center justify-center overflow-hidden"
+    >
       {/* Gooey filter for smooth merging */}
-      <svg style={{ position: 'absolute', width: 0, height: 0 }}>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{ position: 'absolute', width: 0, height: 0 }}>
         <defs>
-          <filter id="gooey">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="50" result="blur" /> {/* Higher blur for more gooey effect */}
+          <filter id="gooey-effect">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
             <feColorMatrix
               in="blur"
               mode="matrix"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10" /* Adjusted values for a stronger merge */
-              result="gooey"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+              result="goo"
             />
-            <feBlend in="SourceGraphic" in2="gooey" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
           </filter>
         </defs>
       </svg>
 
       {/* Blobs with movement */}
-      <div className="blobs-container z-0 absolute inset-0">
-        <div className="blobs blob-1"></div>
-        <div className="blobs blob-2"></div>
-        <div className="blobs blob-3"></div>
-        <div className="blobs blob-4"></div>
-        <div className="blobs blob-5"></div>
+      <div className="blobs-container" style={{ filter: 'url("#gooey-effect")' }}>
+        <div className="blob blob-1"></div>
+        <div className="blob blob-2"></div>
+        <div className="blob blob-3"></div>
+        <div className="blob blob-4"></div>
+        <div className="blob blob-5"></div>
       </div>
 
       {/* Main Content */}

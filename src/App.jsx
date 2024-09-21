@@ -1,3 +1,4 @@
+// App.jsx
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import CustomCursor from './components/CustomCursor';
@@ -16,9 +17,12 @@ function App() {
 
   useEffect(() => {
     const sections = document.querySelectorAll('section');
+    console.log('Observed Sections:', sections);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          console.log(`Intersection for ${entry.target.id}:`, entry.isIntersecting);
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
           }
@@ -29,7 +33,10 @@ function App() {
 
     sections.forEach((section) => observer.observe(section));
 
-    return () => observer.disconnect(); // Cleanup observer on component unmount
+    return () => {
+      observer.disconnect();
+      console.log('Observer disconnected');
+    };
   }, []);
 
   return (
@@ -39,11 +46,11 @@ function App() {
         <div>
           <CustomCursor />
           <Navbar>
-            <NavItem label="Home" href="#main-hero" isActive={activeSection === 'main-hero'} />
-            <NavItem label="About" href="#about" isActive={activeSection === 'about'} />
-            <NavItem label="Projects" href="#projects" isActive={activeSection === 'projects'} />
-            <NavItem label="Services" href="#services" isActive={activeSection === 'services'} />
-            <NavItem label="Contact" href="#contact" isActive={activeSection === 'contact'} />
+            <NavItem label="Home" href="#main-hero" isCurrentPage={activeSection === 'main-hero'} />
+            <NavItem label="About" href="#about" isCurrentPage={activeSection === 'about'} />
+            <NavItem label="Projects" href="#projects" isCurrentPage={activeSection === 'projects'} />
+            <NavItem label="Services" href="#services" isCurrentPage={activeSection === 'services'} />
+            <NavItem label="Contact" href="#contact" isCurrentPage={activeSection === 'contact'} />
           </Navbar>
           <MainHero id="main-hero" />
           <About id="about" />
