@@ -12,8 +12,8 @@ function ProjectSlider() {
       link: '/case-studies/project-1',
     },
     {
-      title: 'Project 2',
-      image: '/images/slide_02.png',
+      title: 'The Obsidian Veil',
+      image: '/images/obsidian_teaser.png',
       link: '/case-studies/project-2',
     },
     {
