@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import ProcessSection from './ProcessSection';
 import ValueCardScroll from './ValueCardScroll';
 import AnimatedHeader from './AnimatedHeader';
@@ -131,7 +130,8 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>
+  </section>
+    
   );
 };
 

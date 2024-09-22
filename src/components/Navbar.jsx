@@ -23,6 +23,7 @@ function Navbar({ activeSection }) {
           label="About"
           href="#about"
           isCurrentPage={activeSection === 'about'}
+          onClick={() => handleNavClick('about')}
         />
         <NavItem
           label="Projects"

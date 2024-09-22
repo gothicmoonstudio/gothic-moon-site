@@ -25,7 +25,7 @@ function App() {
             }
           });
         },
-        { threshold: 0.5 } // Adjust this threshold as needed
+        { threshold: 0.1 } // Adjust this threshold as needed
       );
 
       sections.forEach((section) => observer.observe(section));
