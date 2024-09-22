@@ -110,7 +110,7 @@ const About = () => {
        <ProcessSection/>
       </div>
 
-      <div className="sticky-section w-screen h-screen relative bg-gradient-to-l from-[#ffe9e9] to-[#a06af8]">
+      <div className="overlay-section w-screen h-screen relative bg-gradient-to-l from-[#ffe9e9] to-[#a06af8]">
         <div className="w-screen h-screen absolute -left-[330px] -top-[106px] z-0">
           <div className="circle-1 w-[693px] h-[693px] absolute right-[-400px] top-[-2150px] origin-top-left rotate-[75deg] bg-[#dac4e7] rounded-full" />
           <div className="circle-2 w-[285.24px] h-[285.24px] absolute left-[1500px] top-[-2000px] origin-top-left rotate-[75deg] bg-[#dac4e7] rounded-full" />
