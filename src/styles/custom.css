@@ -188,14 +188,18 @@
 }
 
 /* More Specific Active State */
-.navbar .nav-item.active {
+.nav-item:active {
   background-color: #f4f3ff;
-}
-
-.navbar .nav-item.active .nav-text {
   color: #141221;
 }
 
+.nav-item.active {
+  background-color: #f4f3ff;
+  color: #141221;
+}
+.nav-item.active .nav-text {
+  color: #141221;
+}
 
 /* custom cursor */
 .cursor {
@@ -514,4 +518,14 @@
 
 .circle-4 {
   background: radial-gradient(circle at top left, #F6FFBC, #9BA5EA 50%, #9747FF);
+}
+
+/* Projects section */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05); /* Slightly grow on hover */
+  color: #a06af8; /* Example of hover color */
 }

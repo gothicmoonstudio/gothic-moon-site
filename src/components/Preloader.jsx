@@ -9,7 +9,7 @@ const Preloader = ({ setLoading }) => {
 
   useEffect(() => {
     // Listen to changes in 'rounded' and update 'displayCount'
-    const unsubscribe = rounded.onChange((v) => {
+    const unsubscribe = rounded.on("change", (v) => {
       setDisplayCount(v); // Update display count whenever 'rounded' changes
     });
 

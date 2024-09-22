@@ -30,10 +30,12 @@ const Footer = () => {
             <img src="/images/full_logo.svg" alt="Gothic Moon logo" className="footer-logo" />
           </div>
 
-          <div className="footer-text">
-            <span className="footer-main-text">We’re brewing something </span>
-            <span className="footer-highlight">extraordinary.</span>
+          <div className="footer-text-container">
+            <div className="footer-text">
+              <span className="footer-main-text">We’re brewing something</span>
+              <span className="footer-highlight">extraordinary.</span>
           </div>
+        </div>
         </div>
 
         <div className="social-icons gap-9 pb-6">
@@ -61,10 +63,10 @@ const Footer = () => {
 
         <div className="custom-cursor-area w-full flex justify-between items-start">
           <div>
-            <p>Designed and developed by yours truly —with a little 💻, ☕, and AI magic🪄.</p>
+            <p className="font-[Bely]">Designed and developed by yours truly —with a little 💻, ☕, and AI magic🪄.</p>
           </div>
           <div>
-            <p>© 2024 Gothic Moon Creative Studio LLC</p>
+            <p className="font-display">© 2024 Gothic Moon Creative Studio LLC</p>
           </div>
         </div>
       </div>

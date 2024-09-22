@@ -1,6 +1,6 @@
 // Navbar.jsx
 import React from 'react';
-import PropTypes from 'prop-types'; // Optional: For prop type checking
+import PropTypes from 'prop-types';
 import NavItem from './NavItem';
 import PrimaryButton from './PrimaryButton';
 import LogoAnimation from './LogoAnimation';
@@ -14,28 +14,31 @@ function Navbar({ activeSection }) {
       </a>
 
       {/* Navigation Items */}
-      <div className="flex gap-6">
-        <NavItem 
-          label="About" 
-          href="#about" 
-          isCurrentPage={activeSection === 'about'} 
+        <NavItem
+          label="Home"
+          href="#main-hero"
+          isCurrentPage={activeSection === 'main-hero'}
         />
-        <NavItem 
-          label="Projects" 
-          href="#projects" 
-          isCurrentPage={activeSection === 'projects'} 
+        <NavItem
+          label="About"
+          href="#about"
+          isCurrentPage={activeSection === 'about'}
         />
-        <NavItem 
-          label="Services" 
-          href="#services" 
-          isCurrentPage={activeSection === 'services'} 
+        <NavItem
+          label="Projects"
+          href="#projects"
+          isCurrentPage={activeSection === 'projects'}
         />
-        <NavItem 
-          label="Contact" 
-          href="#contact" 
-          isCurrentPage={activeSection === 'contact'} 
+        <NavItem
+          label="Services"
+          href="#services"
+          isCurrentPage={activeSection === 'services'}
         />
-      </div>
+        <NavItem
+          label="Contact"
+          href="#contact"
+          isCurrentPage={activeSection === 'contact'}
+        />
 
       {/* Primary Button */}
       <div className="ml-4 whitespace-nowrap">

@@ -1,6 +1,6 @@
 // src/components/Services.jsx
 import React, { useEffect, useRef } from 'react';
-import SecondaryButton from './ScondaryButton';
+import SecondaryButton from './SecondaryButton';
 
 function Services() {
   const gradientRef = useRef(null);
@@ -36,9 +36,9 @@ function Services() {
         <div className="w-[1276px] flex justify-center items-center gap-2.5">
           <div className="w-[643px] text-center">
             <span className="text-[#f4f3ff] text-[40px] font-normal font-display">
-              Let us be your
+              Let Gothic be your
             </span>
-            <span className="text-[#f4f3ff] text-[36px] font-normal font-serif"> design guide </span>
+            <span className="text-[#f4f3ff] text-[36px] font-normal font-serif"> design guide.</span>
           </div>
         </div>
 

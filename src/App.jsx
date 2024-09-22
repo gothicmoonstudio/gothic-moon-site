@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import CustomCursor from './components/CustomCursor';
@@ -13,31 +12,34 @@ import NavItem from './components/NavItem';
 
 function App() {
   const [loading, setLoading] = useState(true); // Track loading state
-  const [activeSection, setActiveSection] = useState(''); // Track the active section
+  const [activeSection, setActiveSection] = useState('null'); // Track the active section
 
   useEffect(() => {
-    const sections = document.querySelectorAll('section');
-    console.log('Observed Sections:', sections);
+    if (!loading) {
+      const sections = document.querySelectorAll('section');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(entry.target.id); // Dynamically update active section
+            }
+          });
+        },
+        { threshold: 0.5 } // Adjust this threshold as needed
+      );
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          console.log(`Intersection for ${entry.target.id}:`, entry.isIntersecting);
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+      sections.forEach((section) => observer.observe(section));
 
-    sections.forEach((section) => observer.observe(section));
+      return () => {
+        observer.disconnect();
+      };
+    }
+  }, [loading]);
 
-    return () => {
-      observer.disconnect();
-      console.log('Observer disconnected');
-    };
-  }, []);
+  const handleNavClick = (sectionId) => {
+    setActiveSection(sectionId); // Dynamically set the active section
+    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -45,7 +47,8 @@ function App() {
       {!loading && (
         <div>
           <CustomCursor />
-          <Navbar>
+          {/* Pass activeSection to Navbar */}
+          <Navbar activeSection={activeSection}>
             <NavItem label="Home" href="#main-hero" isCurrentPage={activeSection === 'main-hero'} />
             <NavItem label="About" href="#about" isCurrentPage={activeSection === 'about'} />
             <NavItem label="Projects" href="#projects" isCurrentPage={activeSection === 'projects'} />

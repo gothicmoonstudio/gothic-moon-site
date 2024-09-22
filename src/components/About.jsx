@@ -38,10 +38,10 @@ const About = () => {
       <div className="overlay-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex justify-between items-center gap-12 z-10"
       >
         <div className="w-1/2 flex flex-col justify-start items-start gap-6">
-          <div className="w-full text-[#f4f3ff] text-lg md:text-xl lg:text-2xl font-normal font-display leading-[33.67px]">
+          <div className="w-full text-[#f4f3ff] text-xl md:text-2xl lg:text-3xl font-normal font-display leading-[33.67px]">
             My name is Mary Sargent, and I’m a product designer with over 6 years of experience in product, UX, and web design. Throughout my career, I’ve specialized in designing enterprise tools for the media and entertainment industries. Now, I’m embarking on a new journey as the founder of my own solo design studio. While Gothic Moon is currently a team of one, I’m always seeking opportunities to collaborate and look forward to growing the studio in the near future.
           </div>
-          <div className="w-full text-[#f4f3ff] text-lg md:text-xl lg:text-2xl font-normal font-display leading-[33.67px]">
+          <div className="w-full text-[#f4f3ff] text-xl md:text-2xl lg:text-3xl font-normal font-display leading-[33.67px]">
             Welcome to Gothic Moon, your trusted partner for all things design.
           </div>
         </div>
@@ -50,7 +50,7 @@ const About = () => {
           <AnimatedHeader
             text1="Welcome to"
             text3="Gothic Moon."
-            textSize="7.5rem"
+            textSize="9rem"
             textColor="#f4f3ff"
           />
         </div>
@@ -63,7 +63,7 @@ const About = () => {
           <div>
             <AnimatedHeader 
               text1="Illuminating your path to" 
-              text3="ux & web design" 
+              text3="ux & web design." 
               textSize="7rem" 
               textColor="#f4f3ff"
             />
@@ -92,7 +92,7 @@ const About = () => {
         <div className="w-1/2">
           <AnimatedHeader 
             text1="Guiding your next project to" 
-            text3="unmatched UX success" 
+            text3="unmatched UX success." 
             textSize="6rem" 
             textColor="#141221"
           />
@@ -124,7 +124,7 @@ const About = () => {
           <div className="w-[643px] text-center">
             <span className="text-[#141221] text-[3rem] font-medium font-display">I'm committed to manifesting</span>
             <span className="text-[#141221] text-[3rem] font-normal font-display"> </span>
-            <span className="text-[#141221] text-[3rem] font-normal font-serif">your vision & success</span>
+            <span className="text-[#141221] text-[3rem] font-normal font-serif">your vision & success.</span>
           </div>
           <div className="w-[643px] text-center text-[#141221] text-2xl font-normal leading-[33.67px] font-display">
             With Gothic Moon as your guide, you'll have a clear map to navigate the complex terrain of user experience design, ensuring your digital presence stands out in the vast online landscape.

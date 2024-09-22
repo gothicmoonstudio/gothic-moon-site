@@ -84,11 +84,17 @@
     height: 100%;
   }
   
-  .footer-text {
-    color: #f4f3ff;
-    font-size: 1.5rem;
+  .footer-text-container {
     display: flex;
-    align-items: center;
+    justify-content: flex-end; /* Centers the text block within the container */
+    width: 100%;
+  }
+  
+  .footer-text {
+    display: inline-block; /* Use inline-block to make the text behave like a single unit */
+    color: #f4f3ff;
+    font-size: 1.25rem;
+    text-align: center; /* Center align the text */
   }
   
   .footer-main-text {
@@ -98,8 +104,7 @@
   
   .footer-highlight {
     font-family: 'Bely Display', serif;
-    font-size: 1.5rem;
-    align-items: center;
+    font-size: 1.25rem;
     padding-left: 5px;
   }
   
