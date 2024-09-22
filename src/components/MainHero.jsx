@@ -1,71 +1,118 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Instagram, Dribbble } from 'react-feather';
 
 function MainHero() {
+  const [circleData, setCircleData] = useState([]);
+
+  const generateBlobs = (count) => {
+    const blobs = [];
+    for (let i = 0; i < count; i++) {
+      blobs.push({
+        r: Math.random() * 100 + 60, // Random radius between 50 and 150
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        xSpeed: Math.random() * 1 - 0.5, // Speed between -0.5 and 0.5
+        ySpeed: Math.random() * 1 - 0.5,
+      });
+    }
+    return blobs;
+  };
+
   useEffect(() => {
-    const blobs = document.querySelectorAll('.blob');
+    const setBlobsBasedOnViewport = () => {
+      const width = window.innerWidth;
+      let blobCount = 5; // Default to small screens
 
-    blobs.forEach(blob => {
-      let isDragging = false;
-      let startX, startY, initialX, initialY;
+      // Adjust number of blobs based on screen width
+      if (width >= 1200) {
+        blobCount = 10; // Large screens
+      } else if (width >= 768) {
+        blobCount = 7; // Medium screens
+      }
 
-      blob.addEventListener('pointerdown', (e) => {
-        isDragging = true;
-        startX = e.clientX;
-        startY = e.clientY;
-        initialX = parseFloat(getComputedStyle(blob).left);
-        initialY = parseFloat(getComputedStyle(blob).top);
+      setCircleData(generateBlobs(blobCount));
+    };
 
-        // Ensure the blob can be dragged even outside the blob's bounding box
-        blob.setPointerCapture(e.pointerId);
-      });
+    // Set initial blobs based on current viewport size
+    setBlobsBasedOnViewport();
 
-      blob.addEventListener('pointermove', (e) => {
-        if (!isDragging) return;
+    // Update blobs when window is resized
+    window.addEventListener('resize', setBlobsBasedOnViewport);
 
-        const dx = e.clientX - startX;
-        const dy = e.clientY - startY;
-
-        blob.style.left = `${initialX + dx}px`;
-        blob.style.top = `${initialY + dy}px`;
-      });
-
-      blob.addEventListener('pointerup', (e) => {
-        isDragging = false;
-        blob.releasePointerCapture(e.pointerId);
-      });
-    });
+    // Cleanup the event listener on unmount
+    return () => {
+      window.removeEventListener('resize', setBlobsBasedOnViewport);
+    };
   }, []);
+
+  useEffect(() => {
+    const updatePosition = (circle, bounds) => {
+      // Update blob position and handle screen bounds
+      circle.x += circle.xSpeed;
+      circle.y += circle.ySpeed;
+
+      if (circle.x < bounds.minX || circle.x > bounds.maxX) circle.xSpeed *= -1;
+      if (circle.y < bounds.minY || circle.y > bounds.maxY) circle.ySpeed *= -1;
+    };
+
+    const bounds = {
+      minX: -150,
+      minY: -150,
+      maxX: window.innerWidth + 100,
+      maxY: window.innerHeight + 100,
+    };
+
+    const intervalId = setInterval(() => {
+      circleData.forEach((circle) => {
+        updatePosition(circle, bounds);
+        document.getElementById(`blob-${circle.r}`).setAttribute('cx', circle.x);
+        document.getElementById(`blob-${circle.r}`).setAttribute('cy', circle.y);
+      });
+    }, 10);
+
+    return () => clearInterval(intervalId); // Cleanup interval on unmount
+  }, [circleData]);
 
   return (
     <section
       id="main-hero"
       className="relative w-full min-h-screen bg-secondary flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* Gooey filter for smooth merging */}
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{ position: 'absolute', width: 0, height: 0 }}>
+      {/* SVG Metaballs */}
+      <svg className="absolute w-full h-full overflow-hidden">
         <defs>
-          <filter id="gooey-effect">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          {/* Gooey Filter */}
+          <filter id="gooify" width="400%" x="-10%" height="400%" y="-150%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
             <feColorMatrix
               in="blur"
               mode="matrix"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-              result="goo"
+              values="1 0 0 0 0
+                     0 1 0 0 0
+                     0 0 1 0 0
+                     0 0 0 25 -10"
             />
-            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
           </filter>
+          {/* Gradient */}
+          <linearGradient id="lavaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#3B1AE5" />
+            <stop offset="100%" stopColor="#E1303B" />
+          </linearGradient>
         </defs>
-      </svg>
 
-      {/* Blobs with movement */}
-      <div className="blobs-container" style={{ filter: 'url("#gooey-effect")' }}>
-        <div className="blob blob-1"></div>
-        <div className="blob blob-2"></div>
-        <div className="blob blob-3"></div>
-        <div className="blob blob-4"></div>
-        <div className="blob blob-5"></div>
-      </div>
+        <g filter="url(#gooify)">
+          {circleData.map((circle) => (
+            <circle
+              key={circle.r}
+              id={`blob-${circle.r}`}
+              cx={circle.x}
+              cy={circle.y}
+              r={circle.r}
+              fill="url(#lavaGradient)"
+            />
+          ))}
+        </g>
+      </svg>
 
       {/* Main Content */}
       <div className="w-full h-62 px-28 flex flex-col items-center gap-9 relative z-10">
@@ -81,26 +128,26 @@ function MainHero() {
           </span>
         </div>
         <div className="flex justify-center items-center gap-9">
-        <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
-          <a 
-          href="https://www.instagram.com/gothicmoonstudio" 
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:scale-110 transition-transform duration-300 ease-in-out"
-          >
-            <Instagram className="hover:text-[#E1306C]" />
-          </a>
-        </div>
-        <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
-          <a 
-          href="https://dribbble.com/gothicmoonstudio" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="hover:scale-110 transition-transform duration-300 ease-in-out"
-          >          
-            <Dribbble className="hover:text-[#E1306C]" />
-          </a>
-        </div>
+          <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
+            <a 
+              href="https://www.instagram.com/gothicmoonstudio" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-110 transition-transform duration-300 ease-in-out"
+            >
+              <Instagram className="hover:text-[#E1306C]" />
+            </a>
+          </div>
+          <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
+            <a 
+              href="https://dribbble.com/gothicmoonstudio" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:scale-110 transition-transform duration-300 ease-in-out"
+            >
+              <Dribbble className="hover:text-[#E1306C]" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

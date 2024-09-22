@@ -199,6 +199,7 @@
 }
 .nav-item.active .nav-text {
   color: #141221;
+  font-weight: 500;
 }
 
 /* custom cursor */
