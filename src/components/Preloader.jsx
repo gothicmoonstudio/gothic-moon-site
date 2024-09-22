@@ -3,31 +3,30 @@ import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 
 const Preloader = ({ setLoading }) => {
   // Using Framer Motion for animated count
-  const count = useMotionValue(0); // Initial count value using motion
-  const rounded = useTransform(count, Math.round); // Round the value for display
-  const [displayCount, setDisplayCount] = useState(0); // State to hold the displayable count
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, Math.round);
+  const [displayCount, setDisplayCount] = useState(0);
 
   useEffect(() => {
-    // Listen to changes in 'rounded' and update 'displayCount'
-    const unsubscribe = rounded.on("change", (v) => {
-      setDisplayCount(v); // Update display count whenever 'rounded' changes
+    const unsubscribe = rounded.on('change', (v) => {
+      setDisplayCount(v);
     });
 
-    // Animate the count from 0 to 100 over 10 seconds
     const animation = animate(count, 100, { duration: 10 });
 
-    // Set loading to false when the animation completes
     const stopLoading = setTimeout(() => {
-      setLoading(false); // Hide preloader and show main content
-    }, 10000); // Matches the animation duration (10 seconds)
+      setLoading(false);
+    }, 10000);
 
-    // Clean up the animation and timeout on component unmount
     return () => {
       animation.stop();
       clearTimeout(stopLoading);
-      unsubscribe(); // Stop listening to changes on 'rounded'
+      unsubscribe();
     };
   }, [count, setLoading, rounded]);
+
+  // Function to generate random values
+  const getRandom = (min, max) => Math.random() * (max - min) + min;
 
   return (
     <div className="preloader-container">
@@ -46,21 +45,36 @@ const Preloader = ({ setLoading }) => {
         </svg>
         <div className="gooey-container">
           <span className="level">
-            <span className="plasma_bubble"></span>
-            <span className="plasma_bubble"></span>
-            <span className="plasma_bubble"></span>
-            <span className="plasma_bubble"></span>
-            <span className="plasma_bubble"></span>
-            <span className="plasma_bubble"></span>
-            <span className="plasma_bubble"></span>
-            <span className="plasma_bubble"></span>
+            {/* Plasma bubbles */}
+            {[...Array(8)].map((_, index) => (
+              <motion.span
+                key={index}
+                className="plasma_bubble"
+                initial={{
+                  x: getRandom(-150, 150), // Random starting x position
+                  y: getRandom(-150, 150), // Random starting y position
+                  scale: getRandom(0.8, 1.2), // Random initial scale
+                }}
+                animate={{
+                  x: [getRandom(-200, 200), getRandom(-200, 200), getRandom(-200, 200)], // Randomized x movement
+                  y: [getRandom(-200, 200), getRandom(-200, 200), getRandom(-200, 200)], // Randomized y movement
+                  scale: [1, getRandom(1.3, 1.6), 1], // Random scaling
+                  rotate: [0, getRandom(90, 360), 0], // Randomized rotation
+                }}
+                transition={{
+                  duration: getRandom(4, 7), // Randomized duration for each bubble
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+              />
+            ))}
           </span>
         </div>
       </div>
 
       {/* Framer Motion Animated Counter */}
       <div className="preloader-text">
-        <motion.h1>{`[${displayCount}]`}</motion.h1> {/* Display the state, not the MotionValue */}
+        <motion.h1>{`[${displayCount}]`}</motion.h1>
       </div>
     </div>
   );

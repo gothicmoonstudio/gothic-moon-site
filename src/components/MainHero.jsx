@@ -1,6 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Instagram, Dribbble } from 'react-feather';
 
+// Debounce function to limit how often a function is called
+const debounce = (func, delay) => {
+  let timeoutId;
+  return (...args) => {
+    if (timeoutId) clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func(...args);
+    }, delay);
+  };
+};
+
 function MainHero() {
   const [circleData, setCircleData] = useState([]);
 
@@ -8,7 +19,7 @@ function MainHero() {
     const blobs = [];
     for (let i = 0; i < count; i++) {
       blobs.push({
-        r: Math.random() * 100 + 60, // Random radius between 50 and 150
+        r: Math.random() * 100 + 60, // Random radius between 60 and 160
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
         xSpeed: Math.random() * 1 - 0.5, // Speed between -0.5 and 0.5
@@ -33,15 +44,20 @@ function MainHero() {
       setCircleData(generateBlobs(blobCount));
     };
 
+    // Debounced version of the resize handler
+    const handleResize = debounce(() => {
+      setBlobsBasedOnViewport();
+    }, 200);
+
     // Set initial blobs based on current viewport size
     setBlobsBasedOnViewport();
 
     // Update blobs when window is resized
-    window.addEventListener('resize', setBlobsBasedOnViewport);
+    window.addEventListener('resize', handleResize);
 
     // Cleanup the event listener on unmount
     return () => {
-      window.removeEventListener('resize', setBlobsBasedOnViewport);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -65,8 +81,11 @@ function MainHero() {
     const intervalId = setInterval(() => {
       circleData.forEach((circle) => {
         updatePosition(circle, bounds);
-        document.getElementById(`blob-${circle.r}`).setAttribute('cx', circle.x);
-        document.getElementById(`blob-${circle.r}`).setAttribute('cy', circle.y);
+        const blobElement = document.getElementById(`blob-${circle.r}`);
+        if (blobElement) {
+          blobElement.setAttribute('cx', circle.x);
+          blobElement.setAttribute('cy', circle.y);
+        }
       });
     }, 10);
 
