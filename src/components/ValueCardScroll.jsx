@@ -48,14 +48,14 @@ const ValueCardScroll = () => {
       const wrapper = wrapperRef.current;
 
       gsap.to(container, {
-        xPercent: -100 * (container.children.length - 1), // Scroll based on the number of cards
+        xPercent: -100 * (container.scrollWidth - 1), // Scroll based on the number of cards
         ease: 'none',
         scrollTrigger: {
           trigger: wrapper, // Pinning the wrapper for scroll trigger
           pin: true, // Pin the section until scrolling is complete
           scrub: 1, // Smooth scrubbing
           start: 'top top', // Pin starts when top of the section hits the top of the viewport
-          end: () => `+=${container.offsetWidth}`, // Scroll distance based on the content width
+          end: () => `+=${container.children.length}`, // Scroll distance based on the content width
           pinSpacing: false, // Avoid extra space when the pinning ends
           markers: true, // Set to true if you want to see markers for debugging
         },
