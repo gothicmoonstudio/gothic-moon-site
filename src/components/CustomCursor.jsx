@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { gsap } from 'gsap';
+import gsap from 'gsap';
 
 const CustomCursor = () => {
   useEffect(() => {
