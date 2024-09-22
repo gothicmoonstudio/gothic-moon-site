@@ -8,7 +8,7 @@ function Contact() {
     <section 
     id="contact"
     className="contact-section w-full p-28 flex flex-col items-center"
-    style={{ height: "calc(100vh - 24rem)" }}>
+    style={{ height: "calc(100vh - 16rem)" }}>
       <div className="w-full flex justify-center items-center mt-24 gap-9">
         <div className="flex-1 px-9 flex flex-col items-start gap-9">
           <div className="flex flex-col items-start">
