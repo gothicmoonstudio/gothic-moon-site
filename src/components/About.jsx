@@ -106,7 +106,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="overlay-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex flex-col justify-between items-center">
+      <div className="overlay-section">
        <ProcessSection/>
       </div>
 

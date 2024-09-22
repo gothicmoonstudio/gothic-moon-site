@@ -5,7 +5,6 @@ import ValueCard from './ValueCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Array containing dynamic content for ValueCards
 const valueCardData = [
   {
     title1: "Providing",
@@ -58,7 +57,7 @@ const ValueCardScroll = () => {
           start: 'top top', // Pin starts when top of the section hits the top of the viewport
           end: () => `+=${container.offsetWidth}`, // Scroll distance based on the content width
           pinSpacing: false, // Avoid extra space when the pinning ends
-          markers: false, // Set to true if you want to see markers
+          markers: true, // Set to true if you want to see markers for debugging
         },
       });
     });
@@ -67,19 +66,25 @@ const ValueCardScroll = () => {
   }, []);
 
   return (
-    <div ref={wrapperRef} className="w-screen h-screen flex justify-center items-center overflow-hidden">
-      <div ref={containerRef} className="flex">
-        {valueCardData.map((card, index) => (
-          <div key={index} className="px-12 py-6">
-            <ValueCard 
-              title1={card.title1}
-              title2={card.title2}
-              description={card.description}
-            />
-          </div>
-        ))}
+      <div
+        ref={wrapperRef}
+        className="w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex flex-col justify-center items-start overflow-hidden"
+        style={{
+          background: "linear-gradient(90deg, #3B1AE5 0%, #A06AF8 100%)"
+        }}
+      >
+        <div ref={containerRef} className="flex">
+          {valueCardData.map((card, index) => (
+            <div key={index} className="px-6 py-4">
+              <ValueCard
+                title1={card.title1}
+                title2={card.title2}
+                description={card.description}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
   );
 };
 
