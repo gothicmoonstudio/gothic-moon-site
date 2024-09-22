@@ -106,7 +106,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="overlay-section">
+      <div className="sticky-section">
        <ProcessSection/>
       </div>
 
