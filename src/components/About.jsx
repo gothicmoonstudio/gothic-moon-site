@@ -37,10 +37,10 @@ const About = () => {
       <div className="overlay-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex justify-between items-center gap-12 z-10"
       >
         <div className="w-1/2 flex flex-col justify-start items-start gap-6">
-          <div className="w-full text-[#f4f3ff] text-xl md:text-2xl lg:text-3xl font-normal font-display leading-[33.67px]">
+          <div className="w-full text-[#f4f3ff] text-lg md:text-xl lg:text-2xl font-normal font-display leading-[33.67px]">
             My name is Mary Sargent, and I’m a product designer with over 6 years of experience in product, UX, and web design. Throughout my career, I’ve specialized in designing enterprise tools for the media and entertainment industries. Now, I’m embarking on a new journey as the founder of my own solo design studio. While Gothic Moon is currently a team of one, I’m always seeking opportunities to collaborate and look forward to growing the studio in the near future.
           </div>
-          <div className="w-full text-[#f4f3ff] text-xl md:text-2xl lg:text-3xl font-normal font-display leading-[33.67px]">
+          <div className="w-full text-[#f4f3ff] text-lg md:text-xl lg:text-2xl font-normal font-display leading-[33.67px]">
             Welcome to Gothic Moon, your trusted partner for all things design.
           </div>
         </div>

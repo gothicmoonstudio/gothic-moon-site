@@ -35,10 +35,10 @@ function Services() {
         {/* Header Section */}
         <div className="w-[1276px] flex justify-center items-center gap-2.5">
           <div className="w-[643px] text-center">
-            <span className="text-[#f4f3ff] text-[40px] font-normal font-display">
+            <span className="text-[#f4f3ff] text-[2.5rem] font-normal font-display">
               Let Gothic be your
             </span>
-            <span className="text-[#f4f3ff] text-[36px] font-normal font-serif"> design guide.</span>
+            <span className="text-[#f4f3ff] text-[2.5rem] font-normal font-serif"> design guide.</span>
           </div>
         </div>
 
