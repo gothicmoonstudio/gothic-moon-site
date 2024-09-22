@@ -455,6 +455,7 @@
   position: relative;
   z-index: 2; /* Ensure it scrolls over the sticky section */
   background-color: #141221;
+  overflow: hidden;
 }
 
 /* Process Section */

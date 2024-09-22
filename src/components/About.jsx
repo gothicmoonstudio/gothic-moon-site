@@ -28,18 +28,18 @@ const About = () => {
       <div className="sticky-section w-screen h-screen px-[118px] py-24 bg-[#9747ff] flex justify-center items-center gap-2.5 text-center">
         <AnimatedHeader 
           text1="Gothic Moon is Your Trusted Guide" 
-          text3="For All Things Design" 
+          text3="For All Things Design." 
           textSize="4.5rem" 
           textColor="#f4f3ff"
         />
       </div>
 
       {/* Introduction Section (Scrolls Over) */}
-      <div className="overlay-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex justify-center items-center gap-12 z-10"
+      <div className="overlay-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex justify-between items-center gap-6 z-10"
       >
-        <div className="w-1/2 max-w-xl flex flex-col justify-start items-start gap-6">
+        <div className="w-full max-w-xl flex flex-col justify-start items-start gap-6">
           <div className="w-full text-[#f4f3ff] text-lg md:text-xl lg:text-2xl font-normal font-display leading-relaxed">
-            My name is Mary Sargent, and I’m a UX designer with over 6 years of experience in product, UX, and web design. Throughout my career, I’ve specialized in designing enterprise tools for the media and entertainment industries. Now, I’m embarking on a new journey as the founder of my own solo design studio. While Gothic Moon is currently a team of one, I’m always seeking opportunities to collaborate and look forward to growing the studio in the near future.
+            My name is Mary Sargent, and I’m a product designer with over 6 years of experience in product, UX, and web design. Throughout my career, I’ve specialized in designing enterprise tools for the media and entertainment industries. Now, I’m embarking on a new journey as the founder of my own solo design studio. While Gothic Moon is currently a team of one, I’m always seeking opportunities to collaborate and look forward to growing the studio in the near future.
           </div>
           <div className="w-full text-[#f4f3ff] text-lg md:text-xl lg:text-2xl font-normal font-display leading-relaxed">
             Welcome to Gothic Moon, your trusted partner for all things design.
@@ -50,7 +50,7 @@ const About = () => {
           <AnimatedHeader
             text1="Welcome to"
             text3="Gothic Moon."
-            textSize="7rem"
+            textSize="8rem"
             textColor="#f4f3ff"
           />
         </div>
@@ -64,7 +64,7 @@ const About = () => {
             <AnimatedHeader 
               text1="Exceptional" 
               text3="ux & web design" 
-              textSize="7.5rem" 
+              textSize="6.5rem" 
               textColor="#f4f3ff"
             />
           </div>
