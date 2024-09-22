@@ -1,12 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 
 const Preloader = ({ setLoading }) => {
   // Using Framer Motion for animated count
   const count = useMotionValue(0); // Initial count value using motion
   const rounded = useTransform(count, Math.round); // Round the value for display
+  const [displayCount, setDisplayCount] = useState(0); // State to hold the displayable count
 
   useEffect(() => {
+    // Listen to changes in 'rounded' and update 'displayCount'
+    const unsubscribe = rounded.onChange((v) => {
+      setDisplayCount(v); // Update display count whenever 'rounded' changes
+    });
+
     // Animate the count from 0 to 100 over 10 seconds
     const animation = animate(count, 100, { duration: 10 });
 
@@ -19,8 +25,9 @@ const Preloader = ({ setLoading }) => {
     return () => {
       animation.stop();
       clearTimeout(stopLoading);
+      unsubscribe(); // Stop listening to changes on 'rounded'
     };
-  }, [count, setLoading]);
+  }, [count, setLoading, rounded]);
 
   return (
     <div className="preloader-container">
@@ -53,7 +60,7 @@ const Preloader = ({ setLoading }) => {
 
       {/* Framer Motion Animated Counter */}
       <div className="preloader-text">
-        <motion.h1>{rounded}</motion.h1> {/* Display the animated count */}
+        <motion.h1>{`[${displayCount}]`}</motion.h1> {/* Display the state, not the MotionValue */}
       </div>
     </div>
   );

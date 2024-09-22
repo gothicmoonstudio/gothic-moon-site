@@ -8,33 +8,33 @@ gsap.registerPlugin(ScrollTrigger);
 // Array containing dynamic content for ValueCards
 const valueCardData = [
   {
-    title1: "Personalized Service",
-    title2: "Subtitle 1",
+    title1: "Providing",
+    title2: "Personalized Service",
     description: "Say goodbye to generic designs and bring your brand's unique vision to life."
   },
   {
-    title1: "Quality Craftsmanship",
-    title2: "Subtitle 2",
+    title1: "Ensuring",
+    title2: "Quality Craftsmanship",
     description: "Get meticulously crafted designs that exceed your expectations and leave a lasting impression."
   },
   {
-    title1: "Strategic Expertise",
-    title2: "Subtitle 3",
+    title1: "Offering",
+    title2: "Strategic Expertise",
     description: "Elevate your brand with smart, data-driven strategies that enhance both aesthetics and performance."
   },
   {
-    title1: "Data-Driven Design",
-    title2: "Subtitle 4",
+    title1: "Using",
+    title2: "Data-Driven Design",
     description: "Harness the power of data-driven design that drive engagement and deliver measurable results."
   },
   {
-    title1: "Transparent Pricing",
-    title2: "Subtitle 5",
+    title1: "Committed to",
+    title2: "Transparent Pricing",
     description: "No hidden fees, just clear, honest estimates so you can plan with confidence."
   },
   {
-    title1: "Seamless Partnership",
-    title2: "Subtitle 6",
+    title1: "Promising a",
+    title2: "Seamless Partnership",
     description: "Enjoy smooth communication and on-time delivery for a stress-free experience."
   },
 ];

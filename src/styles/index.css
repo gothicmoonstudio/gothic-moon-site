@@ -27,8 +27,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-
-  /* Hide default cursor */
+  overflow-x: hidden;
   cursor: none;
 }
 

@@ -35,13 +35,13 @@ const About = () => {
       </div>
 
       {/* Introduction Section (Scrolls Over) */}
-      <div className="overlay-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex justify-between items-center gap-6 z-10"
+      <div className="overlay-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex justify-between items-center gap-12 z-10"
       >
-        <div className="w-full max-w-xl flex flex-col justify-start items-start gap-6">
-          <div className="w-full text-[#f4f3ff] text-lg md:text-xl lg:text-2xl font-normal font-display leading-relaxed">
+        <div className="w-1/2 flex flex-col justify-start items-start gap-6">
+          <div className="w-full text-[#f4f3ff] text-lg md:text-xl lg:text-2xl font-normal font-display leading-[33.67px]">
             My name is Mary Sargent, and I’m a product designer with over 6 years of experience in product, UX, and web design. Throughout my career, I’ve specialized in designing enterprise tools for the media and entertainment industries. Now, I’m embarking on a new journey as the founder of my own solo design studio. While Gothic Moon is currently a team of one, I’m always seeking opportunities to collaborate and look forward to growing the studio in the near future.
           </div>
-          <div className="w-full text-[#f4f3ff] text-lg md:text-xl lg:text-2xl font-normal font-display leading-relaxed">
+          <div className="w-full text-[#f4f3ff] text-lg md:text-xl lg:text-2xl font-normal font-display leading-[33.67px]">
             Welcome to Gothic Moon, your trusted partner for all things design.
           </div>
         </div>
@@ -50,7 +50,7 @@ const About = () => {
           <AnimatedHeader
             text1="Welcome to"
             text3="Gothic Moon."
-            textSize="8rem"
+            textSize="7.5rem"
             textColor="#f4f3ff"
           />
         </div>
@@ -59,28 +59,28 @@ const About = () => {
       {/* Other Sections */}
       <div className="overlay-section w-screen h-screen px-[118px] py-24 bg-[#141221] flex justify-center items-center gap-12">
         <div className="w-1/2 flex flex-col justify-center items-start gap-6">
-          <div className="text-[#f4f3ff] text-3xl font-medium">Illuminating your path to...</div>
+          <div className="text-[#f4f3ff] text-3xl font-medium"></div>
           <div>
             <AnimatedHeader 
-              text1="Exceptional" 
+              text1="Illuminating your path to" 
               text3="ux & web design" 
-              textSize="6.5rem" 
+              textSize="7rem" 
               textColor="#f4f3ff"
             />
           </div>
         </div>
         <div className="w-1/2 flex flex-col justify-start items-start gap-9">
-          <div className="text-[#f4f3ff] text-2xl font-normal leading-[33.67px]">
+          <div className="text-[#f4f3ff] font-display text-2xl font-normal leading-[33.67px]">
             Are you tired of generic, cookie-cutter designs that fail to capture your brand’s unique essence? You're not alone. Many businesses face the challenge of finding designers who truly understand their business and product needs, often feeling frustrated by the gap between vision and execution. The struggle to connect with a design studio that doesn’t just deliver something “pretty,” but actually aligns with your goals, values, and long-term growth strategy is all too common.
           </div>
-          <div className="text-[#f4f3ff] text-2xl font-normal leading-[33.67px]">
+          <div className="text-[#f4f3ff] font-display text-2xl font-normal leading-[33.67px]">
           At Gothic Moon, we understand these pain points. We’re not just here to create designs that look good—we’re here to be your strategic partner in crafting a digital experience that feels authentic to your brand and delivers results.
           </div>
-          <div className="text-[#f4f3ff] text-2xl font-normal leading-[33.67px]">
-          At Gothic Moon Studio, we offer:
+          <div className="text-[#f4f3ff] font-display text-2xl font-normal leading-[33.67px]">
+            At Gothic Moon Studio, we offer personalized service, quality craftmanship, strategic expertise, customer-centric approach, seamless experience.
           </div>
+          </div>  
         </div>
-      </div>
 
       <div className="sticky-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-gradient-to-tl from-[#3b1ae5] to-[#A06AF8] flex justify-center items-center gap-12">
         <div className="relative">
@@ -122,9 +122,9 @@ const About = () => {
         {/* Static Content */}
         <div className="absolute left-[50%] top-[50%] transform -translate-x-[50%] -translate-y-[50%] flex flex-col justify-center items-center gap-9 z-10">
           <div className="w-[643px] text-center">
-            <span className="text-[#141221] text-[40px] font-medium font-display">Committed to manifesting</span>
-            <span className="text-[#141221] text-[40px] font-normal font-display"> </span>
-            <span className="text-[#141221] text-[40px] font-normal font-serif">your vision & success</span>
+            <span className="text-[#141221] text-[3rem] font-medium font-display">I'm committed to manifesting</span>
+            <span className="text-[#141221] text-[3rem] font-normal font-display"> </span>
+            <span className="text-[#141221] text-[3rem] font-normal font-serif">your vision & success</span>
           </div>
           <div className="w-[643px] text-center text-[#141221] text-2xl font-normal leading-[33.67px] font-display">
             With Gothic Moon as your guide, you'll have a clear map to navigate the complex terrain of user experience design, ensuring your digital presence stands out in the vast online landscape.

@@ -7,11 +7,30 @@ import SlideImage4 from '/images/4.svg';
 import SlideImage5 from '/images/5.svg';
 
 const sections = [
-  { image: SlideImage1, title: "Discovery", text1: "Lorem ipsum dolor sit amet.", text2: "We chart the landscape of your brand, understanding your goals and challenges." },
-  { image: SlideImage2, title: "Strategy", text1: "Aliquam id libero.", text2: "We draw up a comprehensive plan, aligning design with your business objectives." },
-  { image: SlideImage3, title: "Design", text1: "Ut id ornare est.", text2: "We sketch and refine, bringing your vision to life with pixel-perfect precision." },
-  { image: SlideImage4, title: "Implementation", text1: "Nulla facilisi.", text2: "We carefully construct your digital presence, following our meticulously crafted blueprints." },
-  { image: SlideImage5, title: "Refinement", text1: "Aenean eget leo.", text2: "We navigate through user feedback and data, continuously improving your design." }
+  { image: SlideImage1, 
+      title: "Discovery", 
+      text1: "Charting Your Brand's Landscape.", 
+      text2: "We chart the landscape of your brand, understanding your goals and challenges." },
+
+  { image: SlideImage2, 
+    title: "Strategy", 
+    text1: "Aligning Design with Business Objectives.", 
+    text2: "We draw up a comprehensive plan, aligning design with your business objectives." },
+
+  { image: SlideImage3, 
+    title: "Design",
+    text1: "Bringing Your Vision to Life.", 
+    text2: "We sketch and refine, bringing your vision to life with pixel-perfect precision." },
+
+  { image: SlideImage4, 
+    title: "Implementation", 
+    text1: "Building Your Digital Presence.", 
+    text2: "We carefully construct your digital presence, following our meticulously crafted blueprints." },
+
+  { image: SlideImage5, 
+    title: "Refinement", 
+    text1: "Continuous Improvement.", 
+    text2: "We navigate through user feedback and data, continuously improving your design." }
 ];
 
 const ProcessSection = () => {
@@ -86,9 +105,9 @@ const ProcessSection = () => {
 
         <div className="w-[629px] flex flex-col justify-center items-center lg:items-start gap-9 transition-opacity duration-500 ease-in-out">
           <div className="w-full text-center lg:text-left">
-            <span className="text-[#f4f3ff] text-4xl font-medium font-display">{sections[activeSection].title}</span>
+            <span className="text-[#f4f3ff] text-2xl font-medium font-display uppercase">{sections[activeSection].title}</span>
           </div>
-          <div className="w-full text-[#f4f3ff] text-2xl font-normal font-display leading-relaxed">
+          <div className="w-full text-[#f4f3ff] text-6xl font-normal font-display leading-relaxed">
             {sections[activeSection].text1}
           </div>
           <div className="w-full text-[#f4f3ff] text-2xl font-normal font-display leading-relaxed">
