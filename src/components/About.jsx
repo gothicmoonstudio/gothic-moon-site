@@ -111,6 +111,36 @@ const About = () => {
           <div className="w-[643px] text-center text-[#141221] text-2xl font-normal leading-[33.67px] font-display">
             With Gothic Moon as your guide, you'll have a clear map to navigate the complex terrain of user experience design, ensuring your digital presence stands out in the vast online landscape.
           </div>
+          {/* Images */}
+        <img className="absolute origin-top-left rotate-[-40deg]" 
+            style={{ width: '15.08vw', height: '35.04vh', left: '-30vw', top: '30vh' }} 
+            src="/images/boxing_glossy_01.png" 
+            alt="Boxing Glossy 1" />
+        
+        <img className="absolute origin-top-left rotate-[10deg]" 
+            style={{ width: '48.88vw', height: '53.77vh', left: '100vw', top: '-9.47vh' }} 
+            src="/images/boxing_glossy_02.png" 
+            alt="Boxing Glossy 2" />
+        
+        <img className="absolute origin-top-left rotate-[18deg]" 
+            style={{ width: '26.12vw', height: '28.72vh', left: '50vw', top: '-30vh' }} 
+            src="/images/controller_glossy.png" 
+            alt="Controller Glossy" />
+        
+        <img className="absolute rotate-[-30deg]" 
+            style={{ width: '14vw', height: '30vh', left: '-26vw', top: '-30vh' }} 
+            src="/images/crystalball_glossy.png" 
+            alt="Crystal Ball Glossy" />
+        
+        <img className="absolute" 
+            style={{ width: '33vw', height: '40vh', left: '-6vw', top: '35vh' }} 
+            src="/images/mouse_glossy.png" 
+            alt="Mouse Glossy" />
+        
+        <img className="absolute origin-top-left rotate-[5deg]" 
+            style={{ width: '20vw', height: '40vh', left: '50vw', top: '20vh' }} 
+            src="/images/mobile_glossy.png" 
+            alt="Mobile Glossy" />
         </div>
       </div>
   </section>
