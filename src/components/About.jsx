@@ -61,10 +61,10 @@ const About = () => {
           </div>  
         </div>
 
-        <div className="sticky-section bg-[#F6FFBC] w-screen snap-x h-screen flex justify-center items-center gap-12 px-[118px]">
-          <div className="w-1/2 flex flex-col justify-center items-center gap-12">
+        <div className="sticky-section bg-[#F6FFBC] w-screen h-screen flex justify-between items-center gap-12 px-[118px] py-[333px]">
+          <div className="w-1/2 flex flex-col justify-left items-left gap-12">
           <SlideHeader 
-            text1="Unviel the Magic of" 
+            text1="Unveil the Magic of" 
             text3="Design Excellence." 
             textSize="6rem" 
             textColor="#141221"
