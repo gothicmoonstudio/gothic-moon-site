@@ -55,20 +55,20 @@ const About = () => {
             Are you tired of generic, cookie-cutter designs that fail to capture your brand’s unique essence? You're not alone. Many businesses face the challenge of finding designers who truly understand their business and product needs, often feeling frustrated by the gap between vision and execution. The struggle to connect with a design studio that doesn’t just deliver something “pretty,” but actually aligns with your goals, values, and long-term growth strategy is all too common.
           </div>
           <div className="text-[#f4f3ff] font-display text-2xl font-normal leading-[33.67px]">
-          At Gothic Moon, we understand these pain points. We’re not just here to create designs that look good—we’re here to be your strategic partner in crafting a digital experience that feels authentic to your brand and delivers results.
-          </div>
-          <div className="text-[#f4f3ff] font-display text-2xl font-normal leading-[33.67px]">
-            At Gothic Moon Studio, we offer personalized service, quality craftmanship, strategic expertise, customer-centric approach, seamless experience.
+            We understand these pain points. We’re not just here to create designs that look good—we’re here to be your strategic partner in crafting a digital experience that feels authentic to your brand and delivers results.
           </div>
           </div>  
         </div>
 
         <div className="sticky-section bg-[#F6FFBC] w-screen snap-x h-screen flex justify-center items-center gap-12 px-[118px]">
-          <div className="w-1/2">
-            <h1 className="text-[#141221] text-[6rem] font-normal font-display">
-              Lorem ipsum dolor
-              <span className="font-normal font-serif"> sit amet</span>
+          <div className="w-1/2 flex flex-col justify-center items-center gap-12">
+            <h1 className="text-[#141221] text-[5rem] font-normal font-display">
+              Unveil the Magic of
+              <span className="font-normal text-[5rem] font-serif"> Design Excellence</span>
             </h1>
+            <div className="text-[#141221] font-display text-2xl font-normal leading-[33.67px]">
+            At Gothic Moon Studio, we offer personalized service, quality craftmanship, strategic expertise, customer-centric approach, seamless experience.
+          </div>
           </div>
           <div className="w-[820px] h-[686px] rounded-2xl flex items-center justify-center">
             <div className="text-2xl">
@@ -132,10 +132,10 @@ const About = () => {
             src="/images/crystalball_glossy.png" 
             alt="Crystal Ball Glossy" />
         
-        <img className="absolute" 
-            style={{ width: '33vw', height: '40vh', left: '-6vw', top: '35vh' }} 
+        {/* <img className="absolute" 
+            style={{ width: '29vw', height: '40vh', left: '-6vw', top: '35vh' }} 
             src="/images/mouse_glossy.png" 
-            alt="Mouse Glossy" />
+            alt="Mouse Glossy" /> */}
         
         <img className="absolute origin-top-left rotate-[5deg]" 
             style={{ width: '20vw', height: '40vh', left: '50vw', top: '20vh' }} 
