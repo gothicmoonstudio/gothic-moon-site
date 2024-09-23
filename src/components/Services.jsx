@@ -4,6 +4,7 @@ import lottie from 'lottie-web-light';  // Using the light version
 import Magic from "../assets/animations/icons8-magic.json";
 import Sparkles from "../assets/animations/icons8-sparkles.json";
 import Potions from "../assets/animations/icons8-mana.json";
+import SlideHeader from './SlideHeader';
 
 function Services() {
   const gradientRef = useRef(null);
@@ -68,15 +69,18 @@ function Services() {
       className="services gradient w-full min-h-screen text-light flex flex-col justify-center items-center"
     >
       {/* Main Container */}
-      <div className=" flex flex-col justify-between mt-24 items-center">
+      <div className="flex flex-col justify-between mt-24 items-center">
         
         {/* Header Section */}
-        <div className="w-[1276px] flex justify-center items-center gap-2.5">
-          <div className="w-[643px] text-center">
-            <span className="text-[#f4f3ff] text-[2.5rem] font-normal font-display">
-              Let Gothic be your
-            </span>
-            <span className="text-[#f4f3ff] text-[2.5rem] font-normal font-serif"> design guide.</span>
+        <div className="justify-center items-center">
+          <div className="text-center">
+            <SlideHeader
+              text1="Let Gothic be your" 
+              text3="design guide."
+              textSize="2.5rem"
+              textColor="#f4f3ff"
+              whiteSpace="normal"
+            />
           </div>
         </div>
 
