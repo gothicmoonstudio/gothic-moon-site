@@ -1,7 +1,7 @@
 import React from 'react';
 import ProcessSection from './ProcessSection';
-import ValueCardScroll from './ValueCardScroll';
 import AnimatedHeader from './AnimatedHeader';
+import ValueCardScroll from './ValueCardScroll';
 
 const About = () => {
   return (
@@ -63,9 +63,19 @@ const About = () => {
           </div>  
         </div>
 
-      <div className="sticky-section bg-[#e9cdff] w-screen snap-x">
-          <ValueCardScroll />
-      </div>
+        <div className="sticky-section bg-[#F6FFBC] w-screen snap-x h-screen flex justify-center items-center gap-12 px-[118px]">
+          <div className="w-1/2">
+            <h1 className="text-[#141221] text-[6rem] font-normal font-display">
+              Lorem ipsum dolor
+              <span className="font-normal font-serif"> sit amet</span>
+            </h1>
+          </div>
+          <div className="w-[820px] h-[686px] rounded-2xl flex items-center justify-center">
+            <div className="text-2xl">
+              <ValueCardScroll />
+            </div>
+          </div>
+        </div>
 
       <div className="sticky-section w-screen h-screen px-[118px] py-[333px] bg-[#e9cdff] flex justify-between items-center">
         <div className="w-1/2">
