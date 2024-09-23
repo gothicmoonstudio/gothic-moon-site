@@ -5,7 +5,6 @@ import SlideImage2 from '/images/2.svg';
 import SlideImage3 from '/images/3.svg';
 import SlideImage4 from '/images/4.svg';
 import SlideImage5 from '/images/5.svg';
-import GooeyPagination from './GooeyPagination';
 
 const sections = [
   {

@@ -354,39 +354,39 @@
 }
 
 /* Process Section */
-.dots {
-  filter: blur(1px) contrast(10);
-  padding: 6rem;
-  position: relative;
+ul.dots {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: fit-content;
-}
-
-.dot {
-  display: flex;
-  vertical-align: middle;
-  border-radius: 100%;
-  width: 2rem;
-  height: 2rem;
-  background: #9747FF;
-  margin: .5rem;
-  cursor: pointer;
+  justify-content: center;
   position: relative;
-  z-index: 2;
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
 }
 
-.select {
-  border-radius: 100%;
-  width: 4rem;
-  height: 4rem;
-  background: #9747FF;
+li.dot {
+  width: 20px;
+  height: 20px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+li.dot.active {
+  background-color: #ff6600; /* Active dot color */
+}
+
+li.selector {
+  width: 20px;
+  height: 20px;
+  background-color: #ff6600;
+  border-radius: 50%;
   position: absolute;
-  z-index: 3;
-  pointer-events: none;
-  display: block;
-  transition: transform 0.6s ease-out; /* Smooth transition */
+  top: 0;
+  left: 0;
+  transition: left 0.5s ease;
 }
 
 /* About Our Committment section */

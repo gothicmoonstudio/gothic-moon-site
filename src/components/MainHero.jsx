@@ -137,7 +137,7 @@ function MainHero() {
       <div className="w-full h-62 px-28 flex flex-col items-center gap-9 relative z-10">
         <div className="text-center">
           <span className="text-light text-[5.5rem] font-medium font-display leading-tight">
-            Crafting spellbinding user experiences that enchant your users & elevates your {' '}
+            Brewing spellbinding user experiences that enchant your users & elevates your {' '}
           </span>
           <span className="text-light text-[5.5rem] font-normal font-serif leading-tight">
             digital presence
