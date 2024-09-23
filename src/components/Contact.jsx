@@ -56,7 +56,7 @@ function Contact() {
           </div>
           </div>
         </div>
-        <div className="flex-1 flex flex-col items-start gap-9">
+        <div className="flex-1 flex flex-col items-center gap-9">
           <div className="text-light opacity-75 text-2xl font-medium font-display leading-9">
           Although my resources are limited, I’m always eager to start a conversation and explore how we can bring your vision to life.
           </div>
