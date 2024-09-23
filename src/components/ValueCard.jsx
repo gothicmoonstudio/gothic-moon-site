@@ -1,14 +1,29 @@
 import React from 'react';
 
-const ValueCard = ({ title1, title2, description }) => {
+const ValueCard = ({ title1, title2, description, bgColor = '#f6ffbc', textColor = '#141221' }) => {
   return (
-    <div className="w-[677px] h-[492px] px-[68px] py-[108px] bg-[#f4f3ff]/20 rounded-lg border border-[rgba(244, 243, 255, 0.3)] backdrop-blur-[13px] flex flex-col justify-center items-center gap-6">
-      <div className="w-full text-center">
-        <span className="text-[#f4f3ff] text-4xl font-medium font-display">{title1}</span>
-        <span className="text-[#f4f3ff] text-4xl font-normal font-display"> </span>
-        <span className="text-[#f4f3ff] text-4xl font-normal font-serif">{title2}</span>
+    <div
+      className="w-screen h-screen flex-col justify-center items-center gap-9 inline-flex"
+      style={{ backgroundColor: bgColor }} // Apply dynamic background color
+    >
+      {/* Title Section */}
+      <div className="self-stretch text-center">
+        <span className="text-[40px] font-medium" style={{ color: textColor, fontFamily: 'Greycliff CF' }}>
+          {title1}
+        </span>
+        <span className="text-[40px] font-normal" style={{ color: textColor, fontFamily: 'Greycliff CF' }}>
+          {' '}
+        </span>
+        <span className="text-[40px] font-normal" style={{ color: textColor, fontFamily: 'Bely Display' }}>
+          {title2}
+        </span>
       </div>
-      <div className="w-full text-center text-[#f4f3ff] text-2xl font-normal font-display leading-[33.67px]">
+
+      {/* Description Section */}
+      <div
+        className="self-stretch text-center text-2xl font-normal leading-[33.67px]"
+        style={{ color: textColor, fontFamily: 'Greycliff CF' }}
+      >
         {description}
       </div>
     </div>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
-import CustomCursor from './components/CustomCursor';
 import MainHero from './components/MainHero';
 import About from './components/About';
 import Projects from './components/Projects';
@@ -46,7 +45,6 @@ function App() {
       {loading && <Preloader setLoading={setLoading} />} {/* Pass setLoading to Preloader */}
       {!loading && (
         <div>
-          <CustomCursor />
           {/* Pass activeSection to Navbar */}
           <Navbar activeSection={activeSection}>
             <NavItem label="Home" href="#main-hero" isCurrentPage={activeSection === 'main-hero'} />

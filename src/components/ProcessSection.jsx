@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { gsap, Back } from 'gsap';
+import React, { useState } from 'react';
 import SlideImage1 from '/images/1.svg';
 import SlideImage2 from '/images/2.svg';
 import SlideImage3 from '/images/3.svg';
@@ -41,72 +40,11 @@ const sections = [
 
 const ProcessSection = () => {
   const [activeSection, setActiveSection] = useState(0);
-  const selectDotRef = useRef(null);
-  const lastPosRef = useRef(0); // To track the last position of the select dot
-
-  useEffect(() => {
-    const selectDot = selectDotRef.current;
-
-    // Ensure the element exists before applying animations
-    if (!selectDot) return;
-
-    // Initialize the select dot position to the active section
-    const updateDotPosition = () => {
-      const dotElements = document.querySelectorAll('.dot');
-      if (dotElements.length && selectDot) {
-        const firstDotPos = dotElements[activeSection].getBoundingClientRect().left;
-        gsap.set(selectDot, { x: firstDotPos });
-      }
-    };
-
-    updateDotPosition(); // Initial call
-    window.addEventListener('resize', updateDotPosition); // Update on resize for responsiveness
-
-    // Clean up the event listener and animation on unmount
-    return () => {
-      window.removeEventListener('resize', updateDotPosition);
-      gsap.killTweensOf(selectDot);
-    };
-  }, [activeSection]);
+  const [hoveredIndex, setHoveredIndex] = useState(null); // Track hover state
 
   const handlePaginationMove = (index) => {
-    setActiveSection(index);
-
-    const dots = document.querySelectorAll('.dot');
-    const selectDot = selectDotRef.current;
-    const dest = dots[index].getBoundingClientRect().left - dots[0].getBoundingClientRect().left;
-
-    // Move the select dot to the clicked/hovered dot's position
-    gsap.to(selectDot, { x: dest, duration: 0.6, ease: Back.easeOut });
+    setActiveSection(index); // Update active section on click
   };
-
-  useEffect(() => {
-    const selectDot = selectDotRef.current;
-
-    const updateScale = () => {
-      if (!selectDot) return;
-
-      const currentPos = selectDot.getBoundingClientRect().left;
-      const speed = Math.abs(currentPos - lastPosRef.current);
-      const d = 44; // Assumed distance between dots
-      const offset = -20;
-      const hd = d / 2;
-      let scale = (offset + currentPos) % d;
-      if (scale > hd) scale = hd - (scale - hd);
-      scale = 1 - ((scale / hd) * 0.35);
-
-      // Apply scaling to select dot
-      gsap.to(selectDot, { scaleY: scale, scaleX: 1 + (speed * 0.06), duration: 0.1 });
-      lastPosRef.current = currentPos;
-
-      requestAnimationFrame(updateScale); // Recursively update scale
-    };
-
-    requestAnimationFrame(updateScale);
-
-    // Cleanup function to stop requestAnimationFrame loop
-    return () => cancelAnimationFrame(updateScale);
-  }, []);
 
   return (
     <div className="process-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex flex-col justify-between items-center">
@@ -129,18 +67,17 @@ const ProcessSection = () => {
         </div>
       </div>
 
-      {/* Pagination/Carousel Indicators with Gooey Effect */}
-      <ul className="dots">
-        {/* Active Dot Indicator */}
-        <li ref={selectDotRef} className="select w-10 h-10 rounded-full bg-[#F6FFBC] absolute"></li>
-
-        {/* Render Dots */}
+      {/* Pagination/Carousel Indicators */}
+      <ul className="dots flex justify-center items-center space-x-4">
         {sections.map((_, index) => (
           <li
             key={index}
-            className={`dot w-6 h-6 bg-gray-600 rounded-full cursor-pointer ${index === activeSection ? 'bg-[#F6FFBC]' : ''}`}
-            onClick={() => handlePaginationMove(index)} // Change the active section when a dot is clicked
-            onMouseEnter={() => handlePaginationMove(index)} // Optionally handle hover to change sections
+            className={`dot w-6 h-6 rounded-full cursor-pointer transition-colors duration-300 ${
+              index === activeSection || index === hoveredIndex ? 'bg-[#F6FFBC]' : 'bg-gray-600'
+            }`}
+            onClick={() => handlePaginationMove(index)} // Change the active section when clicked
+            onMouseEnter={() => setHoveredIndex(index)} // Highlight on hover
+            onMouseLeave={() => setHoveredIndex(null)} // Remove hover effect when mouse leaves
             aria-label={`Slide ${index + 1}`} // Improves accessibility
             role="button"
           ></li>

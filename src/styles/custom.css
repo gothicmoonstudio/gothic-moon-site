@@ -356,38 +356,27 @@
 /* Process Section */
 ul.dots {
   display: flex;
-  align-items: center;
   justify-content: center;
-  position: relative;
-  padding: 0;
+  align-items: center;
   list-style-type: none;
+  padding: 0;
   margin: 0;
 }
 
 li.dot {
-  width: 20px;
-  height: 20px;
-  background-color: #bbb;
+  width: 24px;
+  height: 24px;
+  background-color: #b288ff;
   border-radius: 50%;
-  margin: 0 10px;
+  margin: 0 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-li.dot.active {
-  background-color: #ff6600; /* Active dot color */
+li.dot.active, li.dot:hover {
+  background-color: #9747FF; /* Active color */
 }
 
-li.selector {
-  width: 20px;
-  height: 20px;
-  background-color: #ff6600;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: left 0.5s ease;
-}
 
 /* About Our Committment section */
 .circle-1 {

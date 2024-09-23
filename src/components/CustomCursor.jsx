@@ -1,12 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import gsap from 'gsap';
 
 const CustomCursor = () => {
+  const [cursorEnabled, setCursorEnabled] = useState(true); // State to control if the custom cursor is enabled
+
   useEffect(() => {
     const outerCursor = document.querySelector('.cursor--large');
     const innerCursor = document.querySelector('.cursor--small');
-    const hoverElements = document.querySelectorAll('.custom-cursor-area');  // Target hover elements
+    const hoverElements = document.querySelectorAll('.custom-cursor-area');  
     
+    if (!outerCursor || !innerCursor) return; // Ensure cursors exist before proceeding
+
     let outerCursorBox = outerCursor.getBoundingClientRect();
     let innerCursorBox = innerCursor.getBoundingClientRect();
 
@@ -14,6 +18,54 @@ const CustomCursor = () => {
     const getDistance = (x1, y1, x2, y2) => {
       return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
     };
+
+    // Hover enter and leave logic for scaling
+    const handleMouseEnter = () => {
+      gsap.to(outerCursor, {
+        scale: 1.8,
+        duration: 0.2,
+        ease: "power2.out",
+      });
+    };
+
+    const handleMouseLeave = () => {
+      gsap.to(outerCursor, {
+        scale: 1,
+        duration: 0.2,
+        ease: "power2.out",
+      });
+    };
+
+    const disableCustomCursor = () => {
+      // Hide both cursors
+      outerCursor.style.display = 'none';
+      innerCursor.style.display = 'none';
+      
+      // Optionally, disable hover effects by removing event listeners
+      hoverElements.forEach((el) => {
+        el.removeEventListener('mouseenter', handleMouseEnter); // Replace with your actual hover function
+        el.removeEventListener('mouseleave', handleMouseLeave); // Replace with your actual leave function
+      });
+    };
+
+    const enableCustomCursor = () => {
+      // Show both cursors
+      outerCursor.style.display = 'block';
+      innerCursor.style.display = 'block';
+      
+      // Add hover effects back
+      hoverElements.forEach((el) => {
+        el.addEventListener('mouseenter', handleMouseEnter);
+        el.addEventListener('mouseleave', handleMouseLeave);
+      });
+    };
+    
+    if (!cursorEnabled) {
+      disableCustomCursor();
+      return; // Exit effect early if the cursor is disabled
+    } else {
+      enableCustomCursor();
+    }
 
     // Mouse move handler
     const handleMouseMove = (e) => {
@@ -56,23 +108,6 @@ const CustomCursor = () => {
       });
     };
 
-    // Hover enter and leave logic for scaling
-    const handleMouseEnter = () => {
-      gsap.to(outerCursor, {
-        scale: 1.8,
-        duration: 0.2,
-        ease: "power2.out",
-      });
-    };
-
-    const handleMouseLeave = () => {
-      gsap.to(outerCursor, {
-        scale: 1,
-        duration: 0.2,
-        ease: "power2.out",
-      });
-    };
-
     // Add event listeners for hover elements
     hoverElements.forEach((el) => {
       el.addEventListener('mouseenter', handleMouseEnter);
@@ -92,10 +127,13 @@ const CustomCursor = () => {
       gsap.killTweensOf(outerCursor);
       gsap.killTweensOf(innerCursor);
     };
-  }, []);
+  }, [cursorEnabled]); // Rerun the effect when cursorEnabled changes
 
   return (
     <>
+      <button onClick={() => setCursorEnabled(!cursorEnabled)}>
+        {cursorEnabled ? "Disable" : "Enable"} Custom Cursor
+      </button>
       <div className="cursor cursor--large"></div>
       <div className="cursor cursor--small"></div>
     </>
