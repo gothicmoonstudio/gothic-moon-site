@@ -1,8 +1,8 @@
 import React from 'react';
 import ProcessSection from './ProcessSection';
-import FloatingText from './FloatingText';
 import SlideHeader from './SlideHeader';
 import ValueCardScroll from './ValueCardScroll';
+import Accordion from './Accordion';
 
 const About = () => {
   return (
@@ -20,11 +20,15 @@ const About = () => {
       {/* Introduction Section */}
       <div className="overlay-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#141221] flex justify-between items-center gap-12 z-10">
         <div className="w-1/2 flex flex-col justify-start items-start gap-6">
-          <div className="w-full text-[#f4f3ff] text-lg md:text-xl lg:text-2xl font-normal font-display leading-[33.67px]">
-            My name is Mary Sargent, and I’m a product designer with over 6 years of experience in product, UX, and web design. Throughout my career, I’ve specialized in designing enterprise tools for the media and entertainment industries. Now, I’m embarking on a new journey as the founder of my own solo design studio. While Gothic Moon is currently a team of one, I’m always seeking opportunities to collaborate and look forward to growing the studio in the near future.
+          <div className="w-full text-[#f4f3ff] text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-display leading-[2.5rem]">
+            Navigating the intricate world of user experience design can be a daunting task. That's where Gothic Moon comes in. As your trusted UX compass, we'll guide you through the complex terrain, ensuring your digital presence shines bright.
           </div>
-          <div className="w-full text-[#f4f3ff] text-lg md:text-xl lg:text-2xl font-normal font-display leading-[33.67px]">
-            Welcome to Gothic Moon, your trusted partner for all things design.
+          <div className="w-full text-[#f4f3ff] text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-display leading-[2.5rem]">
+            I'm Mary Sargent, a seasoned UX designer with over six years of experience crafting engaging and intuitive digital products. My expertise lies in designing enterprise tools for the media and entertainment industries, where attention to detail and user-centricity are paramount.
+          <div/>
+          </div>
+          <div className="w-full text-[#f4f3ff] text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-display leading-[2.5rem]">
+            Let's embark on a journey together to create exceptional user experiences. Welcome to Gothic Moon.          
           </div>
         </div>
 
@@ -39,9 +43,9 @@ const About = () => {
       </div>
 
       {/* Other Sections */}
-      <div className="overlay-section w-screen h-screen px-[118px] py-24 bg-[#141221] flex justify-center items-center gap-12">
-        <div className="w-1/2 flex flex-col justify-center items-start gap-6">
-          <div className="text-[#f4f3ff] text-3xl font-medium"></div>
+      <div className="overlay-section w-screen h-screen px-[118px] py-24 bg-[#141221] flex justify-center items-center text-center gap-12">
+        <div className="w-full flex flex-col justify-center items-center gap-6">
+          <div className="text-[#f4f3ff] font-medium"></div>
           <div>
             <SlideHeader 
               text1="Illuminating your path to" 
@@ -51,27 +55,16 @@ const About = () => {
             />
           </div>
         </div>
-        <div className="w-1/2 flex flex-col justify-start items-start gap-9">
-          <div className="text-[#f4f3ff] font-display text-2xl font-normal leading-[33.67px]">
-            Are you tired of generic, cookie-cutter designs that fail to capture your brand’s unique essence? You're not alone. Many businesses face the challenge of finding designers who truly understand their business and product needs, often feeling frustrated by the gap between vision and execution. The struggle to connect with a design studio that doesn’t just deliver something “pretty,” but actually aligns with your goals, values, and long-term growth strategy is all too common.
-          </div>
-          <div className="text-[#f4f3ff] font-display text-2xl font-normal leading-[33.67px]">
-            We understand these pain points. We’re not just here to create designs that look good—we’re here to be your strategic partner in crafting a digital experience that feels authentic to your brand and delivers results.
-          </div>
-          </div>  
-        </div>
+      </div>
 
-        <div className="sticky-section bg-[#F6FFBC] w-screen h-screen flex justify-between items-center gap-12 px-[118px] py-[333px]">
-          <div className="w-1/2 flex flex-col justify-left items-left gap-12">
-          <SlideHeader 
-            text1="Unveil the Magic of" 
-            text3="Design Excellence." 
-            textSize="6rem" 
-            textColor="#141221"
-          />
-            <div className="text-[#141221] font-display text-2xl font-normal leading-[33.67px]">
-            At Gothic Moon Studio, we offer personalized ux/web design services, quality craftmanship, strategic expertise, customer-centric approach, and a seamless client experience.
-          </div>
+        <div className="sticky-section w-screen px-[118px] py-24 bg-[#f6ffbc] flex justify-center items-center gap-12">
+          <div className="flex-grow flex flex-col justify-start items-start gap-9">
+            <div className="self-stretch text-[#141221] text-[1.75rem] font-bold font-display leading-[42px]">
+            Tired of cookie-cutter designs that leave your brand feeling invisible?
+            </div>
+            <div className="self-stretch text-[#141221] text-[1.5rem] font-medium font-display leading-[42px]">
+            At Gothic Moon, we do more than just design. We're strategic partners dedicated to crafting digital experiences that not only look stunning but also resonate deeply with your brand's essence. Let's break free from the ordinary and create something truly extraordinary together.
+            </div>
           </div>
           <div className="w-[820px] h-[686px] rounded-2xl flex items-center justify-center">
             <div className="text-2xl">
@@ -80,7 +73,7 @@ const About = () => {
           </div>
         </div>
 
-      <div className="sticky-section w-screen h-screen px-[118px] py-[333px] bg-[#e9cdff] flex justify-between items-center">
+      <div className="overlay-section w-screen h-screen px-[118px] py-[333px] bg-[#e9cdff] flex justify-between items-center">
         <div className="w-1/2">
           <SlideHeader 
             text1="Guiding your next project to" 
@@ -89,63 +82,16 @@ const About = () => {
             textColor="#141221"
           />
         </div>
-        <div className="w-1/2 flex flex-col justify-start items-start gap-9">
-          <div className="text-[#141221] text-2xl font-normal leading-[33.67px]">
-            We believe in a meticulous and collaborative approach to design. Our process is designed to ensure that every project we undertake not only meets but exceeds your expectations.
-          </div>
-          <div className="text-[#141221] text-2xl font-normal leading-[33.67px]">
-            Our design process is like crafting a detailed blueprint for your digital success. We map out every step of the journey, ensuring no detail is overlooked.
-          </div>
+        
+        {/* Accordion Section */}
+      <div className="w-[629px] flex flex-col justify-start items-center gap-9 mt-9 ">
+        {/* Paragraphs */}
+        <div className="self-stretch text-[#141221] text-2xl font-medium font-display leading-[48px]">
+          We believe in a meticulous and collaborative approach to design. We map out every step of the journey, ensuring no detail is overlooked.
         </div>
+        <Accordion />
       </div>
-
-      <div className="overlay-section">
-        <ProcessSection />
-      </div>
-
-      <div className="overlay-section w-screen h-screen relative bg-gradient-to-l from-[#ffe9e9] to-[#a06af8]">
-        {/* Static Content */}
-        <div className="absolute left-[50%] top-[50%] transform -translate-x-[50%] -translate-y-[50%] flex flex-col justify-center items-center gap-9 z-10">
-          <div className="w-[643px] text-center">
-            <span className="text-[#141221] text-[3rem] font-medium font-display">I'm committed to manifesting</span>
-            <span className="text-[#141221] text-[3rem] font-normal font-display"> </span>
-            <span className="text-[#141221] text-[3rem] font-normal font-serif">your vision & success.</span>
-          </div>
-          <div className="w-[643px] text-center text-[#141221] text-2xl font-normal leading-[33.67px] font-display">
-            With Gothic Moon as your guide, you'll have a clear map to navigate the complex terrain of user experience design, ensuring your digital presence stands out in the vast online landscape.
-          </div>
-          {/* Images */}
-        {/* <img className="absolute origin-top-left rotate-[-40deg]" 
-            style={{ width: '15.08vw', height: '35.04vh', left: '-30vw', top: '30vh' }} 
-            src="/images/boxing_glossy_01.png" 
-            alt="Boxing Glossy 1" /> */}
-        
-        {/* <img className="absolute origin-top-left rotate-[10deg]" 
-            style={{ width: '48.88vw', height: '53.77vh', left: '100vw', top: '-9.47vh' }} 
-            src="/images/boxing_glossy_02.png" 
-            alt="Boxing Glossy 2" /> */}
-        
-        {/* <img className="absolute origin-top-left rotate-[18deg]" 
-            style={{ width: '26.12vw', height: '28.72vh', left: '50vw', top: '-30vh' }} 
-            src="/images/controller_glossy.png" 
-            alt="Controller Glossy" /> */}
-        
-        {/* <img className="absolute rotate-[-30deg]" 
-            style={{ width: '14vw', height: '30vh', left: '-26vw', top: '-30vh' }} 
-            src="/images/crystalball_glossy.png" 
-            alt="Crystal Ball Glossy" /> */}
-        
-        {/* <img className="absolute" 
-            style={{ width: '29vw', height: '40vh', left: '-6vw', top: '35vh' }} 
-            src="/images/mouse_glossy.png" 
-            alt="Mouse Glossy" /> */}
-        
-        {/* <img className="absolute origin-top-left rotate-[5deg]" 
-            style={{ width: '20vw', height: '40vh', left: '50vw', top: '20vh' }} 
-            src="/images/mobile_glossy.png" 
-            alt="Mobile Glossy" /> */}
-        </div>
-      </div>
+    </div>
   </section>
   );
 };

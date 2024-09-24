@@ -134,38 +134,54 @@ function MainHero() {
       </svg>
 
       {/* Main Content */}
-      <div className="w-full h-62 px-28 flex flex-col items-center gap-9 relative z-10">
+      <div className="w-full h-[858px] px-28 pt-[275px] pb-[120px] flex flex-col items-center gap-36 relative z-10">
         <div className="text-center">
-          <span className="text-light text-[5.5rem] font-medium font-display leading-tight">
-          Brewing spellbinding user experiences that enchant your users & elevates your {' '}
+          <span className="text-[#f4f3ff] text-[5rem] font-normal font-display leading-[5.5rem]">
+            Brewing spellbinding user experiences that enchant your users & elevate
           </span>
-          <span className="text-light text-[5.5rem] font-normal font-serif leading-tight">
-            digital presence
-          </span>
-          <span className="text-light text-[5.5rem] font-normal font-display leading-tight">
-            .
+          <span className="text-[#f4f3ff] text-[5rem] font-normal font-serif leading-[5.5rem] pl-4">
+            your digital presence.
           </span>
         </div>
-        <div className="flex justify-center items-center gap-9">
-          <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
-            <a 
-              href="https://www.instagram.com/gothicmoonstudio" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform duration-300 ease-in-out"
-            >
-              <Instagram className="hover:text-[#E1306C]" />
-            </a>
+
+        <div className="flex justify-between items-center gap-9 w-full">
+          {/* Studio Description */}
+          <div className="w-[425px] flex flex-col justify-start items-start gap-6">
+            <div className="text-[#f4f3ff] text-2xl font-normal font-serif">
+              gothic moon 
+              <span className="font-medium font-display pl-2">
+                is a digital design studio specializing in product & web design.
+              </span>
+            </div>
+            <div className="py-2 border-b border-white justify-center items-center inline-flex">
+              <div className="text-white text-base font-medium font-display">
+                View Projects
+              </div>
+            </div>
           </div>
-          <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
-            <a 
-              href="https://dribbble.com/gothicmoonstudio" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform duration-300 ease-in-out"
-            >
-              <Dribbble className="hover:text-[#E1306C]" />
-            </a>
+
+          {/* Social Icons */}
+          <div className="flex justify-center items-center gap-9">
+            <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
+              <a 
+                href="https://www.instagram.com/gothicmoonstudio" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-transform duration-300 ease-in-out"
+              >
+                <Instagram className="hover:text-[#E1306C]" />
+              </a>
+            </div>
+            <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
+              <a 
+                href="https://dribbble.com/gothicmoonstudio" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-transform duration-300 ease-in-out"
+              >
+                <Dribbble className="hover:text-[#E1306C]" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

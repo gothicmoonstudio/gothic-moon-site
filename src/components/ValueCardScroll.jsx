@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ValueCard from './ValueCard';
 
 const valueCardData = [
@@ -47,28 +47,38 @@ const valueCardData = [
 ];
 
 const generateCardStyle = (index, activeIndex) => {
-  const baseLeft = 100;  // Adjust horizontal spread
-  const baseTop = 0;    // Adjust for vertical alignment
+  const baseLeft = 200; // Adjust horizontal spread
   const rotateStep = 0; // Reduce rotation for a cleaner look
 
-  // Calculate the left position and rotation based on activeIndex
-  const left = baseLeft * index;
-  const top = baseTop * index;
-  const rotation = rotateStep * (index - 1);
+  const left = baseLeft * (index - activeIndex);
+  const rotation = rotateStep * (index - activeIndex);
 
-  // Scale the centered card
-  const scale = index === activeIndex ? 1.05 : 1;  // Scale the active card
+  const scale = index === activeIndex ? 1.05 : 0.8;  // Scale the active card
 
   return {
     transform: `rotate(${rotation}deg) scale(${scale})`,
     left: `${left}px`,
-    top: `${top}px`,
-    transition: 'transform 0.3s ease, left 0.3s ease',
+    transition: 'transform 0.5s ease, left 0.5s ease',
   };
 };
 
 const ValueCardScroll = () => {
-  const [activeIndex, setActiveIndex] = useState(1); // Default to center card
+  const [activeIndex, setActiveIndex] = useState(2); // Default to center card
+  const [intervalId, setIntervalId] = useState(null);
+
+  // Function to slide to the next card
+  const autoSlide = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % valueCardData.length);
+  };
+
+  useEffect(() => {
+    const id = setInterval(autoSlide, 3000); // Slide every 3 seconds
+    setIntervalId(id);
+
+    return () => {
+      clearInterval(id); // Clean up interval on component unmount
+    };
+  }, []);
 
   return (
     <div className="relative w-[820px] h-[686px] flex justify-center items-center">
@@ -78,14 +88,17 @@ const ValueCardScroll = () => {
           className="absolute p-12 rounded-2xl flex flex-col justify-between items-center cursor-pointer"
           style={{
             ...generateCardStyle(index, activeIndex),
-            zIndex: index === activeIndex ? 1 : 1, // Make the active card on top
+            zIndex: index === activeIndex ? 1 : 0, // Adjust zIndex for active card
           }}
-          onClick={() => setActiveIndex(index)} // Handle card click
+          onClick={() => {
+            setActiveIndex(index);
+            clearInterval(intervalId); // Stop auto-slide on manual interaction
+          }} // Handle card click
         >
           <ValueCard
             title1={card.title1}
             title2={card.title2}
-            bgColor={card.bgColor} 
+            bgColor={card.bgColor}
             description={card.description}
             textColor={card.textColor}
           />
