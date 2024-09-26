@@ -14,11 +14,11 @@ function Navbar({ activeSection }) {
       </a>
 
       {/* Navigation Items */}
-        <NavItem
+        {/* <NavItem
           label="Home"
           href="#main-hero"
           isCurrentPage={activeSection === 'main-hero'}
-        />
+        /> */}
         <NavItem
           label="About"
           href="#about"

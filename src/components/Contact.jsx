@@ -31,7 +31,7 @@ function Contact() {
             rel="noopener noreferrer"
             className="hover:scale-110 transition-transform duration-300 ease-in-out"
             >          
-              <Instagram className="hover:text-[#E1306C]" />
+              <Instagram className="hover:text-[#F6FFBC]" />
             </a>
           </div>
           <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
@@ -41,7 +41,7 @@ function Contact() {
             rel="noopener noreferrer"
             className="hover:scale-110 transition-transform duration-300 ease-in-out"
             >          
-              <Dribbble className="hover:text-[#E1306C]" />
+              <Dribbble className="hover:text-[#F6FFBC]" />
             </a>
           </div>
           <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
@@ -51,7 +51,7 @@ function Contact() {
             rel="noopener noreferrer"
             className="hover:scale-110 transition-transform duration-300 ease-in-out"
             >          
-              <Mail className="hover:text-[#E1306C]" />
+              <Mail className="hover:text-[#F6FFBC]" />
             </a>
           </div>
           </div>

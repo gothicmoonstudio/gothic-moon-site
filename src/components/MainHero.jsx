@@ -95,7 +95,7 @@ function MainHero() {
   return (
     <section
       id="main-hero"
-      className="relative w-full min-h-screen bg-secondary flex flex-col items-center justify-center overflow-hidden"
+      className="relative w-full min-h-screen bg-secondary flex flex-col items-center justify-center overflow-visible"
     >
       {/* SVG Metaballs */}
       <svg className="absolute w-full h-full overflow-hidden">
@@ -169,7 +169,7 @@ function MainHero() {
                 rel="noopener noreferrer"
                 className="hover:scale-110 transition-transform duration-300 ease-in-out"
               >
-                <Instagram className="hover:text-[#E1306C]" />
+                <Instagram className="hover:text-[#F6FFBC]" />
               </a>
             </div>
             <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
@@ -179,7 +179,7 @@ function MainHero() {
                 rel="noopener noreferrer"
                 className="hover:scale-110 transition-transform duration-300 ease-in-out"
               >
-                <Dribbble className="hover:text-[#E1306C]" />
+                <Dribbble className="hover:text-[#F6FFBC]" />
               </a>
             </div>
           </div>

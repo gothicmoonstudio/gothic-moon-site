@@ -14,7 +14,7 @@
   position: relative;
   z-index: 1; /* Ensure it's above the bubbles */
   width: 100%;
-  background-color: #a06af8; /* Background color for the footer content */
+  background-color: #8A2595; /* Background color for the footer content */
   padding: 3.5rem 118px;
   display: flex;
   flex-direction: column;
@@ -45,7 +45,7 @@
 .bubble {
   position: absolute;
   left: var(--position, 50%);
-  background: #a06af8; /* Bubble color */
+  background: #8A2595; /* Bubble color */
   border-radius: 100%;
   animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s),
              bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);

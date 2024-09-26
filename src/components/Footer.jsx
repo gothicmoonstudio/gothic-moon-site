@@ -46,7 +46,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="hover:scale-110 transition-transform duration-300 ease-in-out"
             >          
-              <Instagram className="hover:text-[#E1306C]" />
+              <Instagram className="hover:text-[#F6FFBC]" />
             </a>
           </div>
           <div className="custom-cursor-area flex justify-center items-center relative">
@@ -56,7 +56,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="hover:scale-110 transition-transform duration-300 ease-in-out"
             >          
-              <Dribbble className="hover:text-[#E1306C]" />
+              <Dribbble className="hover:text-[#F6FFBC]" />
             </a>
           </div>
         </div>

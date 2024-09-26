@@ -19,7 +19,7 @@ function Services() {
       if (gradient) {
         const x = (clientX / window.innerWidth) * 100;
         const y = (clientY / window.innerHeight) * 100;
-        gradient.style.background = `radial-gradient(at ${x}% ${y}%, #3b1ae5, #f6ffbc)`;
+        gradient.style.background = `radial-gradient(at ${x}% ${y}%, #3b1ae5, #8A2595)`;
       }
     };
 
