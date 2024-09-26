@@ -76,7 +76,7 @@ const About = () => {
         </div>
 
       {/* Product Design */}
-      <div className="overlay-section w-screen h-[982px] px-[118px] py-24 bg-[#e9cdff] flex-col justify-start items-start gap-9 inline-flex">
+      <div className="overlay-section w-screen h-screen px-[118px] py-24 text-[#141221] bg-[#e9cdff] flex-col justify-start items-start gap-9 inline-flex">
         {/* Subheader */}
         <div className="w-full text-[#141221] text-xl font-medium font-display uppercase">Product Design Services</div>
         
@@ -99,9 +99,19 @@ const About = () => {
             </div>
             
             {/* Accordion */}
-            <div className="flex flex-col justify-start items-start gap-2">
-              <Accordion />
-            </div>
+            {/* Accordion */}
+              <div className="flex flex-col justify-start items-start gap-2">
+                <Accordion
+                  textColor="#141221" 
+                  accordionData={[
+                    { title: 'User Research', content: 'We chart the landscape of your brand, understanding your goals and challenges.' },
+                    { title: 'Wireframing & prototyping', content: 'We create interactive prototypes to visualize and test your products functionality.' },
+                    { title: 'Usability Testing', content: 'We conduct thorough user testing to ensure your product meets user expectations and business goals.' },
+                    { title: 'Iterative Design', content: 'We refine and improve your product based on user feedback and data-driven insights.' }
+                  ]} 
+                />
+              </div>
+
           </div>
 
            {/* Service Details (1/3 width) */}
@@ -116,7 +126,7 @@ const About = () => {
       </div>
 
       {/* Web Design */}
-    <div className="overlay-section w-screen h-[982px] px-[118px] py-24 bg-[#141221] flex-col justify-start items-start gap-9 inline-flex">
+    <div className="overlay-section w-screen h-screen px-[118px] py-24 bg-[#141221] flex-col justify-start items-start gap-9 inline-flex">
       {/* Subheader */}
       <div className="w-full text-[#f4f3ff] text-xl font-medium font-display uppercase">Web Design Services</div>
       
@@ -139,7 +149,15 @@ const About = () => {
 
           {/* Accordion */}
           <div className="flex flex-col justify-start items-start gap-2">
-            <Accordion />
+          <Accordion 
+            textColor="#f4f3ff" 
+            accordionData={[
+              { title: 'Information Architecture', content: 'We structure your website for optimal user flow and content organization.' },
+              { title: 'Visual Design', content: 'We craft stunning, on-brand visuals that capture your unique identity.' },
+              { title: 'Responsive Design', content: 'We ensure your website looks and functions flawlessly across all devices.' },
+              { title: 'Performance Optimization', content: 'We optimize your site for speed and efficiency, enhancing user experience and SEO.' },
+            ]} 
+          />
           </div>
         </div>
         
