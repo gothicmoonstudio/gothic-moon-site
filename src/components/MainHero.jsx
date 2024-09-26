@@ -136,10 +136,10 @@ function MainHero() {
       {/* Main Content */}
       <div className="w-full h-[858px] px-28 pt-[275px] pb-[120px] flex flex-col items-center gap-36 relative z-10">
         <div className="text-center">
-          <span className="text-[#f4f3ff] text-[5rem] font-normal font-display leading-[5.5rem]">
+          <span className="text-[#f4f3ff] text-[5rem] font-normal font-display leading-[6rem]">
             Brewing spellbinding user experiences that enchant your users & elevate
           </span>
-          <span className="text-[#f4f3ff] text-[5rem] font-normal font-serif leading-[5.5rem] pl-4">
+          <span className="text-[#f4f3ff] text-[5rem] font-normal font-serif leading-[6rem] pl-4">
             your digital presence.
           </span>
         </div>

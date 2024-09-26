@@ -282,77 +282,69 @@
   overflow: hidden;
 }
 
-/* For stacked layout */
-.value-card-container {
+/* src/components/ValueCardScroll.css */
+
+/* Carousel Container */
+.carousel-container {
+  position: relative;
+  width: 820px;
+  height: 686px;
+  margin: 0 auto; /* Center horizontally */
+  perspective: 1000px; /* 3D perspective */
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+}
+
+/* Carousel Inner */
+.carousel-inner {
   width: 100%;
-  height: 100vh;
-  padding: 20px;
-}
-
-.card-wrapper {
-  position: relative;
-  width: 320px; /* Width of one card */
-  height: 460px; /* Height of one card */
-}
-
-.card {
+  height: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 320px;
-  height: 460px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
 }
 
-/* Process Section */
-ul.dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-li.dot {
-  width: 24px;
-  height: 24px;
-  background-color: #b288ff;
-  border-radius: 50%;
-  margin: 0 8px;
+/* Carousel Item */
+.carousel-item {
+  position: absolute;
+  width: 400px;
+  height: 593px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 1s ease, opacity 1s ease;
+  opacity: 0.7;
+  z-index: 1;
 }
 
-li.dot.active, li.dot:hover {
-  background-color: #9747FF; /* Active color */
+/* Active Carousel Item */
+.carousel-item.active {
+  transform: translateZ(300px) scale(1.05);
+  opacity: 1;
+  z-index: 2;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-
-/* About Our Committment section */
-.circle-1 {
-  background: radial-gradient(circle at top left, #F6FFBC, #DAC4E7 25%, #3B1AE5);
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .carousel-container {
+    width: 600px;
+    height: 450px;
+  }
+  .carousel-item {
+    width: 300px;
+    height: 445px;
+  }
 }
 
-.circle-2 {
-  background: radial-gradient(circle at top left, #DAC4E7, #9BA5EA 50%, #9747FF);
-}
-
-.circle-3 {
-  background: radial-gradient(circle at bottom right, #F6FFBC, #DAC4E7 60%, #9747FF);
-}
-
-.circle-4 {
-  background: radial-gradient(circle at top left, #F6FFBC, #9BA5EA 50%, #9747FF);
+@media (max-width: 600px) {
+  .carousel-container {
+    width: 100%;
+    height: 400px;
+  }
+  .carousel-item {
+    width: 250px;
+    height: 370px;
+  }
 }
 
 /* Projects section */

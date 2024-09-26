@@ -75,47 +75,84 @@ const About = () => {
           </div>
         </div>
 
-        {/* Product Design */}
-       <div className="overlay-section w-screen h-screen px-[118px] py-[333px] bg-[#e9cdff] flex justify-between items-center">
-        <div className="w-1/2">
+      {/* Product Design */}
+      <div className="overlay-section w-screen h-[982px] px-[118px] py-24 bg-[#e9cdff] flex-col justify-start items-start gap-9 inline-flex">
+        {/* Subheader */}
+        <div className="w-full text-[#141221] text-xl font-medium font-display uppercase">Product Design Services</div>
+        
+        {/* Header Section */}
+        <div className="w-full">
           <SlideHeader 
             text1="Guiding your website to" 
             text3="unmatched success." 
-            textSize="6rem" 
+            textSize="4rem" 
             textColor="#141221"
           />
         </div>
-        
-        {/* Accordion Section */}
-        <div className="w-[629px] flex flex-col justify-start items-center gap-9 mt-9 ">
-          {/* Paragraphs */}
-          <div className="self-stretch text-[#141221] text-2xl font-medium font-display leading-[48px]">
-            At Gothic Moon, we offer comprehensive product design services that elevate your digital products to new heights. By partnering with Gothic Moon for product design, you'll benefit from our expertise in creating intuitive, user-centered products that drive engagement and satisfaction.        
-        </div>
-          <Accordion />
-        </div>
-      </div> 
 
-       {/* Web Design */}
-      <div className="overlay-section w-screen h-screen px-[118px] py-[333px] bg-[#e9cdff] flex justify-between items-center">
-        <div className="w-1/2">
-          <SlideHeader 
-            text1="Guiding your product to" 
-            text3="unmatched success." 
-            textSize="6rem" 
-            textColor="#141221"
-          />
-        </div>
-        
-        {/* Accordion Section */}
-        <div className="w-[629px] flex flex-col justify-start items-center gap-9 mt-9 ">
-          {/* Paragraphs */}
-          <div className="self-stretch text-[#141221] text-2xl font-medium font-display leading-[48px]">
-            At Gothic Moon, we offer comprehensive product design services that elevate your digital products to new heights. By partnering with Gothic Moon for product design, you'll benefit from our expertise in creating intuitive, user-centered products that drive engagement and satisfaction.        
-        </div>
-          <Accordion />
+         {/* Main Content Section */}
+        <div className="w-screen flex justify-between items-start gap-12">
+          {/* Description and Accordion Section (2/3 width) */}
+          <div className="w-2/3 flex flex-col gap-6">
+            <div className="text-[#141221] text-2xl font-normal font-display leading-9">
+              At Gothic Moon, we offer comprehensive product design services that elevate your digital products to new heights. By partnering with Gothic Moon for product design, you'll benefit from our expertise in creating intuitive, user-centered products that drive engagement and satisfaction.
+            </div>
+            
+            {/* Accordion */}
+            <div className="flex flex-col justify-start items-start gap-2">
+              <Accordion />
+            </div>
+          </div>
+
+           {/* Service Details (1/3 width) */}
+          <div className="w-1/3 flex flex-col justify-start items-start gap-2">
+            <div className="text-[#141221] text-xl font-medium font-display leading-9">UX Design</div>
+            <div className="text-[#141221] text-xl font-medium font-display leading-9">Visual Design</div>
+            <div className="text-[#141221] text-xl font-medium font-display leading-9">User Research & Testing</div>
+            <div className="text-[#141221] text-xl font-medium font-display leading-9">Web & Mobile App Design</div>
+            <div className="text-[#141221] text-xl font-medium font-display leading-9">Interaction Design</div>
+          </div>
         </div>
       </div>
+
+      {/* Web Design */}
+    <div className="overlay-section w-screen h-[982px] px-[118px] py-24 bg-[#141221] flex-col justify-start items-start gap-9 inline-flex">
+      {/* Subheader */}
+      <div className="w-full text-[#f4f3ff] text-xl font-medium font-display uppercase">Web Design Services</div>
+      
+      {/* Title */}
+      <div className="w-full">
+            <SlideHeader 
+              text1="Guiding your product to" 
+              text3="unmatched success." 
+              textSize="4rem" 
+              textColor="#f4f3ff"
+            />
+      </div>
+      {/* Main Content Section */}
+    <div className="w-screen flex justify-between items-start gap-12">
+        {/* Description and Accordion Section (2/3 width) */}
+        <div className="w-2/3 flex flex-col gap-6">
+          <div className="text-[#f4f3ff] text-2xl font-normal font-display leading-9">
+            Gothic Moon's web design services are tailored to create captivating online experiences that resonate with your audience. By choosing Gothic Moon for your web design needs, you'll receive a beautifully crafted, high-performing website that not only looks great but also delivers results for your business.
+          </div>
+
+          {/* Accordion */}
+          <div className="flex flex-col justify-start items-start gap-2">
+            <Accordion />
+          </div>
+        </div>
+        
+        {/* Service Details (1/3 width) */}
+        <div className="w-1/3 flex flex-col justify-start items-start gap-2">
+          <div className="text-[#f4f3ff] text-xl font-medium font-display leading-9">UX Design</div>
+          <div className="text-[#f4f3ff] text-xl font-medium font-display leading-9">Visual Design</div>
+          <div className="text-[#f4f3ff] text-xl font-medium font-display leading-9">User Research & Testing</div>
+          <div className="text-[#f4f3ff] text-xl font-medium font-display leading-9">Web & Mobile App Design</div>
+          <div className="text-[#f4f3ff] text-xl font-medium font-display leading-9">Interaction Design</div>
+        </div>
+      </div>
+    </div>
   </section>
   );
 };

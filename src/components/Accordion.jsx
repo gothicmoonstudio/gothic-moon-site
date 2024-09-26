@@ -12,11 +12,11 @@ const Accordions = () => {
     <div className="w-full h-auto bg-[#e9cdff] flex flex-col justify-start items-start gap-4">
       {/* Accordions */}
       {accordionData.map((item, index) => (
-        <div key={index} className="w-full px-4 py-6 border-b border-[#141221]">
+        <div key={index} className="w-full py-6 border-b border-[#141221]">
           <div className="flex justify-between items-center w-full">
             {/* Accordion Title */}
             <button
-              className="flex items-center font-display text-[#141221] text-2xl font-bold cursor-pointer focus:outline-none focus:ring focus:ring-opacity-50"
+              className="flex items-center font-display text-[#141221] text-xl font-bold cursor-pointer focus:outline-none focus:ring focus:ring-opacity-50"
               onClick={() => toggleAccordion(index)}
               aria-expanded={openAccordion === index}
             >
@@ -36,7 +36,7 @@ const Accordions = () => {
               openAccordion === index ? 'h-auto' : 'h-0'
             }`}
           >
-            <div className="mt-4 font-display text-[#141221] text-2xl font-medium leading-9">
+            <div className="mt-4 font-display text-[#141221] text-xl font-medium leading-9">
               {item.content}
             </div>
           </div>

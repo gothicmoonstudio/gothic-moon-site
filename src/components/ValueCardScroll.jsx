@@ -47,18 +47,14 @@ const valueCardData = [
 ];
 
 const generateCardStyle = (index, activeIndex) => {
-  const baseLeft = 200; // Adjust horizontal spread
-  const rotateStep = 0; // Reduce rotation for a cleaner look
-
-  const left = baseLeft * (index - activeIndex);
-  const rotation = rotateStep * (index - activeIndex);
-
-  const scale = index === activeIndex ? 1.05 : 0.8;  // Scale the active card
+  const angleStep = 0; // Angle difference between cards
+  const rotateY = angleStep * (index - activeIndex); // Calculate rotation for each card
+  const translateZ = index === activeIndex ? 200 : 150; // Pull the active card closer
+  const scale = index === activeIndex ? 1.1 : 0.85; // Scale active card larger
 
   return {
-    transform: `rotate(${rotation}deg) scale(${scale})`,
-    left: `${left}px`,
-    transition: 'transform 0.5s ease, left 0.5s ease',
+    transform: `rotateY(${rotateY}deg) translateZ(${translateZ}px) scale(${scale})`,
+    transition: 'transform 0.5s ease',
   };
 };
 
@@ -81,8 +77,9 @@ const ValueCardScroll = () => {
   }, []);
 
   return (
-    <div className="relative w-[820px] h-[686px] flex justify-center items-center">
+    <div className="relative w-[820px] h-[686px] flex justify-center items-center perspective-1000">
       {valueCardData.map((card, index) => (
+        
         <div
           key={index}
           className="absolute p-12 rounded-2xl flex flex-col justify-between items-center cursor-pointer"

@@ -2,7 +2,7 @@ import React from 'react';
 import { Instagram, Dribbble } from 'react-feather';
 
 const Footer = () => {
-  const bubbles = Array.from({ length: 275 });
+  const bubbles = Array.from({ length: 225 });
 
   return (
     <footer className="footer-container">
