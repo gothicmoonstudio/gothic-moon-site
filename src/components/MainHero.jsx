@@ -1,25 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Instagram, Dribbble } from 'react-feather';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import HoverImagePreview from './HoverImagePreview';
 
-// Debounce function to limit how often a function is called
-const debounce = (func, delay) => {
-  let timeoutId;
-  return (...args) => {
-    if (timeoutId) clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func(...args);
-    }, delay);
-  };
-};
+gsap.registerPlugin(ScrollTrigger);
 
-function MainHero() {
+const MainHero = () => {
   const [circleData, setCircleData] = useState([]);
+  const contentRef = useRef(null);
+  const socialIconsRef = useRef([]);
+  const headerTextRef = useRef(null);
+  const blobsRef = useRef([]);
+  const navbarRef = useRef(null);
 
-  const items = [
-    { title: 'Project 1', imageUrl: 'https://via.placeholder.com/300x200?text=Project+1' },
-  ];
+  const items = [{ title: 'Project 1', imageUrl: 'https://via.placeholder.com/300x200?text=Project+1' }];
 
+  // Debounce function for resize events
+  const debounce = (func, delay) => {
+    let timeoutId;
+    return (...args) => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        func(...args);
+      }, delay);
+    };
+  };
+
+  // Function to generate blob positions and speeds
   const generateBlobs = (count) => {
     const blobs = [];
     for (let i = 0; i < count; i++) {
@@ -34,12 +42,12 @@ function MainHero() {
     return blobs;
   };
 
+  // Update blobs based on screen size
   useEffect(() => {
     const setBlobsBasedOnViewport = () => {
       const width = window.innerWidth;
       let blobCount = 5; // Default to small screens
 
-      // Adjust number of blobs based on screen width
       if (width >= 1200) {
         blobCount = 10; // Large screens
       } else if (width >= 768) {
@@ -49,26 +57,16 @@ function MainHero() {
       setCircleData(generateBlobs(blobCount));
     };
 
-    // Debounced version of the resize handler
-    const handleResize = debounce(() => {
-      setBlobsBasedOnViewport();
-    }, 200);
-
-    // Set initial blobs based on current viewport size
+    const handleResize = debounce(() => setBlobsBasedOnViewport(), 200);
     setBlobsBasedOnViewport();
 
-    // Update blobs when window is resized
     window.addEventListener('resize', handleResize);
-
-    // Cleanup the event listener on unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Update blob positions on interval
   useEffect(() => {
     const updatePosition = (circle, bounds) => {
-      // Update blob position and handle screen bounds
       circle.x += circle.xSpeed;
       circle.y += circle.ySpeed;
 
@@ -94,18 +92,69 @@ function MainHero() {
       });
     }, 10);
 
-    return () => clearInterval(intervalId); // Cleanup interval on unmount
+    return () => clearInterval(intervalId);
   }, [circleData]);
 
+  // Initial Animation Setup
+  useEffect(() => {
+    // Text Animation for Main Content
+    gsap.fromTo(
+      headerTextRef.current.children,
+      { y: '100%', opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        stagger: 0.2,
+        ease: 'power3.out',
+        delay: 0.5,
+        onComplete: () => {
+          gsap.to(socialIconsRef.current, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            stagger: 0.3,
+            ease: 'power3.out',
+            onComplete: () => {
+              gsap.to(navbarRef.current, {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out',
+              });
+            },
+          });
+        },
+      }
+    );
+
+    // Blobs Entrance Animation
+    blobsRef.current.forEach((blob, index) => {
+      gsap.fromTo(
+        blob,
+        { scale: 0 },
+        {
+          scale: 1,
+          duration: 1,
+          delay: 0.5 + index * 0.2,
+          ease: 'power3.out',
+        }
+      );
+    });
+
+    return () => {
+      gsap.killTweensOf(headerTextRef.current.children);
+      gsap.killTweensOf(socialIconsRef.current);
+      gsap.killTweensOf(navbarRef.current);
+      blobsRef.current.forEach((blob) => gsap.killTweensOf(blob));
+    };
+  }, []);
+
   return (
-    <section
-      id="main-hero"
-      className="relative w-full min-h-screen bg-secondary flex flex-col items-center justify-center overflow-visible"
-    >
+    <section id="main-hero" className="relative w-full min-h-screen bg-secondary flex flex-col items-center justify-center overflow-visible">
       {/* SVG Metaballs */}
       <svg className="absolute w-full h-full overflow-hidden">
         <defs>
-          {/* Gooey Filter */}
           <filter id="gooify" width="400%" x="-10%" height="400%" y="-150%">
             <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
             <feColorMatrix
@@ -117,7 +166,6 @@ function MainHero() {
                      0 0 0 25 -10"
             />
           </filter>
-          {/* Gradient */}
           <linearGradient id="lavaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stopColor="#3B1AE5" />
             <stop offset="100%" stopColor="#E1303B" />
@@ -125,8 +173,9 @@ function MainHero() {
         </defs>
 
         <g filter="url(#gooify)">
-          {circleData.map((circle) => (
+          {circleData.map((circle, index) => (
             <circle
+              ref={(el) => (blobsRef.current[index] = el)}
               key={circle.r}
               id={`blob-${circle.r}`}
               cx={circle.x}
@@ -139,12 +188,12 @@ function MainHero() {
       </svg>
 
       {/* Main Content */}
-      <div className="w-full h-screen px-28 pt-28 flex flex-col justify-center items-center gap-16 relative z-10">
-        <div className="text-left">
-          <span className="text-[#f4f3ff] text-[5rem] font-normal font-display leading-[6rem]">
-            Brewing spellbinding user experiences that enchant your users & elevate
+      <div ref={contentRef} className="w-full h-screen px-28 pt-28 flex flex-col justify-center items-center gap-16 relative z-10">
+        <div className="text-left" ref={headerTextRef}>
+          <span className="block text-[#f4f3ff] text-[5rem] font-normal font-display leading-[6rem]">
+            Crafting spellbinding user experiences that enchant your users & elevate
           </span>
-          <span className="text-[#f4f3ff] text-[5rem] font-normal font-serif leading-[6rem] pl-4">
+          <span className="block text-[#f4f3ff] text-[5rem] font-normal font-serif leading-[6rem] pl-4">
             your digital presence.
           </span>
         </div>
@@ -153,45 +202,46 @@ function MainHero() {
           {/* Studio Description */}
           <div className="w-full flex flex-col justify-start items-start gap-4">
             <div className="text-[#f4f3ff] text-2xl font-normal font-serif">
-              gothic moon 
+              gothic moon
               <span className="font-medium font-display pl-2">
                 is a digital design studio specializing in product & web design.
               </span>
             </div>
             <div className="justify-center items-center inline-flex">
               <div>
-                <HoverImagePreview items={items}/>
+                <HoverImagePreview items={items} />
               </div>
             </div>
           </div>
 
           {/* Social Icons */}
           <div className="pt-12 flex items-start gap-4">
-            <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
-              <a 
-                href="https://www.instagram.com/gothicmoonstudio" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:scale-110 transition-transform duration-300 ease-in-out"
+            {['Instagram', 'Dribbble'].map((platform, index) => (
+              <div
+                key={platform}
+                ref={(el) => (socialIconsRef.current[index] = el)}
+                className="custom-cursor-area w-9 h-9 flex justify-center items-center relative opacity-0 translate-y-4"
               >
-                <Instagram className="hover:text-[#F6FFBC]" />
-              </a>
-            </div>
-            <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
-              <a 
-                href="https://dribbble.com/gothicmoonstudio" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:scale-110 transition-transform duration-300 ease-in-out"
-              >
-                <Dribbble className="hover:text-[#F6FFBC]" />
-              </a>
-            </div>
+                <a
+                  href={platform === 'Instagram' ? 'https://www.instagram.com/gothicmoonstudio' : 'https://dribbble.com/gothicmoonstudio'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:scale-110 transition-transform duration-300 ease-in-out"
+                >
+                  {platform === 'Instagram' ? <Instagram className="hover:text-[#F6FFBC]" /> : <Dribbble className="hover:text-[#F6FFBC]" />}
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </div>
+
+      {/* Navbar */}
+      <nav ref={navbarRef} className="fixed top-0 w-full opacity-0 translate-y-4 flex justify-center items-center z-50">
+        {/* Navbar content here */}
+      </nav>
     </section>
   );
-}
+};
 
 export default MainHero;

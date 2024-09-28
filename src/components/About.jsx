@@ -1,8 +1,8 @@
 import React from 'react';
-import ProcessSection from './ProcessSection';
 import SlideHeader from './SlideHeader';
 import ValueCardScroll from './ValueCardScroll';
 import Accordion from './Accordion';
+import AnimatedText from './AnimatedText';
 
 const About = () => {
   return (
@@ -29,16 +29,23 @@ const About = () => {
           />
         </div>
         <div className="w-1/2 flex flex-col justify-start items-start gap-6">
-          <div className="w-full text-[#f4f3ff] text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-display leading-[2.5rem]">
-            Navigating the intricate world of user experience design can be a daunting task. That's where Gothic Moon comes in. As your trusted UX compass, we'll guide you through the complex terrain, ensuring your digital presence shines bright.
-          </div>
-          <div className="w-full text-[#f4f3ff] text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-display leading-[2.5rem]">
-            I'm Mary Sargent, a seasoned UX designer with over six years of experience crafting engaging and intuitive digital products. My expertise lies in designing enterprise tools for the media and entertainment industries, where attention to detail and user-centricity are paramount.
-          <div/>
-          </div>
-          <div className="w-full text-[#f4f3ff] text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-display leading-[2.5rem]">
-            Let's embark on a journey together to create exceptional user experiences. Welcome to Gothic Moon.          
-          </div>
+          <AnimatedText
+            text="Navigating the intricate world of user experience design can be a daunting task. That's where Gothic Moon comes in. As your trusted UX compass, we'll guide you through the complex terrain, ensuring your digital presence shines bright."
+            className="w-full text-[#f4f3ff] text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-display leading-[2.5rem]"
+            stagger={0.3} // Set the stagger value for line animation
+          />
+          <AnimatedText
+            text="I'm Mary Sargent, a seasoned UX designer with over six years of experience crafting engaging and intuitive digital products. My expertise lies in designing enterprise tools for the media and entertainment industries, where attention to detail and user-centricity are paramount."
+            className="w-full text-[#f4f3ff] text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-display leading-[2.5rem]"
+            delay={0.2}
+            stagger={0.3}
+          />
+          <AnimatedText
+            text="Let's embark on a journey together to create exceptional user experiences. Welcome to Gothic Moon."
+            className="w-full text-[#f4f3ff] text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-display leading-[2.5rem]"
+            delay={0.4}
+            stagger={0.3}
+          />
         </div>
       </div>
 
@@ -60,13 +67,21 @@ const About = () => {
           {/* Value Prop */}  
         <div className="sticky-section w-screen px-[118px] py-24 bg-[#f6ffbc] flex justify-center items-center gap-12">
           <div className="flex-grow flex flex-col justify-start items-start gap-9">
-            <div className="self-stretch text-[#141221] text-[3rem] font-medium font-display leading-[4rem]">
-            Tired of cookie-cutter designs that leave your brand feeling 
-            <span className="font-serif text-[3rem] pl-2">invisible?</span>
-            </div>
-            <div className="self-stretch text-[#141221] text-[1.5rem] font-medium font-display leading-[42px]">
-            At Gothic Moon, we do more than just design. We're strategic partners dedicated to crafting digital experiences that not only look stunning but also resonate deeply with your brand's essence. Let's break free from the ordinary and create something truly extraordinary together.
-            </div>
+            <div>
+            <AnimatedText
+              text="Tired of cookie-cutter designs that leave your brand feeling invisible. "
+              className="w-full text-[#141221] text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium font-display leading-[4.5rem]"
+              stagger={0.3} // Set the stagger value for line animation
+            />
+          </div>
+          <div>
+          <AnimatedText
+            text=" At Gothic Moon, we do more than just design. We're strategic partners dedicated to crafting digital experiences that not only look stunning but also resonate deeply with your brand's essence. Let's break free from the ordinary and create something truly extraordinary together."
+            className="w-full text-[#141221] text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-medium font-display leading-[2.5rem]"
+            delay={0.2}
+            stagger={0.3}
+          />
+          </div>
           </div>
           <div className="w-[820px] h-[686px] rounded-2xl flex items-center justify-center">
             <div className="text-2xl">

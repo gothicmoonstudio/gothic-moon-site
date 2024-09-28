@@ -43,7 +43,7 @@ const HoverImagePreview = ({ items = [], imageHeight = 200, imageWidth = 300 }) 
         {items.map((item, index) => (
           <div
             key={index}
-            className={`absolute inset-0 rounded-full w-48 h-48 bg-cover bg-center transition-all duration-500 ${
+            className={`absolute inset-0 rounded-1 w-full h-full bg-cover bg-center transition-all duration-500 ${
               hoveredIndex === index ? 'block' : 'hidden'
             }`}
             style={{ backgroundImage: `url(${item.imageUrl})` }}
@@ -63,9 +63,9 @@ const HoverImagePreview = ({ items = [], imageHeight = 200, imageWidth = 300 }) 
             {/* This is the "View Projects" link text that gets hovered */}
             <a
               href="#projects"
-              className="text-[#f4f3ff] text-md font-medium uppercase font-display hover:text-gray-300 transition duration-200"
+              className="text-[#f4f3ff] text-lg font-medium font-display hover:text-gray-300 transition duration-200"
             >
-              View Projects
+              Latest Project - Redesign
               {/* <img 
               src="/images/fancy_arrow.svg" 
               alt="Arrow Icon" 
