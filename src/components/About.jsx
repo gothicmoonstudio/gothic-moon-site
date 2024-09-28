@@ -126,7 +126,7 @@ const About = () => {
       </div>
 
       {/* Web Design */}
-    <div className="overlay-section w-screen h-screen px-[118px] py-24 bg-[#141221] flex-col justify-start items-start gap-9 inline-flex">
+    <div className="sticky-section w-screen h-screen px-[118px] py-24 bg-[#141221] flex-col justify-start items-start gap-9 inline-flex">
       {/* Subheader */}
       <div className="w-full text-[#f4f3ff] text-xl font-medium font-display uppercase">Web Design Services</div>
       

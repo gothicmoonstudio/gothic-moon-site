@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Instagram, Dribbble } from 'react-feather';
+import HoverImagePreview from './HoverImagePreview';
 
 // Debounce function to limit how often a function is called
 const debounce = (func, delay) => {
@@ -14,6 +15,10 @@ const debounce = (func, delay) => {
 
 function MainHero() {
   const [circleData, setCircleData] = useState([]);
+
+  const items = [
+    { title: 'Project 1', imageUrl: 'https://via.placeholder.com/300x200?text=Project+1' },
+  ];
 
   const generateBlobs = (count) => {
     const blobs = [];
@@ -134,8 +139,8 @@ function MainHero() {
       </svg>
 
       {/* Main Content */}
-      <div className="w-full h-[858px] px-28 pt-[275px] pb-[120px] flex flex-col items-center gap-36 relative z-10">
-        <div className="text-center">
+      <div className="w-full h-screen px-28 pt-28 flex flex-col justify-center items-center gap-16 relative z-10">
+        <div className="text-left">
           <span className="text-[#f4f3ff] text-[5rem] font-normal font-display leading-[6rem]">
             Brewing spellbinding user experiences that enchant your users & elevate
           </span>
@@ -144,24 +149,24 @@ function MainHero() {
           </span>
         </div>
 
-        <div className="flex justify-between items-center gap-9 w-full">
+        <div className="justify-between items-center w-full">
           {/* Studio Description */}
-          <div className="w-[425px] flex flex-col justify-start items-start gap-6">
+          <div className="w-full flex flex-col justify-start items-start gap-4">
             <div className="text-[#f4f3ff] text-2xl font-normal font-serif">
               gothic moon 
               <span className="font-medium font-display pl-2">
                 is a digital design studio specializing in product & web design.
               </span>
             </div>
-            <div className="py-2 border-b border-white justify-center items-center inline-flex">
-              <div className="text-white text-base font-medium font-display">
-                View Projects
+            <div className="justify-center items-center inline-flex">
+              <div>
+                <HoverImagePreview items={items}/>
               </div>
             </div>
           </div>
 
           {/* Social Icons */}
-          <div className="flex justify-center items-center gap-9">
+          <div className="pt-12 flex items-start gap-4">
             <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
               <a 
                 href="https://www.instagram.com/gothicmoonstudio" 

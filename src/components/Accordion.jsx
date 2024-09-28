@@ -12,7 +12,7 @@ const Accordion = ({ textColor = '#141221', accordionData }) => {
     <div className="w-full h-auto bg-inherit flex flex-col justify-start items-start gap-4">
       {/* Accordions */}
       {accordionData.map((item, index) => (
-        <div key={index} className="w-full py-6 border-b border-inherit">
+        <div key={index} className="w-full py-6 border-b-[.5px] border-inherit">
           <div className="flex justify-between items-center w-full">
             {/* Accordion Title */}
             <button
