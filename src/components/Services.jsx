@@ -1,15 +1,12 @@
+// Services.jsx
 import React, { useEffect, useRef } from 'react';
-import SecondaryButton from './SecondaryButton';
-import lottie from 'lottie-web-light';  // Using the light version
+import ServiceCard from './ServiceCard';
 import Magic from "../assets/animations/icons8-magic.json";
 import Sparkles from "../assets/animations/icons8-sparkles.json";
 import Potions from "../assets/animations/icons8-mana.json";
 
 function Services() {
   const gradientRef = useRef(null);
-  const magicRef = useRef(null);
-  const sparklesRef = useRef(null);
-  const potionsRef = useRef(null);
 
   useEffect(() => {
     // Set up gradient animation on mouse move
@@ -29,114 +26,54 @@ function Services() {
     };
   }, []);
 
-  // Initialize Lottie animations
-  useEffect(() => {
-    lottie.loadAnimation({
-      container: magicRef.current,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      animationData: Magic,
-    });
-
-    lottie.loadAnimation({
-      container: sparklesRef.current,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      animationData: Sparkles,
-    });
-
-    lottie.loadAnimation({
-      container: potionsRef.current,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      animationData: Potions,
-    });
-
-    return () => {
-      lottie.destroy();  // Clean up when the component unmounts
-    };
-  }, []);
-
   return (
     <section
       id="services"
       data-gradient="true"
       ref={gradientRef}
-      className="services gradient w-full min-h-screen text-light flex flex-col justify-center items-center"
+      className="services gradient w-screen min-h-screen flex flex-col justify-center items-center px-4 md:px-12 lg:px-24 py-16"
     >
       {/* Main Container */}
-      <div className=" flex flex-col justify-between mt-24 items-center">
+      <div className="flex flex-col justify-between items-center mt-16 md:mt-16 lg:mt-24 w-full">
         
         {/* Header Section */}
-        <div className="w-[1276px] flex justify-center items-center gap-2.5">
-          <div className="w-[643px] text-center">
-            <span className="text-[#f4f3ff] text-[2.5rem] font-normal font-display">
+        <div className="w-full md:w-auto flex justify-center items-center text-center">
+          <div className="text-center">
+            <span className="text-[#f4f3ff] text-3xl md:text-4xl lg:text-[2.5rem] font-normal font-display">
               Let Gothic be your
             </span>
-            <span className="text-[#f4f3ff] text-[2.5rem] font-normal font-serif"> design guide.</span>
+            <span className="text-[#f4f3ff] text-3xl md:text-4xl lg:text-[2.5rem] font-normal font-serif"> design guide.</span>
           </div>
         </div>
 
         {/* Service Cards Section */}
-        <div className="flex justify-center items-center gap-9 mt-12">
+        <div className="md:mt-16 mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 justify-items-center items-center gap-4 md:gap-6 lg:gap-8" >
           {/* Service Card 1 */}
-          <div className="h-[587px] px-9 py-[258px] bg-[#f4f3ff]/10 rounded-lg border-t border-[rgba(244,243,255,0.5)] backdrop-blur-[114px] flex flex-col justify-center items-center gap-2.5">
-            <div className="flex flex-col justify-start items-center gap-9">
-              {/* Lottie Icon */}
-              <div className="w-16 h-16" ref={magicRef} style={{ filter: 'invert(100%)' }}>
-              </div>
-              <div className="text-center text-[#f4f3ff] text-3xl font-semibold font-display">
-                Monthly Subscription
-              </div>
-              <div className="w-[306.67px] text-center text-[#f4f3ff] text-lg font-normal font-[Bely] leading-7">
-                Our monthly subscription is perfect for projects needing consistent and adaptable design expertise.
-              </div>
-              <div>
-                <SecondaryButton label="Start Your Subscription" />
-              </div>
-            </div>
-          </div>
+          <ServiceCard
+            animationData={Magic}
+            title="Monthly Subscription"
+            description="Our monthly subscription is perfect for projects needing consistent and adaptable design expertise."
+            buttonLabel="Subscribe"
+          />
 
           {/* Service Card 2 */}
-          <div className="h-[587px] px-9 py-[258px] bg-[#f4f3ff]/10 rounded-lg border-t border-[rgba(244,243,255,0.5)] backdrop-blur-[114px] flex flex-col justify-center items-center gap-9">
-            <div className="w-16 h-16 relative" ref={sparklesRef} style={{ filter: 'invert(100%)' }}>
-            </div>
-            <div className="flex flex-col justify-start items-center gap-9">
-              <div className="text-center text-[#f4f3ff] text-3xl font-semibold font-display">
-                Design Consultations
-              </div>
-              <div className="w-[306.67px] text-center text-[#f4f3ff] text-lg font-normal font-['Bely'] leading-7">
-                Unlock expert insights and innovative solutions that are designed to offer both guidance and results.
-              </div>
-              <div>
-                <a href="https://calendly.com/mary-gothicmoon/30min" target="_blank" rel="noopener noreferrer">
-                  <SecondaryButton label="Book a Call" />
-                </a>
-              </div>
-            </div>
-          </div>
+          <ServiceCard
+            animationData={Sparkles}
+            title="Design Consultations"
+            description="Unlock expert insights and innovative solutions that are designed to offer both guidance and results."
+            buttonLabel="Book a Call"
+            buttonLink="https://calendly.com/mary-gothicmoon/30min"
+          />
 
           {/* Service Card 3 */}
-          <div className="h-[587px] px-9 py-[258px] bg-[#f4f3ff]/10 rounded-lg border-t border-[rgba(244,243,255,0.5)] backdrop-blur-[114px] flex flex-col justify-center items-center gap-9">
-            <div className="w-16 h-16 relative" ref={potionsRef} style={{ filter: 'invert(100%)' }}>
-            </div>
-            <div className="flex flex-col justify-start items-center gap-9">
-              <div className="text-center text-[#f4f3ff] text-3xl font-semibold font-display">
-                Single Project
-              </div>
-              <div className="w-[306.67px] text-center text-[#f4f3ff] text-lg font-normal font-['Bely'] leading-7">
-                Ideal for clients seeking to address particular challenges or enhance key areas of their user experience.
-              </div>
-                <div>
-                <SecondaryButton label="Get a Quote" />
-                </div>
-              </div>
-            </div>
-          </div>
+          <ServiceCard
+            animationData={Potions}
+            title="Single Project"
+            description="Ideal for clients seeking to address particular challenges or enhance key areas of their user experience."
+            buttonLabel="Get a Quote"
+          />
         </div>
+      </div>
     </section>
   );
 }

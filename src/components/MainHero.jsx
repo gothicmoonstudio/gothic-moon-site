@@ -201,7 +201,7 @@ const MainHero = () => {
         <div className="justify-between items-center w-full">
           {/* Studio Description */}
           <div className="w-full flex flex-col justify-start items-start gap-4">
-            <div className="text-[#f4f3ff] text-2xl font-normal font-serif">
+            <div className="text-[#f4f3ff] text-2xl font-medium font-serif">
               gothic moon
               <span className="font-medium font-display pl-2">
                 is a digital design studio specializing in product & web design.

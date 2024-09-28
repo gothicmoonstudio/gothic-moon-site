@@ -118,7 +118,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="social-icons gap-9 pb-6">
+        <div className="social-icons gap-6 pb-6">
           <div className="custom-cursor-area flex justify-center items-center relative">
             <a 
               href="https://www.instagram.com/gothicmoonstudio" 
@@ -144,7 +144,7 @@ const Footer = () => {
         <div className="custom-cursor-area w-full flex justify-between items-start">
           <div>
             <p className="font-display">
-              Designed and developed by yours truly —with a little 💻, ☕, and AI magic🪄.
+              Designed and developed by yours truly —with a little 💻, ☕, and 🪄.
             </p>
           </div>
           <div>

@@ -23,7 +23,7 @@ function Contact() {
             Trust in the expertise and passion of Gothic Moon to transform your
             ideas into reality. Let’s create something extraordinary together.
           </div>
-          <div className="flex justify-center items-center gap-9">
+          <div className="flex justify-center items-center gap-6">
             <div className="custom-cursor-area w-9 h-9 flex justify-center items-center relative">
             <a 
             href="https://www.instagram.com/gothicmoonstudio" 
