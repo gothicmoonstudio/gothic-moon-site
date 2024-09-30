@@ -9,7 +9,7 @@ const About = () => {
     <section id="about">
 
       {/* Greeting Section */}
-      <div className="sticky-section h-screen px-[7rem] py-24 bg-[#8A2595] flex justify-center items-center gap-2.5 text-center">
+      <div className="sticky-section h-screen px-24 py-24 bg-[#8A2595] flex justify-center items-center gap-2.5 text-center">
         <SlideHeader 
           text1="Gothic Moon is your trusted guide" 
           text3="for all things design." 
