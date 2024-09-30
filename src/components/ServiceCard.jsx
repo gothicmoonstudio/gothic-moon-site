@@ -25,15 +25,15 @@ const ServiceCard = ({ animationData, title, description, buttonLabel, buttonLin
   return (
     <div className="w-full lg:w-full md:w-full flex flex-col justify-between items-center md:h-[37.5rem] h-[33rem] px-6 py-16 md:px-6 md:py-16 lg:px-8 lg:py-24 bg-[#f4f3ff]/10 rounded-lg border-t border-[rgba(244,243,255,0.5)] backdrop-blur-[114px] shadow-sm transform hover:scale-105 transition-transform">
       {/* Lottie Animation Icon */}
-      <div className="w-8 h-8 md:w-8 md:h-8 lg:w-12 lg:h-12 mb-8" ref={animationRef} style={{ filter: 'invert(100%)' }}></div>
+      <div className="w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12 mb-8" ref={animationRef} style={{ filter: 'invert(100%)' }}></div>
       <div className="flex flex-col justify-center gap-4 mb-6">
         {/* Title */}
-    <div className="text-center text-[#f4f3ff] text-2xl md:text-2xl lg:text-3xl font-semibold font-display">
+    <div className="text-center text-[#f4f3ff] text-3xl md:text-3xl lg:text-3xl font-semibold font-display">
         {title}
       </div>
 
       {/* Description */}
-    <div className="w-full max-w-xs text-center text-[#f4f3ff] text-[1.25] md:text-lg lg:text-xl font-normal font-[Bely] leading-7">
+    <div className="w-full max-w-xs text-center text-[#f4f3ff] text-[1.25rem] lg:text-[1.25rem] font-normal font-[Bely] leading-7">
         {description}
       </div>
 

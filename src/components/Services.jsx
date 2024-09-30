@@ -34,7 +34,7 @@ function Services() {
       className="services gradient w-screen min-h-screen flex flex-col justify-center items-center px-4 md:px-12 lg:px-24 py-16"
     >
       {/* Main Container */}
-      <div className="flex flex-col justify-between items-center mt-16 md:mt-16 lg:mt-24 w-full">
+      <div className="flex flex-col justify-between items-center gap-4 md:gap-4 lg:gap-4 mt-16 md:mt-16 lg:mt-24 w-full">
         
         {/* Header Section */}
         <div className="w-full md:w-auto flex justify-center items-center text-center">

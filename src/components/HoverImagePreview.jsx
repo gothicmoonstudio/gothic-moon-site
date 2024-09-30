@@ -65,7 +65,7 @@ const HoverImagePreview = ({ items = [], imageHeight = 200, imageWidth = 300 }) 
               href="#projects"
               className="text-[#f4f3ff] text-lg leading-6 md:text-2xl md:leading-8 lg:text-2xl lg:leading-9 font-medium font-display hover:text-gray-300 transition duration-200"
             >
-              Check out our latest project - Lighting Company Redesign.
+              Check out our latest project.
             </a>
           </div>
         ))}

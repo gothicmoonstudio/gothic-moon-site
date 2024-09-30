@@ -242,7 +242,7 @@ const MainHero = () => {
                   rel="noopener noreferrer"
                   className="hover:scale-110 transition-transform duration-300 ease-in-out"
                 >
-                  {platform === 'Instagram' ? <Instagram className="hover:text-[#F6FFBC]" /> : <Dribbble className="hover:text-[#F6FFBC]" />}
+                  {platform === 'Instagram' ? <Instagram className="stroke-1 hover:text-[#F6FFBC]" /> : <Dribbble className="stroke-1 hover:text-[#F6FFBC]" />}
                 </a>
               </div>
             ))}

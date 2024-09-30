@@ -1,26 +1,25 @@
 import React from 'react';
-import ProjectSlider from './ProjectSlider.jsx'
+import ProjectSlider from './ProjectSlider.jsx';
 
 function Projects() {
   return (
-    <section 
+    <section
       id="projects"
-      className="w-full h-screen px-[8rem] py-[3rem] bg-secondary flex flex-col justify-center items-center"
+      className="w-screen min-h-screen flex flex-col justify-center items-center px-8 md:px-16 lg:px-24 py-8 mt-32 md:mt-34 lg:mt-36 bg-secondary gap-4 sm:gap-2 md:gap-4 lg:gap-8"
     >
-      <div className="w-full mt-28 h-[9.9375rem] flex flex-col items-center">
-        <div className="w-full text-center">
-          <span className="text-light text-[2.5rem] font-medium font-display">
-            Enchanting user experiences through
-          </span>
-          <span className="text-light text-[2.5rem] font-normal font-display">
-            {' '}
-          </span>
-          <span className="text-light text-[2.5rem] font-normal font-serif">
-            captivating design.
-          </span>
-        </div>
+      {/* Title Section */}
+      <div className="w-full flex flex-col justify-center items-center text-center">
+        {/* Responsive Text Sizes for Title */}
+        <h4 className="text-light text-[1.5rem] sm:text-[1.5rem] md:text-[2rem] lg:text-[2.5rem] font-medium font-display leading-tight">
+          Enchanting user experiences through
+        </h4>
+        <span className="text-light text-[1.5rem] sm:text-[1.5rem] md:text-[2rem] lg:text-[2.5rem] font-normal font-serif leading-tight mt-2">
+          captivating design.
+        </span>
       </div>
-      <div className="w-full flex flex-col py-[2rem]">
+
+      {/* Slider Section */}
+      <div className="w-full flex flex-col justify-center items-center">
         <ProjectSlider />
       </div>
     </section>

@@ -14,10 +14,10 @@ function Contact() {
         <div className="flex-1 px-0 md:px-0 lg:px-0 flex flex-col items-start gap-4 md:gap-6 lg:gap-9">
           {/* Headings */}
           <div className="flex flex-col items-start">
-            <div className="text-light text-[28px] md:text-[36px] lg:text-[40px] font-medium font-display leading-tight">
+            <div className="text-light text-[1.75rem] md:text-[2.25rem] lg:text-[2.5rem] font-medium font-display leading-tight">
               Let’s create something
             </div>
-            <div className="text-light text-[28px] md:text-[36px] lg:text-[40px] font-normal font-serif leading-tight">
+            <div className="text-light text-[1.75rem] md:text-[2.25rem]] lg:text-[2.5rem] font-normal font-serif leading-tight">
               extraordinary.
             </div>
           </div>
@@ -37,7 +37,7 @@ function Contact() {
                 rel="noopener noreferrer"
                 className="hover:scale-110 transition-transform duration-300 ease-in-out"
               >          
-                <Instagram className="hover:text-[#F6FFBC]" />
+                <Instagram className="stroke-1 hover:text-[#F6FFBC]" />
               </a>
             </div>
             <div className="custom-cursor-area w-8 md:w-9 h-8 md:h-9 flex justify-center items-center relative">
@@ -47,7 +47,7 @@ function Contact() {
                 rel="noopener noreferrer"
                 className="hover:scale-110 transition-transform duration-300 ease-in-out"
               >          
-                <Dribbble className="hover:text-[#F6FFBC]" />
+                <Dribbble className="stroke-1 hover:text-[#F6FFBC]" />
               </a>
             </div>
             <div className="custom-cursor-area w-8 md:w-9 h-8 md:h-9 flex justify-center items-center relative">
@@ -57,7 +57,7 @@ function Contact() {
                 rel="noopener noreferrer"
                 className="hover:scale-110 transition-transform duration-300 ease-in-out"
               >          
-                <Mail className="hover:text-[#F6FFBC]" />
+                <Mail className="stroke-1 hover:text-[#F6FFBC]" />
               </a>
             </div>
           </div>

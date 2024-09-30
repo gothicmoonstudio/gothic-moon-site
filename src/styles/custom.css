@@ -83,7 +83,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
   position: relative;
   overflow: hidden;
   width: fit-content;
@@ -95,14 +95,14 @@
   font-size: 1.125rem;
   font-family: 'Greycliff CF', sans-serif;
   z-index: 3;
-  transition: color 0.4s ease-in-out;
+  transition: color 0.3s ease-in-out;
 }
 
 .nav-item::before {
   background-color: #f4f3ff;
   border-radius: 9999px;
   box-sizing: border-box;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   z-index: 1;
   content: "";
   position: absolute;
@@ -345,14 +345,4 @@
     width: 250px;
     height: 370px;
   }
-}
-
-/* Projects section */
-.btn {
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  transform: scale(1.05); /* Slightly grow on hover */
-  color: #a06af8; /* Example of hover color */
 }
