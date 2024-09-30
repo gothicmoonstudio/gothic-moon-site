@@ -33,7 +33,7 @@ const SlideHeader = ({ text1, text2, text3, textSize, textColor, whiteSpace }) =
   }, []);
 
   return (
-    <div className="">
+    <div className="w-full h-full">
       <div className="overflow-hidden">
         <p
           className="text-[#f4f3ff] font-normal font-display"

@@ -158,7 +158,7 @@ const MainHero = () => {
   }, []);
 
   return (
-    <section id="main-hero" className="relative w-full min-h-screen bg-secondary flex flex-col items-center justify-center overflow-visible">
+    <section id="main-hero" className="relative w-screen h-screen bg-secondary flex flex-col items-center justify-center overflow-visible">
       {/* SVG Metaballs */}
       <svg className="absolute w-full h-full overflow-hidden">
         <defs>
@@ -197,7 +197,7 @@ const MainHero = () => {
      {/* Main Content */}
       <div
         ref={contentRef}
-        className="w-full h-screen px-8 pt-16 md:px-16 md:pt-24 lg:px-28 lg:pt-28 flex flex-col justify-center items-center gap-8 md:gap-12 lg:gap-16 relative z-10"
+        className="w-full h-full px-8 md:px-16 lg:px-24 py-12 flex flex-col justify-center items-center gap-8 md:gap-12 lg:gap-16 relative z-10"
       >
         {/* Header Text */}
         <div className="w-full text-left md:text-left" ref={headerTextRef}>
@@ -206,7 +206,7 @@ const MainHero = () => {
             Crafting spellbinding user experiences that enchant your users & elevate 
           </span>
           {/* Text Block 2 */}
-          <span className="w-full text-[#f4f3ff] text-[2rem] leading-[2.5rem] md:text-[3.5rem] md:leading-[4rem] lg:text-[5rem] lg:leading-[6rem] font-normal font-serif pl-4">
+          <span className="w-full text-[#f4f3ff] text-[2rem] leading-[2.5rem] md:text-[3.5rem] md:leading-[4rem] lg:text-[5rem] lg:leading-[6rem] font-normal font-serif pl-2 lg:pl-4">
             your digital presence.
           </span>
         </div>
@@ -221,11 +221,10 @@ const MainHero = () => {
               <span className="font-medium font-display pl-2">
                 is a digital design studio specializing in product & web design.
               </span>
-            </div>
-
-            {/* Call to Action Button */}
-            <div className="py-2 cursor-pointer">
-                <HoverImagePreview items={items} />
+              <HoverImagePreview 
+              className="cursor-pointer"
+              items={items} 
+              />
             </div>
           </div>
 
