@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useLayoutEffect, useState, useRef } from 'react';
 import { Instagram, Dribbble } from 'react-feather';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -43,7 +43,7 @@ const MainHero = () => {
   };
 
   // Update blobs based on screen size
-  useEffect(() => {
+  useLayoutEffect(() => {
     const setBlobsBasedOnViewport = () => {
       const width = window.innerWidth;
       let blobCount = 5; // Default to small screens
@@ -65,7 +65,7 @@ const MainHero = () => {
   }, []);
 
   // Update blob positions on interval
-  useEffect(() => {
+  useLayoutEffect(() => {
     const updatePosition = (circle, bounds) => {
       circle.x += circle.xSpeed;
       circle.y += circle.ySpeed;
@@ -96,56 +96,63 @@ const MainHero = () => {
   }, [circleData]);
 
   // Initial Animation Setup
-  useEffect(() => {
-    // Text Animation for Main Content
-    gsap.fromTo(
-      headerTextRef.current.children,
-      { y: '100%', opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: 'power3.out',
-        delay: 0.5,
-        onComplete: () => {
-          gsap.to(socialIconsRef.current, {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            stagger: 0.3,
-            ease: 'power3.out',
-            onComplete: () => {
-              gsap.to(navbarRef.current, {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: 'power3.out',
-              });
-            },
-          });
-        },
-      }
-    );
+  useLayoutEffect(() => {
+    // Check if the headerTextRef and socialIconsRef are populated
+    if (headerTextRef.current && socialIconsRef.current.every((ref) => ref !== null)) {
+      // Text Animation for Main Content
+      gsap.fromTo(
+        headerTextRef.current.children,
+        { y: '100%', opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          stagger: 0.2,
+          ease: 'power3.out',
+          delay: 0.5,
+          onComplete: () => {
+            gsap.to(socialIconsRef.current, {
+              opacity: 1,
+              y: 0,
+              duration: 1,
+              stagger: 0.3,
+              ease: 'power3.out',
+              onComplete: () => {
+                if (navbarRef.current) {
+                  gsap.to(navbarRef.current, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: 'power3.out',
+                  });
+                }
+              },
+            });
+          },
+        }
+      );
+    }
 
     // Blobs Entrance Animation
     blobsRef.current.forEach((blob, index) => {
-      gsap.fromTo(
-        blob,
-        { scale: 0 },
-        {
-          scale: 1,
-          duration: 1,
-          delay: 0.5 + index * 0.2,
-          ease: 'power3.out',
-        }
-      );
+      if (blob) {
+        gsap.fromTo(
+          blob,
+          { scale: 0 },
+          {
+            scale: 1,
+            duration: 1,
+            delay: 0.5 + index * 0.2,
+            ease: 'power3.out',
+          }
+        );
+      }
     });
 
     return () => {
-      gsap.killTweensOf(headerTextRef.current.children);
-      gsap.killTweensOf(socialIconsRef.current);
-      gsap.killTweensOf(navbarRef.current);
+      if (headerTextRef.current) gsap.killTweensOf(headerTextRef.current.children);
+      if (socialIconsRef.current) gsap.killTweensOf(socialIconsRef.current);
+      if (navbarRef.current) gsap.killTweensOf(navbarRef.current);
       blobsRef.current.forEach((blob) => gsap.killTweensOf(blob));
     };
   }, []);
@@ -187,35 +194,43 @@ const MainHero = () => {
         </g>
       </svg>
 
-      {/* Main Content */}
-      <div ref={contentRef} className="w-full h-screen px-28 pt-28 flex flex-col justify-center items-center gap-16 relative z-10">
-        <div className="text-left" ref={headerTextRef}>
-          <span className="block text-[#f4f3ff] text-[5rem] font-normal font-display leading-[6rem]">
-            Crafting spellbinding user experiences that enchant your users & elevate
+     {/* Main Content */}
+      <div
+        ref={contentRef}
+        className="w-full h-screen px-8 pt-16 md:px-16 md:pt-24 lg:px-28 lg:pt-28 flex flex-col justify-center items-center gap-8 md:gap-12 lg:gap-16 relative z-10"
+      >
+        {/* Header Text */}
+        <div className="w-full text-left md:text-left" ref={headerTextRef}>
+          {/* Text Block 1 */}
+          <span className="w-full text-[#f4f3ff] text-[2rem] leading-[2.5rem] md:text-[3.5rem] md:leading-[4rem] lg:text-[5rem] lg:leading-[6rem] font-normal font-display">
+            Crafting spellbinding user experiences that enchant your users & elevate 
           </span>
-          <span className="block text-[#f4f3ff] text-[5rem] font-normal font-serif leading-[6rem] pl-4">
+          {/* Text Block 2 */}
+          <span className="w-full text-[#f4f3ff] text-[2rem] leading-[2.5rem] md:text-[3.5rem] md:leading-[4rem] lg:text-[5rem] lg:leading-[6rem] font-normal font-serif pl-4">
             your digital presence.
           </span>
         </div>
 
-        <div className="justify-between items-center w-full">
+        {/* Main Content Below Text */}
+        <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           {/* Studio Description */}
           <div className="w-full flex flex-col justify-start items-start gap-4">
-            <div className="text-[#f4f3ff] text-2xl font-medium font-serif">
+            {/* Description Text */}
+            <div className="text-[#f4f3ff] text-lg leading-6 md:text-2xl md:leading-8 lg:text-2xl lg:leading-9 font-medium font-serif">
               gothic moon
               <span className="font-medium font-display pl-2">
                 is a digital design studio specializing in product & web design.
               </span>
             </div>
-            <div className="justify-center items-center inline-flex">
-              <div>
+
+            {/* Call to Action Button */}
+            <div className="py-2 cursor-pointer">
                 <HoverImagePreview items={items} />
-              </div>
             </div>
           </div>
 
-          {/* Social Icons */}
-          <div className="pt-12 flex items-start gap-4">
+          {/* Social Icons - Left Aligned and Stacked on Smaller Screens */}
+          <div className="flex items-start gap-4">
             {['Instagram', 'Dribbble'].map((platform, index) => (
               <div
                 key={platform}
@@ -235,11 +250,6 @@ const MainHero = () => {
           </div>
         </div>
       </div>
-
-      {/* Navbar */}
-      <nav ref={navbarRef} className="fixed top-0 w-full opacity-0 translate-y-4 flex justify-center items-center z-50">
-        {/* Navbar content here */}
-      </nav>
     </section>
   );
 };

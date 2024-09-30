@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Instagram, Dribbble } from 'react-feather';
 
-// Debounce function to limit how often a function is called
 const debounce = (func, delay) => {
   let timeoutId;
   return (...args) => {
@@ -19,7 +18,7 @@ const Footer = () => {
     const blobs = [];
     for (let i = 0; i < count; i++) {
       blobs.push({
-        r: Math.random() * 60 + 30, // Slightly smaller blobs for the footer
+        r: Math.random() * 60 + 30,
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
         xSpeed: Math.random() * 1 - 0.5,
@@ -32,12 +31,12 @@ const Footer = () => {
   useEffect(() => {
     const setBlobsBasedOnViewport = () => {
       const width = window.innerWidth;
-      let blobCount = 5; // Default number of blobs
+      let blobCount = 5;
 
       if (width >= 1200) {
-        blobCount = 7; // More blobs for larger screens
+        blobCount = 7;
       } else if (width >= 768) {
-        blobCount = 6; // Medium screen size
+        blobCount = 6;
       }
 
       setCircleData(generateBlobs(blobCount));
@@ -86,9 +85,9 @@ const Footer = () => {
   }, [circleData]);
 
   return (
-    <footer className="footer-container relative">
+    <footer className="footer-container w-screen h-1/3 px-24 py-16 relative text-gray-800 bg-[#141221]">
       {/* Metaballs */}
-      <svg className="absolute w-full h-full overflow-visible">
+      <svg className="absolute overflow-visible">
         <g filter="url(#blob)">
           {circleData.map((circle) => (
             <circle
@@ -103,55 +102,92 @@ const Footer = () => {
         </g>
       </svg>
 
-      {/* Wrapper for footer content */}
-      <div className="footer-content-wrapper relative z-10">
-        <div className="footer-content">
-          <div className="logo-section">
-            <img src="/images/full_logo.svg" alt="Gothic Moon logo" className="footer-logo" />
+      {/* Footer Content Wrapper */}
+      <div className="footer-content-wrapper w-full h-full  max-w-8xl flex flex-col md:flex-row justify-between items-start md:items-center relative z-10 gap-8 md:gap-0">
+        {/* Column 1 - Left Section */}
+        <div className="left-section flex flex-col items-start w-full md:w-1/2 gap-9 md:gap-12">
+          {/* Logo Section */}
+          <div className="logo-section mb-6 md:mb-0">
+            <img
+              src="/images/full_logo.svg"
+              alt="Gothic Moon logo"
+              className="footer-logo w-36"
+            />
           </div>
 
-          <div className="footer-text-container">
-            <div className="footer-text">
-              <span className="footer-main-text">We’re brewing something</span>
-              <span className="footer-highlight">extraordinary.</span>
+          {/* Social Icons */}
+          <div className="social-icons flex space-x-6 mb-6 md:mb-0">
+            <div className="social-icon">
+              <a
+                href="https://www.instagram.com/gothicmoonstudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-transform duration-300 ease-in-out text-[#f4f3ff] hover:text-[#F6FFBC]"
+              >
+                <Instagram className="w-6 h-6" />
+              </a>
+            </div>
+            <div className="social-icon">
+              <a
+                href="https://dribbble.com/gothicmoonstudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-transform duration-300 ease-in-out text-[#f4f3ff] hover:text-[#F6FFBC]"
+              >
+                <Dribbble className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
+
+          {/* Signature Text */}
+          <div className="signature-text text-base text-[#f4f3ff] font-normal font-display">
+            Designed and developed by me — with a little 💻, ☕, and AI magic 🪄
+          </div>
+        </div>
+
+        {/* Column 2 - Right Section */}
+        <div className="right-section flex flex-col items-start md:items-end w-full md:w-1/2 text-left md:text-right">
+          <div className="flex flex-col justify-between gap-12 md:gap-24">
+            {/* Tagline */}
+            <div className="tagline text-[#f4f3ff] text-lg">
+              <span className="font-semibold font-display">We’re brewing something</span>
+              <span className="font-normal font-serif"> extraordinary.</span>
+            </div>
+
+            {/* Legal Text */}
+            <div className="flex flex-wrap items-center justify-start md:justify-end gap-4">
+              <div className="legal-text text-base text-[#f4f3ff] font-normal font-display">
+                Privacy Policy
+              </div>
+              <div className="legal-text text-base text-[#f4f3ff] font-normal font-display">
+                Terms & Conditions
+              </div>
+              <div className="legal-text text-base text-[#f4f3ff] font-normal font-display">
+                © 2024 Gothic Moon Creative Studio LLC
+              </div>
             </div>
           </div>
         </div>
-
-        <div className="social-icons gap-6 pb-6">
-          <div className="custom-cursor-area flex justify-center items-center relative">
-            <a 
-              href="https://www.instagram.com/gothicmoonstudio" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform duration-300 ease-in-out"
-            >
-              <Instagram className="hover:text-[#F6FFBC]" />
-            </a>
-          </div>
-          <div className="custom-cursor-area flex justify-center items-center relative">
-            <a 
-              href="https://dribbble.com/gothicmoonstudio" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform duration-300 ease-in-out"
-            >
-              <Dribbble className="hover:text-[#F6FFBC]" />
-            </a>
-          </div>
-        </div>
-
-        <div className="custom-cursor-area w-full flex justify-between items-start">
-          <div>
-            <p className="font-display">
-              Designed and developed by yours truly —with a little 💻, ☕, and 🪄.
-            </p>
-          </div>
-          <div>
-            <p className="font-display">© 2024 Gothic Moon Creative Studio LLC</p>
-          </div>
-        </div>
       </div>
+
+      {/* SVG filter for gooey effect */}
+      <svg style={{ display: 'none' }}>
+        <defs>
+          <filter id="blob">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+              result="blob"
+            />
+          </filter>
+          <linearGradient id="lavaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#3B1AE5" />
+            <stop offset="100%" stopColor="#E1303B" />
+          </linearGradient>
+        </defs>
+      </svg>
 
       {/* SVG filter for gooey effect */}
       <svg style={{ display: 'none' }}>

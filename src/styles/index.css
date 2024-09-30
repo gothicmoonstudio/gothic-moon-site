@@ -1,6 +1,5 @@
 /* src/styles/index.css */
 @import './custom.css';
-@import './footer.css';
 
 @tailwind base;
 @tailwind components;

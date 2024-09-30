@@ -63,7 +63,7 @@ const HoverImagePreview = ({ items = [], imageHeight = 200, imageWidth = 300 }) 
             {/* This is the "View Projects" link text that gets hovered */}
             <a
               href="#projects"
-              className="text-[#f4f3ff] text-[1.25rem] font-medium font-display hover:text-gray-300 transition duration-200"
+              className="text-[#f4f3ff] text-[1.5rem] font-medium font-display hover:text-gray-300 transition duration-200"
             >
               View Our Latest Project - Redesign
               {/* <img 
