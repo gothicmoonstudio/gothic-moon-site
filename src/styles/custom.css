@@ -1,5 +1,8 @@
 :root {
   --blob-color: #A06AF8;
+  --font-display: "Greycliff CF", sans-serif;
+  --font-serif: "Bely Display", "Bely", serif;
+  --font-accent: "Bely", serif;
 }
 
 /* Ensure full viewport centering */
