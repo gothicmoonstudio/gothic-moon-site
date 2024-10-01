@@ -141,7 +141,7 @@ const Footer = () => {
 
           {/* Signature Text */}
           <div className="signature-text text-base text-[#f4f3ff] font-normal font-display">
-            Designed and developed by me — with a little 💻, ☕, and AI magic 🪄
+            Designed and developed by yours truly — with a little 💻, ☕, and 🪄.
           </div>
         </div>
 
