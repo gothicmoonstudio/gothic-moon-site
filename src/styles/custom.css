@@ -50,7 +50,7 @@
 /* Countdown Text */
 .preloader-text {
   color: #F4F3FF;
-  font-family: "Bely", sans-serif;
+  font-family: var(--font-serif);
   font-size: .5rem;
   font-weight: bold;
   text-align: center;
