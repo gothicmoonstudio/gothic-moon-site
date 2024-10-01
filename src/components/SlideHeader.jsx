@@ -1,13 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger'; // Corrected path
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SlideHeader = ({ text1, text2, text3, textSize, textColor, whiteSpace }) => {
+const SlideHeader = ({ text1 = "", text2 = "", text3 = "", textColor = '#f4f3ff', whiteSpace = 'normal', className = "" }) => {
   const textRef = useRef([]);
 
   useEffect(() => {
+    // Create a staggered animation for each line of text
     const animation = gsap.fromTo(
       textRef.current,
       { y: 100, opacity: 0 },
@@ -19,48 +20,58 @@ const SlideHeader = ({ text1, text2, text3, textSize, textColor, whiteSpace }) =
         ease: 'power3.out',
         scrollTrigger: {
           trigger: textRef.current,
-          start: 'top 80%', // Animation starts when the text is 80% into the viewport
+          start: 'top 80%',
           end: 'bottom 20%',
-          toggleActions: 'play pause play pause', 
+          toggleActions: 'play pause play pause',
         },
       }
     );
 
-    // Cleanup the animation on component unmount
     return () => {
-      animation.kill(); // Kill only this animation and its ScrollTrigger
+      animation.kill();
     };
   }, []);
 
   return (
-    <div className="w-full h-full">
-      <div className="overflow-hidden">
-        <p
-          className="text-[#f4f3ff] font-normal font-display"
-          ref={(el) => (textRef.current[0] = el)}
-          style={{ fontSize: textSize, color: textColor, whiteSpace: whiteSpace  }}
-        >
-          {text1} {/* Ensure this is not left empty */}
-        </p>
-      </div>
-      <div className="overflow-hidden">
-        <p
-          className="text-[#f4f3ff] font-normal font-display"
-          ref={(el) => (textRef.current[1] = el)}
-          style={{ fontSize: textSize, color: textColor, whiteSpace: whiteSpace  }}
-        >
-          {text2}
-        </p>
-      </div>
-      <div className="overflow-hidden">
-        <p
-          className="text-[#f4f3ff] font-normal font-serif"
-          ref={(el) => (textRef.current[2] = el)}
-          style={{ fontSize: textSize, color: textColor, whiteSpace: whiteSpace }}
-        >
-          {text3}
-        </p>
-      </div>
+    <div className={`w-full h-full ${className}`}>
+      {/* Text Block 1 */}
+      {text1 && (
+        <div className="overflow-hidden">
+          <p
+            className="font-normal font-display text-[4rem] sm:text-[5rem] md:text-[6rem] lg:text-[7rem] xl:text-[7rem]"
+            ref={(el) => (textRef.current[0] = el)}
+            style={{ color: textColor, whiteSpace }}
+          >
+            {text1}
+          </p>
+        </div>
+      )}
+
+      {/* Text Block 2 */}
+      {text2 && (
+        <div className="overflow-hidden">
+          <p
+            className="font-normal font-display text-[4rem] sm:text-[5rem] md:text-[6rem] lg:text-[7rem] xl:text-[7rem]"
+            ref={(el) => (textRef.current[1] = el)}
+            style={{ color: textColor, whiteSpace }}
+          >
+            {text2}
+          </p>
+        </div>
+      )}
+
+      {/* Text Block 3 */}
+      {text3 && (
+        <div className="overflow-hidden">
+          <p
+            className="font-normal font-serif text-[4rem] sm:text-[5rem] md:text-[6rem] lg:text-[7rem] xl:text-[7rem]"
+            ref={(el) => (textRef.current[2] = el)}
+            style={{ color: textColor, whiteSpace }}
+          >
+            {text3}
+          </p>
+        </div>
+      )}
     </div>
   );
 };

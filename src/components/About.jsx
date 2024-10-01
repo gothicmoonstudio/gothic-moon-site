@@ -11,13 +11,12 @@ const About = () => {
       {/* Greeting Section */}
       <div className="sticky-section w-screen h-screen px-8 md:px-16 lg:px-24 py-12 bg-[#8A2595] flex justify-center items-center text-center">
       <div className="w-full">
-       <SlideHeader 
-          text1="Gothic Moon is your trusted guide" 
-          text3="for all things design." 
-          textSize="6rem" 
+        <SlideHeader
+          text1="Gothic Moon is your trusted guide"
+          text3="for all things design."
           textColor="#f4f3ff"
         />
-        </div>
+      </div>
       </div>
 
       {/* Introduction Section */}
@@ -29,7 +28,7 @@ const About = () => {
             <SlideHeader
               text1="Welcome to "
               text3="gothic moon."
-              textSize="7rem" // Responsive text size classes
+              textSize="7rem"
               textColor="#f4f3ff"
             />
           </div>

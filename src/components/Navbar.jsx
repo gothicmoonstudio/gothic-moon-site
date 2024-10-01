@@ -1,4 +1,3 @@
-// Navbar.jsx
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import NavItem from './NavItem';
@@ -7,7 +6,6 @@ import LogoAnimation from './LogoAnimation';
 import MenuButton from './MenuButton';
 
 function Navbar({ activeSection }) {
-  // State to track if the mobile menu is open
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Toggle menu open/close
@@ -16,7 +14,14 @@ function Navbar({ activeSection }) {
   return (
     <header>
       {/* Desktop and Mobile Navbar Container */}
-      <nav className="p-4 md:p-4 bg-[#0d0c16] rounded-full flex items-center justify-between md:justify-center gap-6 z-50 fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] md:w-auto">
+      <nav
+        className={`
+          p-4 md:p-4 rounded-full flex items-center justify-between md:justify-center gap-6 z-50 fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] md:w-auto
+          ${menuOpen ? 'bg-[#0d0c16]' : 'bg-transparent'} // Transparent when closed, dark when open
+          md:bg-[#0d0c16] // Always dark for desktop view
+          transition-all duration-300
+        `}
+      >
         {/* Logo Section - Link to MainHero */}
         <a href="#main-hero" aria-label="Home" className="w-14 h-14 md:w-14 md:h-14 flex-shrink-0">
           <LogoAnimation />
@@ -24,13 +29,13 @@ function Navbar({ activeSection }) {
 
         {/* Hamburger Menu for Mobile */}
         <button
-          className="md:hidden p-4 bg-[#141221] rounded-full"
+          className="md:hidden p-4 bg-[#1F1C33] rounded-full"
           onClick={toggleMenu}
           aria-label="Menu"
         >
           {/* Icon for the hamburger menu */}
           <div>
-          <MenuButton /> 
+            <MenuButton />
           </div>
         </button>
 
@@ -66,7 +71,11 @@ function Navbar({ activeSection }) {
 
       {/* Mobile Menu Dropdown */}
       {menuOpen && (
-        <div className="md:hidden fixed inset-0 bg-[#0D0C16] z-40 flex flex-col items-center justify-center gap-6">
+        <div className="
+          md:hidden fixed inset-0 z-40 flex flex-col items-center justify-center gap-6
+          bg-[#0D0C16] // Default dark background
+          transition-all duration-300 ease-in-out
+        ">
           <NavItem
             label="About"
             href="#about"

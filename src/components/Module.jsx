@@ -21,7 +21,7 @@ const Module = ({ title, description, items, bgColor = '#141221' }) => {
         {/* List of Items */}
         <div className="w-full md:w-[35%] flex flex-col justify-start items-start gap-2">
           {items && items.length > 0 && items.map((item, index) => (
-            <div key={index} className="self-stretch text-[#f4f3ff] font-display text-lg sm:text-xl md:text-2xl font-medium">
+            <div key={index} className="self-stretch text-[#f4f3ff] font-display text-lg sm:text-xl md:text-2xl font-semibold">
               {item}
             </div>
           ))}

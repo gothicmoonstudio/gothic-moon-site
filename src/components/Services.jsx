@@ -39,10 +39,10 @@ function Services() {
         {/* Header Section */}
         <div className="w-full md:w-auto flex justify-center items-center text-center">
           <div className="text-center">
-            <span className="text-[#f4f3ff] text-3xl md:text-4xl lg:text-[2.5rem] font-normal font-display">
+            <span className="text-[#f4f3ff] text-[1.75rem] md:text-[2.25rem] lg:text-[2.5rem] font-medium font-display">
               Let Gothic be your
             </span>
-            <span className="text-[#f4f3ff] text-3xl md:text-4xl lg:text-[2.5rem] font-normal font-serif"> design guide.</span>
+            <span className="text-[#f4f3ff] text-[1.75rem] md:text-[2.25rem] lg:text-[2.5rem] font-normal font-serif"> design guide.</span>
           </div>
         </div>
 
