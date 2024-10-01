@@ -6,7 +6,7 @@ function Contact() {
   return (
     <section 
       id="contact"
-      className="w-screen h-full px-24 py-24 md:px-18 md:py-18 lg:px-24 lg:py-24 flex flex-col items-center"
+      className="w-screen h-full px-8 md:px-16 lg:px-24 py-12 flex flex-col items-center"
     >
       {/* Wrapper container with responsive styles */}
       <div className="w-full flex flex-col lg:flex-row justify-center items-center mt-10 lg:mt-20 gap-6 md:gap-12 lg:gap-16">

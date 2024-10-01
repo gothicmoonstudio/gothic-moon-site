@@ -11,11 +11,11 @@ export default {
       accent: '#a06af8',
       light: '#f4f3ff',
       dark: '#3f3a5b',
-      // Additional colors
     },
     fontFamily: {
       display: ['Greycliff CF', 'sans-serif'],
-      serif: ['Bely Display', 'serif'],
+      serif: ['Bely Display', 'sans-serif'],
+      accent: ['Bely', 'serif'],
     },
     fontWeight: {
       light: 300,
@@ -27,12 +27,10 @@ export default {
       spacing: {
         102: '102px',
         118: '118px',
-        // Additional spacing values
       },
       borderRadius: {
         full: '9999px',
         lg: '12px',
-        // Additional border radius values
       },
     },
   },

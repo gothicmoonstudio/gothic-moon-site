@@ -85,7 +85,7 @@ const Footer = () => {
   }, [circleData]);
 
   return (
-    <footer className="w-screen h-1/3 px-24 py-16 relative text-gray-800 bg-[#141221]">
+    <footer className="w-screen h-1/3 px-8 md:px-16 lg:px-24 py-12 relative text-gray-800 bg-[#141221]">
       {/* Metaballs */}
       <svg className="absolute overflow-visible">
         <g filter="url(#blob)">
