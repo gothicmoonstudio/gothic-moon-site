@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: Greycliff CF, Bely-Display, Bely, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Greycliff CF', Inter, Avenir, 'Helvetica Neue', Arial, sans-serif, 'Bely Display', 'Bely', Georgia, 'Times New Roman', serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -28,16 +28,10 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   cursor: default;
+  @apply font-display;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
 }

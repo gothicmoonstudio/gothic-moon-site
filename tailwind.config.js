@@ -14,10 +14,18 @@ export default {
       // Additional colors
     },
     fontFamily: {
-      sans: ['Greycliff CF', 'sans-serif'],
-      display: ['Greycliff CF', 'sans-serif'],
-      serif: ['Bely Display', 'serif'],
+      display: ['Greycliff CF', 'Inter', 'Avenir', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      // Secondary font stack for serif text
+      serif: ['Bely Display', 'Bely', 'Georgia', 'Times New Roman', 'serif'],
+      // Tertiary font stack for system-based UI elements
+      system: ['Greycliff CF', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
       // Additional fonts
+    },
+    fontWeight: {
+      light: 300,
+      normal: 400,
+      medium: 500,
+      bold: 700,
     },
     extend: {
       spacing: {
