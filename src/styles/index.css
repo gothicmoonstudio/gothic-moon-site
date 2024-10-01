@@ -1,3 +1,4 @@
+/* src/styles/index.css */
 @import './custom.css';
 
 @tailwind base;
@@ -5,9 +6,8 @@
 @tailwind utilities;
 
 :root {
-  font-family: 'Greycliff CF', sans-serif, 'Bely Display', 'Bely', serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --font-display: 'Greycliff CF', sans-serif;
+  --font-serif: 'Bely Display', 'Bely', serif;
 
   color-scheme: light dark;
   color: rgba(244, 243, 255, 1);
@@ -20,6 +20,7 @@
 }
 
 body {
+  font-family: var(--font-display); /* Default font family */
   margin: 0;
   display: flex;
   place-items: center;
@@ -27,9 +28,14 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   cursor: default;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+h1, h2, h3, h4, h5, h6, p, a, span, div {
+  font-family: var(--font-display);
+}
+
+.accent-text {
+  font-family: var(--font-serif);
 }
