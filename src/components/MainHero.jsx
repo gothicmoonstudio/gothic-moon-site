@@ -202,11 +202,11 @@ const MainHero = () => {
         {/* Header Text */}
         <div className="w-full text-left md:text-left" ref={headerTextRef}>
           {/* Text Block 1 */}
-          <span className="w-full text-[#f4f3ff] text-[2rem] leading-[2.5rem] md:text-[3.5rem] md:leading-[4rem] lg:text-[5rem] lg:leading-[6rem] font-[Greycliff CF] font-normal">
+          <span className="w-full text-[#f4f3ff] text-[2rem] leading-[2.5rem] md:text-[3.5rem] md:leading-[4rem] lg:text-[5rem] lg:leading-[6rem] font-display font-normal">
             Crafting spellbinding user experiences that enchant your users & elevate 
           </span>
           {/* Text Block 2 */}
-          <span className="font-[Bely Display] w-full text-[#f4f3ff] text-[2rem] leading-[2.5rem] md:text-[3.5rem] md:leading-[4rem] lg:text-[5rem] lg:leading-[6rem] font-normal pl-2 lg:pl-4">
+          <span className="font-serif w-full text-[#f4f3ff] text-[2rem] leading-[2.5rem] md:text-[3.5rem] md:leading-[4rem] lg:text-[5rem] lg:leading-[6rem] font-normal pl-2 lg:pl-4">
             your digital presence.
           </span>
         </div>
