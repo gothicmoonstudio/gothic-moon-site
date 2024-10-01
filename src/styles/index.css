@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: 'Greycliff CF', Inter, Avenir, 'Helvetica Neue', Arial, sans-serif, 'Bely Display', 'Bely', Georgia, 'Times New Roman', serif;
+  font-family: 'Greycliff CF', sans-serif, 'Bely Display', 'Bely', serif;
   line-height: 1.5;
   font-weight: 400;
 
