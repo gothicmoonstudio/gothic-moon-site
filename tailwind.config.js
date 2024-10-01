@@ -16,7 +16,7 @@ export default {
     fontFamily: {
       display: ['Greycliff CF', 'Inter', 'Avenir', 'Helvetica Neue', 'Arial', 'sans-serif'],
       // Secondary font stack for serif text
-      serif: ['Bely Display', 'Bely', 'Georgia', 'Times New Roman', 'serif'],
+      serif: ['Bely Display', 'Georgia', 'Times New Roman', 'serif'],
       // Tertiary font stack for system-based UI elements
       system: ['Greycliff CF', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
       // Additional fonts

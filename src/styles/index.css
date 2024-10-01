@@ -21,6 +21,8 @@
 }
 
 body {
+  @apply font-serif; /* Applies Tailwind's `font-serif` utility */
+  @apply font-display;
   margin: 0;
   display: flex;
   place-items: center;
@@ -28,7 +30,6 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   cursor: default;
-  @apply font-display;
 }
 
 h1 {
