@@ -14,7 +14,7 @@ export default {
       // Additional colors
     },
     fontFamily: {
-      sans: ['Inter', 'sans-serif'],
+      sans: ['Greycliff CF', 'sans-serif'],
       display: ['Greycliff CF', 'sans-serif'],
       serif: ['Bely Display', 'serif'],
       // Additional fonts
