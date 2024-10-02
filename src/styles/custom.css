@@ -156,28 +156,26 @@
 .sticky-section {
   position: -webkit-sticky;
   position: sticky;
-  top: 0; /* Sticks at the top of the viewport */
-  height: 100vh; /* Full height to make sure it covers the viewport */
-  z-index: 1; /* Ensure it's behind the overlay section */
+  top: 0; 
+  height: 100vh;
+  z-index: 1; 
 }
 
 /* Introduction Section (Scrolls Over) */
 .overlay-section {
   position: relative;
-  z-index: 2; /* Ensure it scrolls over the sticky section */
+  z-index: 2;
   background-color: #141221;
   overflow: hidden;
 }
-
-/* src/components/ValueCardScroll.css */
 
 /* Carousel Container */
 .carousel-container {
   position: relative;
   width: 820px;
   height: 686px;
-  margin: 0 auto; /* Center horizontally */
-  perspective: 1000px; /* 3D perspective */
+  margin: 0 auto; 
+  perspective: 1000px; 
   display: flex;
   justify-content: center;
   align-items: center;

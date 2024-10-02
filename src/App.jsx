@@ -1,3 +1,5 @@
+// src/App.jsx
+
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import MainHero from './components/MainHero';
@@ -8,29 +10,10 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Preloader from './components/Preloader';
 import NavItem from './components/NavItem';
-import { injectFontLink, listFontsInProject, verifyApiCredentials } from '../src/utils/adobefonts';
 
 function App() {
   const [loading, setLoading] = useState(true); // Track loading state
-  const [activeSection, setActiveSection] = useState(null); // Track the active section
-  const [projectFonts, setProjectFonts] = useState([]); // Store fonts from the Adobe project
-
-  useEffect(() => {
-    async function initializeFonts() {
-      // Inject Adobe Fonts link and validate API credentials
-      injectFontLink();
-      const isApiValid = await verifyApiCredentials();
-      if (isApiValid) {
-        const fonts = await listFontsInProject();
-        if (fonts) {
-          console.log('Fonts in Adobe Project:', fonts);
-          setProjectFonts(fonts); // Store fonts for potential use
-        }
-      }
-    }
-
-    initializeFonts();
-  }, []);
+  const [activeSection, setActiveSection] = useState('main-hero'); // Set default active section to avoid warnings
 
   useEffect(() => {
     if (loading) return; // Only setup observer when not loading
@@ -40,7 +23,7 @@ function App() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveSection(entry.target.id); // Update active section
+            setActiveSection(entry.target.id); // Update active section when a section is intersecting
           }
         });
       },
