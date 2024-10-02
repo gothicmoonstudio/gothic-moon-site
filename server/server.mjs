@@ -15,8 +15,19 @@ const adobeFontsApiUrl = `https://typekit.com/api/v1/json/kits/${process.env.VIT
 // Log the Adobe Fonts API URL to verify it's correct
 console.log(`Adobe Fonts API URL: ${adobeFontsApiUrl}`);
 
-// Enable CORS for all requests
-app.use(cors());
+// CORS configuration options
+const corsOptions = {
+  origin: [
+    'https://gothic-moon-site-6pc6fhu55-mary-sargents-projects.vercel.app', // Add your front-end production URL
+    'https://gothic-moon-site.vercel.app' // Add any other URLs if needed (e.g., preview URLs)
+  ],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, // Allow cookies and credentials to be sent with requests
+};
+
+// Enable CORS with the specified options for all routes
+app.use(cors(corsOptions));
 
 // Define the /api/fonts route to fetch and return Adobe Fonts data
 app.get('/api/fonts', async (req, res) => {
