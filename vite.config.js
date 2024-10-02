@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://gothic-moon-site-server-git-main-mary-sargents-projects.vercel.app',
+        target: process.env.VITE_BACKEND_URL || 'https://gothic-moon-site-server.vercel.app', // Change to the backend deployment URL
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, ''),

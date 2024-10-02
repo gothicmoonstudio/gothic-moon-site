@@ -7,7 +7,10 @@ export function FontsProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/fonts')
+    // Use environment variable to determine the correct backend URL
+    const backendUrl = import.meta.env.VITE_BACKEND_URL
+    
+    fetch(`${backendUrl}/api/fonts`)
       .then(response => response.json())
       .then(data => {
         setFonts(data.kit.families);
