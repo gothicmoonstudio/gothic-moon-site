@@ -8,11 +8,10 @@ const PORT = process.env.PORT || 3001;
 // Construct the Adobe Fonts API URL using environment variables
 const adobeFontsApiUrl = `https://typekit.com/api/v1/json/kits/${process.env.VITE_ADOBE_PROJECT_ID}/published`;
 
-// Define the allowed origins for CORS
+// Define the allowed origins for CORS (only include main URLs)
 const allowedOrigins = [
-  'https://gothic-moon-site-6pc6fhu55-mary-sargents-projects.vercel.app',
-  'https://gothic-moon-site.vercel.app',
-  'https://gothic-moon-site-ekxxbt5yo-mary-sargents-projects.vercel.app'
+  'https://gothic-moon-site-server.vercel.app', // Backend main URL
+  'https://gothic-moon-site.vercel.app' // Frontend main URL
 ];
 
 // Configure CORS options
@@ -60,7 +59,7 @@ app.get('/api/fonts', async (req, res) => {
       delete data.kit.id;
     }
 
-    // Send the filtered data as the response with CORS headers
+    // Set CORS headers for the response before sending it
     const origin = req.headers.origin;
     if (allowedOrigins.includes(origin)) {
       res.setHeader('Access-Control-Allow-Origin', origin);
@@ -72,6 +71,11 @@ app.get('/api/fonts', async (req, res) => {
     res.json(data);
   } catch (error) {
     console.error('Error fetching Adobe Fonts data:', error.message);
+    // Include CORS headers even in error responses
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+    }
     res.status(500).json({ error: error.message });
   }
 });
