@@ -75,48 +75,35 @@
     }
   }
   
-    /* NavItem Styles */
+/* NavItem Styles */
 .nav-item {
-  height: 54px;
-  padding: 0 24px;
-  background-color: #141221;
-  border-radius: 9999px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  transition: background-color 0.2s ease-in-out;
   position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  width: fit-content;
-  border: none;
-}
-
-.nav-text {
-  color: #fcfbff;
-  font-size: 1.125rem;
-  font-family: var(--font-display);
-  z-index: 3;
-  transition: color 0.3s ease-in-out;
+  border-radius: 9999px;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .nav-item::before {
-  background-color: #f4f3ff;
-  border-radius: 9999px;
-  box-sizing: border-box;
-  transition: transform 0.3s ease-in-out;
-  z-index: 1;
-  content: "";
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  background-color: #f4f3ff;
+  border-radius: inherit;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out;
+  z-index: 0; 
+  content: "";
   transform: translateX(-105%);
 }
 
 .nav-item:hover {
-  z-index: 2;
+  z-index: 2; 
 }
 
 .nav-item:hover::before {
@@ -127,19 +114,19 @@
   color: #141221;
 }
 
-/* More Specific Active State */
-.nav-item:active {
-  background-color: #f4f3ff;
-  color: #141221;
+.nav-item-active {
+  z-index: 3; 
 }
 
-.nav-item.active {
-  background-color: #f4f3ff;
-  color: #141221;
-}
-.nav-item.active .nav-text {
+.nav-item-active .nav-text {
   color: #141221;
   font-weight: 500;
+}
+
+.nav-text {
+  position: relative;
+  z-index: 2; 
+  transition: color 0.3s ease-in-out;
 }
 
 /* custom cursor */
@@ -164,108 +151,6 @@
   background-color: #F4F3FF;
   mix-blend-mode: difference;
 }
-  
-/* PrimaryButton Styles */
-.primary-button {
-    height: 54px;
-    padding: 24px;
-    background-color: #3B1AE5;
-    border-radius: 9999px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    background-image: linear-gradient(45deg, #E1303B 0%, #3B1AE5 60%); 
-    background-size: 200% 200%;
-    transition: background 0.5s ease;
-    position: relative;
-    overflow: hidden; 
-  }
-  
-  .primary-button::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-    background-image: linear-gradient(45deg, #3B1AE5 0%, #E1303B 100%); 
-    transition: opacity 0.5s ease;
-    z-index: 0;
-    opacity: 0; 
-  }
-  
-  .primary-button:hover::after {
-    opacity: 1; 
-  }
-  
-  .primary-button-text {
-    color: #f4f3ff;
-    font-size: 1.125rem;
-    font-weight: 500;
-    font-family: var(--font-display);
-    position: relative;
-    z-index: 1; 
-  }  
-
-  /* SecondaryButton Styles */
-  .secondary-button {
-    position: relative;
-    height: 54px;
-    padding: 24px;
-    background-color: rgba(244, 243, 255, 0.15); 
-    border-radius: 9999px; 
-    border: .5px solid #f4f3ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; 
-    transition: border 0.3s ease;
-  }
-  
-  .secondary-button:hover {
-    animation: halo 2s infinite; 
-  }
-  
-  .secondary-button-text {
-    position: relative;
-    z-index: 1; 
-    color: #F4F3FF;
-    font-size: 1.125rem;
-    font-weight: 500;
-    font-family: var(--font-display);
-    text-align: center;
-  }
-  
-  /* Keyframes for halo tracing effect */
-  @keyframes halo {
-    0% {
-      box-shadow: 0 0 10px rgba(160, 106, 248, 0.6), 
-                  0 0 30px rgba(160, 106, 248, 0.4), 
-                  0 0 60px rgba(160, 106, 248, 0.2);
-    }
-    25% {
-      box-shadow: 0 0 15px rgba(160, 106, 248, 0.8), 
-                  0 0 35px rgba(160, 106, 248, 0.5), 
-                  0 0 65px rgba(160, 106, 248, 0.3);
-    }
-    50% {
-      box-shadow: 0 0 20px rgba(160, 106, 248, 1), 
-                  0 0 40px rgba(160, 106, 248, 0.6), 
-                  0 0 70px rgba(160, 106, 248, 0.4);
-    }
-    75% {
-      box-shadow: 0 0 15px rgba(160, 106, 248, 0.8), 
-                  0 0 35px rgba(160, 106, 248, 0.5), 
-                  0 0 65px rgba(160, 106, 248, 0.3);
-    }
-    100% {
-      box-shadow: 0 0 10px rgba(160, 106, 248, 0.6), 
-                  0 0 30px rgba(160, 106, 248, 0.4), 
-                  0 0 60px rgba(160, 106, 248, 0.2);
-    }
-  }
 
 /* Greeting Section (Sticky) */
 .sticky-section {

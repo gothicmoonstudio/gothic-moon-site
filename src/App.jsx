@@ -8,59 +8,59 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Preloader from './components/Preloader';
 import NavItem from './components/NavItem';
-import { injectFontLink, listFontsInProject } from '../src/utils/adobefonts'; // Import Adobe Fonts utility functions
+import { injectFontLink, listFontsInProject, verifyApiCredentials } from '../src/utils/adobefonts';
 
 function App() {
   const [loading, setLoading] = useState(true); // Track loading state
-  const [activeSection, setActiveSection] = useState('null'); // Track the active section
+  const [activeSection, setActiveSection] = useState(null); // Track the active section
   const [projectFonts, setProjectFonts] = useState([]); // Store fonts from the Adobe project
 
   useEffect(() => {
-    // Inject Adobe Fonts link into the head
-    injectFontLink();
-
-    // Fetch fonts from the Adobe Fonts project and log them
-    async function fetchProjectFonts() {
-      const fonts = await listFontsInProject();
-      if (fonts) {
-        console.log('Fonts in Adobe Project:', fonts);
-        setProjectFonts(fonts); // Update the state with fetched fonts
+    async function initializeFonts() {
+      // Inject Adobe Fonts link and validate API credentials
+      injectFontLink();
+      const isApiValid = await verifyApiCredentials();
+      if (isApiValid) {
+        const fonts = await listFontsInProject();
+        if (fonts) {
+          console.log('Fonts in Adobe Project:', fonts);
+          setProjectFonts(fonts); // Store fonts for potential use
+        }
       }
     }
 
-    fetchProjectFonts();
+    initializeFonts();
+  }, []);
 
-    // Set up IntersectionObserver for section tracking only when loading is complete
-    if (!loading) {
-      const sections = document.querySelectorAll('section');
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setActiveSection(entry.target.id); // Dynamically update active section
-            }
-          });
-        },
-        { threshold: 0.1 } // Adjust this threshold as needed
-      );
+  useEffect(() => {
+    if (loading) return; // Only setup observer when not loading
 
-      sections.forEach((section) => observer.observe(section));
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id); // Update active section
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-      return () => {
-        observer.disconnect();
-      };
-    }
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect(); // Cleanup observer on unmount
   }, [loading]);
 
   const handleNavClick = (sectionId) => {
-    setActiveSection(sectionId); // Dynamically set the active section
+    setActiveSection(sectionId); // Set active section on nav click
     document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <>
-      {loading && <Preloader setLoading={setLoading} />} {/* Pass setLoading to Preloader */}
-      {!loading && (
+      {loading ? (
+        <Preloader setLoading={setLoading} /> // Pass setLoading to Preloader
+      ) : (
         <div>
           {/* Pass activeSection to Navbar */}
           <Navbar activeSection={activeSection}>
