@@ -5,40 +5,38 @@ import fetch from 'node-fetch';
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Define Adobe Fonts API URL using environment variables
+// Construct the Adobe Fonts API URL using environment variables
 const adobeFontsApiUrl = `https://typekit.com/api/v1/json/kits/${process.env.VITE_ADOBE_PROJECT_ID}/published`;
 
-console.log(`Adobe Fonts API URL: ${adobeFontsApiUrl}`);
+// Define the allowed origins for CORS
+const allowedOrigins = [
+  'https://gothic-moon-site-6pc6fhu55-mary-sargents-projects.vercel.app',
+  'https://gothic-moon-site.vercel.app',
+  'https://gothic-moon-site-ekxxbt5yo-mary-sargents-projects.vercel.app'
+];
 
 // Configure CORS options
-const corsOptions = {
-  origin: [
-    'https://gothic-moon-site-6pc6fhu55-mary-sargents-projects.vercel.app', // Your front-end URL
-    'https://gothic-moon-site.vercel.app' // Additional front-end URL if needed
-  ],
+app.use(cors({
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, // Allow credentials like cookies and headers
-};
+  credentials: true,
+}));
 
-// Apply CORS middleware with the specified options
-app.use(cors(corsOptions));
-
-// Manually set CORS headers for every response to ensure correct CORS handling
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://gothic-moon-site-6pc6fhu55-mary-sargents-projects.vercel.app'); // Add your primary front-end URL
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  next();
-});
-
-// Define the /api/fonts route to fetch and return Adobe Fonts data
+// Handle the /api/fonts route to fetch and return Adobe Fonts data
 app.get('/api/fonts', async (req, res) => {
   try {
-    console.log(`Fetching Adobe Fonts data with URL: ${adobeFontsApiUrl}`);
-    console.log(`Using Authorization: Bearer ${process.env.VITE_ADOBE_API_TOKEN}`);
+    // Log the constructed URL and token for debugging purposes
+    console.log(`Fetching Adobe Fonts data from: ${adobeFontsApiUrl}`);
+    console.log(`Using Authorization token: ${process.env.VITE_ADOBE_API_TOKEN}`);
 
+    // Make the request to the Adobe Typekit API
     const response = await fetch(adobeFontsApiUrl, {
       method: 'GET',
       headers: {
@@ -47,22 +45,30 @@ app.get('/api/fonts', async (req, res) => {
       },
     });
 
-    console.log(`Response status: ${response.status}`);
-    console.log(`Response status text: ${response.statusText}`);
-
+    // Check if the response is successful
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(`Failed to fetch Adobe Fonts data: ${response.status} ${response.statusText} - ${errorText}`);
     }
 
+    // Parse the response data
     const data = await response.json();
 
+    // Remove any sensitive information before sending the data to the front-end
     if (data && data.kit && data.kit.id) {
       console.log('Removing project ID from response data');
       delete data.kit.id;
     }
 
-    // Return the JSON data response with CORS headers
+    // Send the filtered data as the response with CORS headers
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+
     res.json(data);
   } catch (error) {
     console.error('Error fetching Adobe Fonts data:', error.message);
@@ -70,12 +76,12 @@ app.get('/api/fonts', async (req, res) => {
   }
 });
 
-// Root route to display a welcome message
+// Root route to provide a welcome message
 app.get('/', (req, res) => {
   res.send('<h1>Welcome to the Adobe Fonts API Proxy Server</h1><p>Visit <a href="/api/fonts">/api/fonts</a> to get Adobe Fonts data.</p>');
 });
 
-// Start the server and listen on the specified port
+// Start the server
 app.listen(PORT, () => {
   console.log(`Proxy server is running at http://localhost:${PORT}`);
 });
