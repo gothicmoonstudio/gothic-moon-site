@@ -1,17 +1,18 @@
+// api/fonts.mjs
 import express from 'express';
 import fetch from 'node-fetch';
 
 const router = express.Router();
 
+// Allowed origins for CORS
 const allowedOrigins = [
-  'https://gothic-moon-site-server.vercel.app', // Backend main URL
-  'https://gothic-moon-site.vercel.app' // Frontend main URL
+  'https://gothic-moon-site-server.vercel.app',
+  'https://gothic-moon-site.vercel.app'
 ];
 
 // Function to filter out sensitive information from the Adobe Fonts API response
 function filterSensitiveData(data) {
   if (data && data.kit && data.kit.id) {
-    // Remove the project ID to protect sensitive information
     console.log('Removing sensitive project ID from response data');
     delete data.kit.id;
   }
@@ -20,18 +21,24 @@ function filterSensitiveData(data) {
 
 // Create the route to handle requests to /api/fonts
 router.get('/', async (req, res) => {
-  const adobeFontsApiUrl = `https://typekit.com/api/v1/json/kits/${process.env.VITE_ADOBE_PROJECT_ID}/published`;
+  // Ensure that the environment variables are being read correctly
+  console.log('Environment Variables:', {
+    PROJECT_ID: process.env.ADOBE_PROJECT_ID,
+    API_TOKEN: process.env.ADOBE_API_TOKEN,
+    BASE_URL: process.env.API_BASE_URL
+  });
+
+  const adobeFontsApiUrl = `https://typekit.com/api/v1/json/kits/${process.env.ADOBE_PROJECT_ID}/published`;
 
   try {
-    // Log the constructed URL and token for debugging purposes
     console.log(`Fetching Adobe Fonts data from: ${adobeFontsApiUrl}`);
-    console.log(`Using Authorization token: ${process.env.VITE_ADOBE_API_TOKEN}`);
+    console.log(`Using Authorization token: ${process.env.ADOBE_API_TOKEN}`);
 
     // Make the request to the Adobe Typekit API
     const response = await fetch(adobeFontsApiUrl, {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${process.env.VITE_ADOBE_API_TOKEN}`,
+        'Authorization': `Bearer ${process.env.ADOBE_API_TOKEN}`,
         'Content-Type': 'application/json',
       },
     });

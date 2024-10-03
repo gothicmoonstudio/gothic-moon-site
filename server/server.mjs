@@ -1,17 +1,17 @@
 import express from 'express';
 import cors from 'cors';
-import fontRoutes from './api/fonts.mjs'; // Make sure the path is correct
+import fontRoutes from './api/fonts.mjs';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Define the allowed origins for CORS
+// Allowed origins for CORS configuration
 const allowedOrigins = [
-  'https://gothic-moon-site-server.vercel.app', // Backend main URL
-  'https://gothic-moon-site.vercel.app' // Frontend main URL
+  'https://gothic-moon-site-server.vercel.app', 
+  'https://gothic-moon-site.vercel.app'
 ];
 
-// Configure CORS options
+// Set up CORS middleware with the allowed origins
 app.use(cors({
   origin: (origin, callback) => {
     if (allowedOrigins.includes(origin) || !origin) {
@@ -25,15 +25,18 @@ app.use(cors({
   credentials: true,
 }));
 
-// Use the fontRoutes for the /api/fonts endpoint
+// Parse incoming JSON requests
+app.use(express.json());
+
+// Use the imported font routes for the '/api/fonts' endpoint
 app.use('/api/fonts', fontRoutes);
 
-// Root route to provide a welcome message
+// Base route to show the server is running
 app.get('/', (req, res) => {
   res.send('<h1>Welcome to the Adobe Fonts API Proxy Server</h1><p>This server is for development and testing purposes. For font data, please use the <a href="/api/fonts">/api/fonts</a> endpoint in production.</p>');
 });
 
-// Start the server
+// Start the server and listen on the specified port
 app.listen(PORT, () => {
   console.log(`Proxy server is running at http://localhost:${PORT}`);
 });
