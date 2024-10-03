@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:34051ee9db420069d28ee97b8f43e0224797f2e05e06cd98bf181e8494cdcbc6
-size 392
+{
+  "name": "gothic-moon-site-server",
+  "version": "1.0.0",
+  "private": true,
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20.x"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "node-fetch": "^3.3.2"
+  }
+}

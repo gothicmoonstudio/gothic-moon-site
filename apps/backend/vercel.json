@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:75ea8d6e03ac39acaecd54abf384e6f7fb13fc68670454a786a71380aadd101e
-size 445
+{
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET,HEAD,PUT,PATCH,POST,DELETE"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ],
+  "regions": ["sfo1"]
+}

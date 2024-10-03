@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:74b30c567ab44fa40e0d88578ea9ce2f46f09582bf1cf0de911b5b4d265fe6e3
-size 581
+{
+  "name": "docs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbo --port 3001",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@repo/ui": "*",
+    "next": "^14.2.14",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.6",
+    "typescript": "^5"
+  }
+}

@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:16593ad831af436d121e4f9b9bcd29ec5a619be16f2d95c0065303d8884d49bf
-size 348
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:79bc5fcfcea290eee94d507953355fe0994cf888516432b1a83043ec6f4f5023
-size 291
+{
+  "public": true,
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    }
+  ]
+}
