@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import fontRoutes from './api/fonts.mjs'; // Make sure the path is correct
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -23,6 +24,9 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));
+
+// Use the fontRoutes for the /api/fonts endpoint
+app.use('/api/fonts', fontRoutes);
 
 // Root route to provide a welcome message
 app.get('/', (req, res) => {
