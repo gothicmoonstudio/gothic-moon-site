@@ -3,7 +3,7 @@ import cors from 'cors';
 import fontRoutes from './api/fonts.mjs';
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 // Allowed origins for CORS configuration
 const allowedOrigins = [
@@ -32,7 +32,7 @@ app.use(express.json());
 app.use('/api/fonts', fontRoutes);
 
 // Base route to show the server is running
-app.get('/', (req, res) => {
+app.get('/', (res) => {
   res.send('<h1>Welcome to the Adobe Fonts API Proxy Server</h1><p>This server is for development and testing purposes. For font data, please use the <a href="/api/fonts">/api/fonts</a> endpoint in production.</p>');
 });
 
