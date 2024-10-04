@@ -19,6 +19,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.font-display {
+  font-family: 'greycliff-cf', sans-serif;
+}
+
+.font-serif {
+  font-family: 'bely-display', sans-serif;
+}
+
+.font-accent {
+  font-family: 'bely', sans-serif;
+}
+
 body {
   font-family: var(--font-display); 
   display: flex;

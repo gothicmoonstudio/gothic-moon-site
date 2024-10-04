@@ -13,9 +13,9 @@ export default {
       dark: '#3f3a5b',
     },
     fontFamily: {
-      display: ['Greycliff CF', 'sans-serif'],
-      serif: ['Bely Display', 'sans-serif'],
-      accent: ['Bely', 'serif'],
+      display: ['"greycliff-cf"', 'sans-serif'],
+      serif: ['"bely-display"', 'serif'],
+      accent: ['"bely"', 'serif'], 
     },
     fontWeight: {
       light: 300,
