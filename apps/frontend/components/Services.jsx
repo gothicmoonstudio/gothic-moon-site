@@ -1,4 +1,3 @@
-// Services.jsx
 import React, { useEffect, useRef } from 'react';
 import ServiceCard from './ServiceCard';
 import Magic from "../assets/animations/icons8-magic.json";

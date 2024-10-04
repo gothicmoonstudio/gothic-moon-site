@@ -1,17 +1,35 @@
-// NavItem.jsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useFontsContext } from '../context/fontscontext';
 
 const NavItem = ({ label, href, isCurrentPage }) => {
-  const { fonts } = useFontsContext();
+  const [fonts, setFonts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (fonts.length > 0) {
+    const fetchFonts = async () => {
+      try {
+        const response = await fetch('/api/fonts'); // Adjust the path to your API route
+        if (!response.ok) {
+          throw new Error('Failed to fetch fonts');
+        }
+        const data = await response.json();
+        setFonts(data.kit.items); // Adjust based on your API response structure
+      } catch (error) {
+        console.error('Error fetching fonts:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFonts();
+  }, []);
+
+  useEffect(() => {
+    if (!loading && fonts.length > 0) {
       const displayFont = fonts[0]?.css_stack || 'sans-serif';
       document.documentElement.style.setProperty('--font-display', displayFont);
     }
-  }, [fonts]);
+  }, [fonts, loading]);
 
   return (
     <a
@@ -28,7 +46,7 @@ const NavItem = ({ label, href, isCurrentPage }) => {
         } nav-text`} 
         style={{ fontFamily: 'var(--font-display)' }}
       >
-        {label}
+        {loading ? 'Loading...' : label} {/* Show loading text while fetching */}
       </div>
     </a>
   );

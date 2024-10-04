@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useState, useRef } from 'react';
 import { Instagram, Dribbble } from 'react-feather';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollTrigger } from '../plugins/ScrollTrigger';
 import HoverImagePreview from './HoverImagePreview';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -64,7 +64,7 @@ const MainHero = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Update blob positions on interval
+  // Update blob positions using requestAnimationFrame
   useLayoutEffect(() => {
     const updatePosition = (circle, bounds) => {
       circle.x += circle.xSpeed;
@@ -81,7 +81,7 @@ const MainHero = () => {
       maxY: window.innerHeight + 100,
     };
 
-    const intervalId = setInterval(() => {
+    const updateBlobs = () => {
       circleData.forEach((circle) => {
         updatePosition(circle, bounds);
         const blobElement = document.getElementById(`blob-${circle.r}`);
@@ -90,9 +90,12 @@ const MainHero = () => {
           blobElement.setAttribute('cy', circle.y);
         }
       });
-    }, 10);
+      requestAnimationFrame(updateBlobs); // Request the next animation frame
+    };
 
-    return () => clearInterval(intervalId);
+    updateBlobs(); // Start the animation loop
+
+    return () => cancelAnimationFrame(updateBlobs); // Cleanup on unmount
   }, [circleData]);
 
   // Initial Animation Setup

@@ -1,4 +1,3 @@
-// AnimatedText.js
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { gsap } from 'gsap';
