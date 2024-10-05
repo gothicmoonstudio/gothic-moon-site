@@ -9,7 +9,7 @@ const HeaderExit = ({ title }) => {
 
   return (
     <OneColumn>
-      <header className="relative text-center font-header font-medium max-w-8xl mb-4">
+      <header className="relative text-center font-header font-medium max-w-8xl w-full h-full mb-4">
         {/* Container for text with circle mask behind it */}
         <div className="relative inline-block overflow-hidden whitespace-nowrap" ref={textRef}>
           {/* Centered Header Title */}
