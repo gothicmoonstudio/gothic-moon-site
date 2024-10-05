@@ -58,7 +58,7 @@ const Header = ({ title }) => {
 
   return (
     <OneColumn>
-      <header className="w-auto relative text-center font-header font-medium mb-4">
+      <header className="relative text-center font-header font-medium mb-4">
         {/* Single Text Line Enforced with No Wrap */}
         <div
           className="relative inline-block overflow-hidden whitespace-nowrap"

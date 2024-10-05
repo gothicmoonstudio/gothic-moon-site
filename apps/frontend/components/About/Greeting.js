@@ -6,7 +6,7 @@ const Greeting = () => {
   const specialText = "for all things design.";
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center text-center mt-12">
+    <div className="flex flex-col items-center justify-center text-center mt-12">
       <Header title={title} specialText={specialText} />
     </div>
   );

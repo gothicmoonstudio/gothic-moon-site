@@ -132,7 +132,7 @@ const Hero = () => {
         <div className="relative flex flex-col mt-36 z-10">
           {/* Title Section */}
           <motion.h1
-            className="text-[2.5rem] md:text-[3.5rem] lg:text-[5rem] font-normal font-header leading-[150%] text-left"
+            className="text-[2rem] md:text-[3rem] lg:text-[5rem] font-normal font-header leading-[150%] text-left"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
