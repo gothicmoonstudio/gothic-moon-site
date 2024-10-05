@@ -10,7 +10,6 @@ const FloatingText = ({ text1, text3, className, textSize, textColor }) => {
   useEffect(() => {
     const split = new SplitText(headerRef.current, { type: 'chars' });
 
-    // GSAP floating animation with random movement
     gsap.fromTo(
       split.chars,
       { x: 'random(-100, 100)', y: 'random(-100, 100)', opacity: 0 },
@@ -28,7 +27,7 @@ const FloatingText = ({ text1, text3, className, textSize, textColor }) => {
     );
 
     return () => {
-      split.revert(); // Clean up SplitText instance when the component unmounts
+      split.revert();
     };
   }, []);
 
@@ -39,7 +38,6 @@ const FloatingText = ({ text1, text3, className, textSize, textColor }) => {
         className="text-center"
         style={{ fontSize: textSize, color: textColor, whiteSpace: 'no wrap' }}
       >
-        {/* Apply dynamic styles using Tailwind and inline styles */}
         <span 
           className="font-normal font-display"
           style={{ fontSize: textSize, color: textColor, whiteSpace: 'no wrap' }}

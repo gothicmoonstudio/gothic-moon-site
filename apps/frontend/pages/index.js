@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import About from '../components/About/About';
+import Services from '../components/Services/UVP';
 import Prices from '../components/Prices/Prices';
 
 const HomePage = ({ setActiveSection }) => {
@@ -41,10 +42,11 @@ const HomePage = ({ setActiveSection }) => {
         <About /> 
       </section>
 
-      <section id="uvp">
+      <section id="services">
+        <Services />
       </section>
 
-      <section id="projects">
+      <section id="Projects">
       </section>
 
       <section id="Prices">

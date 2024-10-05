@@ -1,9 +1,9 @@
 import React from 'react';
 import Header from '../templates/Header';
 
-const Greeting = () => {
-  const title = "Gothic Moon is your trusted guide";
-  const specialText = "for all things design.";
+const UVPIntro = () => {
+  const title = "Illuminating your path to design excellence";
+  const specialText = "";
 
   return (
     <div className="flex flex-col items-center justify-center text-center mt-12">
@@ -12,4 +12,4 @@ const Greeting = () => {
   );
 };
 
-export default Greeting;
+export default UVPIntro;

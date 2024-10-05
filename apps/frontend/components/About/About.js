@@ -2,7 +2,7 @@ import React from 'react';
 import Greeting from '../About/Greeting';
 import Intro from '../About/Intro';
 
-const AboutPage = () => {
+const About = () => {
   return (
       <section id="about">
         <Greeting />
@@ -11,4 +11,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default About;
