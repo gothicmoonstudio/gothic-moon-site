@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
-import PrimaryButton from './ui/PrimaryButton'; // Assuming this is the path to your PrimaryButton component
+import PrimaryButton from '../ui/PrimaryButton'; // Assuming this is the path to your PrimaryButton component
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({

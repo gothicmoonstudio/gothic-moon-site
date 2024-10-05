@@ -42,7 +42,7 @@ const Footer = () => {
           </div>
 
           {/* Signature Text */}
-          <div className="signature-text text-base font-normal font-display">
+          <div className="signature-text text-base font-normal font-header">
             Designed and developed by yours truly — with a little 💻, ☕, and 🪄.
           </div>
         </div>
