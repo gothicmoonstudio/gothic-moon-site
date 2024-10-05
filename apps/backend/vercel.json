@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/gothic-moon-site/$1"
-    }
-  ]
-}
