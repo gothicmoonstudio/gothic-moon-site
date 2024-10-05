@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderExit from '../templates/HeaderExit';
+import Header from '../templates/Header';
 
 const ServicesIntro = () => {
   const title = "Guiding your project to unmatched success";
@@ -7,7 +7,7 @@ const ServicesIntro = () => {
 
   return (
     <div className="flex flex-col items-center justify-center text-center mt-12">
-      <HeaderExit title={title} specialText={specialText} />
+      <Header title={title} specialText={specialText} />
     </div>
   );
 };
