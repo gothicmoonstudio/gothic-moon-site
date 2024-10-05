@@ -5,52 +5,99 @@
 @tailwind utilities;
 
 :root {
-    --font-display: 'Greycliff CF', sans-serif; 
-    --font-serif: 'Bely Display', 'Bely', serif; 
-    --font-accent: 'Bely', serif;
-  
-    color-scheme: light dark;
-    color: rgba(244, 243, 255, 1);
-    background-color: #141221;
-  
+    --font-header: 'Greycliff CF', 'Poppins', sans-serif; 
+    --font-serif: 'Bely Display', 'Gloock', serif; 
+    --font-body: 'Alegreya', serif;
+
+    /* Theme-Specific Colors */
+    --light-background: #f4f3ff; /* Light theme background */
+    --light-text: #141221; /* Dark text for light theme */
+    --dark-background: #141221; /* Dark theme background */
+    --dark-text: #f4f3ff; /* Light text for dark theme */
+    --lilac-background: #e9cdff; /* Lilac theme background */
+    --glow-background: #f8ffce; /* Glow theme background */
+
+    /* Color Scheme */
+    color-scheme: light dark; /* Indicates supported color schemes */
+    background-color: var(--dark-background); /* Default background color */
+    color: var(--dark-text); /* Default text color */
+
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .font-display {
-    font-family: 'greycliff-cf', sans-serif;
-  }
-  
-  .font-serif {
-    font-family: 'bely-display', sans-serif;
-  }
-  
-  .font-accent {
-    font-family: 'bely', sans-serif;
-  }
-  
-  body {
-    font-family: var(--font-display); 
-    display: flex;
-    place-items: center;
+}
+
+@font-face {
+    font-family: 'Alegreya';
+    src:url('/fonts/Alegreya-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gloock';
+    src:url('/fonts/Gloock-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src:url('/fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-background);
+    color: var(--dark-text);
     min-width: 320px;
-    min-height: 100vh;
-    overflow-x: hidden;
-    cursor: default;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  h1, h2, h3, h4, h5, h6, p, a, span, div {
-    font-family: var(--font-display);
-  }
-  
-  .serif-text {
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-header);
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+.special-text {
     font-family: var(--font-serif);
-  }
-  
-  .accent-text {
-    font-family: var(--font-accent);
-  }  
+    font-weight: bold;
+}
+
+p {
+    font-family: var(--font-body);
+    margin-bottom: 1.25rem;
+}
+
+/* Theme Classes */
+body.light {
+    background-color: var(--light-background);
+    color: var(--light-text);
+}
+
+body.dark {
+    background-color: var(--dark-background);
+    color: var(--dark-text);
+}
+
+body.lilac {
+    background-color: var(--lilac-background);
+    color: var(--light-text);
+}
+
+body.glow {
+    background-color: var(--glow-background);
+    color: var(--light-text);
+}

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import ServiceCard from './ServiceCard';
-import Magic from "../assets/animations/icons8-magic.json";
-import Sparkles from "../assets/animations/icons8-sparkles.json";
-import Potions from "../assets/animations/icons8-mana.json";
+import ServiceCard from '../ServiceCard';
+import Magic from "../../assets/animations/icons8-magic.json";
+import Sparkles from "../../assets/animations/icons8-sparkles.json";
+import Potions from "../../assets/animations/icons8-mana.json";
 
 function Services() {
   const gradientRef = useRef(null);

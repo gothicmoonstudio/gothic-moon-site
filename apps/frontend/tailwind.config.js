@@ -6,16 +6,29 @@ export default {
   ],
   theme: {
     colors: {
-      primary: '#0d0c16',
-      secondary: '#141221',
-      accent: '#a06af8',
-      light: '#f4f3ff',
-      dark: '#3f3a5b',
+      light: {
+        primary: '#141221', 
+        background: '#f4f3ff', 
+      },
+      dark: {
+        primary: '#f4f3ff',
+        background: '#141221',
+      },
+      lilac: {
+        primary: '#141221',
+        secondary: '#f4f3ff',
+        background: '#e9cdff',
+      },
+      glow: {
+        primary: '#141221',
+        secondary: '#f4f3ff',
+        background: '#f8ffce',
+      },
     },
     fontFamily: {
-      display: ['"greycliff-cf"', 'sans-serif'],
-      serif: ['"bely-display"', 'serif'],
-      accent: ['"bely"', 'serif'], 
+      header: ['Greycliff CF', 'Poppins', 'sans-serif'],
+      serif: ['Bely Display', 'Gloock', 'serif'],
+      body: ['Alegreya', 'serif'], 
     },
     fontWeight: {
       light: 300,
@@ -37,12 +50,40 @@ export default {
     },
     extend: {
       spacing: {
+        xs: '0.25rem',
+        sm: '0.5rem',
+        md: '1rem',
+        lg: '1.5rem',
+        xl: '2rem',
+        '2xl': '3rem',
+        '3xl': '4rem',
+        '4xl': '8rem',
+        '5xl': '16rem',
         102: '102px',
         118: '118px',
       },
       borderRadius: {
         full: '9999px',
-        lg: '12px',
+        lg: '16px',
+        md: '8px',
+        sm: '2px'
+      },
+      backgroundImage: {
+        'light-gradient': 'linear-gradient(to top, #cdafff, #ffe9e9)',
+        'dark-gradient': 'linear-gradient(to top left, #3b1ae5, #e1303a)',
+        'lilac-gradient': 'linear-gradient(to top, #cdafff, #ffe9e9)',
+        'glow-gradient': 'linear-gradient(to bottom left, #f6ffbc, #ffe9e9)',
+      },
+      fontSize: {
+        xs: '0.75rem',
+        sm: '0.875rem',
+        base: '1rem',
+        lg: '1.125rem',
+        xl: '1.25rem',
+        '2xl': '1.5rem',
+        '3xl': '1.875rem',
+        '4xl': '2.25rem',
+        '5xl': '3rem',
       },
     },
   },

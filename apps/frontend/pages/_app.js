@@ -1,13 +1,17 @@
 // pages/_app.js
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/global.css';
 import { ThemeProvider } from '../context/ThemeContext';
+import Navbar from '../components/Navbar/NavBar';
 
 function MyApp({ Component, pageProps }) {
+  const [activeSection, setActiveSection] = useState('');
+
   return (
     <React.StrictMode>
       <ThemeProvider>
-        <Component {...pageProps} />
+        <Navbar activeSection={activeSection} />
+        <Component {...pageProps} setActiveSection={setActiveSection} />
       </ThemeProvider>
     </React.StrictMode>
   );

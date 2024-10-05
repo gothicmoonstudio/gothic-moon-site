@@ -1,8 +1,8 @@
 import React from 'react';
-import SlideHeader from './SlideHeader';
-import ValueCardScroll from './ValueCardScroll';
-import AnimatedText from './AnimatedText';
-import ServiceOverview from './ServiceOverview';
+import SlideHeader from '../SlideHeader';
+import ValueCardScroll from '../WhatWeDo/ValueCardScroll';
+import AnimatedText from '../AnimatedText';
+import ServiceOverview from '../ServiceOverview';
 
 const About = () => {
   return (

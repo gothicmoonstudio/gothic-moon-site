@@ -46,6 +46,7 @@
     transform: translate(0, 0);
   }
 }
+
 /* Countdown Text */
 .preloader-text {
   color: #F4F3FF;
@@ -53,31 +54,13 @@
   font-size: .5rem;
   font-weight: bold;
   text-align: center;
-  line-height: 1.2rem; /* As per Figma */
+  line-height: 1.2rem;
 }
-
-  /* Rotating the outer group */
-#outer-group {
-    animation: rotate 5s infinite linear;
-  }
-  
-  /* Keeping the inner group static */
-  #inner-group {
-    transform: none; 
-  }
-  
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
   
 /* NavItem Styles */
 .nav-item {
   position: relative;
+  font-weight: 400;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -93,7 +76,8 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: #f4f3ff;
+  background-color: #f4f3ff; /* Light theme background */
+  color: #141221; /* Dark text on hover */
   border-radius: inherit;
   box-sizing: border-box;
   transition: transform 0.3s ease-in-out;
@@ -111,10 +95,12 @@
 }
 
 .nav-item:hover .nav-text {
-  color: #141221;
+  color: #141221; /* Dark text on hover */
+  font-weight: 500;
 }
 
 .nav-item-active {
+  background-color: #f4f3ff;
   z-index: 3; 
 }
 
