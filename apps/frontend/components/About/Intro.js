@@ -7,7 +7,7 @@ import SideBySide from '../templates/SidebySide';
   const paragraphClasses = `text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-body leading-[150%]`;
 
   const leftContent = (
-    <div className="flex flex-col">
+    <div className="w-full h-full flex flex-col">
       <h1 className={titleClasses}>
         Welcome to <span className="font-serif special-text">gothic moon</span>
       </h1>

@@ -43,7 +43,7 @@ const Footer = () => {
 
           {/* Signature Text */}
           <div className="signature-text text-base font-normal font-header">
-            Designed and developed by yours truly — with a little 💻, ☕, and 🪄.
+            Made with 🪄 & ✨...
           </div>
         </div>
 

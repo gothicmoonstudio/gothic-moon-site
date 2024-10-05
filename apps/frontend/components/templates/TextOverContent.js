@@ -17,7 +17,7 @@ const TextOverContent = ({ title, subtitle, children }) => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: titleRef.current,
-          start: 'top 80%',
+          start: 'top 100%',
           // markers: true, // Uncomment for debugging
         },
       });
@@ -35,7 +35,6 @@ const TextOverContent = ({ title, subtitle, children }) => {
         y: 50,
         opacity: 0,
         duration: 1,
-        delay: 0.1,
         ease: 'power3.out',
       });
     });
@@ -48,7 +47,7 @@ const TextOverContent = ({ title, subtitle, children }) => {
 
   return (
     <OneColumn>
-      <div className="w-full flex flex-col justify-center items-center text-center">
+      <div className="w-auto flex flex-col justify-center items-center text-center">
         <div className="z-10 w-full max-w-7xl">
           <h1
             ref={titleRef}

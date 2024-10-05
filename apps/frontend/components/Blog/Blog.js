@@ -10,7 +10,7 @@ const Blog = () => {
         <img
           src="https://via.placeholder.com/800x400"
           alt="Placeholder"
-          className="w-full h-auto rounded-md"
+          className="w-full h-full rounded-md"
         />
       </TextOverContent>
     </section>
