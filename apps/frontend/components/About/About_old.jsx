@@ -1,6 +1,6 @@
 import React from 'react';
 import SlideHeader from '../SlideHeader';
-import ValueCardScroll from '../WhatWeDo/ValueCardScroll';
+import ValueCardScroll from '../Services/ValueCardScroll';
 import AnimatedText from '../AnimatedText';
 import ServiceOverview from '../ServiceOverview';
 
