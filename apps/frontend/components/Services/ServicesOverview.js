@@ -1,9 +1,9 @@
 import React from 'react';
 import TextOverContent from '../templates/TextOverContent';
 
-const Prices = () => {
+const ServicesOverview = () => {
   return (
-    <section id="projects">
+    <div>
       <TextOverContent
         title=""
       >
@@ -13,8 +13,8 @@ const Prices = () => {
           className="w-full h-auto rounded-md"
         />
       </TextOverContent>
-    </section>
+    </div>
   );
 };
 
-export default Prices;
+export default ServicesOverview;

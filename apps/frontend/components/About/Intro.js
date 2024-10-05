@@ -3,7 +3,7 @@ import SideBySide from '../templates/SidebySide';
 
   const Intro = () => {
 
-  const titleClasses = `text-[4rem] md:text-[5rem] lg:text-[6rem] font-header font-medium mb-4`;
+  const titleClasses = `text-[3rem] md:text-[4rem] lg:text-[6rem] font-header font-medium mb-4`;
   const paragraphClasses = `text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-body leading-[150%]`;
 
   const leftContent = (

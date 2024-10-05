@@ -1,9 +1,9 @@
 import React from 'react';
 import TextOverContent from '../templates/TextOverContent';
 
-const Prices = () => {
+const Blog = () => {
   return (
-    <section id="projects">
+    <section id="blog">
       <TextOverContent
         title=""
       >
@@ -17,4 +17,4 @@ const Prices = () => {
   );
 };
 
-export default Prices;
+export default Blog;

@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useState, useRef } from 'react';
 import { Instagram, Dribbble } from 'react-feather';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from '../plugins/ScrollTrigger';
+import { ScrollTrigger } from '../../plugins/ScrollTrigger';
 import HoverImagePreview from './HoverImagePreview';
 
 gsap.registerPlugin(ScrollTrigger);

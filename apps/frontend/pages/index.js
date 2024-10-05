@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
+import Hero from '../components/Hero/Hero';
 import About from '../components/About/About';
 import Services from '../components/Services/UVP';
+import Projects from '../components/Projects/Project';
 import Prices from '../components/Prices/Prices';
+import Blog from '../components/Blog/Blog';
+import Footer from '../components/Footer/Footer';
 
 const HomePage = ({ setActiveSection }) => {
   useEffect(() => {
@@ -36,6 +40,7 @@ const HomePage = ({ setActiveSection }) => {
   return (
     <>
       <section id="home">
+        <Hero />
       </section>
 
       <section id="about">
@@ -46,14 +51,20 @@ const HomePage = ({ setActiveSection }) => {
         <Services />
       </section>
 
-      <section id="Projects">
+      <section id="projects">
+        <Projects />
       </section>
 
-      <section id="Prices">
+      <section id="prices">
         <Prices />
       </section>
 
       <section id="blog">
+        <Blog />
+      </section>
+
+      <section id="footer">
+        <Footer />
       </section>
     </>
   );

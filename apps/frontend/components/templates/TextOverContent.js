@@ -35,7 +35,7 @@ const TextOverContent = ({ title, subtitle, children }) => {
         y: 50,
         opacity: 0,
         duration: 1,
-        delay: 0.2,
+        delay: 0.1,
         ease: 'power3.out',
       });
     });
