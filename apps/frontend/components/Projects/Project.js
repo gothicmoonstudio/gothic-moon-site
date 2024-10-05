@@ -10,7 +10,7 @@ const Prices = () => {
         <img
           src="https://via.placeholder.com/800x400"
           alt="Placeholder"
-          className="rounded-md"
+          className="w-full h-auto rounded-md"
         />
       </TextOverContent>
     </section>

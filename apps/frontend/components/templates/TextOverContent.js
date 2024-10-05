@@ -48,7 +48,7 @@ const TextOverContent = ({ title, subtitle, children }) => {
   return (
     <OneColumn>
       <div className="w-full flex flex-col justify-center items-center text-center">
-        <div className="z-10 w-full max-w-7xl">
+        <div className="z-10 w-full">
           <h1
             ref={titleRef}
             className="font-medium text-[1rem] md:text-[2rem] lg:text-[3rem] mb-4"
