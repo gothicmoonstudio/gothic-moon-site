@@ -42,7 +42,6 @@ const SideBySide = ({ leftContent, rightContent }) => {
     };
   }, []);
 
-  // Return the JSX to render
   return (
     <TwoColumn
       leftContent={<div ref={leftRef}>{leftContent}</div>}

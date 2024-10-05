@@ -20,7 +20,7 @@ const UVPDetails = () => {
   );
 
   return (
-    <div className="w-full min-h-screen bg-[#f8ffce] flex justify-center items-center">
+    <div className="bg-[#f8ffce] flex justify-center items-center">
       <SideBySide leftContent={leftContent} rightContent={rightContent} />
     </div>
   );
