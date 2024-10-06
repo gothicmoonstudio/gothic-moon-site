@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Hero from '../components/Hero/Hero';
 import About from '../components/About/About';
-import Services from '../components/Services/UVP';
+import Services from '../components/Services/Services';
 import Projects from '../components/Projects/Project';
 import Prices from '../components/Prices/Prices';
 import Blog from '../components/Blog/Blog';

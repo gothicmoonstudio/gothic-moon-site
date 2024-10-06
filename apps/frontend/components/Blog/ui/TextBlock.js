@@ -2,44 +2,63 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // TextBlock Component
-const TextBlock = ({ title, description, onReadMoreClick }) => {
-  // Split title and description into words and apply styling for each word
-  const renderText = (text) => {
-    return text.split(' ').map((word, index) => (
-      <span
-        key={index}
-        className="inline-block px-1 py-0.5 mx-1 my-0.5 bg-[#E9CDFF] rounded-lg text-[#141221] font-semibold transition-all duration-300"
-      >
-        {word}
-      </span>
-    ));
-  };
+const TextBlock = ({ title, buttonText, onReadMoreClick }) => {
+  // Create line-based wrappers for dynamic styling
+  const renderLine = (line, lineIndex) => (
+    <div
+      key={lineIndex}
+      style={{
+        display: 'inline-block',
+        background: lineIndex % 2 === 0 ? '#E9CDFF' : '#C4B5FD',
+        padding: '0.5rem 1rem',
+        borderRadius: '8px',
+        margin: '0.25rem 0',
+        whiteSpace: 'pre-line',
+      }}
+    >
+      {line.split(' ').map((word, index) => (
+        <span
+          key={index}
+          style={{
+            display: 'inline-block',
+            margin: '0 0.2rem',
+          }}
+        >
+          {word}
+        </span>
+      ))}
+    </div>
+  );
 
   return (
     <div className="flex flex-col items-start justify-start space-y-4">
-      {/* Title Section with Background */}
-      <div className="text-xl md:text-2xl lg:text-3xl font-bold font-header text-left">
-        {renderText(title)}
+      {/* Title Section with Line Wrappers */}
+      <div className="text-[1.5rem] md:text-[1.75rem] lg:text-[2rem] font-medium font-header text-left text-[#141221]">
+        {title.split('\n').map((line, index) => renderLine(line, index))}
       </div>
 
-      {/* Description Section with Background */}
-      <div className="text-base font-medium text-left text-[#726d96] font-header">
-        {renderText(description)}
-      </div>
+      {/* Button Section */}
+      {buttonText && (
+        <button
+          onClick={onReadMoreClick}
+          className="mt-4 px-4 py-2 bg-[#E9CDFF] text-[#141221] text-base font-medium rounded-md hover:bg-[#C4B5FD] transition-all duration-300 font-header"
+        >
+          {buttonText}
+        </button>
+      )}
     </div>
   );
 };
 
-// PropTypes for type checking
 TextBlock.propTypes = {
-  title: PropTypes.string.isRequired, // Title text for the block
-  description: PropTypes.string.isRequired, // Description text for the block
-  onReadMoreClick: PropTypes.func, // Callback function for 'Read More' link click event
+  title: PropTypes.string.isRequired, 
+  buttonText: PropTypes.string,
+  onReadMoreClick: PropTypes.func, 
 };
 
-// Default Props
 TextBlock.defaultProps = {
-  onReadMoreClick: () => {}, // Default empty function for 'Read More' click event
+  buttonText: '',
+  onReadMoreClick: () => {},
 };
 
 export default TextBlock;
