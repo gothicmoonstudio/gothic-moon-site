@@ -5,7 +5,7 @@ import TwoColumnFooter from '../layouts/TwoColumnFooter';
 const Footer = () => {
   // Define the left content for the footer
   const leftContent = (
-    <div className="flex flex-col items-start justify-between gap-3 md:gap-5 lg:gap-7">
+    <div className="flex flex-col items-start justify-between gap-3 md:gap-5 lg:gap-7 mt-5 md:mt-9 lg:mt-12">
       {/* Logo Section */}
       <div className="logo-section mb-4 md:mb-0 lg:mb-0">
         <img
@@ -44,7 +44,7 @@ const Footer = () => {
 
   // Define the right content for the footer
   const rightContent = (
-    <div className="flex flex-col items-start justify-between md:items-end text-left md:text-right">
+    <div className="flex flex-col items-start justify-between md:items-end text-left md:text-right gap-3 md:gap-5 lg:gap-7 mt-5 md:mt-9 lg:mt-12">
       {/* Tagline */}
       <div className="text-lg mb-6 md:mb-10 lg:mb-16">
         <span className="font-semibold font-header">We’re brewing something</span>

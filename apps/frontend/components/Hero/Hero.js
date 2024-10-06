@@ -24,7 +24,7 @@ const Hero = () => {
 
           {/* Subtitle Section */}
           <motion.p
-            className="text-[1.25rem] md:text-[1.5rem] lg:text-[1.75rem] font-normal font-body leading-[150%] text-left mt-4"
+            className="text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-header leading-[150%] text-left mt-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: 'easeOut', delay: 0.2 }}
