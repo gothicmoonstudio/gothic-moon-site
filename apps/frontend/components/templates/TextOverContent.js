@@ -11,10 +11,10 @@ const TextOverContent = ({ title, specialText, children }) => {
       <div className="w-full flex flex-col justify-center items-center text-center">
         <div className="z-10 w-full">
           {/* Title Section with Special Text */}
-          <h1 ref={titleRef} className="font-medium text-[1.5rem] md:text-[2rem] lg:text-[3rem] mb-4">
+          <h1 ref={titleRef} className="font-medium text-[1.25rem] md:text-[2rem] lg:text-[3rem] mb-4">
             {title}{' '}
             {specialText && (
-              <span className="font-serif special-text text-[1.5rem] md:text-[2rem] lg:text-[3rem]">
+              <span className="font-serif special-text text-[1.25rem] md:text-[2rem] lg:text-[3rem]">
                 {specialText}
               </span>
             )}

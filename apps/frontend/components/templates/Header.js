@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OneColumn from '../layouts/OneColumn';
 
-const Header = ({ title, specialText, theme = 'light', className = '' }) => {
+const Header = ({ title, specialText = '', theme = 'light', className = '' }) => {
   // Set text color based on the theme prop
   const textColorClass = theme === 'dark' ? 'text-dark-text' : 'text-light-text';
 
@@ -31,13 +31,6 @@ Header.propTypes = {
   specialText: PropTypes.string, // specialText is optional and must be a string
   theme: PropTypes.oneOf(['light', 'dark']), // theme prop can only be 'light' or 'dark'
   className: PropTypes.string, // Optional className prop for additional styling
-};
-
-// Default prop values
-Header.defaultProps = {
-  specialText: '',
-  theme: 'light', // Default theme is set to 'light'
-  className: '',
 };
 
 export default Header;
