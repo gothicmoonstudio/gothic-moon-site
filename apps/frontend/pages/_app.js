@@ -1,4 +1,3 @@
-// pages/_app.js
 import React, { useState } from 'react';
 import '../styles/global.css';
 import { ThemeProvider } from '../context/ThemeContext';

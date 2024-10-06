@@ -1,63 +1,26 @@
-// TextOverContent.jsx
-import React, { useRef, useLayoutEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from '../../plugins/ScrollTrigger';
+import React, { useRef } from 'react';
 import OneColumn from '../layouts/OneColumn';
 
-gsap.registerPlugin(ScrollTrigger);
-
-const TextOverContent = ({ title, subtitle, children }) => {
+const TextOverContent = ({ title, specialText, children }) => {
+  // Create refs for title and content sections
   const titleRef = useRef(null);
-  const subtitleRef = useRef(null);
   const contentRef = useRef(null);
-
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      // Create a timeline with ScrollTrigger
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: 'top 100%',
-          // markers: true, // Uncomment for debugging
-        },
-      });
-
-      // Animate the title (header)
-      tl.from(titleRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-      });
-
-      // Animate the children content after the subtitle
-      tl.from(contentRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-      });
-    });
-
-    // Cleanup function
-    return () => {
-      ctx.revert();
-    };
-  }, []);
 
   return (
     <OneColumn>
       <div className="w-full flex flex-col justify-center items-center text-center">
         <div className="z-10 w-full">
-          <h1
-            ref={titleRef}
-            className="font-medium text-[1rem] md:text-[2rem] lg:text-[3rem] mb-4"
-          >
-            {title}
+          {/* Title Section with Special Text */}
+          <h1 ref={titleRef} className="font-medium text-[1.5rem] md:text-[2rem] lg:text-[3rem] mb-4">
+            {title}{' '}
+            {specialText && (
+              <span className="font-serif special-text text-[1.5rem] md:text-[2rem] lg:text-[3rem]">
+                {specialText}
+              </span>
+            )}
           </h1>
-          <p ref={subtitleRef} className="mb-8">
-            {subtitle}
-          </p>
+
+          {/* Children Content */}
           <div ref={contentRef}>{children}</div>
         </div>
       </div>

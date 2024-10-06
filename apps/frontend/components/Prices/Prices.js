@@ -5,7 +5,8 @@ const Prices = () => {
   return (
     <section id="prices">
       <TextOverContent
-        title="Let Gothic be your design guide."
+        title="Let Gothic be"
+        specialText="your design guide."
       >
         <img
           src="https://via.placeholder.com/800x400"
