@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Instagram, Dribbble } from 'react-feather';
 import OneColumn from '../layouts/OneColumn';
+import PrimaryButton from '../ui/PrimaryButton';
 
 const Hero = () => {
   return (
@@ -53,9 +54,9 @@ const Hero = () => {
           </div>
 
           {/* Contact Button */}
-          <button className="px-5 py-3 bg-[#f4f3ff] text-[#141221] text-lg font-normal font-header rounded-full hover:bg-[#e4e4ff] transition duration-300">
-            Contact me
-          </button>
+          <div>
+            <PrimaryButton label="Start a Project" href="/contact" />
+          </div>
         </div>
       </div>
     </OneColumn>
