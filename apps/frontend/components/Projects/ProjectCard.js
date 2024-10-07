@@ -9,7 +9,7 @@ const ProjectCard = ({
   status = 'Coming Soon',
 }) => {
   return (
-    <div className="w-full md:w-2/3 lg:w-2/3 h-full md:h-[34rem] lg:h-[34rem] p-12 bg-[#F4F3FF] rounded-2xl shadow-lg flex flex-col justify-between gap-6 transition-all duration-300">
+    <div className="w-full md:w-2/3 lg:w-2/3 h-full md:h-[34rem] lg:h-[34rem] p-12 mt-4 bg-[#F4F3FF] rounded-2xl shadow-lg flex flex-col justify-between gap-6 transition-all duration-300">
       {/* Top Section: Title, Subtitle, and Button */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 w-full">
         {/* Title and Subtitle */}
@@ -34,14 +34,6 @@ const ProjectCard = ({
       <div className="mt-auto"></div>
     </div>
   );
-};
-
-// PropTypes validation
-ProjectCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string, // Optional subtitle
-  description: PropTypes.string.isRequired,
-  status: PropTypes.string, // Optional status
 };
 
 export default ProjectCard;

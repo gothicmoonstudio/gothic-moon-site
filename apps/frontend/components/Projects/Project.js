@@ -2,11 +2,13 @@ import React from 'react';
 import TextOverContent from '../templates/TextOverContent';
 import ProjectCard from '../Projects/ProjectCard';
 
-const Prices = () => {
+const Project = () => {
   return (
     <section id="projects">
-      <TextOverContent title="">
-        {/* Replace the placeholder image with the ProjectCard component */}
+      <TextOverContent 
+      title="Designs that" 
+      specialText="captivate & enchant."
+      >
         <ProjectCard
           title="Lorem ipsum dolor"
           subtitle="sit amet"
@@ -18,4 +20,4 @@ const Prices = () => {
   );
 };
 
-export default Prices;
+export default Project;
