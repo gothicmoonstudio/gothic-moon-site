@@ -1,12 +1,10 @@
 import React from 'react';
 
-// TextBlock Component with default parameter values
 const TextBlock = ({
   title = 'Default Title',
   buttonText = 'Read More',
   onReadMoreClick = () => {},
 }) => {
-  // Create line-based wrappers for dynamic styling
   const renderLine = (line, lineIndex) => (
     <div
       key={lineIndex}
@@ -35,12 +33,10 @@ const TextBlock = ({
 
   return (
     <div className="flex flex-col items-start justify-start space-y-4">
-      {/* Title Section with Line Wrappers */}
       <div className="text-[1.5rem] md:text-[1.75rem] lg:text-[2rem] font-medium font-header text-left text-[#141221]">
         {title.split('\n').map((line, index) => renderLine(line, index))}
       </div>
 
-      {/* Button Section */}
       {buttonText && (
         <button
           onClick={onReadMoreClick}

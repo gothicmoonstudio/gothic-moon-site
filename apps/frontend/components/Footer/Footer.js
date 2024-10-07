@@ -10,14 +10,14 @@ const Footer = () => {
       <img
         src="/images/gothicmoon_fulllogo.png" // Update the path if needed
         alt="Gothic Moon Creative Studio Logo"
-        className="w-[16rem] md:w-[20rem] lg:w-[26rem] h-auto mb-6 object-contain" // Ensure responsiveness and object-fit
+        className="w-[12rem] md:w-[16rem] lg:w-[20rem] h-auto object-contain" // Responsive sizes for different breakpoints
       />
     </div>
   );
 
   // Define the right content for the footer (Social Icons)
   const rightContent = (
-    <div className="flex flex-col items-end justify-end self-end mt-auto gap-9"> {/* mt-auto pushes content to the bottom */}
+    <div className="flex flex-col items-end justify-end self-end mt-auto gap-6 md:gap-9 lg:gap-14"> {/* Responsive gap */}
       <div className="flex items-center gap-6 md:gap-9"> {/* Adjust gap for responsiveness */}
         {/* Social Icon Links */}
         <a
@@ -46,7 +46,7 @@ const Footer = () => {
       <TwoColumnFooter
         leftContent={leftContent}
         rightContent={rightContent}
-        className="w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-10"
+        className="w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-10 lg:gap-14"
       />
 
       {/* Divider Line */}
@@ -55,12 +55,12 @@ const Footer = () => {
       {/* Bottom Section */}
       <div className="w-full flex flex-col md:flex-row justify-between items-center md:items-start gap-4">
         {/* Copyright Text */}
-        <div className="text-[#f4f3ff] text-base font-normal font-header">
+        <div className="text-[#f4f3ff] text-center md:text-left text-base font-normal font-header">
           © 2024 Gothic Moon Creative Studio LLC
         </div>
 
         {/* Legal Links */}
-        <div className="flex gap-4 md:gap-6 items-center">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center text-center">
           <a
             href="https://app.termly.io/policy-viewer/policy.html?policyUUID=ae7e109c-aee5-417d-8b96-0307a9aead2b"
             target="_blank"

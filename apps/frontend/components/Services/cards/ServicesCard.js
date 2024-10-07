@@ -9,7 +9,7 @@ const ServicesCard = ({ title, description, services, imageSrc }) => {
           {title}
         </div>
 
-        <div className="self-stretch justify-start items-start gap-9 flex flex-col md:flex-row min-w-7">
+        <div className="self-stretch justify-start items-start gap-9 flex flex-col md:flex-row">
           <div className="grow shrink basis-0 text-[#141221] text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-body leading-[150%] text-left">
             {description}
           </div>
