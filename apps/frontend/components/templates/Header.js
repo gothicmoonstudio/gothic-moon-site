@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import OneColumn from '../layouts/OneColumn';
 
 const Header = ({ title, specialText = '', theme = 'light', className = '' }) => {
-  // Set text color based on the theme prop
   const textColorClass = theme === 'dark' ? 'text-dark-text' : 'text-light-text';
 
   return (
@@ -11,7 +10,6 @@ const Header = ({ title, specialText = '', theme = 'light', className = '' }) =>
       <header
         className={`relative text-center text-[2rem] md:text-[3rem] lg:text-[5rem] font-header font-medium mb-4 ${textColorClass} ${className}`}
       >
-        {/* Title and Special Text */}
         <h1>
           {title}{' '}
           {specialText && (
@@ -25,12 +23,11 @@ const Header = ({ title, specialText = '', theme = 'light', className = '' }) =>
   );
 };
 
-// Prop type validation for better code quality and safety
 Header.propTypes = {
-  title: PropTypes.string.isRequired, // title is required and must be a string
-  specialText: PropTypes.string, // specialText is optional and must be a string
-  theme: PropTypes.oneOf(['light', 'dark']), // theme prop can only be 'light' or 'dark'
-  className: PropTypes.string, // Optional className prop for additional styling
+  title: PropTypes.string.isRequired,
+  specialText: PropTypes.string,
+  theme: PropTypes.oneOf(['light', 'dark']),
+  className: PropTypes.string,
 };
 
 export default Header;
