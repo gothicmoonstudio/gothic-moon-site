@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // Correct placement of propTypes after component declaration
 const ServicesCard = ({ title, description, services, imageSrc }) => {
   return (
-    <div className="w-full md:w-[1512px] h-auto md:h-[434px] p-12 bg-[#e9cdff] justify-center items-center gap-9 flex flex-col md:flex-row">
+    <div className="w-full h-auto md:h-[434px] p-12 bg-[#e9cdff] justify-center items-center gap-9 flex flex-col md:flex-row">
       {/* Left Section - Title and Description */}
       <div className="grow shrink basis-0 flex flex-col justify-start items-start gap-9">
         {/* Title */}

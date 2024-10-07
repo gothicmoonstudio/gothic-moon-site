@@ -1,15 +1,12 @@
 import React from 'react';
-import TextOverContent from '../templates/TextOverContent';
-import ServicesCard from './ServicesCard';
+import ServicesCard from './cards/ServicesCard';
 
 const ServicesOverview = () => {
   return (
     <div>
-      <TextOverContent title="">
-        {/* Replace the placeholder image with the ServicesCard component */}
         <ServicesCard
-          title="Our UX Services"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget molestie augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam aliquam id libero faucibus vulputate. Donec ut ligula a leo iaculis pulvinar et eu ligula."
+          title="User Research & Testing"
+          description="Delve into understanding your target audience's needs, behaviors, and pain points. Our comprehensive user research lays the foundation for informed design decisions, ensuring your product resonates with its intended users."
           services={[
             'User Interviews',
             'Analytics',
@@ -17,9 +14,8 @@ const ServicesOverview = () => {
             'User Flows',
             'Journey Mapping',
           ]}
-          imageSrc="https://via.placeholder.com/399x338" // Replace with actual image URL
+          imageSrc="https://via.placeholder.com/399x338"
         />
-      </TextOverContent>
     </div>
   );
 };

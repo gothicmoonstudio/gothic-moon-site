@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ValueCard from './ValueCard';
+import ValueCard from './cards/ValueCard';
 
 const valueCardData = [
   {

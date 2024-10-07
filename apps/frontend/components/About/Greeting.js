@@ -7,7 +7,10 @@ const Greeting = () => {
 
   return (
     <div className="flex flex-col items-center justify-center text-center mt-12">
-      <Header title={title} specialText={specialText} />
+      <Header 
+      title={title} 
+      specialText={specialText} 
+      />
     </div>
   );
 };
