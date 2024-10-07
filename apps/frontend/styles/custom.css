@@ -56,21 +56,12 @@
   transition: color 0.3s ease-in-out;
 }
 
-/* Greeting Section (Sticky) */
-.sticky-section {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0; 
-  height: 100vh;
-  z-index: 1; 
-}
-
-/* Introduction Section (Scrolls Over) */
-.overlay-section {
-  position: relative;
-  z-index: 2;
-  background-color: #141221;
-  overflow: hidden;
+.sticky-button {
+  position: fixed;
+  bottom: 2.25rem;
+  right: 2.25rem;
+  z-index: 1000;
+  cursor: pointer;
 }
 
 /* Carousel Container */

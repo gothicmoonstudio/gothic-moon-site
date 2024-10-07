@@ -52,11 +52,6 @@ const Hero = () => {
               />
             </a>
           </div>
-
-          {/* Contact Button */}
-          <div>
-            <PrimaryButton label="Start a Project" href="/contact" />
-          </div>
         </div>
       </div>
     </OneColumn>

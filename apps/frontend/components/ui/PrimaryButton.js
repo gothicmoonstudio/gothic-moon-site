@@ -1,12 +1,25 @@
+import React from 'react';
 import Link from 'next/link';
+import { Send } from 'react-feather';
 
-const PrimaryButton = ({ label, href = '#' }) => {
+const PrimaryButton = ({ label, href = '#', position = 'fixed', bottom = '24px', right = '24px' }) => {
   return (
     <Link href={href} legacyBehavior>
-      <a className="group"> {/* This is now allowed */}
-        <div className="h-[54px] px-6 bg-gradient-to-r from-[#E1303B] to-[#3B1AE5] rounded-full flex justify-center items-center gap-2.5 relative overflow-hidden transition-all duration-500 ease-in-out">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#3B1AE5] to-[#E1303B] opacity-0 rounded-full transition-opacity duration-500 ease-in-out group-hover:opacity-100"></div>
-          <div className="text-[#f4f3ff] text-base font-medium relative z-10 font-header">
+      <a className="group">
+        <div
+          className="h-[54px] w-auto px-4 md:px-6 rounded-full flex justify-center items-center gap-2.5 relative overflow-hidden transition-all duration-500 ease-in-out bg-gradient-to-r from-[#E1303B] to-[#3B1AE5] group-hover:scale-105 group-hover:shadow-lg group-hover:from-[#3B1AE5] group-hover:to-[#E1303B] group-hover:animate-gradient-smooth"
+          style={{
+            position: position,
+            bottom: bottom,
+            right: right, 
+            zIndex: 1000,
+          }}
+        >
+          {/* Icon Always Present */}
+          <Send className="text-[#f4f3ff] relative z-10 text-xl" />
+
+          {/* Show label only on medium and larger screens */}
+          <div className="hidden md:block text-[#f4f3ff] text-base font-medium relative z-10 font-header ml-2">
             {label}
           </div>
         </div>

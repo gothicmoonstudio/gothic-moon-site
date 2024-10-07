@@ -1,5 +1,6 @@
 import React from 'react';
 import SideBySide from '../templates/SidebySide';
+import UVPCards from './cards/UVPCards';
 
 const UVPDetails = () => {
   const leftContent = (
@@ -14,8 +15,8 @@ const UVPDetails = () => {
   );
 
   const rightContent = (
-    <div className="w-full h-full px-[129px] py-[26px] bg-[#d9d9d9] flex justify-center items-center">
-      {/* Placeholder for any content you'd like to add here */}
+    <div className="w-full h-full px-[129px] py-[1.6rem] flex justify-center items-center">
+      <UVPCards />
     </div>
   );
 
