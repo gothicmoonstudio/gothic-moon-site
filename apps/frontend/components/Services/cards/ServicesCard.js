@@ -1,24 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ServicesCard = ({ title, description, services, imageSrc }) => {
+const ServicesCard = ({ title, description, services, imageSrc, bgColor, textColor }) => {
   return (
-    <div className="w-full h-auto p-12 bg-[#e9cdff] justify-center items-center gap-9 flex flex-col md:flex-row lg:flex-row">
-      <div className="grow shrink basis-0 flex flex-col justify-start items-start gap-9">
-        <div className="self-stretch text-[#141221] text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium font-header text-left">
+    <div className={"w-full h-auto mx-auto p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row justify-between items-center gap-9 rounded-xl shadow-lg"}
+    style={{ backgroundColor: bgColor, color: textColor }}>
+      <div className="flex flex-col justify-start items-start gap-6 w-full">
+        <h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium font-header text-left leading-snug"
+        >
           {title}
-        </div>
-
-        <div className="self-stretch justify-start items-start gap-9 flex flex-col md:flex-row">
-          <div className="grow shrink basis-0 text-[#141221] text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-body leading-[150%] text-left">
+        </h2>
+        <div className="flex flex-col md:flex-row gap-6 md:gap-12 w-full">
+          <p className="text-[1.25rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-body leading-[1.6]">
             {description}
-          </div>
-
-          <div className="flex-col justify-start items-start gap-2 flex">
+          </p>
+          <div className="flex flex-col gap-2 w-full">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="self-stretch text-[#141221] text-[1rem] md:text-[1.05rem] lg:text-[1.15rem] uppercase font-medium font-header leading-7 md:leading-9 text-left"
+                className="text-[1rem] md:text-[1.05rem] lg:text-[1.15rem] uppercase font-medium font-header whitespace-nowrap"
               >
                 {service}
               </div>
@@ -26,9 +26,8 @@ const ServicesCard = ({ title, description, services, imageSrc }) => {
           </div>
         </div>
       </div>
-
-      <div className="w-full md:w-[25rem] self-stretch rounded-2xl overflow-hidden">
-        <img src={imageSrc} alt="Service" className="w-full h-full object-cover rounded-2xl" />
+      <div className="w-full lg:w-[25rem] flex-shrink-0 rounded-2xl overflow-hidden">
+        <img src={imageSrc} alt="Service" className="w-full h-auto object-cover rounded-2xl" />
       </div>
     </div>
   );
