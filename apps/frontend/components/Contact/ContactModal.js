@@ -1,6 +1,8 @@
 import React from 'react';
+import { X } from 'react-feather'; 
 import ModalContainer from './ui/ModalContainer';
-import styles from './ContactModal.module.css'; // Import styles from CSS module
+import SolidButton from '../ui/SolidButton';
+import styles from './ContactModal.module.css';
 
 const ContactModal = ({ handleClose }) => {
   return (
@@ -12,21 +14,21 @@ const ContactModal = ({ handleClose }) => {
         {/* Modal Inner Container with fade-in animation */}
         <div className={`w-full flex flex-col justify-start items-start gap-6 ${styles.fadeIn}`}>
           
-          {/* Close Button */}
-          <button
-            className="absolute top-4 right-4 text-2xl text-gray-600 hover:text-gray-800"
-            onClick={handleClose}
-          >
-            &times;
-          </button>
+         {/* Close Button */}
+        <button
+        className="absolute top-8 right-8"
+        onClick={handleClose}
+        >
+        <X className="w-6 h-6 text-[#726D96] hover:text-[#141221] hover:scale-105 transition-transform duration-300 cursor-pointer" />
+        </button>
 
           {/* Header Section */}
           <div className="self-stretch justify-start items-start inline-flex">
             <div className="h-9 justify-start items-start gap-2 flex">
-              <div className="text-[#141221] text-2xl font-normal font-['Poppins'] leading-9">
+              <div className="text-[#141221] text-2xl font-medium font-header leading-9">
                 Let’s build something
               </div>
-              <div className="text-[#141221] text-2xl font-normal font-['Abril Fatface'] leading-9">
+              <div className="text-[#141221] text-2xl font-normal font-serif leading-9">
                 extraordinary.
               </div>
             </div>
@@ -38,7 +40,7 @@ const ContactModal = ({ handleClose }) => {
           {/* Content Section */}
           <div className="self-stretch flex-col justify-start items-start gap-6 flex">
             <div className="self-stretch justify-start items-end gap-6 inline-flex">
-              {/* Example form content goes here */}
+              {/* Example form content */}
               <input
                 type="text"
                 placeholder="Your Name"
@@ -48,9 +50,12 @@ const ContactModal = ({ handleClose }) => {
                 placeholder="Message"
                 className="p-4 bg-[#f6f5ff] rounded-lg border border-[#afaacf] text-[#3f3a5b] text-base font-normal w-full h-[150px]"
               />
-              <button className="px-6 py-3 bg-[#3f3a5b] text-[#f4f3ff] rounded-full hover:bg-[#2c2a46] transition-colors duration-300">
-                Send Inquiry
-              </button>
+              
+              {/* Replace button with SolidButton */}
+              <SolidButton
+                label="Send Inquiry" // Label for the button
+                onClick={() => console.log('Send Inquiry clicked')} // Placeholder action for the button
+              />
             </div>
           </div>
 
