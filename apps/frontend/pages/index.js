@@ -9,6 +9,13 @@ import Footer from '../components/Footer/Footer';
 
 const HomePage = ({ setActiveSection }) => {
   useEffect(() => {
+    // Log to see if setActiveSection is defined
+    console.log('setActiveSection:', setActiveSection);
+    if (typeof setActiveSection !== 'function') {
+      console.error('setActiveSection is not defined or not a function');
+      return;
+    }
+
     if (typeof window !== 'undefined') {
       const sections = document.querySelectorAll('section');
       const options = {

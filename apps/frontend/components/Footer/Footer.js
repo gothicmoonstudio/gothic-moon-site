@@ -5,18 +5,21 @@ import TwoColumnFooter from '../layouts/TwoColumnFooter';
 const Footer = () => {
   // Define the left content for the footer
   const leftContent = (
-    <div className="flex flex-col items-start justify-between gap-3 md:gap-5 lg:gap-7 mt-5 md:mt-9 lg:mt-12">
+    <div className="w-full flex flex-col items-start gap-6">
       {/* Logo Section */}
-      <div className="logo-section mb-4 md:mb-0 lg:mb-0">
-        <img
-          src="/images/full_logo.svg" // Ensure this path is correct for your project
-          alt="Gothic Moon logo"
-          className="footer-logo w-36"
-        />
-      </div>
+      <img
+        src="/images/gothicmoon_fulllogo.png" // Update the path if needed
+        alt="Gothic Moon Creative Studio Logo"
+        className="w-[16rem] md:w-[20rem] lg:w-[26rem] h-auto mb-6 object-contain" // Ensure responsiveness and object-fit
+      />
+    </div>
+  );
 
-      {/* Social Icons */}
-      <div className="flex space-x-6 mb-4 md:mb-0 lg:mb-0">
+  // Define the right content for the footer (Social Icons)
+  const rightContent = (
+    <div className="flex flex-col items-end justify-end self-end mt-auto gap-9"> {/* mt-auto pushes content to the bottom */}
+      <div className="flex items-center gap-6 md:gap-9"> {/* Adjust gap for responsiveness */}
+        {/* Social Icon Links */}
         <a
           href="https://www.instagram.com/gothicmoonstudio"
           target="_blank"
@@ -34,52 +37,48 @@ const Footer = () => {
           <Dribbble className="stroke-2 w-6 h-6 hover:scale-110 transition-transform duration-300 ease-in-out" />
         </a>
       </div>
-
-      {/* Signature Text */}
-      <div className="signature-text font-normal font-header">
-        Made with a little 🪄 & ✨
-      </div>
-    </div>
-  );
-
-  // Define the right content for the footer
-  const rightContent = (
-    <div className="flex flex-col items-start justify-between md:items-end text-left md:text-right gap-3 md:gap-5 lg:gap-7 mt-5 md:mt-9 lg:mt-12">
-      {/* Tagline */}
-      <div className="text-lg mb-6 md:mb-10 lg:mb-16">
-        <span className="font-semibold font-header">We’re brewing something</span>
-        <span className="font-normal font-serif"> extraordinary.</span>
-      </div>
-
-      {/* Legal Text */}
-      <div className="flex flex-wrap items-center justify-start md:justify-end gap-4">
-        <a
-          href="https://app.termly.io/policy-viewer/policy.html?policyUUID=fcb07211-f5b1-4b86-915e-4a393d54a3c7"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-base font-normal font-header hover:text-[#F6FFBC] transition-colors duration-200"
-        >
-          Privacy Policy
-        </a>
-        <a
-          href="https://app.termly.io/policy-viewer/policy.html?policyUUID=ae7e109c-aee5-417d-8b96-0307a9aead2b"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-base font-normal font-header hover:text-[#F6FFBC] transition-colors duration-200"
-        >
-          Terms & Conditions
-        </a>
-        <div className="legal-text text-base font-normal font-header">
-          © 2024 Gothic Moon Creative Studio LLC
-        </div>
-      </div>
     </div>
   );
 
   return (
-    <footer className="h-1/3">
-      {/* Use the TwoColumn layout and pass the leftContent and rightContent */}
-      <TwoColumnFooter leftContent={leftContent} rightContent={rightContent} />
+    <footer className="w-full p-6 md:p-12 lg:p-24 bg-[#141221] flex flex-col justify-end items-center gap-10 lg:gap-14">
+      {/* Top Section using TwoColumnFooter */}
+      <TwoColumnFooter
+        leftContent={leftContent}
+        rightContent={rightContent}
+        className="w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-10"
+      />
+
+      {/* Divider Line */}
+      <div className="w-full h-px bg-[#3f3a5b]" />
+
+      {/* Bottom Section */}
+      <div className="w-full flex flex-col md:flex-row justify-between items-center md:items-start gap-4">
+        {/* Copyright Text */}
+        <div className="text-[#f4f3ff] text-base font-normal font-header">
+          © 2024 Gothic Moon Creative Studio LLC
+        </div>
+
+        {/* Legal Links */}
+        <div className="flex gap-4 md:gap-6 items-center">
+          <a
+            href="https://app.termly.io/policy-viewer/policy.html?policyUUID=ae7e109c-aee5-417d-8b96-0307a9aead2b"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#f4f3ff] text-base font-normal font-header hover:text-[#F6FFBC] transition-colors duration-200"
+          >
+            Terms & Conditions
+          </a>
+          <a
+            href="https://app.termly.io/policy-viewer/policy.html?policyUUID=fcb07211-f5b1-4b86-915e-4a393d54a3c7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#f4f3ff] text-base font-normal font-header hover:text-[#F6FFBC] transition-colors duration-200"
+          >
+            Privacy Policy
+          </a>
+        </div>
+      </div>
     </footer>
   );
 };
