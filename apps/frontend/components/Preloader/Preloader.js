@@ -9,39 +9,38 @@ const Preloader = ({ setLoading }) => {
 
   // Function to animate the inner logo
   const animateInnerLogo = () => {
-    gsap.fromTo(
-      innerLogoRef.current,
-      { scale: 0.5, opacity: 0 }, // Initial state: small and transparent
-      {
-        scale: 1, // Final scale (original size)
-        opacity: 1, // Final opacity (fully visible)
-        duration: 0.8,
-        ease: 'bounce.out', // Bounce effect
-        onComplete: () => {
-          gsap.delayedCall(1, () => {
-            setLoading(false);
-          });
-        },
-      }
-    );
+    if (innerLogoRef.current) {
+      gsap.fromTo(
+        innerLogoRef.current,
+        { scale: 0.5, opacity: 0 }, // Initial state: small and transparent
+        {
+          scale: 1, // Final scale (original size)
+          opacity: 1, // Final opacity (fully visible)
+          duration: 0.8,
+          ease: 'bounce.out', // Bounce effect
+          onComplete: () => {
+            // Add a slight delay before setting loading to false
+            gsap.delayedCall(1, () => {
+              setLoading(false);
+            });
+          },
+        }
+      );
+    }
   };
 
   useEffect(() => {
-    // Get all elements with class 'letter' and 'logo-path'
-    const letters = logoRef.current.querySelectorAll('.letter');
+    // Ensure the logoRef is available before proceeding
+    if (!logoRef.current) return;
+
+    // Select the SVG paths with the class 'logo-path'
     const paths = logoRef.current.querySelectorAll('.logo-path');
 
-    // Animate letters' opacity with a staggered effect
-    gsap.fromTo(
-      letters,
-      { opacity: 0 }, // Initial state: fully transparent
-      {
-        opacity: 1, // Final state: fully visible
-        duration: 0.5, // Duration for each letter
-        stagger: 0.2, // Delay between each letter's animation
-        ease: 'power2.out', // Easing function
-      }
-    );
+    // Check if elements exist before animating
+    if (paths.length === 0) {
+      console.warn('No elements found for animation.');
+      return;
+    }
 
     // Animate paths' opacity with a staggered effect
     gsap.fromTo(

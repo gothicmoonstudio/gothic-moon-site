@@ -1,8 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import TextBlock from '../ui/TextBlock';
 
-const BlogCardWide = ({ title, buttonText, onButtonClick, image }) => {
+// Set default values for props directly in the function parameters
+const BlogCardWide = ({
+  title = 'Default Title',
+  buttonText = 'Read More',
+  onButtonClick = () => {},
+  image = 'https://via.placeholder.com/800x600',
+}) => {
   return (
     <div
       className="w-full h-[37rem] p-6 md:p-9 bg-cover bg-center rounded-2xl shadow-lg flex flex-col justify-end gap-6 md:gap-2.5 transition-all duration-300 relative overflow-hidden"
@@ -21,21 +26,6 @@ const BlogCardWide = ({ title, buttonText, onButtonClick, image }) => {
       </div>
     </div>
   );
-};
-
-// PropTypes for type checking
-BlogCardWide.propTypes = {
-  title: PropTypes.string.isRequired,
-  buttonText: PropTypes.string,
-  onButtonClick: PropTypes.func,
-  image: PropTypes.string,
-};
-
-// Default Props
-BlogCardWide.defaultProps = {
-  buttonText: 'Read More',
-  onButtonClick: () => {},
-  image: 'https://via.placeholder.com/800x600',
 };
 
 export default BlogCardWide;

@@ -1,8 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import TextBlock from '../ui/TextBlock';
 
-const BlogCardNarrow = ({ title, buttonText, onButtonClick, image }) => {
+const BlogCardNarrow = ({
+  title = 'Default Title',
+  buttonText = 'Read More',
+  onButtonClick = () => {},
+  image = 'https://via.placeholder.com/800x600',
+}) => {
   return (
     <div
       className="w-full md:w-2/3 lg:w-2/3 h-[37rem] p-6 md:p-9 bg-cover bg-center rounded-2xl shadow-lg flex flex-col justify-end gap-6 md:gap-2.5 transition-all duration-300 relative overflow-hidden"
@@ -21,21 +25,6 @@ const BlogCardNarrow = ({ title, buttonText, onButtonClick, image }) => {
       </div>
     </div>
   );
-};
-
-// PropTypes for type checking
-BlogCardNarrow.propTypes = {
-  title: PropTypes.string.isRequired,
-  buttonText: PropTypes.string,
-  onButtonClick: PropTypes.func,
-  image: PropTypes.string,
-};
-
-// Default Props
-BlogCardNarrow.defaultProps = {
-  buttonText: 'Read More',
-  onButtonClick: () => {},
-  image: 'https://via.placeholder.com/800x600',
 };
 
 export default BlogCardNarrow;

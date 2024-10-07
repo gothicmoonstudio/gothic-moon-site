@@ -1,8 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-// TextBlock Component
-const TextBlock = ({ title, buttonText, onReadMoreClick }) => {
+// TextBlock Component with default parameter values
+const TextBlock = ({
+  title = 'Default Title',
+  buttonText = 'Read More',
+  onReadMoreClick = () => {},
+}) => {
   // Create line-based wrappers for dynamic styling
   const renderLine = (line, lineIndex) => (
     <div
@@ -48,17 +51,6 @@ const TextBlock = ({ title, buttonText, onReadMoreClick }) => {
       )}
     </div>
   );
-};
-
-TextBlock.propTypes = {
-  title: PropTypes.string.isRequired, 
-  buttonText: PropTypes.string,
-  onReadMoreClick: PropTypes.func, 
-};
-
-TextBlock.defaultProps = {
-  buttonText: '',
-  onReadMoreClick: () => {},
 };
 
 export default TextBlock;

@@ -5,22 +5,22 @@ import Navbar from '../components/Navbar/NavBar';
 import { ThemeProvider } from '../context/ThemeContext';
 
 function MyApp({ Component, pageProps }) {
-  const [loading, setLoading] = useState(true); // Create the loading state
+  const [loading, setLoading] = useState(true);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    console.log('Loading state updated:', loading); // Debug: check when the loading state updates
+    console.log('Loading state updated:', loading);
   }, [loading]);
 
   return (
     <React.StrictMode>
       <ThemeProvider>
-        {/* Preloader displays until loading is false */}
         {loading ? (
-          <Preloader setLoading={setLoading} /> // Pass setLoading as a prop to Preloader
+          <Preloader setLoading={setLoading} />
         ) : (
           <>
-            <Navbar />
-            <Component {...pageProps} />
+            <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
+            <Component {...pageProps} setActiveSection={setActiveSection} />
           </>
         )}
       </ThemeProvider>
