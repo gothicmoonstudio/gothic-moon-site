@@ -12,7 +12,7 @@ const TextBlock = ({
       style={{
         display: 'inline-block',
         background: lineIndex % 2 === 0 ? '#a06af8' : '#C4B5FD',
-        padding: '0.5rem 1rem',
+        padding: '0.75rem 0.75rem',
         borderRadius: '16px',
         margin: '0.25rem 0',
         whiteSpace: 'pre-line',
@@ -40,7 +40,7 @@ const TextBlock = ({
       {/* Wrap the entire title block with a Link component to make it clickable */}
       <Link href={articleLink} legacyBehavior>
         <a
-          className="text-[1.25rem] md:text-[1.5rem] lg:text-[1.75rem] font-bold font-header text-left no-underline hover:underline"
+          className="text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-bold font-header text-left no-underline hover:underline"
           onClick={onReadMoreClick} // Trigger the onReadMoreClick handler
         >
           {title.split('\n').map((line, index) => renderLine(line, index))}
