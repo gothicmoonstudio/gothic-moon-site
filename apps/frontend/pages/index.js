@@ -21,7 +21,7 @@ const HomePage = ({ setActiveSection }) => {
       const options = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.3,
+        threshold: 0.4,
       };
 
       const observer = new IntersectionObserver((entries) => {

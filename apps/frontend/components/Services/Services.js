@@ -6,7 +6,7 @@ import ServicesOverview from './ServicesOverview';
 
 const Services = () => {
   return (
-      <section id="services">
+      <section id="services" className="">
         <UVPIntro />
         <UVPDetails />
         <ServicesIntro />
