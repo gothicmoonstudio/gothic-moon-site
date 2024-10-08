@@ -2,10 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import { Send } from 'react-feather';
 
-const PrimaryButton = ({ label, onClick, position = 'fixed', bottom = '24px', right = '24px' }) => {
+const PrimaryButton = ({ label, onClick, position = 'fixed', bottom = '3rem', right = '2.5rem' }) => {
   return (
         <div
-          className="h-[54px] w-auto px-4 md:px-6 rounded-full flex justify-center items-center gap-2.5 relative overflow-hidden transition-all duration-500 ease-in-out bg-gradient-to-r from-[#E1303B] to-[#3B1AE5] hover:scale-105 hover:shadow-lg hover:from-[#3B1AE5] hover:to-[#E1303B] hover:animate-gradient-smooth cursor-pointer"
+          className="h-[3.4rem] w-auto px-4 md:px-6 rounded-full flex justify-center items-center gap-2.5 relative overflow-hidden transition-all duration-500 ease-in-out bg-gradient-to-r from-[#E1303B] to-[#3B1AE5] hover:scale-105 hover:shadow-lg hover:from-[#3B1AE5] hover:to-[#E1303B] hover:animate-gradient-smooth cursor-pointer"
           style={{
             position: position,
             bottom: bottom,

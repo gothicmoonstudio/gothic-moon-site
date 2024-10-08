@@ -6,7 +6,7 @@ const ServicesCard = ({ title, description, services, imageSrc, bgColor, textCol
     <div className={"w-full h-auto mx-auto p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row justify-between items-center gap-9 rounded-xl shadow-lg"}
     style={{ backgroundColor: bgColor, color: textColor }}>
       <div className="flex flex-col justify-start items-start gap-6 w-full">
-        <h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium font-header text-left leading-snug"
+        <h2 className="text-[2rem] md:text-[2rem] lg:text-[2.5rem] font-medium font-header text-left leading-snug"
         >
           {title}
         </h2>

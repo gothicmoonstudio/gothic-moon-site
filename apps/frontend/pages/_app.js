@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }) {
             <PrimaryButton
               label="Start a Project"
               onClick={handleOpenModal}
-              className="fixed bottom-9 right-9 z-50"
+              className="fixed z-50"
             />
 
             {isModalVisible && <ContactModal handleClose={handleCloseModal} />}
