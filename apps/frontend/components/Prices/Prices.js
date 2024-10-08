@@ -18,20 +18,41 @@ const Prices = () => {
           <PricesCard
             animationData={PotionsAnimation} // Pass animationData prop instead of lottieOptions
             title="Single Project"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget molestie augue. Class aptent taciti sociosqu ad."
-            buttonLabel="Request Services"
+            priceRange="$1k-$10k"
+            description="Ideal for clients seeking to address particular challenges or enhance key areas of their user experience."
+            buttonLabel="Schedule a Call"
+            details={[
+              'UI/UX design for a specific feature or product.',
+              'User flow and wireframe development.',
+              'High-fidelity prototypes.',
+              'Usability testing and analysis.'
+            ]}
           />
           <PricesCard
             animationData={SparklesAnimation} // Pass animationData prop instead of lottieOptions
-            title="Full Design Package"
-            description="Get a comprehensive design solution for your brand, including UI/UX, graphics, and more."
-            buttonLabel="Request Services"
+            title="Ongoing Support"
+            priceRange="$100-$190/hour"
+            description="Perfect for projects needing consistent and adaptable design expertise."
+            buttonLabel="Schedule a Call"
+            details={[
+              'Regular design updates and iterations.',
+              'Design system maintenance and support.',
+              'Performance reviews and optimizations.',
+              'Cross-team collaboration and feedback.'
+            ]}
           />
           <PricesCard
             animationData={MagicAnimation} // Pass animationData prop instead of lottieOptions
-            title="Ongoing Support"
-            description="We provide ongoing design support to keep your brand fresh and up-to-date."
-            buttonLabel="Request Services"
+            title="Design Consultations"
+            priceRange="$190/session"
+            description="Access expert insights and innovative solutions that are designed to offer both guidance and results."
+            buttonLabel="Schedule a Call"
+            details={[
+              'Design audits and expert feedback.',
+              'UX strategy and improvement plans.',
+              'Problem-solving for specific design challenges.',
+              'Concept ideation and brainstorming.'
+            ]}
           />
         </div>
         </TextOverContent>

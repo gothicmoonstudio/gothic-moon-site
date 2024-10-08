@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Dribbble, Mail } from 'react-feather';
+import { Instagram, Dribbble } from 'react-feather';
 import TwoColumnFooter from '../layouts/TwoColumnFooter';
 
 const Footer = () => {
@@ -35,14 +35,6 @@ const Footer = () => {
           className="hover:text-[#F6FFBC]"
         >
           <Dribbble className="stroke-2 w-6 h-6 hover:scale-110 transition-transform duration-300 ease-in-out" />
-        </a>
-        <a
-          href="hello@gothicmoon.co"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-[#F6FFBC]"
-        >
-          <Mail className="stroke-2 w-6 h-6 hover:scale-110 transition-transform duration-300 ease-in-out" />
         </a>
       </div>
     </div>

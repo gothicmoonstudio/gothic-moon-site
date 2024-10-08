@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }) {
             <Component {...pageProps} setActiveSection={setActiveSection} />
 
             <PrimaryButton
-              label="Start a Project"
+              label="Get Started"
               onClick={handleOpenModal}
               className="fixed z-50"
             />

@@ -1,9 +1,10 @@
 import React from 'react';
-import { X } from 'react-feather'; 
+import { X, Send } from 'react-feather'; 
 import ModalContainer from './ui/ModalContainer';
 import SolidButton from '../ui/SolidButton';
 import TabSelector from './ui/TabSelector';
 import InputField from './ui/InputField';
+
 
 const ContactModal = ({ handleClose }) => {
   return (
@@ -66,9 +67,11 @@ const ContactModal = ({ handleClose }) => {
 
             {/* Action Section for the Button */}
             <div className="flex flex-col justify-end items-end mt-4">
-              <SolidButton
-                label="Send Inquiry" // Label for the button
-                onClick={() => console.log('Send Inquiry clicked')} // Placeholder action for the button
+            <SolidButton
+              label="Send Inquiry" 
+              onClick={() => console.log('Send Inquiry clicked')} 
+              Icon={Send}  // Pass the Send icon as the Icon prop
+              iconPosition="right" // Choose the icon position ('left' or 'right')
               />
             </div>
           </div>
