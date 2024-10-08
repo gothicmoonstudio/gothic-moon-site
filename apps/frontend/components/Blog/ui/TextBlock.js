@@ -1,21 +1,25 @@
 import React from 'react';
+import Link from 'next/link'; // Assuming you're using Next.js for routing
 
 const TextBlock = ({
   title = 'Default Title',
-  buttonText = 'Read More',
-  onReadMoreClick = () => {},
+  articleLink = '#', // Link to the article
+  onReadMoreClick = () => {}, // Handler function for link clicks
 }) => {
   const renderLine = (line, lineIndex) => (
     <div
       key={lineIndex}
       style={{
         display: 'inline-block',
-        background: lineIndex % 2 === 0 ? '#E9CDFF' : '#C4B5FD',
+        background: lineIndex % 2 === 0 ? '#a06af8' : '#C4B5FD',
         padding: '0.5rem 1rem',
-        borderRadius: '8px',
+        borderRadius: '16px',
         margin: '0.25rem 0',
         whiteSpace: 'pre-line',
+        cursor: 'pointer',
+        transition: 'transform 0.3s ease-in-out',
       }}
+      className="hover:scale-105" // Scale on hover for a visual effect
     >
       {line.split(' ').map((word, index) => (
         <span
@@ -33,18 +37,15 @@ const TextBlock = ({
 
   return (
     <div className="flex flex-col items-start justify-start space-y-4">
-      <div className="text-[1.5rem] md:text-[1.75rem] lg:text-[2rem] font-medium font-header text-left text-[#141221]">
-        {title.split('\n').map((line, index) => renderLine(line, index))}
-      </div>
-
-      {buttonText && (
-        <button
-          onClick={onReadMoreClick}
-          className="mt-4 px-4 py-2 bg-[#E9CDFF] text-[#141221] text-base font-medium rounded-md hover:bg-[#C4B5FD] transition-all duration-300 font-header"
+      {/* Wrap the entire title block with a Link component to make it clickable */}
+      <Link href={articleLink} legacyBehavior>
+        <a
+          className="text-[1.25rem] md:text-[1.5rem] lg:text-[1.75rem] font-bold font-header text-left no-underline hover:underline"
+          onClick={onReadMoreClick} // Trigger the onReadMoreClick handler
         >
-          {buttonText}
-        </button>
-      )}
+          {title.split('\n').map((line, index) => renderLine(line, index))}
+        </a>
+      </Link>
     </div>
   );
 };

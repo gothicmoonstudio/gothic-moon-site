@@ -7,7 +7,7 @@ const ContactModal = ({ handleClose }) => {
   return (
     <div
     id="contact-modal"
-    className="fixed right-5 md:right-5 lg:right-8 bottom-6 md:bottom-6 lg:bottom-12 z-1001 flex justify-center items-center md:items-start" // Center the modal and use padding for spacing
+    className="fixed right-6 md:right-6 lg:right-8 bottom-6 md:bottom-6 lg:bottom-6 z-1001 flex justify-center items-center md:items-start" // Center the modal and use padding for spacing
     style={{ zIndex: 1001 }} // Ensure it’s above other elements
   >
      <ModalContainer>

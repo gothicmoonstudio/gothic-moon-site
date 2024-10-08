@@ -3,19 +3,21 @@ import SideBySide from '../templates/SidebySide';
 
   const Intro = () => {
 
-  const titleClasses = `text-[2.5rem] md:text-[4rem] lg:text-[6rem] font-header font-medium mb-2`;
+  const titleClasses = `text-[2.5rem] md:text-[4rem] lg:text-[4.5rem] xl:text-[6rem] font-header font-medium mb-2`;
   const paragraphClasses = `text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-body leading-[150%]`;
 
   const leftContent = (
     <div className="flex flex-col">
-      <h1 className={titleClasses}>
+      <h1 
+      className={`${titleClasses} w-[20rem] md:w-full lg:w-[30rem] xl:w-[40rem]`}
+      >
         Welcome to <span className="font-serif special-text">gothic moon</span>
       </h1>
     </div>
   );
 
   const rightContent = (
-    <div className="flex flex-col">
+    <div className="w-full flex flex-col">
       <p className={`${paragraphClasses} mb-4`}>
         Navigating the intricate world of user experience design can be a daunting task. That's where Gothic Moon comes in. As your trusted UX compass, we'll guide you through the complex terrain, ensuring your digital presence shines bright.
       </p>

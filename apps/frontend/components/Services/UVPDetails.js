@@ -5,7 +5,7 @@ import UVPCards from './cards/UVPCards';
 const UVPDetails = () => {
   const leftContent = (
     <div className="flex flex-col gap-6">
-      <div className="text-[1.5rem] md:text-[2rem] lg:text-[4rem] font-medium text-[#141221] font-header">
+      <div className="text-[1.75rem] md:text-[2rem] lg:text-[3rem] font-medium text-[#141221] font-header">
         Cookie-cutter designs leaving your brand feeling <span className="font-serif">invisible</span>?
       </div>
       <div className="text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] text-[#141221] font-normal font-body leading-9">
