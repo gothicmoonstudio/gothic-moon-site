@@ -1,61 +1,17 @@
 import React from 'react';
 
 const UVPCard = ({ title, description, imageSrc }) => {
-  // Inline styles for the card and its elements
-  const cardStyle = {
-    width: '376px',
-    height: '523px',
-    minWidth: '376px',
-    minHeight: '523px',
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    borderRadius: '20px',
-    padding: '24px',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    boxShadow: '0 8px 16px rgba(0, 0, 0, 0.1)',
-  };
-
-  const imageContainerStyle = {
-    width: '100%',
-    height: '50%',
-    overflow: 'hidden',
-    borderRadius: '15px',
-    marginBottom: '16px',
-  };
-
-  const imageStyle = {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-  };
-
-  const titleStyle = {
-    fontSize: '1.5rem',
-    fontWeight: '600',
-    color: '#333',
-    margin: '0 0 16px 0',
-    textAlign: 'center',
-  };
-
-  const descriptionStyle = {
-    fontSize: '1rem',
-    color: '#666',
-    textAlign: 'center',
-  };
-
   return (
-    <div style={cardStyle}>
+    <div className="w-[376px] h-[523px] min-w-[376px] min-h-[523px] bg-[#F4F3FF] rounded-[20px] p-6 flex flex-col justify-between items-center shadow-lg">
       {imageSrc && (
-        <div style={imageContainerStyle}>
-          <img src={imageSrc} alt={title} style={imageStyle} />
+        <div className="w-full h-1/2 overflow-hidden rounded-[15px] mb-4">
+          <img src={imageSrc} alt={title} className="w-full h-full object-cover" />
         </div>
       )}
 
-      <h2 style={titleStyle}>{title}</h2>
+      <h2 className="text-2xl font-semibold text-[#141221] mb-4 text-center">{title}</h2>
 
-      <p style={descriptionStyle}>{description}</p>
+      <p className="text-base text-[#141221] text-center">{description}</p>
     </div>
   );
 };
