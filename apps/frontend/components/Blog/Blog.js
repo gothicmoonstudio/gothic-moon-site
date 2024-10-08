@@ -16,6 +16,9 @@ const Blog = () => {
     try {
       const response = await axios.get(mediumRSSFeed);
 
+      // Log the raw RSS feed data to verify structure
+      console.log('Raw RSS Feed Data:', response.data);
+
       // Parse the XML data into a JavaScript object
       const parsedData = await xml2js.parseStringPromise(response.data, {
         trim: true,
@@ -27,7 +30,13 @@ const Blog = () => {
       console.log('Parsed RSS Data:', parsedData);
 
       // Extract items (posts) from the RSS feed
-      const items = parsedData.rss.channel.item || [];
+      const items = parsedData?.rss?.channel?.item || [];
+
+      // Check if items are found
+      if (!items.length) {
+        console.error('No items found in the RSS feed.');
+        return;
+      }
 
       // Format posts with necessary fields for rendering
       const formattedPosts = items.map((item) => {
@@ -41,9 +50,6 @@ const Blog = () => {
           }
         }
 
-        // Log the extracted thumbnail to verify it
-        console.log('Extracted Thumbnail:', thumbnail);
-
         return {
           title: item.title,
           link: item.link,
@@ -53,8 +59,11 @@ const Blog = () => {
         };
       });
 
-      // Update state with formatted posts
-      setPosts(formattedPosts);
+      // Limit the posts to the top 4 items
+      const topPosts = formattedPosts.slice(0, 4);
+
+      // Update state with top posts
+      setPosts(topPosts);
     } catch (error) {
       console.error('Error fetching Medium RSS feed:', error);
     }
