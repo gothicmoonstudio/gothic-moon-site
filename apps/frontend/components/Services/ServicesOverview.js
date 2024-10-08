@@ -39,7 +39,7 @@ const ServicesOverview = () => {
           imageSrc="https://via.placeholder.com/399x338"
         />
          <ServicesCard
-          title="UX & Product Design"
+          title="Web & Product Design"
           description="Bring your product vision to life with our end-to-end product design services. We combine user research, visual design, and interaction design to create cohesive, user-centered products that solve real problems and drive business growth."
           services={[
             'Information Architecture', 'Design Strategy', 'Business Analysis', 'Design Systems', 'SEO'

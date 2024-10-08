@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 const TabSelector = ({ label, options }) => {
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [selectedOption, setSelectedOption] = useState(null); // No option selected initially
 
   return (
-    <div className="w-full flex flex-col gap-4">
+    <div className="w-full flex flex-col gap-3">
       {/* Label */}
-      <label className="text-[#141221] text-base font-medium font-['Greycliff CF'] leading-normal">
+      <label className="text-[#141221] text-base font-normal font-header leading-[150%]">
         {label}
       </label>
 
@@ -15,9 +15,10 @@ const TabSelector = ({ label, options }) => {
         {options.map((option, index) => (
           <div
             key={index}
-            className={`px-4 py-2 rounded-full border border-[#afaacf] cursor-pointer 
-              ${selectedOption === option ? 'bg-[#3f3a5b] text-[#f4f3ff]' : 'text-[#141221] bg-transparent'}`}
-            onClick={() => setSelectedOption(option)}
+            className={`px-4 py-2 rounded-full border-[.5px] border-[#afaacf] font-header text-sm cursor-pointer transform transition-transform duration-300 ease-in-out 
+              ${selectedOption === option ? 'bg-[#3f3a5b] text-[#f4f3ff]' : 'text-[#141221] bg-transparent'}
+              hover:scale-105`}
+            onClick={() => setSelectedOption(option)} // Set the clicked option as the selected option
           >
             {option}
           </div>
