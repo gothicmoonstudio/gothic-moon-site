@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Instagram, Dribbble } from 'react-feather';
 import OneColumn from '../layouts/OneColumn';
-import PrimaryButton from '../ui/PrimaryButton';
 
 const Hero = () => {
   return (
@@ -18,17 +17,17 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut' }}
         >
-          Crafting <span className="inline">spell</span>
+          Crafting <span className="inline">spellbinding</span>
           {/* Inline video element inserted here */}
           <video
-            src="/assets/webm/3d-glassy-transparent-glass-bubble.webm"
-            className="inline-block w-8 h-8 mx-1 align-middle"
+            src="/webm/3d-glassy-transparent-glass-bubble.webm"
+            className="inline-block w-auto h-12 md:h-16 lg:h-36 mx-[-4px] md:mx-[-12px] lg:mx-[-12px] align-middle"
             autoPlay
             loop
             muted
             playsInline 
           />
-          <span className="inline">binding</span> user experiences that enchant your users & elevates{' '}
+          <span className="inline">user</span> experiences that enchant your users & elevates{' '}
           <span className="font-serif">your digital presence.</span>
         </motion.h1>
 

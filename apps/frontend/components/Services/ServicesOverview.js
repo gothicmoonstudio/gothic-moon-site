@@ -1,9 +1,9 @@
 import React from 'react';
 import ServicesCard from './cards/ServicesCard';
-import orbGif from '../../assets/gifs/orb.gif';
-import blobsGif from '../../assets/gifs/blobs.gif';
-import blobbyGif from '../../assets/gifs/blobby.gif';
-import globGif from '../../assets/gifs/glob.gif';
+import orbGif from '../../public/gifs/orb.gif';
+import blobsGif from '../../public/gifs/blobs.gif';
+import blobbyGif from '../../public/gifs/blobby.gif';
+import globGif from '../../public/gifs/glob.gif';
 
 const ServicesOverview = () => {
   return (

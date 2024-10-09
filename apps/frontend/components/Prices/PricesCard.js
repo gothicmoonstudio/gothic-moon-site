@@ -33,7 +33,7 @@ const PricesCard = ({ animationData, title, priceRange, description, details = [
   }, [animationData]);
 
   return (
-    <div className="w-[28rem] h-[40rem] md:h-auto px-8 md:px-10 py-8 md:py-10 bg-[#f4f3ff]/10 rounded-lg border-t border-[#3f3a5b] backdrop-blur-[114px] flex flex-col justify-center items-start gap-6 transform hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg">
+    <div className="w-[28rem] h-[40rem] md:h-auto px-8 md:px-10 py-8 md:py-10 bg-[#f4f3ff]/10 rounded-lg border-t border-[rgba(244,243,255,0.25)] backdrop-blur-[114px] flex flex-col justify-center items-start gap-6 transform hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg">
       {/* Lottie Animation Container */}
       <div
       ref={animationContainer}

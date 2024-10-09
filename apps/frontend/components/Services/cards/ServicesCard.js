@@ -25,7 +25,7 @@ const ServicesCard = ({ title, description, services, imageSrc, bgColor, textCol
           </div>
         </div>
       </div>
-      <div className="w-full lg:w-[25rem] flex-shrink-0 rounded-2xl overflow-hidden">
+      <div className="w-full lg:w-[25rem] flex-shrink-0 rounded-2xl justify-center items-center overflow-hidden">
         <img src={imageSrc} alt="Service" className="w-full h-auto object-cover rounded-2xl" />
       </div>
     </div>

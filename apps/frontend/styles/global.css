@@ -10,17 +10,17 @@
     --font-body: 'Alegreya', serif;
 
     /* Theme-Specific Colors */
-    --light-background: #f4f3ff; /* Light theme background */
-    --light-text: #141221; /* Dark text for light theme */
-    --dark-background: #141221; /* Dark theme background */
-    --dark-text: #f4f3ff; /* Light text for dark theme */
-    --lilac-background: #e9cdff; /* Lilac theme background */
-    --glow-background: #f8ffce; /* Glow theme background */
+    --light-background: #f4f3ff;
+    --light-text: #141221;
+    --dark-background: #141221;
+    --dark-text: #f4f3ff;
+    --lilac-background: #e9cdff;
+    --glow-background: #f8ffce;
 
     /* Color Scheme */
-    color-scheme: light dark; /* Indicates supported color schemes */
-    background-color: var(--dark-background); /* Default background color */
-    color: var(--dark-text); /* Default text color */
+    color-scheme: light dark;
+    background-color: var(--dark-background);
+    color: var(--dark-text); 
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -52,6 +52,7 @@
 html, body, #__next {
     font-family: var(--font-body);
     line-height: 1.6;
+    min-height: 100vh;
     background-color: var(--dark-background);
     color: var(--dark-text);
     min-width: 320px;

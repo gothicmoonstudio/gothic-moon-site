@@ -17,7 +17,7 @@ const ContactModal = ({ handleClose }) => {
         {/* Modal Inner Container */}
         <div className="w-full rounded-2xl flex flex-col relative">
          {/* Header Wrapper with Close Button and Title */}
-          <div className="w-full flex justify-between items-center mb-4">
+          <div className="w-full flex justify-between items-center mb-8">
             {/* Title Container */}
             <div className="flex justify-start items-center">
               <div className="text-[#141221] text-[1.25rem] md:text-[1.5rem] lg:text-[1.5rem] font-medium font-header leading-[150%]">
@@ -37,7 +37,7 @@ const ContactModal = ({ handleClose }) => {
             </button>
           </div>
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-8">
             {/* Project Type Selector */}
             <TabSelector
               label="What kind of project do you have?"

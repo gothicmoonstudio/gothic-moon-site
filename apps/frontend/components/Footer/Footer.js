@@ -8,17 +8,17 @@ const Footer = () => {
     <div className="w-full flex flex-col items-center md:items-start lg:items-start mt-24 md:lg:mt-0 lg:mt-0">
       {/* Logo Section */}
       <img
-        src="/images/gothicmoon_fulllogo.png" // Update the path if needed
+        src="/images/gothicmoon_fulllogo.png"
         alt="Gothic Moon Creative Studio Logo"
-        className="w-[12rem] md:w-[16rem] lg:w-[20rem] h-auto object-contain" // Responsive sizes for different breakpoints
+        className="w-[12rem] md:w-[16rem] lg:w-[20rem] h-auto object-contain"
       />
     </div>
   );
 
   // Define the right content for the footer (Social Icons)
   const rightContent = (
-    <div className="flex flex-col items-center md:items-end lg:items-end justify-end self-end mt-6 md:mt-4 lg:mt-4"> {/* Responsive gap */}
-      <div className="flex items-start gap-6 md:gap-9"> {/* Adjust gap for responsiveness */}
+    <div className="flex flex-col items-center md:items-end lg:items-end justify-end self-end mt-6 md:mt-4 lg:mt-4">
+      <div className="flex items-start gap-6 md:gap-9">
         {/* Social Icon Links */}
         <a
           href="https://www.instagram.com/gothicmoonstudio"
@@ -49,7 +49,7 @@ const Footer = () => {
   );
 
   return (
-    <footer className="w-full p-6 md:p-12 lg:p-24 bg-[#141221] flex flex-col justify-end items-center gap-10 lg:gap-14">
+    <footer className="w-full p-6 md:p-12 lg:p-24 flex flex-col justify-end items-center gap-10 lg:gap-14">
       {/* Top Section using TwoColumnFooter */}
       <TwoColumnFooter
         leftContent={leftContent}
