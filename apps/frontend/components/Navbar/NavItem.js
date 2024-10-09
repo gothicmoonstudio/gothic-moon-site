@@ -5,7 +5,7 @@ const NavItem = ({ label, href, isCurrentPage }) => {
   return (
     <a
       href={href}
-      className={`nav-item relative h-[54px] px-6 rounded-full flex justify-center items-center gap-[10px] 
+      className={`nav-item relative h-[54px] px-6 rounded-full flex justify-center items-center gap-[10px]
         ${isCurrentPage ? 'nav-item-active' : ''}`}
     >
       

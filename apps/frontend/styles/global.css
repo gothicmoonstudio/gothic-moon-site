@@ -50,6 +50,9 @@
 }
 
 html, body, #__next {
+    background-image: repeating-linear-gradient(358deg, rgb(20,18,33) 0px, rgb(20,18,33) 27px,transparent 27px, transparent 29px),repeating-linear-gradient(280deg, rgb(20,18,33) 0px, rgb(20,18,33) 27px,transparent 27px, transparent 29px),repeating-linear-gradient(337deg, rgb(20,18,33) 0px, rgb(20,18,33) 27px,transparent 27px, transparent 29px),linear-gradient(90deg, rgb(160,106,248),rgb(246,255,188));
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: var(--font-body);
     line-height: 1.6;
     min-height: 100vh;

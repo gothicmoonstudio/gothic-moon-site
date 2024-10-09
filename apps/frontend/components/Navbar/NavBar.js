@@ -20,7 +20,7 @@ function Navbar({ activeSection }) {
         className={`
           p-4 md:p-4 rounded-full flex items-center justify-between md:justify-center gap-6 z-50 fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] md:w-auto
           ${menuOpen ? 'bg-[#0d0c16]' : 'bg-transparent'} 
-          md:bg-[#0d0c16] 
+          md:bg-[#0d0c16]
           text-[#]
           transition-all duration-300
         `}
