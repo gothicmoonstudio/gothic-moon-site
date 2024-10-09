@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail } from 'react-feather';
+import { Send } from 'react-feather';
 
 const PrimaryButton = ({ label, onClick, position = 'fixed', bottom = '3rem', right = '2.5rem' }) => {
   return (
@@ -14,10 +14,10 @@ const PrimaryButton = ({ label, onClick, position = 'fixed', bottom = '3rem', ri
           onClick={onClick} // Add the onClick handler to control modal visibility
         >
           {/* Icon Always Present */}
-          <Mail className="text-[#f4f3ff] relative z-10 text-lg" />
+          <Send className="text-[#f4f3ff] w-6 h-6 relative z-10" />
 
           {/* Show label only on medium and larger screens */}
-          <div className="hidden md:block text-[#f4f3ff] text-base font-medium relative z-10 font-header">
+          <div className="hidden md:block text-[#f4f3ff] text-[1.05rem] font-medium relative z-10 font-header pl-0">
             {label}
           </div>
         </div>

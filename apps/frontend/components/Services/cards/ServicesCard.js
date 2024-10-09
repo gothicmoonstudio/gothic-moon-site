@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const ServicesCard = ({ title, description, services, imageSrc, bgColor, textColor }) => {
   return (

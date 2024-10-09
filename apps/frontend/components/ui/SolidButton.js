@@ -8,7 +8,7 @@ const SolidButton = ({ label = 'Button', onClick = () => {}, Icon }) => {
       onClick={onClick}
     >
       {/* Conditionally render the icon if it's provided */}
-      {Icon && <Icon className="w-5 h-5 text-[#f4f3ff]" />} {/* Set color and size here */}
+      {Icon && <Icon className="w-4 h-4 text-[#f4f3ff]" />} {/* Set color and size here */}
       
       <div className="text-[#f4f3ff] text-base font-normal font-header">
         {label}

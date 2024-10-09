@@ -13,14 +13,24 @@ const Hero = () => {
         <div className="flex-1 flex flex-col items-start justify-center text-left">
           {/* Title Section */}
           <motion.h1
-            className="text-[1.75rem] md:text-[3rem] lg:text-[5rem] font-normal font-header leading-[150%] text-left"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: 'easeOut' }}
-          >
-            Crafting spellbinding user experiences that enchant your users & elevates{' '}
-            <span className="font-serif">your digital presence.</span>
-          </motion.h1>
+          className="text-[1.75rem] md:text-[3rem] lg:text-[4.5rem] font-normal font-header leading-[150%] text-left"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: 'easeOut' }}
+        >
+          Crafting <span className="inline">spell</span>
+          {/* Inline video element inserted here */}
+          <video
+            src="/assets/webm/3d-glassy-transparent-glass-bubble.webm"
+            className="inline-block w-8 h-8 mx-1 align-middle"
+            autoPlay
+            loop
+            muted
+            playsInline 
+          />
+          <span className="inline">binding</span> user experiences that enchant your users & elevates{' '}
+          <span className="font-serif">your digital presence.</span>
+        </motion.h1>
 
           {/* Subtitle Section */}
           <motion.p

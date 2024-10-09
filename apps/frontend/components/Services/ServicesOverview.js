@@ -1,5 +1,9 @@
 import React from 'react';
 import ServicesCard from './cards/ServicesCard';
+import orbGif from '../../assets/gifs/orb.gif';
+import blobsGif from '../../assets/gifs/blobs.gif';
+import blobbyGif from '../../assets/gifs/blobby.gif';
+import globGif from '../../assets/gifs/glob.gif';
 
 const ServicesOverview = () => {
   return (
@@ -16,7 +20,7 @@ const ServicesOverview = () => {
           ]}
           bgColor="#E9CDFF"
           textColor="#141221" 
-          imageSrc="https://via.placeholder.com/399x338"
+          imageSrc={orbGif}
         />
          <ServicesCard
           title="Visual Design"
@@ -26,7 +30,7 @@ const ServicesOverview = () => {
           ]}
           bgColor="#F9FFCF"
           textColor="#141221" 
-          imageSrc="https://via.placeholder.com/399x338"
+          imageSrc={blobsGif}
         />
          <ServicesCard
           title="Interaction Design"
@@ -36,7 +40,7 @@ const ServicesOverview = () => {
           ]}
           bgColor="#F4F3FF"
           textColor="#141221" 
-          imageSrc="https://via.placeholder.com/399x338"
+          imageSrc={blobbyGif}
         />
          <ServicesCard
           title="Web & Product Design"
@@ -46,7 +50,7 @@ const ServicesOverview = () => {
           ]}
           bgColor="#A06AF8" 
           textColor="#F4F3FF"
-          imageSrc="https://via.placeholder.com/399x338"
+          imageSrc={globGif}
         />
     </div>
   );
