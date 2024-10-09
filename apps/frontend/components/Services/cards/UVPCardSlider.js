@@ -37,7 +37,9 @@ const UVPCardSlider = () => {
             htmlFor={`s${index + 1}`}
             className="absolute cursor-pointer transition-transform duration-400"
             style={{
-              transform: getTransformStyle(index + 1, selectedSlide),
+              transform: getTransformStyle(index, selectedSlide - 1, cards.length),
+              zIndex: getZIndex(index, selectedSlide - 1, cards.length),
+              transition: 'transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55)', // Custom easing for a smoother effect
             }}
           >
             <UVPCard title={card.title} description={card.description} imageSrc={card.imageSrc} />
@@ -49,16 +51,52 @@ const UVPCardSlider = () => {
 };
 
 // Helper function to calculate the 3D transform style
-const getTransformStyle = (slideIndex, selectedSlide) => {
-  const positions = {
-    '-2': 'translate3d(-30%, 0, -200px)',
-    '-1': 'translate3d(-15%, 0, -100px)',
-    '0': 'translate3d(0, 0, 0)',
-    '1': 'translate3d(15%, 0, -100px)',
-    '2': 'translate3d(30%, 0, -200px)',
-  };
-  const positionIndex = slideIndex - selectedSlide;
-  return positions[positionIndex] || positions['0'];
+const getTransformStyle = (index, selectedSlide, totalSlides) => {
+  // Calculate the position offset, taking into account circular behavior
+  const positionOffset = (index - selectedSlide + totalSlides) % totalSlides;
+
+  let transformStyle;
+  switch (positionOffset) {
+    case 0: // The current slide (front-most position)
+      transformStyle = 'translate3d(0, 0, 0)';
+      break;
+    case 1: // Next slide to the right
+      transformStyle = 'translate3d(15%, 0, -100px)';
+      break;
+    case 2: // Slide further back on the right
+      transformStyle = 'translate3d(30%, 0, -200px)';
+      break;
+    case 3: // Opposite slide (back-most position)
+      transformStyle = 'translate3d(-15%, 0, -100px)';
+      break;
+    case 4: // Slide further back on the left
+      transformStyle = 'translate3d(-30%, 0, -200px)';
+      break;
+    default:
+      transformStyle = 'translate3d(0, 0, -300px)'; // Default position for unseen cards
+      break;
+  }
+
+  return transformStyle;
+};
+
+// Helper function to adjust the z-index for depth, using modulo for circular behavior
+const getZIndex = (index, selectedSlide, totalSlides) => {
+  const positionOffset = (index - selectedSlide + totalSlides) % totalSlides;
+
+  // Higher z-index means the element is closer to the viewer
+  switch (positionOffset) {
+    case 0: // Current slide in front
+      return 3;
+    case 1:
+    case 4: // Slides adjacent to the current one
+      return 2;
+    case 2:
+    case 3: // Slides further back
+      return 1;
+    default:
+      return 0; // Default z-index for unseen cards
+  }
 };
 
 export default UVPCardSlider;
