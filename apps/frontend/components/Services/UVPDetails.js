@@ -15,7 +15,7 @@ const UVPDetails = () => {
   );
 
   const rightContent = (
-    <div className="w-full h-full p-8 flex justify-center items-center bg-[#862598]">
+    <div className="w-full h-full px-8 md:px-8 lg:px-8 flex justify-center items-center">
       <UVPCardSlider />
     </div>
   );

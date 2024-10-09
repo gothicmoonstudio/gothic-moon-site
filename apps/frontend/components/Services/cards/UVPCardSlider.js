@@ -5,12 +5,54 @@ const UVPCardSlider = () => {
   const [selectedSlide, setSelectedSlide] = useState(3);
 
   const cards = [
-    { title: 'Card 1', description: 'Description 1', imageSrc: 'https://via.placeholder.com/376x523' },
-    { title: 'Card 2', description: 'Description 2', imageSrc: 'https://via.placeholder.com/376x523' },
-    { title: 'Card 3', description: 'Description 3', imageSrc: 'https://via.placeholder.com/376x523' },
-    { title: 'Card 4', description: 'Description 4', imageSrc: 'https://via.placeholder.com/376x523' },
-    { title: 'Card 5', description: 'Description 5', imageSrc: 'https://via.placeholder.com/376x523' },
-    { title: 'Card 6', description: 'Description 6', imageSrc: 'https://via.placeholder.com/376x523' },
+    {
+      title1: 'Committing to',
+      title2: 'a Customer-Centric Approach',
+      description: 'We prioritize your needs and preferences, ensuring a collaborative partnership that exceeds expectations.',
+      imageSrc: 'https://via.placeholder.com/376x523',
+      bgColor: 'linear-gradient(90deg, #81249E, #9747FF)',
+      textColor: '#F4F3FF',
+    },
+    {
+      title1: 'Using',
+      title2: 'Data-Driven Design',
+      description: 'Harness the power of data-driven design to drive engagement and deliver measurable results.',
+      imageSrc: 'https://via.placeholder.com/376x523',
+      bgColor: 'linear-gradient(45deg, #FFE9E9, #A06AF8)',
+      textColor: '#141221',
+    },
+    {
+      title1: 'Providing',
+      title2: 'Personalized Service',
+      description: 'Say goodbye to generic designs and bring your brand’s unique vision to life.',
+      imageSrc: 'https://via.placeholder.com/376x523',
+      bgColor: 'linear-gradient(135deg, #3B1AE5, #E1303B)',
+      textColor: '#F4F3FF',
+    },
+    {
+      title1: 'Ensuring',
+      title2: 'Quality Craftsmanship',
+      description: 'Meticulously crafted designs that leave a lasting impression.',
+      imageSrc: 'https://via.placeholder.com/376x523',
+      bgColor: 'linear-gradient(25deg, #FFE9E9, #3B1AE5)',
+      textColor: '#141221',
+    },
+    {
+      title1: 'Offering',
+      title2: 'Strategic Expertise',
+      description: 'Elevate your brand with data-driven strategies.',
+      imageSrc: 'https://via.placeholder.com/376x523',
+      bgColor: 'linear-gradient(45deg, #3B1AE5, #A06AF8)',
+      textColor: '#F4F3FF',
+    },
+    {
+      title1: 'Promising',
+      title2: 'a Seamless Experience',
+      description: 'Enjoy smooth communication, timely delivery, and exceptional customer service throughout your project.',
+      imageSrc: 'https://via.placeholder.com/376x523',
+      bgColor: 'linear-gradient(45deg, #FFE9E9, #A06AF8)',
+      textColor: '#141221',
+    },
   ];
 
   const handleSlideChange = (index) => {
@@ -19,7 +61,12 @@ const UVPCardSlider = () => {
 
   return (
     <div className="mkt-3dSlider">
-      <section id="slider" className="relative w-[34rem] h-[50rem] flex flex-col justify-center items-center" style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}>
+      <section
+        id="slider"
+        className="relative w-auto h-[34rem] md:h-[36rem] lg:h-[44rem] flex flex-col justify-center items-center"
+        style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}
+      >
+        {/* Render radio buttons for each card */}
         {cards.map((_, index) => (
           <input
             key={`input-${index}`}
@@ -31,6 +78,8 @@ const UVPCardSlider = () => {
             onChange={() => handleSlideChange(index + 1)}
           />
         ))}
+
+        {/* Render UVP cards */}
         {cards.map((card, index) => (
           <label
             key={`label-${index}`}
@@ -42,7 +91,14 @@ const UVPCardSlider = () => {
               transition: 'transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55)', // Custom easing for a smoother effect
             }}
           >
-            <UVPCard title={card.title} description={card.description} imageSrc={card.imageSrc} />
+            <UVPCard
+              title1={card.title1}
+              title2={card.title2}
+              description={card.description}
+              imageSrc={card.imageSrc}
+              bgColor={card.bgColor}
+              textColor={card.textColor}
+            />
           </label>
         ))}
       </section>
