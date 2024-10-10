@@ -50,7 +50,7 @@ const Hero = () => {
         </div>
 
         {/* Social Media and Contact Button pinned to the bottom */}
-        <div className="absolute bottom-16 md:bottom-16 lg:bottom-24 left-0 w-full flex items-center justify-between bg-transparent">
+        <div className="absolute w-full h-full py-8 md:py-16 lg:py-24 flex items-end justify-start bg-transparent">
           {/* Social Icons */}
           <div className="flex space-x-6">
             {/* Instagram Icon */}
