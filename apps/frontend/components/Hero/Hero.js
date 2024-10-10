@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Instagram, Dribbble } from 'react-feather';
 import OneColumn from '../layouts/OneColumn';
 
@@ -11,35 +10,35 @@ const Hero = () => {
         {/* Content Wrapper for Title and Subtitle */}
         <div className="flex-1 flex flex-col items-start justify-center text-left">
           {/* Title Section */}
-          <motion.h1
-          className="text-[1.75rem] md:text-[3rem] lg:text-[4.5rem] font-normal font-header leading-[150%] text-left"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
-        >
-          Crafting <span className="inline">spellbinding</span>
-          {/* Inline video element inserted here */}
-          <video
-            src="/webm/3d-glassy-transparent-glass-bubble.webm"
-            className="inline-block w-auto h-12 md:h-16 lg:h-36 mx-[-4px] md:mx-[-12px] lg:mx-[-12px] align-middle"
-            autoPlay
-            loop
-            muted
-            playsInline 
-          />
-          <span className="inline">user</span> experiences that enchant your users & elevates{' '}
-          <span className="font-serif">your digital presence.</span>
-        </motion.h1>
+          <h1 className="text-[1.75rem] md:text-[3rem] lg:text-[4.5rem] font-normal font-header leading-[150%] text-left">
+            Crafting <span className="inline">spellbinding</span>
+            {/* Inline video element inserted here */}
+            <img
+              src="/gifs/gooey.gif"
+              className="inline-block w-auto h-12 md:h-16 lg:h-36 mx-[-4px] md:mx-[-12px] lg:mx-[-12px] align-middle"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+            <span className="inline">user</span> experiences that enchant your users & elevate{' '}
+            {/* New Image Element Inserted Between 'your' and 'digital' */}
+            <span className="inline font-serif">your</span>
+            <img
+              src="/gifs/molecule.gif" // Replace with the correct image path or URL
+              className="inline-block w-auto h-12 md:h-16 lg:h-36 mx-[-4px] md:mx-[-12px] lg:mx-[-12px] align-middle"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+            <span className="inline font-serif">digital presence.</span>
+          </h1>
 
           {/* Subtitle Section */}
-          <motion.p
-            className="text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-header leading-[150%] text-left mt-4"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.2 }}
-          >
+          <p className="text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-header leading-[150%] text-left mt-4">
             Gothic Moon is a digital design studio specializing in product & web design. Check out our latest project.
-          </motion.p>
+          </p>
         </div>
 
         {/* Social Media and Contact Button pinned to the bottom */}
@@ -48,17 +47,11 @@ const Hero = () => {
           <div className="flex space-x-6">
             {/* Instagram Icon */}
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <Instagram
-                size={24}
-                className="hover:text-[#f8ffce] hover:scale-110 transition duration-300"
-              />
+              <Instagram size={24} className="hover:text-[#f8ffce] hover:scale-110 transition duration-300" />
             </a>
             {/* Dribbble Icon */}
             <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer">
-              <Dribbble
-                size={24}
-                className="hover:text-[#f8ffce] hover:scale-110 transition duration-300"
-              />
+              <Dribbble size={24} className="hover:text-[#f8ffce] hover:scale-110 transition duration-300" />
             </a>
           </div>
         </div>

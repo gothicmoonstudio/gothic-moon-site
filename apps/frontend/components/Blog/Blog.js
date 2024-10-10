@@ -77,12 +77,12 @@ const Blog = () => {
   return (
     <div className="w-full h-full flex flex-col justify-start items-center">
       <TextOverContent title="Stay" specialText="inspired.">
-        <div className="flex flex-col md:flex-row lg:flex-row justify-start items-start gap-9 w-full">
+        <div className="flex flex-col md:flex-row lg:flex-row justify-start items-start gap-6 md:gap-8 lg:gap-10 w-full">
           {/* Render blog cards dynamically based on fetched posts */}
           {posts.length > 0 ? (
             posts.map((post, index) => (
               <div
-                className="w-full flex flex-wrap md:flex-nowrap justify-center md:justify-between items-start gap-9"
+                className="w-full flex flex-wrap md:flex-nowrap justify-center md:justify-between items-start"
                 key={index} // Unique key prop
               >
                 {/* Alternate between BlogCardWide and BlogCardNarrow */}

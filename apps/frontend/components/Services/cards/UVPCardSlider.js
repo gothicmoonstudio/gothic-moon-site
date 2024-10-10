@@ -18,7 +18,7 @@ const UVPCardSlider = () => {
       title2: 'Data-Driven Design',
       description: 'Harness the power of data-driven design to drive engagement and deliver measurable results.',
       imageSrc: 'https://via.placeholder.com/376x523',
-      bgColor: 'linear-gradient(45deg, #FFE9E9, #A06AF8)',
+      bgColor: 'linear-gradient(45deg, #FFE9E9, #F6FFBC)',
       textColor: '#141221',
     },
     {
