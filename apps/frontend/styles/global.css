@@ -66,6 +66,14 @@ html, body, #__next {
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    display: none;
+  }
+
+body {
+    scrollbar-width: none;
+}
+
 html {
     scroll-behavior: smooth;
   }
