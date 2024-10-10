@@ -8,7 +8,7 @@ const UVPDetails = () => {
       <div className="text-[1.75rem] md:text-[2rem] lg:text-[3rem] font-medium font-header">
         Cookie-cutter designs leaving your brand feeling <span className="font-serif">invisible</span>?
       </div>
-      <div className="text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-body leading-9">
+      <div className="text-[1.25rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-body leading-9">
       At Gothic Moon, we do more than just design. We're strategic partners dedicated to crafting digital experiences that not only look stunning but also resonate deeply with your brand's essence. Let's break free from the ordinary and create something truly extraordinary together.
       </div>
     </div>

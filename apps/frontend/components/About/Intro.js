@@ -4,7 +4,7 @@ import SideBySide from '../templates/SidebySide';
   const Intro = () => {
 
   const titleClasses = `text-[2.5rem] md:text-[4rem] lg:text-[4.5rem] xl:text-[6rem] font-header font-medium mb-2`;
-  const paragraphClasses = `text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-body leading-[150%]`;
+  const paragraphClasses = `text-[1.25rem] md:text-[1.25rem] lg:text-[1.5rem] font-body leading-[150%]`;
 
   const leftContent = (
     <div className="flex flex-col">
