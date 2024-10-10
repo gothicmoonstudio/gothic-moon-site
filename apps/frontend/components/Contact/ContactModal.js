@@ -59,9 +59,9 @@ const ContactModal = ({ handleClose }) => {
         {/* Modal Inner Container */}
         <div className="w-full rounded-2xl flex flex-col relative">
           {/* Header Wrapper with Close Button and Title */}
-          <div className="w-full flex flex-row justify-start items-start mb-8">
+          <div className="w-full flex flex-row justify-between mb-8">
             {/* Title Container */}
-            <div className="flex flex-wrap justify-start items-center">
+            <div className="flex flex-wrap justify-start items-start">
               <div className="text-[#141221] text-[1.25rem] md:text-[1.5rem] lg:text-[1.5rem] font-medium font-header leading-[150%]">
                 Let’s build something
               </div>
@@ -71,7 +71,7 @@ const ContactModal = ({ handleClose }) => {
             </div>
 
             {/* Close Button */}
-            <button className="flex flex-grow justify-start items-start" onClick={handleClose}>
+            <button className="flex flex-grow justify-end items-start" onClick={handleClose}>
               <X className="w-6 h-6 text-[#726D96] hover:text-[#141221] hover:scale-105 transition-transform duration-300 cursor-pointer" />
             </button>
           </div>

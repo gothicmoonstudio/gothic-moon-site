@@ -8,9 +8,9 @@ const Hero = () => {
       {/* Main Wrapper */}
       <div className="relative w-full h-screen flex flex-col">
         {/* Content Wrapper for Title and Subtitle */}
-        <div className="flex-1 w-full flex flex-col items-start justify-center text-left">
+        <div className="flex-1 w-full flex flex-col items-center justify-center">
           {/* Title Section */}
-          <h1 className="w-full lg:pr-48 text-[1.75rem] md:text-[3rem] lg:text-[4.5rem] font-normal font-header leading-[150%] text-left">
+          <h1 className="w-full lg:px-40 text-[1.75rem] md:text-[3rem] lg:text-[4rem] font-normal font-header leading-[150%] text-center">
           {/* First Span with Negative Margin */}
           Crafting{' '}
           <span className="inline-block -mt-2">spellbinding</span>
@@ -44,7 +44,7 @@ const Hero = () => {
         </h1>
 
           {/* Subtitle Section */}
-          <p className="text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-header leading-[150%] text-left mt-4">
+          <p className="text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-header leading-[150%] text-center mt-4">
             Gothic Moon is a digital design studio specializing in product & web design. Check out our latest project.
           </p>
         </div>

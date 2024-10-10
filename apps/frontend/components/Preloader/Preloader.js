@@ -3,23 +3,20 @@ import { gsap } from 'gsap';
 import styles from './Preloader.module.css';
 
 const Preloader = ({ setLoading }) => {
-  // Create references for the SVG container and inner logo
   const logoRef = useRef(null);
   const innerLogoRef = useRef(null);
 
-  // Function to animate the inner logo
   const animateInnerLogo = () => {
     if (innerLogoRef.current) {
       gsap.fromTo(
         innerLogoRef.current,
-        { scale: 0.5, opacity: 0 }, // Initial state: small and transparent
+        { scale: 0.5, opacity: 0 },
         {
-          scale: 1, // Final scale (original size)
-          opacity: 1, // Final opacity (fully visible)
+          scale: 1,
+          opacity: 1,
           duration: 0.8,
-          ease: 'bounce.out', // Bounce effect
+          ease: 'bounce.out',
           onComplete: () => {
-            // Add a slight delay before setting loading to false
             gsap.delayedCall(1, () => {
               setLoading(false);
             });
@@ -30,28 +27,24 @@ const Preloader = ({ setLoading }) => {
   };
 
   useEffect(() => {
-    // Ensure the logoRef is available before proceeding
     if (!logoRef.current) return;
 
-    // Select the SVG paths with the class 'logo-path'
     const paths = logoRef.current.querySelectorAll('.logo-path');
 
-    // Check if elements exist before animating
     if (paths.length === 0) {
       console.warn('No elements found for animation.');
       return;
     }
 
-    // Animate paths' opacity with a staggered effect
     gsap.fromTo(
       paths,
-      { opacity: 0 }, // Initial state: fully transparent
+      { opacity: 0 },
       {
-        opacity: 1, // Final state: fully visible
-        duration: 0.5, // Duration for each path
-        stagger: 0.2, // Delay between each path's animation
-        ease: 'power2.out', // Easing function
-        onComplete: animateInnerLogo, // Start inner logo animation after paths are done
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.2,
+        ease: 'power2.out',
+        onComplete: animateInnerLogo,
       }
     );
   }, [setLoading]);

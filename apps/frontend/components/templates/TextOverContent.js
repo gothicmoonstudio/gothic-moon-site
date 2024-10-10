@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import OneColumn from '../layouts/OneColumn';
+import TrackingInExpand from '../Animations/TrackingInExpand/TrackingInExpand';
 
 const TextOverContent = ({ title, specialText, children }) => {
-  // Create refs for title and content sections
   const titleRef = useRef(null);
   const contentRef = useRef(null);
 
@@ -10,17 +10,20 @@ const TextOverContent = ({ title, specialText, children }) => {
     <OneColumn>
       <div className="w-full py-5 md:py-9 lg:py-12 flex flex-col justify-center items-center text-center">
         <div className="z-10 w-full">
-          {/* Title Section with Special Text */}
-          <h1 ref={titleRef} className="font-medium text-[1.25rem] md:text-[1.75rem] lg:text-[2.25rem] mb-4">
-            {title}{' '}
-            {specialText && (
+          <h1
+          ref={titleRef}
+          className="font-medium text-[1.25rem] md:text-[1.75rem] lg:text-[2.25rem] mb-4"
+        >
+          <TrackingInExpand>{title}</TrackingInExpand>{' '}
+          
+          {specialText && (
+            <TrackingInExpand>
               <span className="font-serif special-text text-[1.25rem] md:text-[1.75rem] lg:text-[2.25rem]">
                 {specialText}
               </span>
-            )}
-          </h1>
-
-          {/* Children Content */}
+            </TrackingInExpand>
+          )}
+        </h1>
           <div ref={contentRef} className="flex justify-center items-center h-full w-full">
             {children}
           </div>
