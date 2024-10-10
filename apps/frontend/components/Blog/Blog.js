@@ -75,7 +75,7 @@ const Blog = () => {
   }, []);
 
   return (
-    <div className="w-full h-full flex flex-col justify-start items-center">
+    <div className="w-full h-full flex flex-col justify-start items-center mt-24">
       <TextOverContent title="Stay" specialText="inspired.">
         <div className="flex flex-col md:flex-row lg:flex-row justify-start items-start gap-6 md:gap-8 lg:gap-10 w-full">
           {/* Render blog cards dynamically based on fetched posts */}

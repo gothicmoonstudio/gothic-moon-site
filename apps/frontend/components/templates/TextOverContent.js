@@ -8,7 +8,7 @@ const TextOverContent = ({ title, specialText, children }) => {
 
   return (
     <OneColumn>
-      <div className="w-full flex flex-col justify-center items-center text-center">
+      <div className="w-full py-5 md:py-9 lg:py-12 flex flex-col justify-center items-center text-center">
         <div className="z-10 w-full">
           {/* Title Section with Special Text */}
           <h1 ref={titleRef} className="font-medium text-[1.25rem] md:text-[1.75rem] lg:text-[2.25rem] mb-4">

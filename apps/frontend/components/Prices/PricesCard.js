@@ -59,7 +59,7 @@ const PricesCard = ({
       </div>
 
       {/* Description */}
-      <div className="text-[#f4f3ff] text-base md:text-[1rem] lg:text-[1.25rem] font-normal leading-[150%] text-left font-body">
+      <div className="text-[#f4f3ff] text-[1.25rem] md:text-[1rem] lg:text-[1.25rem] font-normal leading-[150%] text-left font-body">
         {description}
       </div>
 
