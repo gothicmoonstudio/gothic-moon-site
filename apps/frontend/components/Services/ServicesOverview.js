@@ -7,16 +7,16 @@ const ServicesOverview = () => {
             title: "User Research & Testing",
             description: "Delve into understanding your target audience's needs, behaviors, and pain points. Our comprehensive user research lays the foundation for informed design decisions, ensuring your product resonates with its intended users.",
             services: ['User Interviews', 'Analytics', 'A/B Testing', 'User Flows', 'Journey Mapping'],
-            bgColor: 'linear-gradient(45deg, #FFE9E9, #F6FFBC)',
-            textColor: "#141221",
+            bgColor: 'linear-gradient(45deg, #3B1AE5, #E1303B)',
+            textColor: "#F4F3FF",
             imageSrc: "/gifs/orb.gif"
         },
         {
             title: "Visual Design",
             description: "Create stunning, on-brand visuals that captivate your audience. We craft aesthetically pleasing interfaces that not only look beautiful but also enhance usability and reinforce your brand identity.",
             services: ['User Interface', 'Design Libraries', 'Style Guides', 'Templates'],
-            bgColor: 'linear-gradient(45deg, #FFE9E9, #CDAFFF)',
-            textColor: "#141221",
+            bgColor: 'linear-gradient(90deg, #862598, #272343',
+            textColor: "#F4F3FF",
             imageSrc: "/gifs/blobs.gif"
         },
         {

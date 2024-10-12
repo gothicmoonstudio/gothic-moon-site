@@ -1,0 +1,11 @@
+/* TextReveal.module.css */
+.textContainer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .char {
+    display: inline-block;
+    visibility: hidden;
+    color: #F4F3FF;
+  }

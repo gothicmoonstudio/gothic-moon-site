@@ -3,7 +3,7 @@ import React from 'react';
 const ServicesCard = ({ title, description, services, imageSrc, bgColor, textColor }) => {
   return (
     <div
-      className="w-full h-auto mx-auto p-6 md:p-8 lg:p-12 flex flex-col lg:flex-row justify-between items-center gap-9 rounded-xl shadow-lg"
+      className="w-full h-auto mx-auto p-6 md:p-6 lg:p-8 flex flex-col lg:flex-row justify-between items-center gap-9 rounded-xl shadow-lg"
       style={{
         background: bgColor, // Updated to support gradient backgrounds
         color: textColor,
