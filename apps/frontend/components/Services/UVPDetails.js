@@ -1,6 +1,6 @@
 import React from 'react';
 import SideBySide from '../templates/SidebySide';
-import CrystalBall from './cards/CrystalBall';
+import UVPCardSlider from '../Services/cards/UVPCardSlider'
 
 const UVPDetails = () => {
   const leftContent = (
@@ -16,7 +16,7 @@ const UVPDetails = () => {
 
   const rightContent = (
     <div className="w-full h-full px-8 md:px-8 lg:px-8 flex justify-center items-center">
-      <CrystalBall />
+      <UVPCardSlider />
     </div>
   );
 
