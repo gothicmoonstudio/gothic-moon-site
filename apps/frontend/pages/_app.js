@@ -65,8 +65,8 @@ function MyApp({ Component, pageProps }) {
               initial="hidden"
               animate="visible"
               variants={buttonFadeIn}
-              className="fixed bottom-0 right-0 w-full h-full z-50"
-            >
+              className="fixed bottom-0 right-0 z-50"
+            >                                                              
               <PrimaryButton label="Get Started" onClick={handleOpenModal} />
             </motion.div>
 
@@ -78,4 +78,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;                                
+export default MyApp;                         
