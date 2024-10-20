@@ -1,0 +1,140 @@
+.modalOverlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    padding: 2rem;
+  }
+  
+  .modalContainer {
+    background-color: #e9cdff;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    border: 1px solid #141221;
+    width: 50rem;
+    max-width: 100%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+  }
+  
+  .modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+  }
+  
+  .modalTitle {
+    font-size: 2rem;
+    font-family: 'Bely Display', serif;
+    color: #141221;
+  }
+  
+  .modalDescription {
+    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    color: #141221;
+    white-space: pre-line;
+  }
+  
+  .buttonWrapper {
+    display: flex;
+    justify-content: left;
+    padding-top: 2rem;
+  }
+  
+
+@media (max-width: 768px) {
+    .modalOverlay {
+        padding: 2rem;
+      }
+
+    .modalContainer {
+        padding: 1.5rem;
+        width: 100%;
+        max-width: 100%;
+    }
+    .modalHeader {
+        padding-bottom: 1rem;
+      }
+  
+    .modalTitle {
+      font-size: 1.5rem;
+    }
+  
+    .modalDescription {
+      font-size: 1rem;
+    }
+  
+    .buttonWrapper {
+      padding-top: 1rem;
+    }
+  }
+
+/* Gentle Shake Animation */
+@-webkit-keyframes shake-bl {
+  0%, 100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+  }
+  10% {
+    -webkit-transform: rotate(1deg);
+    transform: rotate(1deg);
+  }
+  20%, 40%, 60% {
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+  }
+  30%, 50%, 70% {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
+  }
+  80% {
+    -webkit-transform: rotate(-1deg);
+    transform: rotate(-1deg);
+  }
+  90% {
+    -webkit-transform: rotate(1deg);
+    transform: rotate(1deg);
+  }
+}
+
+@keyframes shake-bl {
+  0%, 100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+  }
+  10% {
+    -webkit-transform: rotate(1deg);
+    transform: rotate(1deg);
+  }
+  20%, 40%, 60% {
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+  }
+  30%, 50%, 70% {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
+  }
+  80% {
+    -webkit-transform: rotate(-1deg);
+    transform: rotate(-1deg);
+  }
+  90% {
+    -webkit-transform: rotate(1deg);
+    transform: rotate(1deg);
+  }
+}
+
+.shake-bl {
+  -webkit-animation: shake-bl 1.2s cubic-bezier(0.445, 0.05, 0.55, 0.95) both;
+  animation: shake-bl 1.2s cubic-bezier(0.445, 0.05, 0.55, 0.95) both;
+}
