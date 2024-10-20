@@ -1,4 +1,3 @@
-/* Wrapper for each card */
 .cardWrapper {
   position: absolute;
   transition: transform 0.5s ease, top 0.5s ease;
@@ -7,53 +6,22 @@
   border-radius: 16px;
 }
 
-/* Position each card with an offset */
-.card {
-  top: 0;
-}
-
 .cardOffset {
   top: calc(4.6rem * var(--index));
   z-index: calc(10 - var(--index));
 }
 
-/* Active card moves to the top */
-.active {
-  top: 0;
-  z-index: calc(var(--totalCards) + 2);
-  transform: translateY(0);
-}
-
-/* Hover effect */
-.cardWrapper:hover {
-  z-index: calc(var(--totalCards) + 1); /* Bring hovered card above others */
-  transform: translateY(-28%); /* Move up by half of its own height */
-}
-
-/* Ensure active card remains on top when hovered */
-.cardWrapper.active:hover {
-  z-index: calc(var(--totalCards) + 2);
-  transform: translateY(-100px);
-}
 
 @media (min-width: 768px) {
   .cardOffset {
-    top: calc(9.2rem * var(--index));
+    top: calc(8.2rem * var(--index));
     z-index: calc(10 - var(--index));
-  }
-  .cardWrapper:hover {
-    z-index: calc(var(--totalCards) + 1); /* Bring hovered card above others */
-    transform: translateY(-38%); /* Move up by half of its own height */
   }
 }
 
-@media (max-width: 767px) {
+ @media (max-width: 767px) {
   .cardOffset {
     top: calc(4.6rem * var(--index));
     z-index: calc(10 - var(--index));
-  }
-  .cardWrapper:hover {
-    z-index: calc(var(--totalCards) + 1); /* Bring hovered card above others */
-    transform: translateY(-28%); /* Move up by half of its own height */
   }
 }
