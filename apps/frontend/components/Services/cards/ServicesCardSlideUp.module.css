@@ -1,8 +1,6 @@
 /* Wrapper for each card */
 .cardWrapper {
   position: absolute;
-  width: 100%;
-  height: auto;
   transition: transform 0.5s ease, top 0.5s ease;
   cursor: pointer;
   overflow: hidden;

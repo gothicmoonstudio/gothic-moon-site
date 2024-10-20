@@ -40,7 +40,7 @@ const Project = () => {
   return (
     <section
       id="projects"
-      className="w-full h-screen flex flex-col items-center justify-center"
+      className="w-full h-screen"
     >
       <TextOverContent title="Designs that" specialText="captivate & enchant.">
         {/* Wrapper for Swipeable and Cards */}

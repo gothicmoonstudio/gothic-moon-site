@@ -42,16 +42,24 @@ const services = [
 
 const ServicesOverview = () => {
   return (
-    <div className="relative h-full min-h-screen flex flex-col items-center justify-center">
-      {services.map((service, index) => (
-        <ServicesCardSlideUp
-          key={index}
-          service={service}
-          index={index}
-          totalCards={services.length}
-        />
-      ))}
-    </div>
+    <section className="relative w-full min-h-screen">
+      {/* Section Title */}
+      <h2 className="text-4xl md:text-5xl font-header text-[#F4F3FF] mb-[64rem] md:mb-[16rem] lg:mb-[16rem]">
+        Our Services
+      </h2>
+
+      {/* Services Cards Container */}
+      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2">
+        {services.map((service, index) => (
+          <ServicesCardSlideUp
+            key={index}
+            service={service}
+            index={index}
+            totalCards={services.length}
+          />
+        ))}
+      </div>
+    </section>
   );
 };
 
