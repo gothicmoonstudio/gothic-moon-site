@@ -1,6 +1,5 @@
 import React from 'react';
 import ServicesCardSlideUp from './cards/ServicesCardSlideUp';
-import styles from './cards/ServicesCardSlideUp.module.css';
 
 const services = [
   {

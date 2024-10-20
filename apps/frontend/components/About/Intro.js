@@ -23,7 +23,7 @@ const Intro = () => {
         Navigating the intricate world of user experience design can be a daunting task. That's where Gothic Moon comes in. As your trusted UX compass, we'll guide you through the complex terrain, ensuring your digital presence shines bright.
       </p>
       <p className={`${paragraphClasses} mb-4`}>
-        I'm Mary Sargent, a seasoned UX designer with over six years of experience crafting engaging and intuitive digital products. My expertise lies in designing enterprise tools for the media and entertainment industries, where attention to detail and user-centricity are paramount.
+        I'm Mary Sargent, Founder & CEO of Gothic Moon. I'm a product designer with over six years of experience crafting engaging and intuitive digital products. My expertise lies in designing enterprise tools for the media and entertainment industries, where attention to detail and user-centricity are paramount.
       </p>
       <p className={paragraphClasses}>
         Let's embark on a journey together to create exceptional user experiences. Welcome to Gothic Moon.

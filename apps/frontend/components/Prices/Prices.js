@@ -21,6 +21,7 @@ const Prices = () => {
                   animationData={PotionsAnimation}
                   title="Single Project"
                   priceRange="$1k-$10k"
+                  priceSuffix="/ project"
                   description="Ideal for clients seeking to address particular challenges or enhance key areas of their user experience."
                   buttonLabel="Schedule a Call"
                   details={[
@@ -40,8 +41,8 @@ const Prices = () => {
                   animationData={SparklesAnimation}
                   title="Ongoing Support"
                   buttonLabel="Schedule a Call"
-                  monthlyPrice="$3,080/month"
-                  hourlyPrice="$100 - $190/hour"
+                  monthlyPrice="$3,080-$6,080"
+                  hourlyPrice="$100 - $190"
                   monthlyDescription="Ideal for continuous design support with predictable monthly costs."
                   hourlyDescription="Perfect for short-term or flexible projects requiring design expertise on demand."
                   monthlyDetails={[
@@ -66,7 +67,8 @@ const Prices = () => {
                 <PricesCard
                   animationData={MagicAnimation}
                   title="Design Consultations"
-                  priceRange="$190/session"
+                  priceRange="$190"
+                  priceSuffix="/ session"
                   description="Access expert insights and innovative solutions that are designed to offer both guidance and results."
                   buttonLabel="Schedule a Call"
                   details={[

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Instagram, Dribbble, Mail } from 'react-feather';
 import TwoColumnFooter from '../layouts/TwoColumnFooter';
-import Link from 'next/link';
 
 const Footer = () => {
   // Define the left content for the footer
@@ -62,7 +61,7 @@ const Footer = () => {
       <div className="w-full h-px bg-[#3f3a5b]" />
 
       {/* Bottom Section */}
-      <div className="w-full flex flex-col md:flex-row justify-between items-center md:items-start gap-4">
+      <div className="w-full flex flex-col md:flex-row justify-between items-center md:items-end gap-0 md:gap-4">
         {/* Copyright Text */}
         <div className="text-[#f4f3ff] text-center md:text-left text-base font-normal font-header">
           © 2024 Gothic Moon Creative Studio LLC
