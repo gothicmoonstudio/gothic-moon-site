@@ -1,6 +1,7 @@
 import React from 'react';
 import TextOverContent from '../templates/TextOverContent';
 import PricesCard from './PricesCard';
+import PricesCardwithTab from './PricesCardwithTab';
 import PotionsAnimation from '../../public/assets/animations/icons8-mana.json';
 import SparklesAnimation from '../../public/assets/animations/icons8-sparkles.json';
 import MagicAnimation from '../../public/assets/animations/icons8-magic.json';
@@ -32,20 +33,28 @@ const Prices = () => {
               </div>
             </ScaleInCenter>
 
-            {/* PricesCard 2 - Center */}
+           {/* PricesCard 2 - Center */}
             <ScaleInCenter style={{ animationDelay: '0.3s' }}>
               <div className="h-full relative flex flex-col items-center">
-                <PricesCard
+                <PricesCardwithTab
                   animationData={SparklesAnimation}
                   title="Ongoing Support"
-                  priceRange="$100-$190/hour"
-                  description="Perfect for projects needing consistent and adaptable design expertise to ensure every detail is covered."
                   buttonLabel="Schedule a Call"
-                  details={[
+                  monthlyPrice="$3,080/month"
+                  hourlyPrice="$100 - $190/hour"
+                  monthlyDescription="Ideal for continuous design support with predictable monthly costs."
+                  hourlyDescription="Perfect for short-term or flexible projects requiring design expertise on demand."
+                  monthlyDetails={[
                     'Regular design updates and iterations.',
                     'Design system maintenance and support.',
                     'Performance reviews and optimizations.',
                     'Cross-team collaboration and feedback.',
+                  ]}
+                  hourlyDetails={[
+                    'On-demand design consultations.',
+                    'Hourly support for specific tasks.',
+                    'No long-term commitment required.',
+                    'Quick response times to meet deadlines.',
                   ]}
                 />
               </div>
