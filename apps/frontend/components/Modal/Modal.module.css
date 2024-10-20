@@ -30,13 +30,13 @@
   
   .modalTitle {
     font-size: 2rem;
-    font-family: 'Bely Display', serif;
+    font-family: var(--font-serif);
     color: #141221;
   }
   
   .modalDescription {
     font-size: 1.25rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-header);
     color: #141221;
     white-space: pre-line;
   }
