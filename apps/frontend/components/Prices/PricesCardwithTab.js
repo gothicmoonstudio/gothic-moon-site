@@ -51,7 +51,7 @@ const PricesCardWithTab = ({
 
     return (
       <>
-        <div className="flex justify-center items-end gap-2">
+        <div className="flex flex-col md:flex-row justify-center items-start md:items-end lg:items-end gap-0 md:gap-2 lg:gap-2">
           {/* Price */}
           <div className="text-[#f4f3ff] text-4xl font-normal font-header">
             {price}
@@ -70,7 +70,7 @@ const PricesCardWithTab = ({
         {/* Bullet-pointed Details */}
         <ul className="text-[#f4f3ff] text-base leading-[150%] font-body">
           {details.map((detail, index) => (
-            <li key={index} className="my-2 ml-3 flex items-center">
+            <li key={index} className="my-2 ml-0 md:ml-3 lg:ml-3 flex items-center text-left">
               <SVGBullet />
               <span>{detail}</span>
             </li>

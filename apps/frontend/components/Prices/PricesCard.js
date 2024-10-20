@@ -72,7 +72,7 @@ const PricesCard = ({
       {/* Bullet-Pointed Details */}
       <ul className="text-[#f4f3ff] text-base md:text-[1rem] lg:text-[1rem] font-normal leading-[150%] text-left font-body">
         {details.map((detail, index) => (
-          <li key={index} className="my-2 ml-3 flex items-center">
+          <li key={index} className="my-2 ml-0 md:ml-3 lg:ml-3 flex items-center">
             <SVGBullet />
             <span>{detail}</span>
           </li>
