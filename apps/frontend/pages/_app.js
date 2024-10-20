@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar/NavBar';
 import { ThemeProvider } from '../context/ThemeContext';
 import PrimaryButton from '../components/ui/PrimaryButton';
 import ContactModal from '../components/Contact/ContactModal';
+import { motion } from 'framer-motion'; // Import Framer Motion
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
@@ -25,6 +26,17 @@ function MyApp({ Component, pageProps }) {
     console.log('Loading state updated:', loading);
   }, [loading]);
 
+  // Animation variants
+  const navbarFadeIn = {
+    hidden: { opacity: 0, y: -30 }, // Slide down from top
+    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
+  };
+
+  const buttonFadeIn = {
+    hidden: { opacity: 0, scale: 0.8 }, // Scale up from smaller size
+    visible: { opacity: 1, scale: 1, transition: { duration: 1.2, ease: 'easeOut', delay: 0.3 } },
+  };
+
   return (
     <React.StrictMode>
       <ThemeProvider>
@@ -32,14 +44,27 @@ function MyApp({ Component, pageProps }) {
           <Preloader setLoading={setLoading} />
         ) : (
           <>
-            <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
+            {/* Animated Navbar */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={navbarFadeIn}
+              className="z-50" // Ensure Navbar stays on top
+            >
+              <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
+            </motion.div>
+
             <Component {...pageProps} setActiveSection={setActiveSection} />
 
-            <PrimaryButton
-              label="Get Started"
-              onClick={handleOpenModal}
-              className="fixed z-50"
-            />
+            {/* Animated Primary Button */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={buttonFadeIn}
+              className="fixed w-full h-full bottom-2 right-2 z-50" // Adjusted button position
+            >
+              <PrimaryButton label="Get Started" onClick={handleOpenModal} />
+            </motion.div>
 
             {isModalVisible && <ContactModal handleClose={handleCloseModal} />}
           </>
