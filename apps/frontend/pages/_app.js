@@ -50,10 +50,11 @@ function MyApp({ Component, pageProps }) {
           <>
             {/* Animated Navbar */}
             <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={navbarFadeIn}
-              className="z-50" // Ensure Navbar stays on top
+              layoutId="navbar" // Ensures layout consistency
+              initial={{ opacity: 0, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: 'easeOut' }}
+              className="fixed top-0 left-0 w-full z-50" // Ensure it stays fixed
             >
               <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
             </motion.div>
@@ -78,4 +79,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;                         
+export default MyApp;
