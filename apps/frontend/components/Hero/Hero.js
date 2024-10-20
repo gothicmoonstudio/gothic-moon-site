@@ -1,7 +1,7 @@
 import React from 'react';
 import { Instagram, Dribbble } from 'react-feather';
 import OneColumn from '../layouts/OneColumn';
-import { motion } from 'framer-motion'; // Import Framer Motion
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   // Animation variants for title and subtitle
@@ -81,7 +81,7 @@ const Hero = () => {
 
         {/* Social Media Icons Section with Fade-in Animation */}
         <motion.div
-          className="absolute bottom-8 left-8 flex space-x-6"
+          className="absolute bottom-16 left-2 flex space-x-6"
           initial="hidden"
           animate="visible"
           variants={socialIconsFadeIn} // Apply fade-in animation for social icons

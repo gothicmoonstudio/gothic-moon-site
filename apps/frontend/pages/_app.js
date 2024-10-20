@@ -33,8 +33,12 @@ function MyApp({ Component, pageProps }) {
   };
 
   const buttonFadeIn = {
-    hidden: { opacity: 0, scale: 0.8 }, // Scale up from smaller size
-    visible: { opacity: 1, scale: 1, transition: { duration: 1.2, ease: 'easeOut', delay: 0.3 } },
+    hidden: { opacity: 0, x: 30 }, // Slide in from the right
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1.5, ease: 'easeOut', delay: 0.5 },
+    },
   };
 
   return (
@@ -61,7 +65,7 @@ function MyApp({ Component, pageProps }) {
               initial="hidden"
               animate="visible"
               variants={buttonFadeIn}
-              className="fixed w-full h-full bottom-2 right-2 z-50" // Adjusted button position
+              className="fixed bottom-0 right-0 w-full h-full z-50"
             >
               <PrimaryButton label="Get Started" onClick={handleOpenModal} />
             </motion.div>
@@ -74,4 +78,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default MyApp;                                
