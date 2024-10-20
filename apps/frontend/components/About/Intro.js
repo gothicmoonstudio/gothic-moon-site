@@ -1,6 +1,5 @@
 import React from 'react';
 import SideBySide from '../templates/SidebySide';
-import TextReveal from '../Animations/TextReveal/TextReveal'; // Ensure the path is correct
 
 const Intro = () => {
   // Define CSS classes for title and paragraph
@@ -19,7 +18,7 @@ const Intro = () => {
   // Define rightContent for the SideBySide component, wrapping each paragraph with the TextReveal animation
   const rightContent = (
     // Single TextReveal wrapper around all paragraphs
-    <TextReveal className="w-full flex flex-col" style={{ display: 'flex', flexDirection: 'column' }}>
+    <div className="w-full flex flex-col" style={{ display: 'flex', flexDirection: 'column' }}>
       <p className={`${paragraphClasses} mb-4`}>
         Navigating the intricate world of user experience design can be a daunting task. That's where Gothic Moon comes in. As your trusted UX compass, we'll guide you through the complex terrain, ensuring your digital presence shines bright.
       </p>
@@ -29,7 +28,7 @@ const Intro = () => {
       <p className={paragraphClasses}>
         Let's embark on a journey together to create exceptional user experiences. Welcome to Gothic Moon.
       </p>
-    </TextReveal>
+      </div>
   );
 
   // Return the SideBySide component with left and right content

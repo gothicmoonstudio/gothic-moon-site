@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styles from './TrackingInExpand.module.css';
+import styles from './TrackingInExpand.module.css'; // Ensure correct path
 
 const TrackingInExpand = ({ children, className = '', style = {} }) => {
   const [isVisible, setIsVisible] = useState(false); // Track visibility state
@@ -26,7 +26,7 @@ const TrackingInExpand = ({ children, className = '', style = {} }) => {
   return (
     <span
       ref={elementRef} // Attach ref to element
-      className={`${isVisible ? styles['tracking-in-expand'] : ''} ${className}`} // Apply animation class based on visibility
+      className={`${styles.hidden} ${isVisible ? styles['tracking-in-expand'] : ''} ${className}`} // Apply hidden class initially, animation class on visibility
       style={style}
     >
       {children}

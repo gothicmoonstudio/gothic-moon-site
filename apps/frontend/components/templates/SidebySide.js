@@ -1,19 +1,20 @@
 import React from 'react';
 import TwoColumn from '../layouts/TwoColumn';
-import ScaleInCenter from '../Animations/ScaleInCenter/ScaleInCenter';
+import SlideInLeft from '../Animations/SlideInLeft/SlideInLeft';
+import SlideInRight from '../Animations/SlideInRight/SlideInRight';
 
 const SideBySide = ({ leftContent, rightContent }) => {
   return (
     <TwoColumn
       leftContent={
-        <ScaleInCenter className="left-focus">
+        <SlideInLeft className="left-focus">
           {leftContent}
-        </ScaleInCenter>
+        </SlideInLeft>
       }
       rightContent={
-        <ScaleInCenter className="right-focus" style={{ animationDelay: '0.5s' }}>
+        <SlideInRight className="right-focus" style={{ animationDelay: '0.5s' }}>
           {rightContent}
-        </ScaleInCenter>
+        </SlideInRight>
       }
     />
   );

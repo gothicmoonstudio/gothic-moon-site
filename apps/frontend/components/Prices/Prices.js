@@ -1,10 +1,10 @@
 import React from 'react';
 import TextOverContent from '../templates/TextOverContent';
 import PricesCard from './PricesCard';
-import PotionsAnimation from '../../assets/animations/icons8-mana.json';
-import SparklesAnimation from '../../assets/animations/icons8-sparkles.json';
-import MagicAnimation from '../../assets/animations/icons8-magic.json';
-import ScaleInCenter from '../Animations/ScaleInCenter/ScaleInCenter'; // Import animation
+import PotionsAnimation from '../../public/assets/animations/icons8-mana.json';
+import SparklesAnimation from '../../public/assets/animations/icons8-sparkles.json';
+import MagicAnimation from '../../public/assets/animations/icons8-magic.json';
+import ScaleInCenter from '../Animations/ScaleInCenter/ScaleInCenter';
 
 const Prices = () => {
   return (
@@ -34,7 +34,7 @@ const Prices = () => {
 
             {/* PricesCard 2 - Center */}
             <ScaleInCenter style={{ animationDelay: '0.3s' }}>
-              <div className="relative flex flex-col items-center">
+              <div className="h-full relative flex flex-col items-center">
                 <PricesCard
                   animationData={SparklesAnimation}
                   title="Ongoing Support"
