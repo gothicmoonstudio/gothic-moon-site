@@ -63,7 +63,7 @@ function Navbar({ activeSection }) {
       {/* Mobile Navigation */}
       {menuOpen && (
         <div
-          className="fixed inset-0 h-screen w-screen bg-[#0D0C16] z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in-out"
+          className="h-screen w-screen bg-[#0D0C16] z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in-out"
         >
           <NavItem
             label="About"

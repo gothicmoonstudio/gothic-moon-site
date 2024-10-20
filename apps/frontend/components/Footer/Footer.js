@@ -1,6 +1,7 @@
 import React from 'react';
 import { Instagram, Dribbble, Mail } from 'react-feather';
 import TwoColumnFooter from '../layouts/TwoColumnFooter';
+import Link from 'next/link';
 
 const Footer = () => {
   // Define the left content for the footer
@@ -68,19 +69,16 @@ const Footer = () => {
         </div>
 
         {/* Legal Links */}
-        <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center text-center">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center text-center mt-4">
           <a
-            href="https://app.termly.io/policy-viewer/policy.html?policyUUID=ae7e109c-aee5-417d-8b96-0307a9aead2b"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/terms-conditions"
             className="text-[#f4f3ff] text-base font-normal font-header hover:text-[#F6FFBC] transition-colors duration-200"
           >
             Terms & Conditions
           </a>
+
           <a
-            href="https://app.termly.io/policy-viewer/policy.html?policyUUID=fcb07211-f5b1-4b86-915e-4a393d54a3c7"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/privacy-policy"
             className="text-[#f4f3ff] text-base font-normal font-header hover:text-[#F6FFBC] transition-colors duration-200"
           >
             Privacy Policy
