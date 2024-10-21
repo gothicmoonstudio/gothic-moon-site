@@ -44,9 +44,9 @@ const Prices = () => {
                   buttonLabel="Schedule a Call"
                   buttonLink="https://calendly.com/mary-gothicmoon/30min"
                   monthlyPrice="$3,080-$6,080"
-                  hourlyPrice="$100 - $190"
-                  monthlyDescription="Ideal for continuous design support with predictable monthly costs."
-                  hourlyDescription="Perfect for short-term or flexible projects requiring design expertise on demand."
+                  hourlyPrice="$100-$190"
+                  monthlyDescription="Ideal for clients that need continuous design support with predictable monthly costs."
+                  hourlyDescription="Perfect for short-term or flexible projects requiring dedicated design expertise on demand."
                   monthlyDetails={[
                     'Regular design updates and iterations.',
                     'Website and design system maintenance and support.',
