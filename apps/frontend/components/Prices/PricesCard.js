@@ -17,10 +17,11 @@ const PricesCard = ({
   animationData,
   title,
   priceRange,
-  priceSuffix, // New prop for the price suffix
+  priceSuffix,
   description,
   details = [],
   buttonLabel,
+  buttonLink,
 }) => {
   const animationContainer = useRef(null);
 
@@ -81,7 +82,7 @@ const PricesCard = ({
 
       {/* Button */}
       <div className="mt-4">
-        <SecondaryButton label={buttonLabel} />
+        <SecondaryButton label={buttonLabel} href={buttonLink} />
       </div>
     </div>
   );
