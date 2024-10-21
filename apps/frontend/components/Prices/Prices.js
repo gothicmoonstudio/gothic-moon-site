@@ -46,7 +46,7 @@ const Prices = () => {
                   monthlyPrice="$3,080-$6,080"
                   hourlyPrice="$100-$190"
                   monthlyDescription="Ideal for clients that need continuous design support with predictable monthly costs."
-                  hourlyDescription="Perfect for short-term or flexible projects requiring dedicated design expertise on demand."
+                  hourlyDescription="Perfect for short-term or flexible projects requiring design expertise on demand."
                   monthlyDetails={[
                     'Regular design updates and iterations.',
                     'Design system maintenance and support.',
