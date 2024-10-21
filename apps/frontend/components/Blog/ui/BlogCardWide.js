@@ -49,7 +49,7 @@ const BlogCardWide = ({
         ${isHovered ? 'scale-100 visible opacity-100' : 'scale-0 invisible opacity-0'}`}
       >
         <div className="flex items-center gap-2">
-          <span className="text-[#f4f3ff] text-base font-normal font-header leading-normal">
+          <span className="text-[#f4f3ff] text-base font-medium font-header leading-normal">
             {buttonText}
           </span>
           <ArrowUpRight size={24} strokeWidth="1.5px" color="#f4f3ff" />
