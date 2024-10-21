@@ -23,7 +23,7 @@ const Prices = () => {
                   priceRange="$1k-$10k"
                   priceSuffix="/ project"
                   description="Ideal for clients seeking to address particular challenges or enhance key areas of their user experience."
-                  buttonLabel="Book a Discovery Call"
+                  buttonLabel="Schedule a Discovery Call"
                   buttonLink="https://calendly.com/mary-gothicmoon/30min"
                   details={[
                     'UI/UX design for a specific feature or product.',
@@ -41,7 +41,7 @@ const Prices = () => {
                 <PricesCardwithTab
                   animationData={SparklesAnimation}
                   title="Ongoing Support"
-                  buttonLabel="Book a Discovery Call"
+                  buttonLabel="Schedule a Discovery Call"
                   buttonLink="https://calendly.com/mary-gothicmoon/30min"
                   monthlyPrice="$3,080-$6,080"
                   hourlyPrice="$100-$190"
@@ -49,7 +49,7 @@ const Prices = () => {
                   hourlyDescription="Perfect for short-term or flexible projects requiring dedicated design expertise on demand."
                   monthlyDetails={[
                     'Regular design updates and iterations.',
-                    'Website and design system maintenance and support.',
+                    'Design system maintenance and support.',
                     'Performance reviews and optimizations.',
                     'Cross-team collaboration and feedback.',
                   ]}
@@ -72,7 +72,7 @@ const Prices = () => {
                   priceRange="$190"
                   priceSuffix="/ session"
                   description="Access expert insights and innovative solutions that are designed to offer both guidance and results."
-                  buttonLabel="Book a Discovery Call"
+                  buttonLabel="Schedule a Discovery Call"
                   buttonLink="https://calendly.com/mary-gothicmoon/30min"
                   details={[
                     'Design audits and expert feedback.',

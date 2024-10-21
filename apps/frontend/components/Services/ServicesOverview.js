@@ -10,7 +10,7 @@ const services = [
     services: ['User Interviews', 'Analytics', 'A/B Testing', 'User Flows', 'Journey Mapping'],
     bgColor: 'linear-gradient(45deg, #3B1AE5, #E1303B)',
     textColor: '#F4F3FF',
-    imageSrc: '/gifs/orb.gif',
+    videoSrc: '/assets/videos/research.mp4',
   },
   {
     title: 'Visual Design',
@@ -19,7 +19,7 @@ const services = [
     services: ['User Interface', 'Design Libraries', 'Style Guides', 'Templates'],
     bgColor: 'linear-gradient(90deg, #862598, #272343)',
     textColor: '#F4F3FF',
-    imageSrc: '/gifs/blobs.gif',
+    videoSrc: '/assets/videos/visual.mp4',
   },
   {
     title: 'Interaction Design',
@@ -28,7 +28,7 @@ const services = [
     services: ['Animations', 'Motion Graphics', 'Front-End Development'],
     bgColor: 'linear-gradient(45deg, #3B1AE5, #A06AF8)',
     textColor: '#F4F3FF',
-    imageSrc: '/gifs/blobby.gif',
+    videoSrc: '/assets/videos/interaction.mp4',
   },
   {
     title: 'Web & Product Design',
@@ -37,7 +37,7 @@ const services = [
     services: ['Information Architecture', 'Design Strategy', 'Business Analysis', 'Design Systems', 'SEO'],
     bgColor: 'linear-gradient(90deg, #81249E, #9747FF)',
     textColor: '#F4F3FF',
-    imageSrc: '/gifs/glob.gif',
+    videoSrc: '/assets/videos/product.mp4',
   },
 ];
 
@@ -61,7 +61,7 @@ const ServicesOverview = () => {
   };
 
   return (
-    <div className="relative h-full min-h-screen pt-24 mb-[24rem] md:mb-[16rem] lg:mb-[6rem]">
+    <div className="h-full min-h-screen py-8 md:py-16 lg:py-24">
       {/* Title Section */}
       <div className="">
         <h2 className="text-[1.5rem] md:text-[1.75rem] lg:text-[1.75rem] text-left font-header font-medium text-[#F4F3FF] pl-8">

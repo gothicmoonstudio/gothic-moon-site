@@ -1,23 +1,27 @@
 import React from 'react';
 
-const ServicesCard = ({ title, description, services, imageSrc, bgColor, textColor }) => {
+const ServicesCard = ({ title, description, services, videoSrc, bgColor, textColor }) => {
   return (
     <div
-      className="w-screen p-6 md:p-6 lg:p-8 flex flex-col lg:flex-row items-center gap-8 rounded-xl shadow-lg"
+      className="w-screen p-6 md:p-8 lg:p-12 flex flex-col lg:flex-row gap-8 rounded-xl shadow-lg"
       style={{
         background: bgColor,
         color: textColor,
       }}
     >
-      {/* Left Content */}
-      <div className="flex flex-col justify-start items-start gap-6 w-full lg:w-2/3">
-        <h2 className="text-[1.75rem] md:text-[2rem] lg:text-[2.5rem] font-medium font-header text-left leading-snug">
-          {title}
-        </h2>
+      {/* Left Column: Title, Description, and Services */}
+      <div className="flex flex-col justify-between items-start w-full lg:w-2/3 gap-6">
+        {/* Top Section: Title */}
+        <div className="w-full">
+          <h2 className="text-[1.75rem] md:text-[2rem] lg:text-[2.5rem] font-medium font-header leading-[150%]">
+            {title}
+          </h2>
+        </div>
 
-        <div className="flex flex-col md:flex-row gap-6 md:gap-12 w-full">
+        {/* Bottom Section: Description and Services */}
+        <div className="w-full flex flex-col md:flex-row gap-6 md:gap-12">
           {/* Description */}
-          <p className="text-[1.25rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-body leading-[1.6] w-full">
+          <p className="text-[1.25rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-body leading-[150%] w-full">
             {description}
           </p>
 
@@ -35,9 +39,18 @@ const ServicesCard = ({ title, description, services, imageSrc, bgColor, textCol
         </div>
       </div>
 
-        {/* Right Image (Hidden on Mobile) */}
-          <div className="hidden md:flex w-[8rem] md:w-[16rem] lg:w-[16rem] flex-shrink-0 justify-center items-center overflow-hidden">
-        <img src={imageSrc} alt="Service" className="w-full h-full object-cover rounded-lg" />
+      {/* Right Column: Video */}
+      <div
+        className={`relative w-full md:w-[488px] h-[250px] md:h-[338px] rounded-2xl 
+        flex justify-center items-center overflow-hidden shadow-md`}
+      >
+        <video
+          src={videoSrc}
+          autoPlay
+          muted
+          loop
+          className="w-full h-full object-cover rounded-xl"
+        ></video>
       </div>
     </div>
   );

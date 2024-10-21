@@ -19,8 +19,8 @@ const PricesCardWithTab = ({
   buttonLink,
   monthlyPrice,
   hourlyPrice,
-  monthlyPriceSuffix = "/ month",  // New prop for monthly suffix
-  hourlyPriceSuffix = "/ hour",    // New prop for hourly suffix
+  monthlyPriceSuffix = "/ month",
+  hourlyPriceSuffix = "/ hour",
   monthlyDescription,
   hourlyDescription,
   monthlyDetails = [],
@@ -28,20 +28,25 @@ const PricesCardWithTab = ({
 }) => {
   const [activeTab, setActiveTab] = useState('monthly');
   const animationContainer = useRef(null);
+  const animationInstance = useRef(null); // Store animation instance
 
   useEffect(() => {
-    const animInstance = lottie.loadAnimation({
+    animationInstance.current = lottie.loadAnimation({
       container: animationContainer.current,
       renderer: 'svg',
       loop: true,
-      autoplay: true,
-      animationData: animationData,
+      autoplay: false, // Autoplay disabled by default
+      animationData,
     });
 
     return () => {
-      animInstance.destroy();
+      animationInstance.current.destroy(); // Cleanup animation on unmount
     };
   }, [animationData]);
+
+  // Hover handlers to play/pause the animation
+  const handleMouseEnter = () => animationInstance.current?.play();
+  const handleMouseLeave = () => animationInstance.current?.stop();
 
   const renderContent = () => {
     const isMonthly = activeTab === 'monthly';
@@ -52,26 +57,22 @@ const PricesCardWithTab = ({
 
     return (
       <>
-        <div className="w-full h-full flex flex-col md:flex-row items-start text-left md:items-end lg:items-end gap-0 md:gap-2 lg:gap-2">
-          {/* Price */}
-          <div className="text-[#f4f3ff] text-left text-[1.75rem] md:text-[2.25rem] lg:text-[2.25rem] font-normal font-header">
+        <div className="flex items-baseline gap-2">
+          <div className="text-[#f4f3ff] text-[1.75rem] md:text-[2.25rem] lg:text-[2.25rem] font-medium font-header">
             {price}
           </div>
-          {/* Price Suffix */}
-          <div className="text-[#f4f3ff] text-base font-normal font-header mb-3">
+          <div className="text-[#f4f3ff] text-base font-normal font-header">
             {priceSuffix}
           </div>
         </div>
 
-        {/* Description */}
         <div className="text-[#f4f3ff] text-lg leading-[150%] text-left font-body">
           {description}
         </div>
 
-        {/* Bullet-pointed Details */}
         <ul className="text-[#f4f3ff] text-base leading-[150%] font-body">
           {details.map((detail, index) => (
-            <li key={index} className="my-2 ml-0 md:ml-3 lg:ml-3 flex items-center text-left">
+            <li key={index} className="my-2 flex items-center text-left">
               <SVGBullet />
               <span>{detail}</span>
             </li>
@@ -82,7 +83,14 @@ const PricesCardWithTab = ({
   };
 
   return (
-    <div className="h-full w-full md:w-[24rem] p-6 rounded-lg bg-[#f4f3ff]/10 border-t border-[rgba(244,243,255,0.25)] backdrop-blur-[114px] flex flex-col justify-center items-start gap-4 transform hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg overflow-hidden">
+    <div
+      className="h-full w-full md:w-[24rem] p-6 rounded-lg bg-[#f4f3ff]/10 border-t border-[rgba(244,243,255,0.25)] 
+      backdrop-blur-[114px] flex flex-col justify-center items-start gap-4 transform hover:scale-105 
+      transition-transform duration-300 ease-in-out hover:shadow-lg overflow-hidden"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Lottie Animation Container */}
       <div
         ref={animationContainer}
         className="w-10 h-10 mb-4 p-2 bg-gradient-to-tl from-[#6BA000] to-[#B7DD00] rounded-[8px]"
@@ -95,19 +103,23 @@ const PricesCardWithTab = ({
       </div>
 
       {/* Tabs */}
-      <div className="self-stretch border-b border-[#f4f3ff]/20 flex justify-start gap-6">
+      <div className="self-stretch border-b border-[#f4f3ff]/20 flex justify-start gap-6 mb-4">
         <button
           onClick={() => setActiveTab('monthly')}
-          className={`px-2 py-1 text-base font-header transition-all duration-300 ${
-            activeTab === 'monthly' ? 'border-b-2 border-[#f4f3ff]' : 'hover:border-b-2 hover:border-[#f4f3ff]/50'
+          className={`px-2 py-1 text-base font-header transition-all duration-150 ease-in-out ${
+            activeTab === 'monthly'
+              ? 'border-b-2 border-[#f4f3ff]'
+              : 'hover:border-b-2 hover:border-[#f4f3ff]/50'
           }`}
         >
           Monthly
         </button>
         <button
           onClick={() => setActiveTab('hourly')}
-          className={`px-2 py-1 text-base font-header transition-all duration-300 ${
-            activeTab === 'hourly' ? 'border-b-2 border-[#f4f3ff]' : 'hover:border-b-2 hover:border-[#f4f3ff]/50'
+          className={`px-2 py-1 text-base font-header transition-all duration-150 ease-in-out ${
+            activeTab === 'hourly'
+              ? 'border-b-2 border-[#f4f3ff]'
+              : 'hover:border-b-2 hover:border-[#f4f3ff]/50'
           }`}
         >
           Hourly
