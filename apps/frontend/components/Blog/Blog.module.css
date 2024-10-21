@@ -1,0 +1,12 @@
+.category-tab {
+    color: #f4f3ff;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: var(--font-header);
+    line-height: 1.5;
+    background: linear-gradient(to top right, #805ad5, #6b46c1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+  }

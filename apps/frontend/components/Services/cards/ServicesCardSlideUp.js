@@ -9,7 +9,6 @@ const ServicesCardSlideUp = ({ service, index, totalCards }) => {
     setIsActive(!isActive);
   };
 
-  // Calculate reverseIndex for positioning
   const reverseIndex = totalCards - index - 1;
 
   return (
@@ -20,7 +19,7 @@ const ServicesCardSlideUp = ({ service, index, totalCards }) => {
         style={{
           '--index': index,
           '--reverseIndex': reverseIndex,
-          zIndex: isActive ? 10 : index, // Active card comes to the front
+          zIndex: isActive ? 10 : index,
         }}
         onClick={handleCardClick}
       >

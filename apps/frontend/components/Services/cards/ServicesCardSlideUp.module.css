@@ -4,6 +4,7 @@
   cursor: pointer;
   overflow: hidden;
   border-radius: 16px;
+  height: 100vh;
 }
 
 .cardOffset {

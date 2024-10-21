@@ -49,9 +49,9 @@ const Project = () => {
             {/* Previous Button - Hidden on Mobile */}
             <button
               onClick={handlePrevious}
-              className="hidden md:block lg:block p-6 bg-gray-800 rounded-full text-white hover:bg-gray-700 transition"
+              className="hidden md:block lg:block p-6 rounded-full text-white transition"
             >
-              Previous
+              Prev
             </button>
 
             {/* Card Display */}

@@ -49,7 +49,7 @@ const Prices = () => {
                   hourlyDescription="Perfect for short-term or flexible projects requiring design expertise on demand."
                   monthlyDetails={[
                     'Regular design updates and iterations.',
-                    'Design system maintenance and support.',
+                    'Website and design system maintenance and support.',
                     'Performance reviews and optimizations.',
                     'Cross-team collaboration and feedback.',
                   ]}

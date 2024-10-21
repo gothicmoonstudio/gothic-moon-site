@@ -16,6 +16,7 @@ const PricesCardWithTab = ({
   animationData,
   title,
   buttonLabel,
+  buttonLink,
   monthlyPrice,
   hourlyPrice,
   monthlyPriceSuffix = "/ month",  // New prop for monthly suffix
@@ -51,9 +52,9 @@ const PricesCardWithTab = ({
 
     return (
       <>
-        <div className="flex flex-col md:flex-row justify-center items-start md:items-end lg:items-end gap-0 md:gap-2 lg:gap-2">
+        <div className="w-full h-full flex flex-col md:flex-row items-start text-left md:items-end lg:items-end gap-0 md:gap-2 lg:gap-2">
           {/* Price */}
-          <div className="text-[#f4f3ff] text-4xl font-normal font-header">
+          <div className="text-[#f4f3ff] text-left text-[1.75rem] md:text-[2.25rem] lg:text-[2.25rem] font-normal font-header">
             {price}
           </div>
           {/* Price Suffix */}
@@ -118,7 +119,7 @@ const PricesCardWithTab = ({
 
       {/* Button */}
       <div className="mt-4">
-        <SecondaryButton label={buttonLabel} />
+        <SecondaryButton label={buttonLabel} href={buttonLink} />
       </div>
     </div>
   );

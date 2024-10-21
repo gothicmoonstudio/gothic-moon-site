@@ -1,51 +1,29 @@
 import React from 'react';
-import Link from 'next/link'; // Assuming you're using Next.js for routing
 
 const TextBlock = ({
   title = 'Default Title',
-  articleLink = '#', // Link to the article
-  onReadMoreClick = () => {}, // Handler function for link clicks
+  children,
+  creator = 'Gothic Moon Studio',
 }) => {
-  const renderLine = (line, lineIndex) => (
-    <div
-      key={lineIndex}
-      style={{
-        display: 'inline-block',
-        background: lineIndex % 2 === 0 ? '#a06af8' : '#C4B5FD',
-        padding: '0.75rem 0.75rem',
-        borderRadius: '16px',
-        margin: '0.25rem 0',
-        whiteSpace: 'pre-line',
-        cursor: 'pointer',
-        transition: 'transform 0.3s ease-in-out',
-      }}
-      className="hover:scale-105" // Scale on hover for a visual effect
-    >
-      {line.split(' ').map((word, index) => (
-        <span
-          key={index}
-          style={{
-            display: 'inline-block',
-            margin: '0 0.2rem',
-          }}
-        >
-          {word}
-        </span>
-      ))}
-    </div>
-  );
-
   return (
-    <div className="flex flex-col items-start justify-start space-y-4">
-      {/* Wrap the entire title block with a Link component to make it clickable */}
-      <Link href={articleLink} legacyBehavior>
-        <a
-          className="text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-bold font-header text-left no-underline hover:underline"
-          onClick={onReadMoreClick} // Trigger the onReadMoreClick handler
-        >
-          {title.split('\n').map((line, index) => renderLine(line, index))}
-        </a>
-      </Link>
+    <div className="w-full h-[597px] px-2 py-4 rounded-2xl flex-col justify-end items-center inline-flex relative overflow-hidden">
+      {/* Content Block */}
+      <div className="w-full p-4 bg-gradient-to-tl from-[#3b1ae5] to-[#a06af8] rounded-2xl flex flex-col gap-3">
+        {/* Render children (for categories or other content passed in) */}
+        <div className="flex gap-2.5">{children}</div>
+
+        {/* Title */}
+        <div className="text-[#f4f3ff] text-[1.5rem] md:text-[1.75rem] lg:text-[1.75rem] text-left font-medium font-header leading-[150%]">
+          {title}
+        </div>
+
+        {/* Creator */}
+        <div className="flex items-center gap-2.5">
+          <div className="opacity-80 text-[#f4f3ff] text-base font-normal font-header leading-normal">
+            by {creator}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

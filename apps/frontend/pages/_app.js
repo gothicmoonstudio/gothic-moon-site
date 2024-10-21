@@ -83,7 +83,7 @@ function MyApp({ Component, pageProps }) {
               {isIntroModalVisible && (
                 <Modal
                   title="Fancy meeting you here..."
-                  description={"The Gothic Moon website is almost complete! Feel free to explore, but please note that some features may still be under construction.\n\nWe appreciate your patience as we put the finishing touches on everything."}
+                  description={"The Gothic Moon website is almost complete! Feel free to explore, but please note that some features may still be under construction.\n\nThank you for your patience as we add the final touches."}
                   buttonLabel="👌 Perfect! Start Exploring..."
                   onClose={handleCloseIntroModal}
                   shakeOnOutsideClick
