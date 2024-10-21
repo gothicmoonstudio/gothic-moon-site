@@ -43,7 +43,7 @@ function Navbar({ activeSection }) {
 
         {/* Menu Button for Mobile */}
         <button
-          className="md:hidden p-4 bg-[#1F1C33] rounded-full z-50"
+          className=""
           onClick={toggleMenu}
           aria-label="Menu"
         >

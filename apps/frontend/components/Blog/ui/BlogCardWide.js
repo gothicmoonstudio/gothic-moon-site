@@ -9,18 +9,21 @@ const BlogCardWide = ({
   onButtonClick,
   categories = [],
   creator = 'Gothic Moon Studio',
+  articleLink = '#',
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const displayedCategories = categories.slice(0, 2);
 
   return (
-    <div
+    <a
+      href={articleLink}
+      target="_blank"
+      rel="noopener noreferrer"
       className="h-full p-2 md:p-4 lg:p-4 bg-cover bg-center rounded-2xl shadow-lg flex flex-col justify-end gap-6 cursor-pointer
       md:gap-2.5 transition-all duration-300 relative overflow-hidden hover:scale-[1.02] hover:shadow-xl"
       style={{ backgroundImage: `url(${image})` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={onButtonClick} // Trigger the window.open() logic
     >
       <div className="absolute inset-0 bg-black/30 rounded-2xl"></div>
 
@@ -52,7 +55,7 @@ const BlogCardWide = ({
           <ArrowUpRight size={24} strokeWidth="1.5px" color="#f4f3ff" />
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 

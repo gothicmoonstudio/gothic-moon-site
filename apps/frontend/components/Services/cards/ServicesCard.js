@@ -11,7 +11,7 @@ const ServicesCard = ({ title, description, services, imageSrc, bgColor, textCol
     >
       {/* Left Content */}
       <div className="flex flex-col justify-start items-start gap-6 w-full lg:w-2/3">
-        <h2 className="text-[2rem] md:text-[2rem] lg:text-[2.5rem] font-medium font-header text-left leading-snug">
+        <h2 className="text-[1.75rem] md:text-[2rem] lg:text-[2.5rem] font-medium font-header text-left leading-snug">
           {title}
         </h2>
 

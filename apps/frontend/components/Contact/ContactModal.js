@@ -58,13 +58,13 @@ const ContactModal = ({ handleClose }) => {
         {/* Modal Inner Container */}
         <div className="w-full rounded-2xl flex flex-col">
           {/* Header Wrapper with Close Button and Title */}
-          <div className="w-full flex flex-row justify-between items-center mb-8">
+          <div className="w-full flex flex-row justify-between items-start mb-8">
           {/* Title Container */}
           <div className="flex flex-wrap justify-start items-start">
             <div className="text-[#141221] text-[1.25rem] md:text-[1.5rem] lg:text-[1.5rem] font-medium font-header leading-[150%]">
               Let’s build something
             </div>
-            <span className="text-[#141221] text-[1.25rem] md:text-[1.5rem] lg:text-[1.5rem] font-normal font-serif leading-[150%] pl-1 md:pl-2 lg:pl-2">
+            <span className="text-[#141221] text-[1.25rem] md:text-[1.5rem] lg:text-[1.5rem] font-normal font-serif leading-[150%] pl-0 md:pl-2 lg:pl-2">
               extraordinary.
             </span>
           </div>

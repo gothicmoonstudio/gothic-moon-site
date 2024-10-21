@@ -6,13 +6,11 @@ import BlogCardNarrow from './ui/BlogCardNarrow';
 import TextOverContent from '../templates/TextOverContent';
 import ScaleInCenter from '../Animations/ScaleInCenter/ScaleInCenter';
 
-// Using CORS proxy to fetch Medium RSS feed
 const mediumRSSFeed = 'https://api.allorigins.win/raw?url=https://medium.com/feed/@gothicmoonstudio';
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
 
-  // Function to fetch Medium RSS feed and parse it
   const fetchMediumPosts = async () => {
     try {
       const response = await axios.get(mediumRSSFeed);
@@ -41,18 +39,12 @@ const Blog = () => {
           }
         }
 
-        // Ensure categories are always an array
         const categories = Array.isArray(item.category)
           ? item.category
-          : [item.category].filter(Boolean); // Handle single category
+          : [item.category].filter(Boolean);
 
-        const toTitleCase = (str) => {
-          return str
-            .toLowerCase()
-            .split(' ')
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(' ');
-        };
+        const toTitleCase = (str) => 
+          str.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
         return {
           title: item.title,
@@ -63,14 +55,14 @@ const Blog = () => {
         };
       });
 
-      setPosts(formattedPosts.slice(0, 4)); 
+      setPosts(formattedPosts.slice(0, 4));
     } catch (error) {
       console.error('Error fetching Medium RSS feed:', error);
     }
   };
 
   useEffect(() => {
-    fetchMediumPosts(); // Fetch posts on mount
+    fetchMediumPosts();
   }, []);
 
   return (
@@ -89,7 +81,7 @@ const Blog = () => {
                       title={post.title}
                       image={post.thumbnail}
                       buttonText="Read More"
-                      onButtonClick={() => window.open(post.link, '_blank')}
+                      articleLink={post.link}
                       categories={post.categories}
                       creator={post.creator}
                     />
@@ -98,7 +90,7 @@ const Blog = () => {
                       title={post.title}
                       image={post.thumbnail}
                       buttonText="Read More"
-                      onButtonClick={() => window.open(post.link, '_blank')}
+                      articleLink={post.link}
                       categories={post.categories}
                       creator={post.creator}
                     />

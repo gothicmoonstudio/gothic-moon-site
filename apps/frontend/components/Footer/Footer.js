@@ -1,17 +1,20 @@
 import React from 'react';
 import { Instagram, Dribbble, Mail } from 'react-feather';
 import TwoColumnFooter from '../layouts/TwoColumnFooter';
+import Link from 'next/link';
 
 const Footer = () => {
   // Define the left content for the footer
   const leftContent = (
     <div className="w-full flex flex-col items-center md:items-start lg:items-start mt-24 md:lg:mt-0 lg:mt-0">
       {/* Logo Section */}
-      <img
-        src="/images/gothicmoon_fulllogo.png"
-        alt="Gothic Moon Creative Studio Logo"
-        className="w-[12rem] md:w-[16rem] lg:w-[20rem] h-auto object-contain"
-      />
+      <Link href="https://www.gothicmoon.co" aria-label="Back to Home" className="cursor-pointer">
+        <img
+          src="/images/gothicmoon_fulllogo.png"
+          alt="Gothic Moon Creative Studio Logo"
+          className="w-[12rem] md:w-[16rem] lg:w-[20rem] h-auto object-contain"
+        />
+      </Link>
     </div>
   );
 
