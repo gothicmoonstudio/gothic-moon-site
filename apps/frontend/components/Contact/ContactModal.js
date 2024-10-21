@@ -64,21 +64,27 @@ const ContactModal = ({ handleClose }) => {
             <div className="text-[#141221] text-[1.25rem] md:text-[1.5rem] lg:text-[1.5rem] font-medium font-header leading-[150%]">
               Let’s build something
             </div>
-            <span className="text-[#141221] text-[1.25rem] md:text-[1.5rem] lg:text-[1.5rem] font-normal font-serif leading-[150%] pl-0 md:pl-2 lg:pl-2">
+            <span className="text-[#141221] text-[1.25rem] md:text-[1.5rem] lg:text-[1.5rem] font-normal font-serif leading-[150%] pl-[.25rem] md:pl-2 lg:pl-2">
               extraordinary.
             </span>
           </div>
 
           {/* Close Button - Fixed to Top Right */}
-          <div className="flex justify-end items-end">
+          <div className="flex justify-end items-center">
           <button
-            className="bg-[#141221] rounded-full p-2
-            hover:scale-105 transition-transform duration-300 cursor-pointer"
+            className="
+              bg-[#141221] rounded-full p-2 
+              hover:scale-110 active:scale-95 
+              transition-transform duration-200 ease-in-out
+              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1F1C33]
+              cursor-pointer
+            "
             onClick={handleClose}
+            aria-label="Close"
           >
-            <X className="w-4 h-4 text-[#f4f3ff]" />
+            <X className="w-5 h-5 text-[#f4f3ff]" />
           </button>
-          </div>
+        </div>
         </div>
 
           <div className="flex flex-col gap-8">
