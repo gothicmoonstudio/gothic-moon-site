@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Gothic Moon Studio</title>
+        <title>Gothic Moon | Product & Web Design Studio</title>
         <meta
           name="description"
           content="High-quality UX design solutions provided by Gothic Moon, specializing in crafting immersive user experiences."

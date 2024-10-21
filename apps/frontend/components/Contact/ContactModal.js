@@ -76,13 +76,12 @@ const ContactModal = ({ handleClose }) => {
               bg-[#141221] rounded-full p-2 
               hover:scale-110 active:scale-95 
               transition-transform duration-200 ease-in-out
-              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1F1C33]
               cursor-pointer
             "
             onClick={handleClose}
             aria-label="Close"
           >
-            <X className="w-5 h-5 text-[#f4f3ff]" />
+            <X className="w-4 h-4 text-[#f4f3ff]" />
           </button>
         </div>
         </div>
