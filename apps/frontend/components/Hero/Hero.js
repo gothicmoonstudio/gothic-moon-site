@@ -21,21 +21,25 @@ const Hero = () => {
 
   // Animation variant for social icons
   const socialIconsFadeIn = {
-    hidden: { opacity: 0, x: -30 }, // Slide in from the left
+    hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
-      x: 0,
-      transition: { duration: 1.5, ease: 'easeOut', delay: 0.5 },
+      y: 0,
+      transition: {
+        duration: 1.2, 
+        ease: 'easeOut', 
+        delay: 1, // Matches the total time of the previous animation
+      },
     },
   };
 
   return (
     <OneColumn>
       {/* Main Wrapper */}
-      <div className="relative w-full h-screen flex flex-col">
+      <div className="relative w-full h-screen flex flex-col items-center justify-center">
         {/* Content Wrapper for Title and Subtitle */}
         <motion.div
-          className="flex-1 w-full flex flex-col items-center justify-center"
+          className="flex flex-col items-center space-y-6"
           initial="hidden"
           animate="visible"
           variants={fadeInUp} // Apply fade-in and slide-up animation
@@ -72,7 +76,7 @@ const Hero = () => {
 
           {/* Subtitle Section with Slight Delay */}
           <motion.p
-            className="text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-header leading-[150%] text-center mt-4"
+            className="text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-header leading-[150%] text-center mt-6"
             variants={fadeInDelay} // Subtitle has a slight delay
           >
             Gothic Moon is a digital design studio specializing in product & web design. Check out our latest project.
@@ -81,7 +85,7 @@ const Hero = () => {
 
         {/* Social Media Icons Section with Fade-in Animation */}
         <motion.div
-          className="absolute bottom-16 flex space-x-6"
+          className="flex justify-center space-x-4 mt-8"
           initial="hidden"
           animate="visible"
           variants={socialIconsFadeIn} // Apply fade-in animation for social icons

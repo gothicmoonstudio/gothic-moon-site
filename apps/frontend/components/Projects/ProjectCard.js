@@ -13,7 +13,7 @@ const ProjectCard = ({
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 w-full">
         {/* Title and Subtitle */}
         <div className="flex flex-col gap-2">
-          <div className="text-[#141221] text-2xl md:text-3xl leading-9 font-header font-medium text-left">
+          <div className="text-[#141221] text-[1.5rem] md:text-[1.75rem] lg:text-[2rem] leading-9 font-header font-medium text-left">
             {title} <span className="font-serif">{subtitle}</span>
           </div>
 

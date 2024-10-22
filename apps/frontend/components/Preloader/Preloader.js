@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import styles from './Preloader.module.css';
 
@@ -15,26 +15,18 @@ const Preloader = ({ setLoading }) => {
           scale: 1,
           opacity: 1,
           duration: 0.8,
-          ease: 'bounce.out',
-          onComplete: () => {
-            gsap.delayedCall(1, () => {
-              setLoading(false);
-            });
-          },
+          ease: 'elastic.out(1, 0.3)',
+          onComplete: () => gsap.delayedCall(1, () => setLoading(false)),
         }
       );
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!logoRef.current) return;
 
     const paths = logoRef.current.querySelectorAll('.logo-path');
-
-    if (paths.length === 0) {
-      console.warn('No elements found for animation.');
-      return;
-    }
+    if (!paths?.length) return console.warn('No elements found for animation.');
 
     gsap.fromTo(
       paths,
@@ -43,7 +35,7 @@ const Preloader = ({ setLoading }) => {
         opacity: 1,
         duration: 0.5,
         stagger: 0.2,
-        ease: 'power2.out',
+        ease: 'power3.out',
         onComplete: animateInnerLogo,
       }
     );
