@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Instagram, Dribbble } from 'react-feather';
 import OneColumn from '../layouts/OneColumn';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 
 const Hero = () => {
-  // Animation variants for title and subtitle
+  // State to control the visibility of images
+  const [showImages, setShowImages] = useState(false);
+
+  // Animation controls for social icons
+  const socialControls = useAnimation();
+
+  // Animation variants
   const fadeInUp = {
-    hidden: { opacity: 0, y: 50 }, // Start hidden and slide up
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, ease: 'easeOut' },
+    },
   };
 
   const fadeInDelay = {
@@ -19,19 +29,29 @@ const Hero = () => {
     },
   };
 
-  // Animation variant for social icons
   const socialIconsFadeIn = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 1.2, 
-        ease: 'easeOut', 
-        delay: 1, // Matches the total time of the previous animation
+        duration: 1.2,
+        ease: 'easeOut',
+        delay: 1, // Adjust delay if needed
       },
     },
   };
+
+  // Trigger the social icons animation and then show the images
+  useEffect(() => {
+    async function sequence() {
+      // Start the social icons animation
+      await socialControls.start('visible');
+      // After the social icons are visible, show the images
+      setShowImages(true);
+    }
+    sequence();
+  }, [socialControls]);
 
   return (
     <OneColumn>
@@ -45,34 +65,64 @@ const Hero = () => {
           variants={fadeInUp} // Apply fade-in and slide-up animation
         >
           {/* Title Section */}
-          <h1 className="w-full lg:px-40 text-[1.75rem] md:text-[3rem] lg:text-[4rem] font-normal font-header leading-[150%] text-center">
+          <motion.h1
+            className="w-full lg:px-40 text-[1.75rem] md:text-[3rem] lg:text-[4rem] font-normal font-header leading-[150%] text-center"
+            layout
+          >
             Crafting{' '}
-            <span className="inline-block -mt-2">spellbinding</span>
-
-            <img
-              src="/gifs/gooey.gif"
-              className="inline-block w-auto h-12 md:h-16 lg:h-36 mx-[-4px] md:mx-[-6px] lg:mx-[-6px] -mt-2 align-middle"
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
-
-            <span className="inline-block -mt-2">user</span> experiences that enchant your users & elevate{' '}
-
-            <span className="inline-block font-serif -mt-2">your</span>
-
-            <img
-              src="/gifs/molecule.gif"
-              className="inline-block w-auto h-12 md:h-16 lg:h-36 mx-[-4px] md:mx-[-6px] lg:mx-[-6px] -mt-2 align-middle"
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
-
-            <span className="inline-block font-serif -mt-2">digital presence.</span>
-          </h1>
+            <motion.span className="inline-block -mt-2" layout>
+              spellbinding
+            </motion.span>{' '}
+            {/* Conditionally render images */}
+            {showImages ? (
+              <motion.img
+                src="/gifs/gooey.gif"
+                className="inline-block w-auto h-12 md:h-16 lg:h-36 mx-[-4px] md:mx-[-6px] lg:mx-[-6px] -mt-2 align-middle"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: 'spring', stiffness: 500, damping: 20 }}
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            ) : (
+              // Placeholder to maintain spacing
+              <span style={{ display: 'inline-block', width: '0', height: '0' }} />
+            )}
+            <motion.span className="inline-block -mt-2" layout>
+              user
+            </motion.span>{' '}
+            experiences that enchant your users & elevate{' '}
+            <motion.span className="inline-block font-serif -mt-2" layout>
+              your
+            </motion.span>{' '}
+            {/* Conditionally render the second image */}
+            {showImages ? (
+              <motion.img
+                src="/gifs/molecule.gif"
+                className="inline-block w-auto h-12 md:h-16 lg:h-36 mx-[-4px] md:mx-[-6px] lg:mx-[-6px] -mt-2 align-middle"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 500,
+                  damping: 20,
+                  delay: 0.1,
+                }}
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            ) : (
+              // Placeholder to maintain spacing
+              <span style={{ display: 'inline-block', width: '0', height: '0' }} />
+            )}
+            <motion.span className="inline-block font-serif -mt-2" layout>
+              digital presence.
+            </motion.span>
+          </motion.h1>
 
           {/* Subtitle Section with Slight Delay */}
           <motion.p
@@ -87,16 +137,22 @@ const Hero = () => {
         <motion.div
           className="flex justify-center space-x-4 mt-8"
           initial="hidden"
-          animate="visible"
+          animate={socialControls}
           variants={socialIconsFadeIn} // Apply fade-in animation for social icons
         >
           {/* Instagram Icon */}
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            <Instagram size={24} className="hover:text-[#f8ffce] hover:scale-110 transition duration-300" />
+            <Instagram
+              size={24}
+              className="hover:text-[#f8ffce] hover:scale-110 transition duration-300"
+            />
           </a>
           {/* Dribbble Icon */}
           <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer">
-            <Dribbble size={24} className="hover:text-[#f8ffce] hover:scale-110 transition duration-300" />
+            <Dribbble
+              size={24}
+              className="hover:text-[#f8ffce] hover:scale-110 transition duration-300"
+            />
           </a>
         </motion.div>
       </div>
