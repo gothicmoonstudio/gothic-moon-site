@@ -24,7 +24,7 @@ const Prices = () => {
                   priceSuffix="/ project"
                   description="Ideal for clients seeking to address particular challenges or enhance key areas of their user experience."
                   buttonLabel="Schedule a Discovery Call"
-                  buttonLink="https://calendly.com/mary-gothicmoon/30min"
+                  buttonLink="https://calendly.com/mary-gothicmoon/ux-web-design-intro-call-clone-1"
                   details={[
                     'UI/UX design for a specific feature or product.',
                     'User flow and wireframe development.',
@@ -42,7 +42,7 @@ const Prices = () => {
                   animationData={SparklesAnimation}
                   title="Ongoing Support"
                   buttonLabel="Schedule a Discovery Call"
-                  buttonLink="https://calendly.com/mary-gothicmoon/30min"
+                  buttonLink="https://calendly.com/mary-gothicmoon/ux-web-design-intro-call-clone"
                   monthlyPrice="$3,080-$6,080"
                   hourlyPrice="$100-$190"
                   monthlyDescription="Ideal for clients that need continuous design support with predictable monthly costs."

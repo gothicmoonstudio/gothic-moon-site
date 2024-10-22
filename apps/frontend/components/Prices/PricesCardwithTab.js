@@ -28,23 +28,24 @@ const PricesCardWithTab = ({
 }) => {
   const [activeTab, setActiveTab] = useState('monthly');
   const animationContainer = useRef(null);
-  const animationInstance = useRef(null); // Store animation instance
+  const animationInstance = useRef(null);
 
   useEffect(() => {
-    animationInstance.current = lottie.loadAnimation({
-      container: animationContainer.current,
-      renderer: 'svg',
-      loop: true,
-      autoplay: false, // Autoplay disabled by default
-      animationData,
-    });
+    if (animationContainer.current) {
+      animationInstance.current = lottie.loadAnimation({
+        container: animationContainer.current,
+        renderer: 'svg',
+        loop: true,
+        autoplay: false, // Only play animation on hover
+        animationData,
+      });
+    }
 
     return () => {
-      animationInstance.current.destroy(); // Cleanup animation on unmount
+      animationInstance.current?.destroy(); // Cleanup on unmount
     };
   }, [animationData]);
 
-  // Hover handlers to play/pause the animation
   const handleMouseEnter = () => animationInstance.current?.play();
   const handleMouseLeave = () => animationInstance.current?.stop();
 
@@ -126,7 +127,7 @@ const PricesCardWithTab = ({
         </button>
       </div>
 
-      {/* Render Content based on active tab */}
+      {/* Render Content based on Active Tab */}
       {renderContent()}
 
       {/* Button */}

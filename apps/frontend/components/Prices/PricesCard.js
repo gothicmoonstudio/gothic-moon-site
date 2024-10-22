@@ -26,18 +26,19 @@ const PricesCard = ({
   const animationInstance = useRef(null); // Store the animation instance
 
   useEffect(() => {
-    // Initialize the animation but keep it paused initially
-    animationInstance.current = lottie.loadAnimation({
-      container: animationContainer.current,
-      renderer: 'svg',
-      loop: true,
-      autoplay: false, // Disable autoplay
-      animationData,
-    });
+    if (animationContainer.current) {
+      animationInstance.current = lottie.loadAnimation({
+        container: animationContainer.current,
+        renderer: 'svg',
+        loop: true,
+        autoplay: false, // Start animation only on hover
+        animationData,
+      });
+    }
 
     return () => {
-      // Clean up the animation on unmount
-      animationInstance.current.destroy();
+      // Safely clean up the animation on unmount
+      animationInstance.current?.destroy();
     };
   }, [animationData]);
 
@@ -94,10 +95,7 @@ const PricesCard = ({
       {/* Bullet-Pointed Details */}
       <ul className="text-[#f4f3ff] text-base md:text-[1rem] lg:text-[1rem] font-normal leading-[150%] text-left font-body">
         {details.map((detail, index) => (
-          <li
-            key={index}
-            className="my-2 flex items-center"
-          >
+          <li key={index} className="my-2 flex items-center">
             <SVGBullet />
             <span>{detail}</span>
           </li>

@@ -21,7 +21,7 @@
 
 @media (max-width: 767px) {
   .cardOffset {
-    top: calc(4.2rem * var(--index));
+    top: calc(4.4rem * var(--index));
     z-index: calc(10 - var(--index));
   }
 }

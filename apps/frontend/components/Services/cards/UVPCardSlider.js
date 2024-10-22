@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import UVPCard from './UVPCards';
 import { useSwipeable } from 'react-swipeable';
+import crystalBallAnimation from '../../../public/assets/animations/icons8-crystal-ball.json';
+import fortuneAnimation from '../../../public/assets/animations/icons8-fortune-teller.json';
+import moonStarsAnimation from '../../../public/assets/animations/icons8-moon-and-stars.json';
+import newMoonAnimation from '../../../public/assets/animations/icons8-new-moon.json';
 
 // Helper function to calculate the 3D transform style
 const getTransformStyle = (index, selectedSlide, totalSlides) => {
@@ -58,49 +62,55 @@ const UVPCardSlider = () => {
         title1: 'Committing to',
         title2: 'a Customer-Centric Approach',
         description: 'We prioritize your needs and preferences, ensuring a collaborative partnership that exceeds expectations.',
-        imageSrc: '/gifs/orb.gif',
+        animationData: newMoonAnimation,
         bgColor: 'linear-gradient(90deg, #81249E, #9747FF)',
         textColor: '#F4F3FF',
+        inverted: true,
       },
       {
         title1: 'Using',
         title2: 'Data-Driven Design',
         description: 'Harness the power of data-driven design to drive engagement and deliver measurable results.',
-        imageSrc: '/gifs/orb.gif',
+        animationData: crystalBallAnimation,
         bgColor: 'linear-gradient(45deg, #FFE9E9, #F6FFBC)',
         textColor: '#141221',
+        inverted: false,
       },
       {
         title1: 'Providing',
         title2: 'Personalized Service',
         description: 'Say goodbye to generic designs and bring your brand’s unique vision to life.',
-        imageSrc: '/gifs/orb.gif',
+        animationData: fortuneAnimation,
         bgColor: 'linear-gradient(135deg, #3B1AE5, #E1303B)',
         textColor: '#F4F3FF',
+        inverted: true,
       },
       {
         title1: 'Ensuring',
         title2: 'Quality Craftsmanship',
         description: 'Meticulously crafted designs that leave a lasting impression.',
-        imageSrc: '/gifs/orb.gif',
+        animationData: moonStarsAnimation,
         bgColor: 'linear-gradient(25deg, #e9cdff, #f4f3ff)',
         textColor: '#141221',
+        inverted: false,
       },
       {
         title1: 'Offering',
         title2: 'Strategic Expertise',
         description: 'Elevate your brand with data-driven strategies.',
-        imageSrc: '/gifs/orb.gif',
+        animationData: crystalBallAnimation,
         bgColor: 'linear-gradient(45deg, #3B1AE5, #A06AF8)',
         textColor: '#F4F3FF',
+        inverted: true,
       },
       {
         title1: 'Promising',
         title2: 'a Seamless Experience',
         description: 'Enjoy smooth communication, timely delivery, and exceptional customer service throughout your project.',
-        imageSrc: '/gifs/orb.gif',
+        animationData: newMoonAnimation,
         bgColor: 'linear-gradient(45deg, #FFE9E9, #A06AF8)',
         textColor: '#141221',
+        inverted: false,
       },
     ];
 
@@ -139,8 +149,8 @@ const UVPCardSlider = () => {
               name="slider"
               className="hidden"
               id={`s${index + 1}`}
-              checked={selectedSlide === index} // Corrected index comparison
-              onChange={() => handleSlideChange(index)} // Set correct slide
+              checked={selectedSlide === index}
+              onChange={() => handleSlideChange(index)}
             />
           ))}
 
@@ -157,12 +167,13 @@ const UVPCardSlider = () => {
               }}
             >
               <UVPCard
-                title1={card.title1}
-                title2={card.title2}
-                description={card.description}
-                imageSrc={card.imageSrc}
-                bgColor={card.bgColor}
-                textColor={card.textColor}
+                  title1={card.title1}
+                  title2={card.title2}
+                  description={card.description}
+                  animationData={card.animationData}
+                  bgColor={card.bgColor}
+                  textColor={card.textColor}
+                  inverted={card.inverted}
               />
             </label>
           ))}

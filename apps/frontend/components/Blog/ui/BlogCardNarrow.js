@@ -35,7 +35,7 @@ const BlogCardNarrow = ({
         transition-all duration-300 transform 
         ${isHovered ? 'scale-100 visible opacity-100' : 'scale-0 invisible opacity-0'}`}
       >
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 pl-1">
           <span className="text-[#f4f3ff] text-base font-medium font-header leading-normal">
             {buttonText}
           </span>
