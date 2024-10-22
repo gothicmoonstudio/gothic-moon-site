@@ -41,16 +41,24 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Gothic Moon | Product & Web Design Studio</title>
-        <meta
-          name="description"
-          content="High-quality UX design solutions provided by Gothic Moon, specializing in crafting immersive user experiences."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/images/favicon.png" />
-        <link rel="stylesheet" href="https://use.typekit.net/wig7gea.css" media="print" onload="this.media='all'" />
-        <noscript><link rel="stylesheet" href="https://use.typekit.net/wig7gea.css" /></noscript>
-      </Head>
+      <title>Gothic Moon | Product & Web Design Studio</title>
+      <meta
+        name="description"
+        content="High-quality UX design solutions provided by Gothic Moon, specializing in crafting immersive user experiences."
+      />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href="/images/favicon.png" />
+      <link rel="apple-touch-icon" href="/images/webclip.png" />
+      <link
+        rel="stylesheet"
+        href="https://use.typekit.net/wig7gea.css"
+        media="print"
+        onload="this.media='all'"
+      />
+      <noscript>
+        <link rel="stylesheet" href="https://use.typekit.net/wig7gea.css" />
+      </noscript>
+    </Head>
 
       <React.StrictMode>
         <ThemeProvider>
