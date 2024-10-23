@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Head from 'next/head'; // Import Head for meta tags
+import Head from 'next/head';
 import '../styles/global.css';
 import Preloader from '../components/Preloader/Preloader';
 import Navbar from '../components/Navbar/NavBar';
 import { ThemeProvider } from '../context/ThemeContext';
 import PrimaryButton from '../components/ui/PrimaryButton';
 import ContactModal from '../components/Contact/ContactModal';
-import Modal from '../components/Modal/Modal'; // Import reusable modal
-import { motion } from 'framer-motion'; // Import Framer Motion
+import Modal from '../components/Modal/Modal';
+import { motion } from 'framer-motion';
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);

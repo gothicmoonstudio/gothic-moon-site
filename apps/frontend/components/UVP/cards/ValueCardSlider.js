@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UVPCard from './UVPCards';
+import ValueCard from './ValueCards';
 import { useSwipeable } from 'react-swipeable';
 import crystalBallAnimation from '../../../public/assets/animations/icons8-crystal-ball.json';
 import fortuneAnimation from '../../../public/assets/animations/icons8-fortune-teller.json';
@@ -166,7 +166,7 @@ const UVPCardSlider = () => {
                 transition: 'transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55)', // Custom easing for a smoother effect
               }}
             >
-              <UVPCard
+              <ValueCard
                   title1={card.title1}
                   title2={card.title2}
                   description={card.description}

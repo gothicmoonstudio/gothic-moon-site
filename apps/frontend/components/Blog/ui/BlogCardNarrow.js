@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TextBlock from '../ui/TextBlock';
 import { ArrowUpRight } from 'react-feather';
-import styles from '../Blog.module.css'; // Import CSS module
+import styles from '../Blog.module.css';
 
 const BlogCardNarrow = ({
   title = 'Default Title',
@@ -24,7 +24,7 @@ const BlogCardNarrow = ({
       style={{ backgroundImage: `url(${image})` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => window.open(articleLink, '_blank', 'noopener,noreferrer')} // Open in new tab
+      onClick={() => window.open(articleLink, '_blank', 'noopener,noreferrer')}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30 rounded-2xl"></div>
@@ -32,7 +32,7 @@ const BlogCardNarrow = ({
       {/* Hover Arrow + Text */}
       <div
         className={`absolute top-4 right-4 px-3 py-2 rounded-full bg-gradient-to-tl from-[#3b1ae5] to-[#a06af8] 
-        transition-all duration-300 transform 
+        transition-all duration-300 transform
         ${isHovered ? 'scale-100 visible opacity-100' : 'scale-0 invisible opacity-0'}`}
       >
         <div className="flex items-center gap-2">

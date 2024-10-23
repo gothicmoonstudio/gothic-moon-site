@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../templates/Header';
 
-const UVPIntro = () => {
+const Intro = () => {
   const title = "Illuminating your path to";
   const specialText = "design excellence.";
 
@@ -15,4 +15,4 @@ const UVPIntro = () => {
   );
 };
 
-export default UVPIntro;
+export default Intro;

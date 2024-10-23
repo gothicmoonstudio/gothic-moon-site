@@ -1,8 +1,8 @@
 import React from 'react';
 import SideBySide from '../templates/SidebySide';
-import UVPCardSlider from '../Services/cards/UVPCardSlider'
+import ValueCardSlider from './cards/ValueCardSlider'
 
-const UVPDetails = () => {
+const Details = () => {
   const leftContent = (
     <div className="flex flex-col gap-6">
       <div className="text-[1.75rem] md:text-[2rem] lg:text-[3rem] font-medium font-header">
@@ -16,7 +16,7 @@ const UVPDetails = () => {
 
   const rightContent = (
     <div className="w-full h-full px-8 md:px-8 lg:px-8 flex justify-center items-center">
-      <UVPCardSlider />
+      <ValueCardSlider />
     </div>
   );
 
@@ -27,4 +27,4 @@ const UVPDetails = () => {
   );
 };
 
-export default UVPDetails;
+export default Details;

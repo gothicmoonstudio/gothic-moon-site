@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import styles from './Preloader.module.css';
 
@@ -22,11 +22,14 @@ const Preloader = ({ setLoading }) => {
     }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!logoRef.current) return;
 
     const paths = logoRef.current.querySelectorAll('.logo-path');
-    if (!paths?.length) return console.warn('No elements found for animation.');
+    if (!paths.length) {
+      console.warn('No elements found for animation.');
+      return;
+    }
 
     gsap.fromTo(
       paths,

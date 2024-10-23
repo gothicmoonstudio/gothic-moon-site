@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import NavItem from './NavItem';
 import MenuButton from './MenuButton';
 import LogoAnimation from './LogoAnimation';
@@ -53,6 +52,7 @@ function Navbar({ activeSection }) {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-4">
           <NavItem label="About" href="#about" isCurrentPage={activeSection === 'about'} />
+          <NavItem label="Our Value" href="#uvp" isCurrentPage={activeSection === 'uvp'} />
           <NavItem label="Services" href="#services" isCurrentPage={activeSection === 'services'} />
           <NavItem label="Projects" href="#projects" isCurrentPage={activeSection === 'projects'} />
           <NavItem label="Prices" href="#prices" isCurrentPage={activeSection === 'prices'} />
@@ -69,6 +69,12 @@ function Navbar({ activeSection }) {
             label="About"
             href="#about"
             isCurrentPage={activeSection === 'about'}
+            onClick={handleNavItemClick}
+          />
+           <NavItem
+            label="Our Value"
+            href="#uvp"
+            isCurrentPage={activeSection === 'uvp'}
             onClick={handleNavItemClick}
           />
           <NavItem
@@ -100,9 +106,5 @@ function Navbar({ activeSection }) {
     </header>
   );
 }
-
-Navbar.propTypes = {
-  activeSection: PropTypes.string.isRequired,
-};
 
 export default Navbar;

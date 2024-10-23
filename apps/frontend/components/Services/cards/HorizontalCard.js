@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ServicesCard = ({ title, description, services, videoSrc, bgColor, textColor }) => {
+const HorizontalCard = ({ title, description, services, videoSrc, bgColor, textColor }) => {
   return (
     <div
       className="w-screen p-6 md:p-8 lg:p-12 flex flex-col lg:flex-row gap-8 rounded-xl shadow-lg"
@@ -56,4 +56,4 @@ const ServicesCard = ({ title, description, services, videoSrc, bgColor, textCol
   );
 };
 
-export default ServicesCard;
+export default HorizontalCard;

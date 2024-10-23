@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import ServicesCardSlideUp from './cards/ServicesCardSlideUp';
+import HorizontalCardSlideUp from './cards/HorizontalCardSlideUp';
 
 const services = [
   {
@@ -41,7 +41,7 @@ const services = [
   },
 ];
 
-const ServicesOverview = () => {
+const Overview = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true });
 
@@ -61,34 +61,34 @@ const ServicesOverview = () => {
   };
 
   return (
-    <div className="h-full min-h-screen py-8 md:py-16 lg:py-24">
-      {/* Title Section */}
-      <div className="">
-        <h2 className="text-[1.5rem] md:text-[1.75rem] lg:text-[1.75rem] text-left font-header font-medium text-[#F4F3FF] pl-8">
-          Our Services
-        </h2>
-      </div>
+      <div className="h-full min-h-screen py-8 md:py-16 lg:py-24">
+        {/* Title Section */}
+        <div className="">
+          <h2 className="text-[1.5rem] md:text-[1.75rem] lg:text-[1.75rem] text-left font-header font-medium text-[#F4F3FF] pl-8">
+            Our Services
+          </h2>
+        </div>
 
-      {/* Cards Wrapper */}
-      <motion.div
-        ref={containerRef}
-        initial="hidden"
-        animate={isInView ? 'visible' : 'hidden'}
-        variants={containerVariants}
-        className="relative"
-      >
-        {services.map((service, index) => (
-          <motion.div key={index} variants={cardVariants} className="h-full mb-6 md:mb-8 lg:mb-8">
-            <ServicesCardSlideUp
-              service={service}
-              index={index}
-              totalCards={services.length}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
-    </div>
+        {/* Cards Wrapper */}
+        <motion.div
+          ref={containerRef}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+          variants={containerVariants}
+          className="relative"
+        >
+          {services.map((service, index) => (
+            <motion.div key={index} variants={cardVariants} className="h-full mb-6 md:mb-8 lg:mb-8">
+              <HorizontalCardSlideUp
+                service={service}
+                index={index}
+                totalCards={services.length}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
   );
 };
 
-export default ServicesOverview;
+export default Overview;

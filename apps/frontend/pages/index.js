@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Hero from '../components/Hero/Hero';
 import About from '../components/About/About';
+import UVP from '../components/UVP/UVP';
 import Services from '../components/Services/Services';
 import Projects from '../components/Projects/Project';
 import Prices from '../components/Prices/Prices';
@@ -9,39 +10,39 @@ import Footer from '../components/Footer/Footer';
 
 const HomePage = ({ setActiveSection }) => {
   useEffect(() => {
-    // Log to see if setActiveSection is defined
     console.log('setActiveSection:', setActiveSection);
+    
     if (typeof setActiveSection !== 'function') {
       console.error('setActiveSection is not defined or not a function');
       return;
     }
 
-    if (typeof window !== 'undefined') {
+    const handleObserver = () => {
       const sections = document.querySelectorAll('section');
-      const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.4,
-      };
+      console.log('Sections found:', sections);
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
+          console.log(`Section: ${entry.target.id}, isIntersecting: ${entry.isIntersecting}`);
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
           }
         });
-      }, options);
-
-      sections.forEach((section) => {
-        observer.observe(section);
+      }, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3,
       });
 
-      return () => {
-        sections.forEach((section) => {
-          observer.unobserve(section);
-        });
-      };
-    }
+      sections.forEach((section) => observer.observe(section));
+
+      return () => sections.forEach((section) => observer.unobserve(section));
+    };
+
+    // Delay observer initialization to ensure all sections are in place
+    const timeoutId = setTimeout(handleObserver, 100);
+
+    return () => clearTimeout(timeoutId);
   }, [setActiveSection]);
 
   return (
@@ -51,7 +52,11 @@ const HomePage = ({ setActiveSection }) => {
       </section>
 
       <section id="about">
-        <About /> 
+        <About />
+      </section>
+
+      <section id="uvp">
+        <UVP />
       </section>
 
       <section id="services">
@@ -70,9 +75,7 @@ const HomePage = ({ setActiveSection }) => {
         <Blog />
       </section>
 
-      <section id="footer">
         <Footer />
-      </section>
     </>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web-light';
 
-const UVPCard = ({
+const ValueCard = ({
   title1,
   title2,
   description,
@@ -67,4 +67,4 @@ const UVPCard = ({
   );
 };
 
-export default UVPCard;
+export default ValueCard;

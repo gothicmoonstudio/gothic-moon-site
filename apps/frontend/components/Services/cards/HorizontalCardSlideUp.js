@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import ServicesCard from './ServicesCard';
-import styles from './ServicesCardSlideUp.module.css';
+import HorizontalCard from './HorizontalCard';
+import styles from './HorizontalCardSlideUp.module.css';
 
-const ServicesCardSlideUp = ({ service, index, totalCards }) => {
+const HorizontalCardSlideUp = ({ service, index, totalCards }) => {
   const [isActive, setIsActive] = useState(false);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
@@ -30,10 +30,10 @@ const ServicesCardSlideUp = ({ service, index, totalCards }) => {
         }}
         onClick={handleCardClick}
       >
-        <ServicesCard {...service} />
+        <HorizontalCard {...service} />
       </div>
       </div>
   );
 };
 
-export default ServicesCardSlideUp;
+export default HorizontalCardSlideUp;

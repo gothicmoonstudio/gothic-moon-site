@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const NavItem = ({ label, href, isCurrentPage }) => {
   return (
@@ -13,17 +12,11 @@ const NavItem = ({ label, href, isCurrentPage }) => {
         <span className="absolute inset-0 rounded-full transform -translate-x-full group-hover:translate-x-0 z-10"></span>
       )}
       
-      <div className="nav-text relative z-20 text-md font-header">
+      <div className="nav-text relative z-20 text-md font-header whitespace-nowrap">
         {label}
       </div>
     </a>
   );
-};
-
-NavItem.propTypes = {
-  label: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
-  isCurrentPage: PropTypes.bool.isRequired,
 };
 
 export default NavItem;

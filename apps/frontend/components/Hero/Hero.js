@@ -129,7 +129,7 @@ const Hero = () => {
             className="text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-header leading-[150%] text-center mt-6"
             variants={fadeInDelay} // Subtitle has a slight delay
           >
-            Gothic Moon is a digital design studio specializing in product & web design. Check out our latest project.
+            Gothic Moon is a digital design studio specializing in product & web design.
           </motion.p>
         </motion.div>
 
