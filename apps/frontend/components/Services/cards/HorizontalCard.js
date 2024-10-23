@@ -44,14 +44,17 @@ const HorizontalCard = ({ title, description, services, videoSrc, bgColor, textC
         className={`relative w-full md:w-full lg:w-[30.5rem] h-[15.25rem] rounded-2xl 
         flex justify-center items-center overflow-visible shadow-md`}
       >
-        <video
+       <video
         src={videoSrc}
-        muted={true}
+        muted
         loop
         className="w-full h-full object-cover rounded-xl"
-        preload="metadata"
+        preload="auto"
         autoPlay
         playsInline
+        onError={(e) => console.error('Video error:', e)}
+        onPlay={() => console.log('Video is playing')}
+        onCanPlay={() => console.log('Video can play')}
       ></video>
       </div>
     </div>
