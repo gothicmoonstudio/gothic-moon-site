@@ -31,12 +31,12 @@ const UVPCard = ({
 
   return (
     <div
-      className="relative w-[19.12rem] md:w-[22.8rem] lg:w-[22.8rem] h-[26.56rem] md:h-[32.6rem] lg:h-[32.6rem] p-6 rounded-2xl flex flex-col justify-start items-center shadow-lg"
+      className="relative w-[19.12rem] md:w-[22.8rem] lg:w-[22.8rem] h-[26.56rem] md:h-[32.6rem] lg:h-[32.6rem] p-6 rounded-3xl flex flex-col justify-start items-center shadow-lg"
       style={{ background: bgColor, color: textColor }}
     >
       {/* Content Area with Border */}
       <div
-        className="self-stretch grow p-6 rounded-2xl border-[1.5px] flex flex-col justify-between items-center"
+        className="self-stretch grow p-6 rounded-3xl border-[1.5px] flex flex-col justify-between items-center"
         style={{ borderColor: appliedBorderColor }}
       >
         {/* Lottie Animation Container */}

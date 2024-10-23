@@ -24,7 +24,7 @@ const BlogCardNarrow = ({
       style={{ backgroundImage: `url(${image})` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => window.open(articleLink, '_blank', 'noopener,noreferrer')}
+      onClick={() => window.open(articleLink, '_blank', 'noopener,noreferrer')} // Open in new tab
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30 rounded-2xl"></div>
@@ -35,8 +35,8 @@ const BlogCardNarrow = ({
         transition-all duration-300 transform 
         ${isHovered ? 'scale-100 visible opacity-100' : 'scale-0 invisible opacity-0'}`}
       >
-        <div className="flex items-center gap-2 pl-1">
-          <span className="text-[#f4f3ff] text-base font-medium font-header leading-normal">
+        <div className="flex items-center gap-2">
+          <span className="text-[#f4f3ff] text-base font-medium font-header leading-normal pl-2">
             {buttonText}
           </span>
           <ArrowUpRight size={24} strokeWidth="1.5px" color="#f4f3ff" className="transform" />

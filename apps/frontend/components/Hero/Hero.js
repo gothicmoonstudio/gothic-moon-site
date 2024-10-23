@@ -135,7 +135,7 @@ const Hero = () => {
 
         {/* Social Media Icons Section with Fade-in Animation */}
         <motion.div
-          className="flex justify-center space-x-4 mt-8"
+          className="flex justify-center space-x-4 md:space-x-6 lg:space-x-8 mt-8"
           initial="hidden"
           animate={socialControls}
           variants={socialIconsFadeIn} // Apply fade-in animation for social icons
