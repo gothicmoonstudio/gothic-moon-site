@@ -80,7 +80,7 @@ const Blog = () => {
                     <BlogCardWide
                       title={post.title}
                       image={post.thumbnail}
-                      buttonText="Read More"
+                      buttonText="Read Blog"
                       articleLink={post.link}
                       categories={post.categories}
                       creator={post.creator}
@@ -89,7 +89,7 @@ const Blog = () => {
                     <BlogCardNarrow
                       title={post.title}
                       image={post.thumbnail}
-                      buttonText="Read More"
+                      buttonText="Read Blog"
                       articleLink={post.link}
                       categories={post.categories}
                       creator={post.creator}

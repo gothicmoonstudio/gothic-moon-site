@@ -24,7 +24,7 @@ const BlogCardNarrow = ({
       style={{ backgroundImage: `url(${image})` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => window.open(articleLink, '_blank', 'noopener,noreferrer')} // Open in new tab
+      onClick={() => window.open(articleLink, '_blank', 'noopener,noreferrer')}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30 rounded-2xl"></div>

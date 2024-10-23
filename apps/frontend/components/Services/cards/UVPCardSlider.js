@@ -108,7 +108,7 @@ const UVPCardSlider = () => {
         title2: 'a Seamless Experience',
         description: 'Enjoy smooth communication, timely delivery, and exceptional customer service throughout your project.',
         animationData: newMoonAnimation,
-        bgColor: 'linear-gradient(45deg, #FFE9E9, #A06AF8)',
+        bgColor: 'linear-gradient(25deg, #e9cdff, #f4f3ff)',
         textColor: '#141221',
         inverted: false,
       },
