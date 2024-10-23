@@ -49,7 +49,6 @@ const HorizontalCard = ({ title, description, services, videoSrc, bgColor, textC
         muted
         loop
         className="w-full h-full object-cover rounded-xl"
-        preload="auto"
         autoPlay
         playsInline
         onError={(e) => console.error('Video error:', e)}
