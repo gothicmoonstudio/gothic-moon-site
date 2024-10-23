@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router'; // Import useRouter from Next.js
 import NavItem from './NavItem';
 import MenuButton from './MenuButton';
 import LogoAnimation from './LogoAnimation';
 
 function Navbar({ activeSection }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter(); // Get the current route
+  const isHomePage = router.pathname === '/'; // Check if on the homepage
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
@@ -33,7 +36,7 @@ function Navbar({ activeSection }) {
         `}
       >
         <a
-          href="#home"
+          href={isHomePage ? '#home' : '/'} // Anchor link on the homepage, '/' link elsewhere
           aria-label="Home"
           className="w-14 h-14 flex-shrink-0"
         >

@@ -42,15 +42,15 @@ const HorizontalCard = ({ title, description, services, videoSrc, bgColor, textC
       {/* Right Column: Video */}
       <div
         className={`relative w-full md:w-full lg:w-[30.5rem] h-[15.25rem] rounded-2xl 
-        flex justify-center items-center overflow-hidden shadow-md`}
+        flex justify-center items-center overflow-visible shadow-md`}
       >
         <video
         src={videoSrc}
-        muted={true}  // Ensure this is explicitly set
+        muted={true}
         loop
         className="w-full h-full object-cover rounded-xl"
         preload="metadata"
-        autoPlay={true}
+        autoPlay
         playsInline
       ></video>
       </div>
