@@ -73,7 +73,7 @@ const Hero = () => {
               transition={{ duration: 1.2, ease: 'easeOut', delay: 0.1 }}
               alt="Molecule Animation"
             />{' '}
-            your digital presence.
+            <span className="font-serif">your digital presence.</span>
           </motion.h1>
 
           <motion.p

@@ -6,7 +6,7 @@ import Link from 'next/link';
 const Footer = () => {
   // Define the left content for the footer
   const leftContent = (
-    <div className="w-full flex flex-col items-center md:items-start lg:items-start mt-24 md:lg:mt-0 lg:mt-0">
+    <div className="w-full flex flex-col items-center md:items-start lg:items-start mt-24 md:lg:mt-0 lg:mt-0 overflow-auto">
       {/* Logo Section */}
       <Link href="https://www.gothicmoon.co" aria-label="Back to Home" className="cursor-pointer">
         <img
