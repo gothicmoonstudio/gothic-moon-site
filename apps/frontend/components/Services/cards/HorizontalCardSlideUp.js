@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import HorizontalCard from './HorizontalCard';
 import styles from './HorizontalCardSlideUp.module.css';
 
 const HorizontalCardSlideUp = ({ service, index, totalCards }) => {
-  const [isActive, setIsActive] = useState(false);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
   useEffect(() => {
@@ -12,27 +11,22 @@ const HorizontalCardSlideUp = ({ service, index, totalCards }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const handleCardClick = () => setIsActive(!isActive);
-
   const reverseIndex = totalCards - index - 1;
 
   return (
     <div>
-    <div
-        className={`${styles.cardWrapper} ${
-          isActive ? styles.active : styles.cardOffset
-        }`}
+      <div
+        className={`${styles.cardWrapper} ${styles.cardOffset}`}
         style={{
           '--index': index,
           '--reverseIndex': reverseIndex,
-          zIndex: isActive ? 10 : index,
+          zIndex: index,
           height: `${windowHeight}px`,
         }}
-        onClick={handleCardClick}
       >
         <HorizontalCard {...service} />
       </div>
-      </div>
+    </div>
   );
 };
 

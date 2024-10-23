@@ -5,11 +5,10 @@
 @tailwind utilities;
 
 :root {
-    --font-header: 'Greycliff CF', 'Poppins', sans-serif; 
-    --font-serif: 'Bely Display', 'Gloock', serif; 
+    --font-header: 'Greycliff CF', 'Poppins', sans-serif;
+    --font-serif: 'Bely Display', 'Gloock', serif;
     --font-body: 'Alegreya', serif;
 
-    /* Theme-Specific Colors */
     --light-background: #f4f3ff;
     --light-text: #141221;
     --dark-background: #141221;
@@ -17,10 +16,9 @@
     --lilac-background: #e9cdff;
     --glow-background: #f8ffce;
 
-    /* Color Scheme */
     color-scheme: light dark;
     background-color: var(--dark-background);
-    color: var(--dark-text); 
+    color: var(--dark-text);
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -30,81 +28,68 @@
 
 @font-face {
     font-family: 'Alegreya';
-    src:url('/fonts/Alegreya-Regular.ttf') format('truetype');
+    src: url('/fonts/Alegreya-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Gloock';
-    src:url('/fonts/Gloock-Regular.ttf') format('truetype');
+    src: url('/fonts/Gloock-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Poppins';
-    src:url('/fonts/Poppins-Regular.ttf') format('truetype');
+    src: url('/fonts/Poppins-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 html, body, #__next {
-    background-image: repeating-linear-gradient(358deg, rgb(20,18,33) 0px, rgb(20,18,33) 27px,transparent 27px, transparent 29px),repeating-linear-gradient(280deg, rgb(20,18,33) 0px, rgb(20,18,33) 27px,transparent 27px, transparent 29px),repeating-linear-gradient(337deg, rgb(20,18,33) 0px, rgb(20,18,33) 27px,transparent 27px, transparent 29px),linear-gradient(90deg, rgb(160,106,248),rgb(246,255,188));
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* Complex repeating background pattern */
+    background-image: 
+        repeating-linear-gradient(558deg, rgb(20, 18, 33) 0px, rgb(20, 18, 33) 27px, transparent 27px, transparent 29px),
+        repeating-linear-gradient(480deg, rgb(20, 18, 33) 0px, rgb(20, 18, 33) 27px, transparent 27px, transparent 29px),
+        repeating-linear-gradient(537deg, rgb(20, 18, 33) 0px, rgb(20, 18, 33) 27px, transparent 27px, transparent 29px),
+        linear-gradient(290deg, rgb(160, 106, 248), rgb(246, 255, 188));
+        background-attachment: fixed; /* Prevents the background from moving */
+        background-size: cover; /* Ensures the background covers the viewport */
+        background-position: center;
+        background-repeat: no-repeat;
+
+    /* Layout and typography settings */
     font-family: var(--font-body);
-    line-height: 1.6;
-    min-height: 100vh;
-    background-color: var(--dark-background);
-    color: var(--dark-text);
-    min-width: 320px;
+    min-height: 100%;
+    height: 100vh;
+    width: 100vw;
     margin: 0;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
-    box-sizing: border-box;
-}
-
-::-webkit-scrollbar {
-    display: none;
-  }
-
-body {
-    scrollbar-width: none;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 html {
     scroll-behavior: smooth;
-  }
-
-#__next {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow-x: hidden;
+    scrollbar-width: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-header);
 }
 
-h1 {
-    margin-bottom: 1rem;
-}
-
-h2 {
-    margin-bottom: 1rem;
+p {
+    font-family: var(--font-body);
+    margin-bottom: 1.25rem;
 }
 
 .special-text {
     font-family: var(--font-serif);
     font-weight: bold;
-}
-
-p {
-    font-family: var(--font-body);
-    margin-bottom: 1.25rem;
 }
 
 /* Theme Classes */

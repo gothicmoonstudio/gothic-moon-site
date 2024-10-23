@@ -1,16 +1,20 @@
 .preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    background-color: 141221;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+
+  /* Radial gradient background with noise */
+  background: radial-gradient(circle at bottom center, 
+  rgb(151, 71, 255), rgb(59, 26, 229));
+  background-blend-mode: overlay;
+}
 
 .innerlogo {
-  transform:translateX(90)
+  transform: translateX(90px); /* Adjusted transform syntax */
 }

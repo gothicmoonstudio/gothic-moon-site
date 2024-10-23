@@ -3,7 +3,7 @@ import React from 'react';
 const HorizontalCard = ({ title, description, services, videoSrc, bgColor, textColor }) => {
   return (
     <div
-      className="w-screen p-6 md:p-8 lg:p-12 flex flex-col lg:flex-row gap-8 rounded-xl shadow-lg"
+      className="w-screen p-6 md:p-8 lg:p-10 flex flex-col lg:flex-row gap-8 rounded-xl shadow-lg"
       style={{
         background: bgColor,
         color: textColor,
@@ -30,7 +30,7 @@ const HorizontalCard = ({ title, description, services, videoSrc, bgColor, textC
             {services.map((service, index) => (
               <div
                 key={index}
-                className="text-[1rem] md:text-[1.05rem] lg:text-[1.15rem] uppercase font-medium font-header whitespace-nowrap"
+                className="text-[.8rem] md:text-[.9rem] lg:text-[.9rem] uppercase font-medium font-header whitespace-nowrap"
               >
                 {service}
               </div>
@@ -41,15 +41,17 @@ const HorizontalCard = ({ title, description, services, videoSrc, bgColor, textC
 
       {/* Right Column: Video */}
       <div
-        className={`relative w-full md:w-[488px] h-[250px] md:h-[338px] rounded-2xl 
+        className={`relative w-full md:w-full lg:w-[30.5rem] h-[15.25rem] rounded-2xl 
         flex justify-center items-center overflow-hidden shadow-md`}
       >
         <video
           src={videoSrc}
-          autoPlay
           muted
           loop
           className="w-full h-full object-cover rounded-xl"
+          preload="metadata"
+          autoPlay={true}
+          playsInline
         ></video>
       </div>
     </div>

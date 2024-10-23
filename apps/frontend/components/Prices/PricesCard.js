@@ -31,7 +31,7 @@ const PricesCard = ({
         container: animationContainer.current,
         renderer: 'svg',
         loop: true,
-        autoplay: false, // Start animation only on hover
+        autoplay: false,
         animationData,
       });
     }

@@ -50,44 +50,55 @@ const Overview = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.3, // Faster stagger to reduce lag
+        ease: 'easeInOut',
       },
     },
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+    hidden: { opacity: 1, y: 300, scale: 0.95 }, // Subtle scale effect for smooth entry
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.6, ease: 'easeOut' }, // Reduced duration for better performance
+    },
   };
 
   return (
-      <div className="h-full min-h-screen py-8 md:py-16 lg:py-24">
-        {/* Title Section */}
-        <div className="">
-          <h2 className="text-[1.5rem] md:text-[1.75rem] lg:text-[1.75rem] text-left font-header font-medium text-[#F4F3FF] pl-8">
-            Our Services
-          </h2>
-        </div>
-
-        {/* Cards Wrapper */}
-        <motion.div
-          ref={containerRef}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          variants={containerVariants}
-          className="relative"
-        >
-          {services.map((service, index) => (
-            <motion.div key={index} variants={cardVariants} className="h-full mb-6 md:mb-8 lg:mb-8">
-              <HorizontalCardSlideUp
-                service={service}
-                index={index}
-                totalCards={services.length}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
+    <div className="h-full min-h-screen py-8 md:py-16 lg:py-24">
+      {/* Title Section */}
+      <div>
+        <h2 className="text-[1.5rem] md:text-[1.75rem] lg:text-[1.75rem] text-left font-header font-medium text-[#F4F3FF] pl-8">
+          Our Services
+        </h2>
       </div>
+
+      {/* Cards Wrapper */}
+      <motion.div
+        ref={containerRef}
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+        variants={containerVariants}
+        className="relative"
+      >
+        {services.map((service, index) => (
+          <motion.div
+            key={index}
+            variants={cardVariants}
+            className="h-full mb-6 md:mb-8 lg:mb-8"
+            viewport={{ once: true, amount: 0.3 }} // Triggers animation when 30% is in view
+          >
+            <HorizontalCardSlideUp
+              service={service}
+              index={index}
+              totalCards={services.length}
+            />
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
   );
 };
 

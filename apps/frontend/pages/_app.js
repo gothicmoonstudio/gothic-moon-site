@@ -6,18 +6,15 @@ import Navbar from '../components/Navbar/NavBar';
 import { ThemeProvider } from '../context/ThemeContext';
 import PrimaryButton from '../components/ui/PrimaryButton';
 import ContactModal from '../components/Contact/ContactModal';
-import Modal from '../components/Modal/Modal';
 import { motion } from 'framer-motion';
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
   const [isContactModalVisible, setIsContactModalVisible] = useState(false);
-  const [isIntroModalVisible, setIsIntroModalVisible] = useState(false);
 
   const handleOpenContactModal = () => setIsContactModalVisible(true);
   const handleCloseContactModal = () => setIsContactModalVisible(false);
-  const handleCloseIntroModal = () => setIsIntroModalVisible(false);
 
   useEffect(() => {
     console.log('Loading state updated:', loading);
@@ -33,32 +30,27 @@ function MyApp({ Component, pageProps }) {
     visible: { opacity: 1, x: 0, transition: { duration: 1.5, ease: 'easeOut', delay: 0.5 } },
   };
 
-  const handleButtonAnimationComplete = () => {
-    setIsIntroModalVisible(true);
-    localStorage.setItem('hasSeenIntroModal', 'false');
-  };
-
   return (
     <>
       <Head>
-      <title>Gothic Moon | Product & Web Design Studio</title>
-      <meta
-        name="description"
-        content="High-quality UX design solutions provided by Gothic Moon, specializing in crafting immersive user experiences."
-      />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="/images/favicon.png" />
-      <link rel="apple-touch-icon" href="/images/webclip.png" />
-      <link
-        rel="stylesheet"
-        href="https://use.typekit.net/wig7gea.css"
-        media="print"
-        onload="this.media='all'"
-      />
-      <noscript>
-        <link rel="stylesheet" href="https://use.typekit.net/wig7gea.css" />
-      </noscript>
-    </Head>
+        <title>Gothic Moon | Product & Web Design Studio</title>
+        <meta
+          name="description"
+          content="High-quality UX design solutions provided by Gothic Moon, specializing in crafting immersive user experiences."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/images/favicon.png" />
+        <link rel="apple-touch-icon" href="/images/webclip.png" />
+        <link
+          rel="stylesheet"
+          href="https://use.typekit.net/wig7gea.css"
+          media="print"
+          onload="this.media='all'"
+        />
+        <noscript>
+          <link rel="stylesheet" href="https://use.typekit.net/wig7gea.css" />
+        </noscript>
+      </Head>
 
       <React.StrictMode>
         <ThemeProvider>
@@ -83,22 +75,11 @@ function MyApp({ Component, pageProps }) {
                 animate="visible"
                 variants={buttonFadeIn}
                 className="fixed bottom-0 right-0 z-50"
-                onAnimationComplete={handleButtonAnimationComplete}
               >
                 <PrimaryButton label="Get Started" onClick={handleOpenContactModal} />
               </motion.div>
 
               {isContactModalVisible && <ContactModal handleClose={handleCloseContactModal} />}
-
-              {isIntroModalVisible && (
-                <Modal
-                  title="Fancy meeting you here..."
-                  description={"The Gothic Moon website is almost complete! Feel free to explore, but please note that some features may still be under construction.\n\nThank you for your patience as we add the final touches."}
-                  buttonLabel="👌 Perfect! Start Exploring..."
-                  onClose={handleCloseIntroModal}
-                  shakeOnOutsideClick
-                />
-              )}
             </>
           )}
         </ThemeProvider>

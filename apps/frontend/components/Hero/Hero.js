@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Instagram, Dribbble } from 'react-feather';
 import OneColumn from '../layouts/OneColumn';
 import { motion, useAnimation } from 'framer-motion';
 
 const Hero = () => {
-  // State to control the visibility of images
-  const [showImages, setShowImages] = useState(false);
-
   // Animation controls for social icons
   const socialControls = useAnimation();
 
@@ -34,120 +31,72 @@ const Hero = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 1.2,
-        ease: 'easeOut',
-        delay: 1, // Adjust delay if needed
-      },
+      transition: { duration: 1.2, ease: 'easeOut', delay: 1 },
     },
   };
 
-  // Trigger the social icons animation and then show the images
+  // Start animations for social icons when component mounts
   useEffect(() => {
-    async function sequence() {
-      // Start the social icons animation
-      await socialControls.start('visible');
-      // After the social icons are visible, show the images
-      setShowImages(true);
-    }
-    sequence();
+    socialControls.start('visible');
   }, [socialControls]);
 
   return (
     <OneColumn>
-      {/* Main Wrapper */}
       <div className="relative w-full h-screen flex flex-col items-center justify-center">
-        {/* Content Wrapper for Title and Subtitle */}
+        {/* Title Section */}
         <motion.div
           className="flex flex-col items-center space-y-6"
           initial="hidden"
           animate="visible"
-          variants={fadeInUp} // Apply fade-in and slide-up animation
+          variants={fadeInUp}
         >
-          {/* Title Section */}
           <motion.h1
             className="w-full lg:px-40 text-[1.75rem] md:text-[3rem] lg:text-[4rem] font-normal font-header leading-[150%] text-center"
             layout
           >
             Crafting{' '}
-            <motion.span className="inline-block -mt-2" layout>
-              spellbinding
-            </motion.span>{' '}
-            {/* Conditionally render images */}
-            {showImages ? (
-              <motion.img
-                src="/gifs/gooey.gif"
-                className="inline-block w-auto h-12 md:h-16 lg:h-36 mx-[-4px] md:mx-[-6px] lg:mx-[-6px] -mt-2 align-middle"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ type: 'spring', stiffness: 500, damping: 20 }}
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-            ) : (
-              // Placeholder to maintain spacing
-              <span style={{ display: 'inline-block', width: '0', height: '0' }} />
-            )}
-            <motion.span className="inline-block -mt-2" layout>
-              user
-            </motion.span>{' '}
-            experiences that enchant your users & elevate{' '}
-            <motion.span className="inline-block font-serif -mt-2" layout>
-              your
-            </motion.span>{' '}
-            {/* Conditionally render the second image */}
-            {showImages ? (
-              <motion.img
-                src="/gifs/molecule.gif"
-                className="inline-block w-auto h-12 md:h-16 lg:h-36 mx-[-4px] md:mx-[-6px] lg:mx-[-6px] -mt-2 align-middle"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 500,
-                  damping: 20,
-                  delay: 0.1,
-                }}
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-            ) : (
-              // Placeholder to maintain spacing
-              <span style={{ display: 'inline-block', width: '0', height: '0' }} />
-            )}
-            <motion.span className="inline-block font-serif -mt-2" layout>
-              digital presence.
-            </motion.span>
+            <span className="inline-block -mt-2">spellbinding</span>{' '}
+            <motion.img
+              src="/gifs/gooey.gif"
+              className="inline-block w-auto h-12 md:h-16 lg:h-36 -mx-2 md:-mx-4 lg:-mx-4 -mt-2 align-middle"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, ease: 'easeOut' }}
+              alt="Gooey Animation"
+            />{' '}
+            user experiences that enchant your users & elevate{' '}
+            <motion.img
+              src="/gifs/molecule.gif"
+              className="inline-block w-auto h-12 md:h-16 lg:h-36 -mx-2 md:-mx-4 lg:-mx-4 -mt-2 align-middle"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, ease: 'easeOut', delay: 0.1 }}
+              alt="Molecule Animation"
+            />{' '}
+            your digital presence.
           </motion.h1>
 
-          {/* Subtitle Section with Slight Delay */}
           <motion.p
             className="text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] font-normal font-header leading-[150%] text-center mt-6"
-            variants={fadeInDelay} // Subtitle has a slight delay
+            variants={fadeInDelay}
           >
             Gothic Moon is a digital design studio specializing in product & web design.
           </motion.p>
         </motion.div>
 
-        {/* Social Media Icons Section with Fade-in Animation */}
+        {/* Social Media Icons */}
         <motion.div
           className="flex justify-center space-x-4 md:space-x-6 lg:space-x-8 mt-8"
           initial="hidden"
           animate={socialControls}
-          variants={socialIconsFadeIn} // Apply fade-in animation for social icons
+          variants={socialIconsFadeIn}
         >
-          {/* Instagram Icon */}
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
             <Instagram
               size={24}
               className="hover:text-[#f8ffce] hover:scale-110 transition duration-300"
             />
           </a>
-          {/* Dribbble Icon */}
           <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer">
             <Dribbble
               size={24}

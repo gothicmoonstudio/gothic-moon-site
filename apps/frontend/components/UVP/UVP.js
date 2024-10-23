@@ -4,7 +4,7 @@ import Details from './Details';
 
 const UVP = () => {
   return (
-      <section id="uvp" className="relative h-full">
+      <section id="uvp" className="h-full">
         <Intro />
         <Details />
       </section>
