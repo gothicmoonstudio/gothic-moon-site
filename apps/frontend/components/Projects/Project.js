@@ -53,7 +53,7 @@ const Project = () => {
             {/* Previous Button - Hidden on Mobile */}
             <button
               onClick={handlePrevious}
-              className="hidden md:block lg:block p-6 rounded-full text-white transition"
+              className="hidden md:block lg:block p-6 rounded-full text-[#F4F3FF] hover:text-[#F9FFCF] transition-transform duration-400 hover:scale-105"
             >
               Prev
             </button>
@@ -81,7 +81,7 @@ const Project = () => {
             {/* Next Button - Hidden on Mobile */}
             <button
               onClick={handleNext}
-              className="hidden md:block lg:block p-6 bg-gray-800 rounded-full text-white hover:bg-gray-700 transition"
+              className="hidden md:block lg:block p-6 text-[#F4F3FF] hover:text-[#F9FFCF] transition-transform duration-400 hover:scale-105"
             >
               Next
             </button>
