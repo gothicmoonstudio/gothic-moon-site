@@ -5,7 +5,7 @@ import styles from './Services.module.css';
 
 const services = [
   {
-    title: 'Reasearch & Analytics',
+    title: 'Research & Analytics',
     description:
       "Delve into understanding your target audience's needs, behaviors, and pain points. Our comprehensive user research lays the foundation for informed design decisions, ensuring your product resonates with its intended users.",
     services: ['Web Analytics', 'Conversion Tracking', 'Performance Tracking', 'User Testing' ],
