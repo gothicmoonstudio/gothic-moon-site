@@ -26,7 +26,7 @@ const PricesCardWithTab = ({
   monthlyDetails = [],
   hourlyDetails = [],
 }) => {
-  const [activeTab, setActiveTab] = useState('monthly');
+  const [activeTab, setActiveTab] = useState('hourly');
   const animationContainer = useRef(null);
   const animationInstance = useRef(null);
 
@@ -105,27 +105,30 @@ const PricesCardWithTab = ({
 
       {/* Tabs */}
       <div className="self-stretch border-b border-[#f4f3ff]/20 flex justify-start gap-6 mb-4">
-        <button
-          onClick={() => setActiveTab('monthly')}
-          className={`px-2 py-1 text-base font-header transition-all duration-150 ease-in-out ${
-            activeTab === 'monthly'
-              ? 'border-b-2 border-[#f4f3ff]'
-              : 'hover:border-b-2 hover:border-[#f4f3ff]/50'
-          }`}
-        >
-          Monthly
-        </button>
-        <button
-          onClick={() => setActiveTab('hourly')}
-          className={`px-2 py-1 text-base font-header transition-all duration-150 ease-in-out ${
-            activeTab === 'hourly'
-              ? 'border-b-2 border-[#f4f3ff]'
-              : 'hover:border-b-2 hover:border-[#f4f3ff]/50'
-          }`}
-        >
-          Hourly
-        </button>
-      </div>
+      {/* Hourly Tab */}
+      <button
+        onClick={() => setActiveTab('hourly')}
+        className={`px-2 py-1 text-base font-header transition-all duration-150 ease-in-out ${
+          activeTab === 'hourly'
+            ? 'border-b-2 border-[#f4f3ff]'
+            : 'hover:border-b-2 hover:border-[#f4f3ff]/50'
+        }`}
+      >
+        Hourly
+      </button>
+
+      {/* Monthly Tab */}
+      <button
+        onClick={() => setActiveTab('monthly')}
+        className={`px-2 py-1 text-base font-header transition-all duration-150 ease-in-out ${
+          activeTab === 'monthly'
+            ? 'border-b-2 border-[#f4f3ff]'
+            : 'hover:border-b-2 hover:border-[#f4f3ff]/50'
+        }`}
+      >
+        Monthly
+      </button>
+    </div>
 
       {/* Render Content based on Active Tab */}
       {renderContent()}

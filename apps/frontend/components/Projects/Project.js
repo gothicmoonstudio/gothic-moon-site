@@ -3,9 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSwipeable } from 'react-swipeable';
 import TextOverContent from '../templates/TextOverContent';
 import ProjectCard from '../Projects/ProjectCard';
+import gameAnimation from '../../public/assets/animations/game.json';
+import webDesignAnimation from '../../public/assets/animations/webdesign.json';
 
 const Project = () => {
-  const [activeCard, setActiveCard] = useState(0); // Track the active card
+  const [activeCard, setActiveCard] = useState(0);
 
   const projectCards = [
     {
@@ -13,12 +15,14 @@ const Project = () => {
       subtitle: 'to unfold…',
       description: 'What lies hidden beneath the surface? A new experience is coming soon.',
       status: 'Coming Soon',
+      animationData: gameAnimation,
     },
     {
-      title: 'Reimagine what’s',
+      title: 'Re-imagine what’s',
       subtitle: 'possible.',
-      description: 'We’re crafting an app that blends the practical with the magical. Launching soon.',
+      description: 'We’re crafting a mobile app that blends the practical with the magical. Launching soon.',
       status: 'Coming Soon',
+      animationData: webDesignAnimation,
     },
   ];
 

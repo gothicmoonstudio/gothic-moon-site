@@ -20,7 +20,7 @@ const Prices = () => {
                 <PricesCard
                   animationData={PotionsAnimation}
                   title="Single Project"
-                  priceRange="$1k-$10k"
+                  priceRange="$1,000+"
                   priceSuffix="/ project"
                   description="Ideal for clients seeking to address particular challenges or enhance key areas of their user experience."
                   buttonLabel="Schedule a Discovery Call"
@@ -43,21 +43,21 @@ const Prices = () => {
                   title="Ongoing Support"
                   buttonLabel="Schedule a Discovery Call"
                   buttonLink="https://calendly.com/mary-gothicmoon/ux-web-design-intro-call-clone"
-                  monthlyPrice="$3,080-$6,080"
-                  hourlyPrice="$100-$190"
-                  monthlyDescription="Ideal for clients that need continuous design support with predictable monthly costs."
+                  hourlyPrice="$125 - $190"
+                  monthlyPrice="$2,999+"
                   hourlyDescription="Perfect for short-term or flexible projects requiring design expertise on demand."
-                  monthlyDetails={[
-                    'Regular design updates and iterations.',
-                    'Design system maintenance and support.',
-                    'Performance reviews and optimizations.',
-                    'Cross-team collaboration and feedback.',
-                  ]}
+                  monthlyDescription="Ideal for clients that need continuous design support with predictable monthly costs."
                   hourlyDetails={[
                     'On-demand design consultations.',
                     'Hourly support for specific tasks.',
                     'No long-term commitment required.',
                     'Quick response times to meet deadlines.',
+                  ]}
+                  monthlyDetails={[
+                    'Regular design updates and iterations.',
+                    'Design system maintenance and support.',
+                    'Performance reviews and optimizations.',
+                    'Cross-team collaboration and feedback.',
                   ]}
                 />
               </div>
@@ -69,7 +69,7 @@ const Prices = () => {
                 <PricesCard
                   animationData={MagicAnimation}
                   title="Design Consultations"
-                  priceRange="$190"
+                  priceRange="$99"
                   priceSuffix="/ session"
                   description="Access expert insights and innovative solutions that are designed to offer both guidance and results."
                   buttonLabel="Schedule a Discovery Call"

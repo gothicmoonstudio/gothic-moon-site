@@ -4,7 +4,7 @@ import Overview from './Overview';
 
 const Services = () => {
   return (
-      <section id="services" className="relative h-full mb-[36rem]">
+      <section id="services" className="relative h-full">
         <Intro />
         <Overview />
       </section>

@@ -19,7 +19,7 @@ const TextBlock = ({
 
         {/* Creator */}
         <div className="flex items-center gap-2.5">
-          <div className="opacity-80 text-[#f4f3ff] text-base font-normal font-header leading-normal">
+          <div className="opacity-80 text-[#f4f3ff] text-left text-base font-normal font-header leading-normal">
             by {creator}
           </div>
         </div>

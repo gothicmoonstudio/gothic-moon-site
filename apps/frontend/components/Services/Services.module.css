@@ -1,0 +1,47 @@
+.container {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+  
+  .horizontalCardWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .horizontal-card {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Optional: limit the width for better readability */
+    margin: 0 auto; /* Center horizontally */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    will-change: transform, opacity;
+    z-index: var(--zIndex, 1);
+  }
+  
+  /* Responsive Desktop Styles */
+  @media (min-width: 768px) {
+    .horizontalCardWrapper {
+      flex-direction: row;
+      flex-wrap: wrap; /* Allow wrapping on wider screens */
+      justify-content: center; /* Center cards horizontally */
+    }
+  
+    .horizontal-card {
+      width: 48%; /* Two cards per row on larger screens */
+      margin: 1%; /* Add spacing between cards */
+    }
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 767px) {
+    .horizontal-card {
+      width: 100%;
+      transform: scale(0.95);
+      transition: transform 0.4s ease-in-out; /* Smoother scaling */
+    }
+  }

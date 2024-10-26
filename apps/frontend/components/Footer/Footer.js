@@ -40,7 +40,7 @@ const Footer = () => {
           <Dribbble className="stroke-2 w-6 h-6 hover:scale-110 transition-transform duration-300 ease-in-out" />
         </a>
         <a
-          href="hello@gothicmoon.co"
+          href="mailto:hello@gothicmoon.co"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-[#F6FFBC]"
