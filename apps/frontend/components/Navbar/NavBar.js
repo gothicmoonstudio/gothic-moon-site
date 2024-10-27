@@ -29,8 +29,8 @@ function Navbar({ activeSection }) {
         className={`
           p-4 rounded-full flex items-center justify-between md:justify-center gap-6
           transition-all duration-300
-          ${menuOpen ? 'bg-[#0d0c16]' : 'bg-transparent'} 
-          md:bg-[#0d0c16]
+          ${menuOpen ? 'bg-transparent' : 'bg-transparent'} 
+          md:bg-[#0d0c16] lg:bg-[#0d0c16]
           fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] md:w-auto
           z-50
         `}
@@ -66,7 +66,7 @@ function Navbar({ activeSection }) {
       {/* Mobile Navigation */}
       {menuOpen && (
         <div
-          className="h-screen w-screen bg-[#0D0C16] z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in-out"
+          className="h-screen w-screen p-8 bg-[#0D0C16] z-100 flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in-out overflow-visible"
         >
           <NavItem
             label="About"

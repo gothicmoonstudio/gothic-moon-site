@@ -55,7 +55,7 @@ const getZIndex = (index, selectedSlide, totalSlides) => {
 };
 
 const UVPCardSlider = () => {
-  const [selectedSlide, setSelectedSlide] = useState(0); // Start at index 0
+  const [selectedSlide, setSelectedSlide] = useState(0);
 
   const cards = [
       {

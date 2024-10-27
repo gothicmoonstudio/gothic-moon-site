@@ -18,7 +18,7 @@ const services = [
     description:
       'Create stunning, on-brand visuals that captivate your audience. We craft aesthetically pleasing interfaces that not only look beautiful but also enhance usability and reinforce your brand identity.',
     services: ['User Interface', 'Design Libraries', 'Style Guides', 'Templates'],
-    bgColor: 'linear-gradient(90deg, #862598, #272343)',
+    bgColor: 'linear-gradient(45deg, #862598, #3B1AE5)',
     textColor: '#F4F3FF',
     videoSrc: '/assets/videos/visual.mp4',
   },
@@ -27,7 +27,7 @@ const services = [
     description:
       'Develop intuitive and engaging user interactions that guide users seamlessly through your product. Our interaction design focuses on creating smooth, meaningful experiences that delight users and keep them coming back.',
     services: ['Interaction Design', 'Motion Graphics', 'Front-End Development'],
-    bgColor: 'linear-gradient(45deg, #3B1AE5, #A06AF8)',
+    bgColor: 'linear-gradient(270deg, #3B1AE5, #A06AF8)',
     textColor: '#F4F3FF',
     videoSrc: '/assets/videos/interaction.mp4',
   },

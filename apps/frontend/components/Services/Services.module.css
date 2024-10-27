@@ -16,8 +16,8 @@
   .horizontal-card {
     position: relative;
     width: 100%;
-    max-width: 800px; /* Optional: limit the width for better readability */
-    margin: 0 auto; /* Center horizontally */
+    max-width: 800px;
+    margin: 0 auto;
     transition: transform 0.5s ease, opacity 0.5s ease;
     will-change: transform, opacity;
     z-index: var(--zIndex, 1);
@@ -27,13 +27,13 @@
   @media (min-width: 768px) {
     .horizontalCardWrapper {
       flex-direction: row;
-      flex-wrap: wrap; /* Allow wrapping on wider screens */
-      justify-content: center; /* Center cards horizontally */
+      flex-wrap: wrap;
+      justify-content: center;
     }
   
     .horizontal-card {
-      width: 48%; /* Two cards per row on larger screens */
-      margin: 1%; /* Add spacing between cards */
+      width: 48%;
+      margin: 1%;
     }
   }
   
@@ -42,6 +42,6 @@
     .horizontal-card {
       width: 100%;
       transform: scale(0.95);
-      transition: transform 0.4s ease-in-out; /* Smoother scaling */
+      transition: transform 0.4s ease-in-out;
     }
   }
