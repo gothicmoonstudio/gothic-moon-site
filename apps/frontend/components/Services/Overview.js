@@ -44,7 +44,7 @@ const services = [
 const Overview = () => {
   const containerRef = useRef(null);
   const controls = useAnimation();
-  const isInView = useInView(containerRef, { once: false, amount: 0.5 }); // More reliable detection
+  const isInView = useInView(containerRef, { once: false, amount: 0.5 }); // Reliable detection
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -66,7 +66,7 @@ const Overview = () => {
     controls.start(isInView ? 'visible' : 'hidden');
   }, [isInView, controls]);
 
-  // Animation variants with smoother exit handling
+  // Animation variants with no exit animation
   const cardVariants = {
     hidden: {
       opacity: 0,
@@ -82,15 +82,6 @@ const Overview = () => {
         ease: 'easeOut',
       },
     },
-    exit: {
-      opacity: 0,
-      y: -20,
-      scale: 0.95,
-      transition: {
-        duration: 0.3,
-        ease: 'easeInOut',
-      },
-    },
   };
 
   return (
@@ -98,7 +89,6 @@ const Overview = () => {
       ref={containerRef}
       initial="hidden"
       animate={controls}
-      exit="exit"
       className="w-full min-h-screen py-8 bg-gray-900"
     >
       <div className="px-6">
@@ -128,10 +118,9 @@ const MemoizedCard = memo(({ index, service, variants, servicesLength }) => (
     variants={variants}
     initial="hidden"
     whileInView="visible"
-    exit="exit"
     className="horizontal-card"
     style={{ zIndex: servicesLength - index }}
-    viewport={{ once: false, amount: 0.5 }} // Ensures smoother viewport detection
+    viewport={{ once: true, amount: 0.5 }} // Animation triggers only once
   >
     <HorizontalCard
       title={service.title}

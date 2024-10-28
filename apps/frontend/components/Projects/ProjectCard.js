@@ -22,7 +22,7 @@ const ProjectCard = ({ title, subtitle, description, status, animationData }) =>
       {/* Background Lottie Animation */}
       <div
         ref={animationContainer}
-        className="absolute bottom-0 right-0 w-full h-[18rem] md:w-full md:h-[20rem] lg:w-full lg:h-[24rem] object-contain"
+        className="absolute bottom-0 right-0 w-full h-[16rem] md:w-full md:h-[20rem] lg:w-full lg:h-[24rem] object-contain"
       />
 
       {/* Top Section: Title, Subtitle, and Button */}
