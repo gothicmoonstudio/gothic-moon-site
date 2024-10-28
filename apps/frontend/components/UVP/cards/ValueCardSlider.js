@@ -1,61 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ValueCard from './ValueCards';
 import { useSwipeable } from 'react-swipeable';
+import { motion, AnimatePresence } from 'framer-motion';
 import crystalBallAnimation from '../../../public/assets/animations/icons8-crystal-ball.json';
 import fortuneAnimation from '../../../public/assets/animations/icons8-fortune-teller.json';
 import moonStarsAnimation from '../../../public/assets/animations/icons8-moon-and-stars.json';
 import newMoonAnimation from '../../../public/assets/animations/icons8-new-moon.json';
 
-// Helper function to calculate the 3D transform style
-const getTransformStyle = (index, selectedSlide, totalSlides) => {
-  const positionOffset = (index - selectedSlide + totalSlides) % totalSlides;
-
-  let transformStyle;
-  switch (positionOffset) {
-    case 0: // The current slide (front-most position)
-      transformStyle = 'translate3d(0, 0, 0)';
-      break;
-    case 1: // Next slide to the right
-      transformStyle = 'translate3d(15%, 0, -100px)';
-      break;
-    case 2: // Slide further back on the right
-      transformStyle = 'translate3d(30%, 0, -200px)';
-      break;
-    case 3: // Opposite slide (back-most position)
-      transformStyle = 'translate3d(-15%, 0, -100px)';
-      break;
-    case 4: // Slide further back on the left
-      transformStyle = 'translate3d(-30%, 0, -200px)';
-      break;
-    default:
-      transformStyle = 'translate3d(0, 0, -300px)'; // Default position for unseen cards
-      break;
-  }
-
-  return transformStyle;
-};
-
-// Helper function to adjust the z-index for depth, using modulo for circular behavior
-const getZIndex = (index, selectedSlide, totalSlides) => {
-  const positionOffset = (index - selectedSlide + totalSlides) % totalSlides;
-
-  // Higher z-index means the element is closer to the viewer
-  switch (positionOffset) {
-    case 0: // Current slide in front
-      return 3;
-    case 1:
-    case 4: // Slides adjacent to the current one
-      return 2;
-    case 2:
-    case 3: // Slides further back
-      return 1;
-    default:
-      return 0; // Default z-index for unseen cards
-  }
-};
-
 const UVPCardSlider = () => {
-  const [selectedSlide, setSelectedSlide] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isHovering, setIsHovering] = useState(false); 
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 }); 
+
+  const handleNextSlide = () => {
+    setSelectedIndex((prev) => (prev + 1) % cards.length);
+  };
+
+  const handlePrevSlide = () => {
+    setSelectedIndex((prev) => (prev - 1 + cards.length) % cards.length);
+  };
+
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: handleNextSlide,
+    onSwipedRight: handlePrevSlide,
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
 
   const cards = [
       {
@@ -114,73 +84,93 @@ const UVPCardSlider = () => {
       },
     ];
 
-  const handleSlideChange = (index) => {
-    setSelectedSlide(index);
-  };
+    const handleMouseMove = (e) => {
+      setCursorPosition({ x: e.clientX, y: e.clientY });
+    };
+  
+    useEffect(() => {
+      document.body.style.cursor = isHovering ? 'none' : 'default'; 
+      return () => {
+        document.body.style.cursor = 'default'; 
+      };
+    }, [isHovering]);  
+    
+    const cardVariants = {
+      enter: (direction) => ({
+        opacity: 0,
+        scale: 0.95, // Slightly smaller for subtle entrance effect
+        x: direction > 0 ? 20 : -20, // Smaller horizontal offset
+        y: 0,
+        position: 'absolute', // Prevent layout shifts
+        transition: {
+          type: 'spring',
+          stiffness: 150, // Softer spring effect
+          damping: 20,
+          mass: 0.5, // Faster response
+        },
+      }),
+      center: {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        y: 0,
+        position: 'absolute', // Prevent layout shifts
+        transition: {
+          duration: 0.4, // Faster transition for better flow
+          ease: 'easeOut',
+        },
+      },
+      exit: (direction) => ({
+        opacity: 0,
+        scale: 0.95,
+        x: direction > 0 ? -20 : 20,
+        y: 0,
+        position: 'absolute',
+        transition: {
+          duration: 0.4,
+          ease: 'easeIn',
+        },
+      }),
+    };
+    
+    const floatyAnimation = {
+      animate: {
+        y: [0, -10, 0, 5],
+        rotate: [0, 2, -2, 0],
+        scale: [1, 1.02, 1],
+        transition: {
+          duration: 2,
+          repeat: Infinity,
+          repeatType: 'mirror',
+        },
+      },
+    };
 
-  const handleNextSlide = () => {
-    setSelectedSlide((prevSlide) => (prevSlide === cards.length - 1 ? 0 : prevSlide + 1));
-  };
-
-  const handlePrevSlide = () => {
-    setSelectedSlide((prevSlide) => (prevSlide === 0 ? cards.length - 1 : prevSlide - 1));
-  };
-
-  const swipeHandlers = useSwipeable({
-    onSwipedLeft: handleNextSlide, // Trigger next slide on left swipe
-    onSwipedRight: handlePrevSlide, // Trigger previous slide on right swipe
-    preventDefaultTouchmoveEvent: true, // Prevent default touch move behavior to avoid accidental scrolling
-    trackMouse: true, // Enable swipe detection using mouse (helpful for testing)
-  });
-
-  return (
-    <div {...swipeHandlers} className="swipeable-container relative w-full h-full flex items-center justify-center">
-      <div className="mkt-3dSlider">
-        <section
-          id="slider"
-          className="relative w-auto h-[34rem] md:h-[36rem] lg:h-[44rem] flex flex-col justify-center items-center"
-          style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}
-        >
-          {/* Render radio buttons for each card */}
-          {cards.map((_, index) => (
-            <input
-              key={`input-${index}`}
-              type="radio"
-              name="slider"
-              className="hidden"
-              id={`s${index + 1}`}
-              checked={selectedSlide === index}
-              onChange={() => handleSlideChange(index)}
-            />
-          ))}
-
-          {/* Render UVP cards */}
-          {cards.map((card, index) => (
-            <label
-              key={`label-${index}`}
-              htmlFor={`s${index + 1}`}
-              className="absolute cursor-pointer transition-transform duration-400"
-              style={{
-                transform: getTransformStyle(index, selectedSlide, cards.length), // Reference the helper function correctly
-                zIndex: getZIndex(index, selectedSlide, cards.length),
-                transition: 'transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55)', // Custom easing for a smoother effect
-              }}
-            >
-              <ValueCard
-                  title1={card.title1}
-                  title2={card.title2}
-                  description={card.description}
-                  animationData={card.animationData}
-                  bgColor={card.bgColor}
-                  textColor={card.textColor}
-                  inverted={card.inverted}
-              />
-            </label>
-          ))}
-        </section>
+   return (
+    <div
+      className="flex justify-center items-center h-screen relative"
+      onMouseMove={handleMouseMove} // Track mouse movement globally
+    >
+      <div {...swipeHandlers} className="relative w-full max-w-md flex justify-center items-center">
+        <AnimatePresence initial={false} mode="wait" custom={1}>
+          <motion.div
+            key={selectedIndex}
+            custom={1}
+            variants={cardVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            whileHover={floatyAnimation.animate} // Ensure hover works
+            className="w-full flex justify-center items-center"
+            onMouseEnter={() => setIsHovering(true)} // Start hovering
+            onMouseLeave={() => setIsHovering(false)} // Stop hovering
+          >
+            <ValueCard {...cards[selectedIndex]} />
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
 };
-
-export default UVPCardSlider;
+  
+  export default UVPCardSlider;

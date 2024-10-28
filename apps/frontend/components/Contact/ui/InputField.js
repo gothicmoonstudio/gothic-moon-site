@@ -46,9 +46,6 @@ const InputField = ({ label, placeholder, isTextarea = false }) => {
           
           {/* Display the word and character count */}
           <div className="flex justify-end items-end text-[#726D96] text-sm font-header pt-2">
-            {/* <div>
-              {wordCount} / {maxWordCount} words
-            </div> */}
             
             {/* Character Count */}
             <div>

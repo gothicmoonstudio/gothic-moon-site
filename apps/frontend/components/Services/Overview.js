@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import HorizontalCard from './cards/HorizontalCard';
-import styles from './Services.module.css';
 
 const services = [
   {
@@ -44,82 +43,87 @@ const services = [
 
 const Overview = () => {
   const containerRef = useRef(null);
-  const controls = useAnimation(); // Animation controls
-  const isInView = useInView(containerRef, { amount: 0.3, once: false });
+  const controls = useAnimation();
+  const isInView = useInView(containerRef, { once: false, amount: 0.3 });
+
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  // Detect screen size changes
+  // Handle responsive resizing
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Trigger animation when the section is in view
+  // Trigger animations when the section comes into view
   useEffect(() => {
     controls.start(isInView ? 'visible' : 'hidden');
   }, [isInView, controls]);
 
-  // Animation variants for cards with stagger effect
-  const containerVariants = {
-    visible: {
-      transition: {
-        staggerChildren: isMobile ? 0.15 : 0.3,
-      },
-    },
-  };
-
+  // Animation variants for entering and exiting the view
   const cardVariants = {
-    hidden: (index) => ({
+    hidden: {
       opacity: 0,
-      y: index * (isMobile ? 10 : 30),
+      y: 100, // Start below the viewport
       scale: 0.9,
-    }),
+    },
     visible: {
       opacity: 1,
-      y: 0,
+      y: 0, // Slide to original position
       scale: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.5,
         ease: 'easeOut',
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -100, // Slide up when leaving the viewport
+      scale: 0.9,
+      transition: {
+        duration: 0.4,
+        ease: 'easeIn',
       },
     },
   };
 
   return (
     <motion.div
-      className={`${styles.container} w-full min-h-screen py-8`}
       ref={containerRef}
-      variants={containerVariants}
       initial="hidden"
       animate={controls}
+      exit="exit"
+      className="w-full min-h-screen py-8 bg-gray-900"
     >
-      <div className="pl-8">
-        <h2 className="text-[1.5rem] md:text-[1.75rem] lg:text-[2rem] font-header font-medium text-[#F4F3FF] mb-8">
+      <div className="px-6">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-white mb-8">
           Our Services
         </h2>
-      </div>
 
-      <div className={styles.horizontalCardWrapper}>
-        {services.map((service, index) => (
-          <motion.div
-            key={index}
-            className={`${styles.horizontalCard} horizontal-card`}
-            custom={index}
-            variants={cardVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <HorizontalCard
-              title={service.title}
-              description={service.description}
-              services={service.services}
-              videoSrc={service.videoSrc}
-              bgColor={service.bgColor}
-              textColor={service.textColor}
-            />
-          </motion.div>
-        ))}
+        <div className="flex flex-col gap-6">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              custom={index}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              exit="exit"
+              className="horizontal-card"
+              style={{ zIndex: services.length - index }} // Back-to-front stacking
+              viewport={{ once: false, amount: 0.3 }} // Ensure animation happens on re-entry
+            >
+              <HorizontalCard
+                title={service.title}
+                description={service.description}
+                services={service.services}
+                bgColor={service.bgColor}
+                textColor={service.textColor}
+                videoSrc={service.videoSrc}
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </motion.div>
   );

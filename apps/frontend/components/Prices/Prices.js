@@ -13,7 +13,7 @@ const Prices = () => {
       <div>
         <TextOverContent title="Let Gothic be" specialText="your design guide.">
           {/* Card Container */}
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-10 pt-4">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-10">
             {/* PricesCard 1 - Left */}
             <ScaleInCenter style={{ animationDelay: '0s' }}>
               <div className="relative flex flex-col items-center">

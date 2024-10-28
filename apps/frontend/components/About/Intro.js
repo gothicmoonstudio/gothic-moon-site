@@ -10,7 +10,7 @@ const Intro = () => {
   const leftContent = (
     <div className="flex flex-col">
       <h1 className={`${titleClasses} w-[20rem] md:w-full lg:w-[30rem] xl:w-[40rem]`}>
-        Welcome to <span className="font-serif special-text">gothic moon</span>
+        Welcome to <span className="font-serif special-text">gothic moon.</span>
       </h1>
     </div>
   );

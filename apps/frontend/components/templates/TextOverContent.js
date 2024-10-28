@@ -12,7 +12,7 @@ const TextOverContent = ({ title, specialText, children }) => {
         <div className="z-10 w-full">
           <h1
           ref={titleRef}
-          className="font-medium text-[1.25rem] md:text-[1.75rem] lg:text-[2.25rem] mb-4"
+          className="font-medium text-[1.25rem] md:text-[1.75rem] lg:text-[2.25rem] mb-8"
         >
           <TrackingInExpand>{title}</TrackingInExpand>{' '}
           

@@ -15,7 +15,7 @@ const Details = () => {
   );
 
   const rightContent = (
-    <div className="w-full h-full px-8 md:px-8 lg:px-8 flex justify-center items-center">
+    <div className="w-full h-full px-0 md:px-8 lg:px-8 py-4 md:py-0 lg:py-0">
       <ValueCardSlider />
     </div>
   );
