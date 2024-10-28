@@ -67,7 +67,7 @@ function MyApp({ Component, pageProps }) {
                 variants={buttonFadeIn}
                 className="fixed bottom-0 right-0 z-50"
               >
-                <PrimaryButton label="Get Started" onClick={handleOpenContactModal} />
+                <PrimaryButton label="Become a Client" onClick={handleOpenContactModal} />
               </motion.div>
 
               {isContactModalVisible && <ContactModal handleClose={handleCloseContactModal} />}
