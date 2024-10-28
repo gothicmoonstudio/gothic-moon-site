@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, memo } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import HorizontalCard from './cards/HorizontalCard';
 
@@ -44,45 +44,51 @@ const services = [
 const Overview = () => {
   const containerRef = useRef(null);
   const controls = useAnimation();
-  const isInView = useInView(containerRef, { once: false, amount: 0.3 });
+  const isInView = useInView(containerRef, { once: false, amount: 0.5 }); // More reliable detection
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  // Handle responsive resizing
+  // Debounced resize handler
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    const handleResize = () => {
+      clearTimeout(window.resizeTimeout);
+      window.resizeTimeout = setTimeout(() => {
+        setIsMobile(window.innerWidth <= 768);
+      }, 100);
+    };
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Trigger animations when the section comes into view
+  // Trigger animations based on view state
   useEffect(() => {
     controls.start(isInView ? 'visible' : 'hidden');
   }, [isInView, controls]);
 
-  // Animation variants for entering and exiting the view
+  // Animation variants with smoother exit handling
   const cardVariants = {
     hidden: {
       opacity: 0,
-      y: 100, // Start below the viewport
-      scale: 0.9,
+      y: 50,
+      scale: 0.95,
     },
     visible: {
       opacity: 1,
-      y: 0, // Slide to original position
+      y: 0,
       scale: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
         ease: 'easeOut',
       },
     },
     exit: {
       opacity: 0,
-      y: -100, // Slide up when leaving the viewport
-      scale: 0.9,
+      y: -20,
+      scale: 0.95,
       transition: {
-        duration: 0.4,
-        ease: 'easeIn',
+        duration: 0.3,
+        ease: 'easeInOut',
       },
     },
   };
@@ -99,34 +105,43 @@ const Overview = () => {
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-white mb-8">
           Our Services
         </h2>
-
         <div className="flex flex-col gap-6">
           {services.map((service, index) => (
-            <motion.div
+            <MemoizedCard
               key={index}
-              custom={index}
+              index={index}
+              service={service}
               variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              exit="exit"
-              className="horizontal-card"
-              style={{ zIndex: services.length - index }} // Back-to-front stacking
-              viewport={{ once: false, amount: 0.3 }} // Ensure animation happens on re-entry
-            >
-              <HorizontalCard
-                title={service.title}
-                description={service.description}
-                services={service.services}
-                bgColor={service.bgColor}
-                textColor={service.textColor}
-                videoSrc={service.videoSrc}
-              />
-            </motion.div>
+              servicesLength={services.length}
+            />
           ))}
         </div>
       </div>
     </motion.div>
   );
 };
+
+// Memoized card to prevent unnecessary re-renders
+const MemoizedCard = memo(({ index, service, variants, servicesLength }) => (
+  <motion.div
+    custom={index}
+    variants={variants}
+    initial="hidden"
+    whileInView="visible"
+    exit="exit"
+    className="horizontal-card"
+    style={{ zIndex: servicesLength - index }}
+    viewport={{ once: false, amount: 0.5 }} // Ensures smoother viewport detection
+  >
+    <HorizontalCard
+      title={service.title}
+      description={service.description}
+      services={service.services}
+      bgColor={service.bgColor}
+      textColor={service.textColor}
+      videoSrc={service.videoSrc}
+    />
+  </motion.div>
+));
 
 export default Overview;

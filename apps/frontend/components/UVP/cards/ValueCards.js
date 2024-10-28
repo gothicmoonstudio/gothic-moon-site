@@ -59,10 +59,10 @@ const ValueCard = ({
         {/* Titles */}
         <div className="h-full flex flex-col justify-end items-center gap-3">
           <div className="text-center">
-            <h2 className="text-[clamp(1rem, 1.25rem, 1.5rem)] font-medium font-header mb-0 mt-0">
+            <h2 className="text-[clamp(1.5rem, 1.5rem, 1.75rem)] font-medium font-header mb-0 mt-0">
               {title1}
             </h2>
-            <h3 className="text-[clamp(1rem, 1.25rem, 1.5rem)] font-normal font-serif mb-0 mt-0">
+            <h3 className="text-[clamp(1.5rem, 1.5rem, 1.75rem)] font-normal font-serif mb-0 mt-0">
               {title2}
             </h3>
           </div>
