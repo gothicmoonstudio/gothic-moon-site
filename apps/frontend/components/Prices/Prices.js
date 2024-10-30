@@ -20,7 +20,7 @@ const Prices = () => {
                 <PricesCard
                   animationData={PotionsAnimation}
                   title="Single Project"
-                  priceRange="$1,000+"
+                  priceRange="$1,999+"
                   priceSuffix="/ project"
                   description="Ideal for clients seeking to address particular challenges or enhance key areas of their user experience."
                   buttonLabel="Schedule a Discovery Call"

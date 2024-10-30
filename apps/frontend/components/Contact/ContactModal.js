@@ -1,51 +1,39 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { X, Send } from 'react-feather';
+import emailjs from '@emailjs/browser';
+import InputField from './ui/InputField';
 import ModalContainer from './ui/ModalContainer';
 import SolidButton from '../ui/SolidButton';
 import TabSelector from './ui/TabSelector';
-import InputField from './ui/InputField';
-import emailjs from 'emailjs-com';
 
-// Initialize EmailJS with your public key
-emailjs.init('pjKesBrr-fV85NvNQ');
+// Initialize EmailJS using the public key
+emailjs.init('p5qBbpcOJ-es4s4O6');
 
 const ContactModal = ({ handleClose }) => {
-  // State variables to capture form input
-  const [projectType, setProjectType] = useState('');
-  const [budget, setBudget] = useState('');
-  const [timeline, setTimeline] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const form = useRef();
+  const [loading, setLoading] = useState(false);
 
-  // Function to handle form submission
   const sendEmail = (e) => {
     e.preventDefault();
 
-    // Define template parameters for EmailJS, matching the EmailJS template placeholders
-    const templateParams = {
-      subject: `New Inquiry from ${name}`,  // Corresponds to `{{subject}}` in your template
-      from_name: name,                      // Corresponds to `{{from_name}}`
-      to_name: 'Gothic Moon',               // Static value or change as needed, corresponds to `{{to_name}}`
-      email: email,                         // Corresponds to `{{email}}`
-      reply_to: email,                      // Corresponds to `{{reply_to}}`
-      message: message                      // Corresponds to `{{message}}`
-    };
+    setLoading(true);
 
-    emailjs.send(
-      process.env.REACT_APP_EMAILJS_SERVICE_ID,
-      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-      templateParams
-    )
-    .then((response) => {
-      console.log('SUCCESS!', response.status, response.text);
-      alert('Message successfully sent!');
-      handleClose();
-    })
-    .catch((err) => {
-      console.error('FAILED...', err);
-      alert('Message failed to send. Please try again later.');
-    });
+    const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'default_service';
+    const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_040xvc8';
+
+    emailjs.sendForm(serviceID, templateID, form.current)
+      .then(() => {
+        alert('Message successfully sent!');
+        form.current.reset();
+        handleClose();
+      })
+      .catch((err) => {
+        console.error('EmailJS Error:', err);
+        alert('Failed to send message. Please try again.');
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -55,98 +43,81 @@ const ContactModal = ({ handleClose }) => {
       style={{ zIndex: 1001 }}
     >
       <ModalContainer>
-        {/* Modal Inner Container */}
-        <div className="w-full rounded-2xl flex flex-col">
-          {/* Header Wrapper with Close Button and Title */}
-          <div className="w-full flex flex-row justify-between items-start mb-8">
-          {/* Title Container */}
-          <div className="flex flex-wrap justify-start items-center">
-            <div className="text-[#141221] text-[1.25rem] md:text-[1.5rem] lg:text-[1.5rem] font-medium font-header leading-[150%]">
-              Let’s build something
+        <form ref={form} onSubmit={sendEmail} className="w-full flex flex-col gap-8">
+          {/* Header Section */}
+          <div className="w-full flex flex-row justify-between items-start mb-2">
+            <div className="flex flex-wrap justify-start items-center">
+              <div className="text-[#141221] text-[1.25rem] md:text-[1.5rem] lg:text-[1.5rem] font-medium font-header leading-[150%]">
+                Let’s build something
+              </div>
+              <span className="text-[#141221] text-[1.25rem] md:text-[1.5rem] lg:text-[1.5rem] font-medium font-serif leading-[150%] pl-[.25rem] md:pl-2 lg:pl-2">
+                extraordinary.
+              </span>
             </div>
-            <span className="text-[#141221] text-[1.25rem] md:text-[1.5rem] lg:text-[1.5rem] font-medium font-serif leading-[150%] pl-[.25rem] md:pl-2 lg:pl-2">
-              extraordinary.
-            </span>
+            <button
+              className="bg-[#141221] rounded-full p-2 hover:scale-110 active:scale-95 transition-transform duration-200 ease-in-out cursor-pointer"
+              onClick={handleClose}
+              aria-label="Close"
+            >
+              <X className="w-4 h-4 text-[#f4f3ff]" />
+            </button>
           </div>
 
-          {/* Close Button - Fixed to Top Right */}
-          <div className="flex justify-end items-center">
-          <button
-            className="
-              bg-[#141221] rounded-full p-2 
-              hover:scale-110 active:scale-95 
-              transition-transform duration-200 ease-in-out
-              cursor-pointer
-            "
-            onClick={handleClose}
-            aria-label="Close"
-          >
-            <X className="w-4 h-4 text-[#f4f3ff]" />
-          </button>
-        </div>
-        </div>
+          {/* Additional Selectors */}
+          <TabSelector
+            label="What kind of project do you have?"
+            options={['Product Design', 'User Research', 'Web Design', 'UX Consultation', 'Other']}
+            name="project_type"
+          />
 
-          <div className="flex flex-col gap-8">
-            {/* Project Type Selector */}
-            <TabSelector
-              label="What kind of project do you have?"
-              options={['Product Design', 'User Research', 'Web Design', 'UX Consultation', 'Other']}
-              selected={projectType}
-              onChange={(value) => setProjectType(value)}
+          <TabSelector
+            label="What’s your budget?"
+            options={['<$1k', '$1k-$5k', '$5k-$10k', '>$10k', 'Other']}
+            name="budget"
+          />
+
+          <TabSelector
+            label="What’s your timeline?"
+            options={['1-2 Weeks', '2-4 Weeks', '1-3 months', '1 year', 'Other']}
+            name="timeline"
+          />
+
+          {/* Form Fields */}
+          <InputField
+            label="Your Name*"
+            name="from_name"
+            placeholder="Your Name"
+            type="text"
+            required
+          />
+
+          <InputField
+            label="Your Email*"
+            name="email"
+            placeholder="Your Email"
+            type="email"
+            required
+          />
+
+          <InputField
+            label="Your Message*"
+            name="message"
+            placeholder="Type your message here..."
+            isTextarea={true}
+            required
+          />
+
+          {/* Submit Button */}
+          <div className="flex flex-col justify-end items-end mt-4">
+            <SolidButton
+              type="submit"
+              label={loading ? 'Sending...' : 'Send Inquiry'}
+              Icon={Send}
+              iconPosition="right"
+              disabled={loading}
             />
-
-            {/* Budget Selector */}
-            <TabSelector
-              label="What’s your budget?"
-              options={['<$1k', '$1k-$5k', '$5k-$10k', '>$10k', 'Other']}
-              selected={budget}
-              onChange={(value) => setBudget(value)}
-            />
-
-            {/* Timeline Selector */}
-            <TabSelector
-              label="What’s your timeline?"
-              options={['1-2 Weeks', '2-4 Weeks', '1-3 months', '1 year', 'Other']}
-              selected={timeline}
-              onChange={(value) => setTimeline(value)}
-            />
-
-            {/* Name Input Field */}
-            <InputField
-              label="Your Name*"
-              placeholder="Full Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-
-            {/* Email Input Field */}
-            <InputField
-              label="Your Email*"
-              placeholder="youremail@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-
-            {/* Message Input Field */}
-            <InputField
-              label="Message*"
-              placeholder="Type your message here..."
-              isTextarea={true}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-
-            {/* Action Section for the Button */}
-            <div className="flex flex-col justify-end items-end mt-4">
-              <SolidButton
-                label="Send Inquiry"
-                onClick={sendEmail}
-                Icon={Send}
-                iconPosition="right"
-              />
-            </div>
           </div>
-        </div>
+        </form>
       </ModalContainer>
     </div>
   );
